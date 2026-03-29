@@ -207,6 +207,20 @@ a:hover{text-decoration:underline}
 </ul>
 <div class="callout warn"><span class="ja"><strong>⚠️ 注意:</strong> ウェイクワードを変更した場合、Mira の再起動が必要です。</span><span class="en"><strong>⚠️ Note:</strong> Restart Mira after changing the wake word.</span></div>
 
+<h3><span class="ja">誤認識を減らすコツ</span><span class="en">Tips to Reduce False Recognition</span></h3>
+<p><span class="ja">環境音やスピーカーからの音声回り込みで、意図しないウェイクや停止が起こる場合があります。<strong>フレーズを長めに設定する</strong>と誤認識が大幅に減ります。</span><span class="en">Background noise or speaker audio feeding back into the microphone can cause unintended wake or stop triggers. <strong>Setting longer phrases</strong> significantly reduces false recognition.</span></p>
+<table class="cmd-table">
+  <thead>
+    <tr><th><span class="ja">モーラ数</span><span class="en">Morae</span></th><th><span class="ja">例</span><span class="en">Example</span></th><th><span class="ja">誤認識リスク</span><span class="en">False Trigger Risk</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>3〜4</td><td><span class="ja">ストップ、止めて</span><span class="en">Stop, Cancel</span></td><td><span class="ja">⚠️ 高い（環境音やTTS回り込みで頻発しやすい）</span><span class="en">⚠️ High (frequent with ambient noise or TTS feedback)</span></td></tr>
+    <tr><td>5〜6</td><td><span class="ja">ミラストップ、ミラ止めて</span><span class="en">Mira Stop, Mira Cancel</span></td><td><span class="ja">✅ 低い（実用レベル・推奨）</span><span class="en">✅ Low (practical level — recommended)</span></td></tr>
+    <tr><td>7+</td><td><span class="ja">ミラちゃんストップ</span><span class="en">Hey Mira Stop</span></td><td><span class="ja">✅ 極めて低い（ただし言いにくい場合も）</span><span class="en">✅ Very low (but may be harder to say)</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップ）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ねえミラ」（4モーラ）や「おーいミラ」（5モーラ）のほうが誤検出が起きにくくなります。</span><span class="en"><strong>💡 Tip:</strong> Combining a proper noun with an action word (e.g., "Mira" + "Stop") is most effective. The same applies to wake words — longer phrases like "Hey Mira" (4 syllables) are more reliable than short words like "Mira" alone (2 syllables).</span></div>
+
 <!-- ===== AI設定 ===== -->
 <h2 id="ai-overview"><span class="ja">AI 機能の概要</span><span class="en">AI Overview</span></h2>
 <p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
