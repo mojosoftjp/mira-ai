@@ -458,6 +458,27 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
 </section>
 
+<!-- ===== Mira in Action ===== -->
+<section class="section" style="text-align:center">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">実際の会話</span><span class="en">In Action</span></div>
+    <h2 class="section-title">
+      <span class="ja">Mira との<span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">日常</span></span>
+      <span class="en">Mira in <span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Action</span></span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">記憶・天気・スケジュール・PC操作 — すべて声だけで。</span>
+      <span class="en">Memory, weather, scheduling, PC control — all by voice.</span>
+    </p>
+  </div>
+  <img src="mira_voice.png" alt="Mira voice assistant conversation examples" class="fade-in" onclick="openLightbox(this.src)" style="max-width:900px;width:100%;border-radius:16px;margin:0 auto;display:block;cursor:zoom-in">
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center">
+  <img id="lightbox-img" style="max-width:95%;max-height:95%;border-radius:12px;box-shadow:0 0 60px rgba(0,168,255,.2)">
+</div>
+
 <!-- ===== Voice Showcase: AivisSpeech / VOICEVOX ===== -->
 <section class="section showcase" style="background:var(--bg-deep)">
   <div class="showcase-inner">
@@ -1010,6 +1031,9 @@ document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)}
     w.appendChild(bar);
   }
 })();
+function openLightbox(src){var lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;lb.style.display='flex'}
+function closeLightbox(){document.getElementById('lightbox').style.display='none'}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 </script>
 </body>
 </html>
