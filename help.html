@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヘルプ — Mira AI Voice Assistant</title>
+<meta name="theme-color" content="#060612">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Exo+2:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-abyss:#060612;--bg-deep:#0A0A1E;--bg-surface:#0F1529;
+  --bg-card:rgba(0,168,255,.04);--border:rgba(0,168,255,.1);--border-hover:rgba(0,168,255,.2);
+  --text-white:#edf1f7;--text-muted:rgba(232,236,244,.78);--text-dim:rgba(232,236,244,.52);
+  --accent-cyan:#00A8FF;--accent-teal:#00D4AA;
+  --gradient-text:linear-gradient(135deg,#4DC9FF,#00A8FF,#00D4AA);
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg-abyss);color:var(--text-muted);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:rgba(0,168,255,.3);color:#fff}
+
+/* Language */
+.lang-toggle{position:fixed;top:12px;right:20px;z-index:10000;background:rgba(0,168,255,.08);border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:.8rem;font-weight:600;color:var(--text-dim);cursor:pointer;backdrop-filter:blur(12px);transition:all .25s}
+.lang-toggle:hover{background:rgba(0,168,255,.15);color:var(--text-white)}
+[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
+
+/* Top bar */
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:9998;height:56px;display:flex;align-items:center;padding:0 32px;background:rgba(6,6,18,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.top-bar a.back{display:flex;align-items:center;gap:8px;color:var(--text-dim);font-size:.88rem;font-weight:500;transition:color .2s}
+.top-bar a.back:hover{color:var(--text-white);text-decoration:none}
+.top-bar .title{margin-left:auto;font-family:'Exo 2',sans-serif;font-size:.88rem;font-weight:700;color:var(--text-white)}
+
+/* Layout */
+.layout{display:flex;max-width:1200px;margin:0 auto;padding-top:56px}
+.sidebar{position:fixed;top:56px;left:max(0px,calc((100vw - 1200px)/2));width:260px;height:calc(100vh - 56px);overflow-y:auto;padding:24px 20px;border-right:1px solid var(--border);background:rgba(6,6,18,.95)}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(0,168,255,.15);border-radius:4px}
+.sidebar .nav-group{margin-bottom:20px}
+.sidebar .nav-group-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px;opacity:.7}
+.sidebar .nav-item{display:block;padding:5px 12px;border-radius:6px;font-size:.84rem;color:var(--text-muted);transition:all .15s;margin-bottom:1px}
+.sidebar .nav-item:hover{background:rgba(0,168,255,.06);color:var(--text-white);text-decoration:none}
+.sidebar .nav-item.active{background:rgba(0,168,255,.1);color:var(--accent-cyan)}
+.content{margin-left:260px;flex:1;padding:40px 48px 80px;min-height:calc(100vh - 56px)}
+
+@media(max-width:900px){
+  .sidebar{display:none}
+  .content{margin-left:0;padding:32px 20px 60px}
+}
+
+/* Content */
+.content h1{font-family:'Exo 2',sans-serif;font-size:2rem;font-weight:800;color:var(--text-white);letter-spacing:-.03em;margin-bottom:8px}
+.content .subtitle{color:var(--text-dim);font-size:.9rem;margin-bottom:40px}
+.content h2{font-family:'Exo 2',sans-serif;font-size:1.35rem;font-weight:700;color:var(--text-white);letter-spacing:-.02em;margin-top:56px;margin-bottom:16px;padding-top:24px;border-top:1px solid var(--border)}
+.content h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.content h3{font-size:1.05rem;font-weight:600;color:var(--text-white);margin-top:32px;margin-bottom:10px}
+.content p{margin-bottom:16px;font-size:.92rem;line-height:1.75}
+.content ul,.content ol{margin-bottom:16px;padding-left:24px}
+.content li{margin-bottom:8px;font-size:.92rem}
+.content strong{color:var(--text-white)}
+.content code{background:rgba(0,168,255,.08);border:1px solid var(--border);padding:2px 7px;border-radius:4px;font-size:.82rem;font-family:'JetBrains Mono',monospace;color:var(--accent-cyan)}
+.content kbd{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.78rem;font-family:'JetBrains Mono',monospace;background:rgba(0,168,255,.06);border:1px solid var(--border);color:var(--text-white);box-shadow:0 1px 0 var(--border)}
+.content pre{background:rgba(0,168,255,.04);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--accent-cyan);line-height:1.6}
+
+/* Cards */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.card h4{font-size:.95rem;font-weight:700;color:var(--text-white);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{margin-bottom:8px;font-size:.88rem}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.04em}
+.tag-free{background:rgba(0,212,170,.1);color:var(--accent-teal);border:1px solid rgba(0,212,170,.2)}
+.tag-paid{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)}
+.tag-local{background:rgba(0,168,255,.1);color:var(--accent-cyan);border:1px solid rgba(0,168,255,.2)}
+.tag-cloud{background:rgba(168,85,247,.1);color:#a855f7;border:1px solid rgba(168,85,247,.2)}
+
+/* Callout */
+.callout{background:rgba(0,168,255,.05);border:1px solid rgba(0,168,255,.15);border-left:3px solid var(--accent-cyan);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:16px;font-size:.88rem}
+.callout.warn{border-left-color:#FF8C00;background:rgba(255,140,0,.05);border-color:rgba(255,140,0,.15)}
+.callout strong{color:var(--text-white)}
+
+/* Steps */
+.step-list{counter-reset:helpstep;list-style:none;padding-left:0}
+.step-list li{position:relative;padding-left:40px;margin-bottom:20px;font-size:.92rem}
+.step-list li::before{counter-increment:helpstep;content:counter(helpstep);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:rgba(0,168,255,.1);border:1px solid rgba(0,168,255,.2);color:var(--accent-cyan);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+
+/* Command table */
+.cmd-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.88rem}
+.cmd-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-cyan);padding:8px 12px;border-bottom:1px solid var(--border);opacity:.7}
+.cmd-table td{padding:8px 12px;border-bottom:1px solid rgba(0,168,255,.05);vertical-align:top}
+.cmd-table tr:hover td{background:rgba(0,168,255,.03)}
+</style>
+</head>
+<body data-lang="ja">
+
+<button class="lang-toggle" onclick="toggleLang()">
+  <span class="ja">EN</span>
+  <span class="en">日本語</span>
+</button>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <a href="index.html" class="back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span class="ja">トップ</span><span class="en">Home</span>
+  </a>
+  <span class="title"><span class="ja">Mira ヘルプ</span><span class="en">Mira Help</span></span>
+</div>
+
+<div class="layout">
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">はじめに</span><span class="en">Getting Started</span></div>
+    <a class="nav-item active" href="#what-is-mira"><span class="ja">Miraとは</span><span class="en">What is Mira</span></a>
+    <a class="nav-item" href="#requirements"><span class="ja">動作環境</span><span class="en">Requirements</span></a>
+    <a class="nav-item" href="#quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></a>
+    <a class="nav-item" href="#wakeword"><span class="ja">ウェイクワード</span><span class="en">Wake Word</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">AI設定</span><span class="en">AI Setup</span></div>
+    <a class="nav-item" href="#ai-overview"><span class="ja">AI機能の概要</span><span class="en">AI Overview</span></a>
+    <a class="nav-item" href="#ai-models"><span class="ja">推奨モデル</span><span class="en">Recommended Models</span></a>
+    <a class="nav-item" href="#ollama"><span class="ja">Ollama</span><span class="en">Ollama</span></a>
+    <a class="nav-item" href="#lmstudio"><span class="ja">LM Studio</span><span class="en">LM Studio</span></a>
+    <a class="nav-item" href="#lemonade"><span class="ja">Lemonade</span><span class="en">Lemonade</span></a>
+    <a class="nav-item" href="#gemini"><span class="ja">Gemini</span><span class="en">Gemini</span></a>
+    <a class="nav-item" href="#openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></a>
+    <a class="nav-item" href="#anthropic"><span class="ja">Anthropic</span><span class="en">Anthropic</span></a>
+    <a class="nav-item" href="#custom"><span class="ja">カスタム</span><span class="en">Custom</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">音声</span><span class="en">Voice</span></div>
+    <a class="nav-item" href="#stt"><span class="ja">音声認識</span><span class="en">Speech Recognition</span></a>
+    <a class="nav-item" href="#tts"><span class="ja">音声合成</span><span class="en">Text-to-Speech</span></a>
+    <a class="nav-item" href="#tts-engines"><span class="ja">TTSエンジン設定</span><span class="en">TTS Engine Setup</span></a>
+    <a class="nav-item" href="#emotion-tts"><span class="ja">感情TTS</span><span class="en">Emotion TTS</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">音声コマンド</span><span class="en">Voice Commands</span></div>
+    <a class="nav-item" href="#commands"><span class="ja">コマンド一覧</span><span class="en">Command List</span></a>
+    <a class="nav-item" href="#memory"><span class="ja">記憶</span><span class="en">Memory</span></a>
+    <a class="nav-item" href="#alarm"><span class="ja">アラーム / スケジュール</span><span class="en">Alarm / Schedule</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">Vision・PC操作</span><span class="en">Vision & PC</span></div>
+    <a class="nav-item" href="#vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
+    <a class="nav-item" href="#computer-use"><span class="ja">Computer Use</span><span class="en">Computer Use</span></a>
+    <a class="nav-item" href="#gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">設定</span><span class="en">Settings</span></div>
+    <a class="nav-item" href="#custom-notes"><span class="ja">おぼえがき</span><span class="en">Custom Notes</span></a>
+    <a class="nav-item" href="#theme"><span class="ja">テーマ</span><span class="en">Theme</span></a>
+    <a class="nav-item" href="#startup"><span class="ja">起動設定</span><span class="en">Startup</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">ライセンス</span><span class="en">License</span></div>
+    <a class="nav-item" href="#license"><span class="ja">試用・認証</span><span class="en">Trial & Activation</span></a>
+    <a class="nav-item" href="#hwid"><span class="ja">ハードウェアID</span><span class="en">Hardware ID</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label"><span class="ja">その他</span><span class="en">Other</span></div>
+    <a class="nav-item" href="#faq">FAQ</a>
+    <a class="nav-item" href="#troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></a>
+    <a class="nav-item" href="#support"><span class="ja">サポート</span><span class="en">Support</span></a>
+  </div>
+</aside>
+
+<!-- Content -->
+<main class="content">
+<h1><span class="ja">Mira ヘルプ</span><span class="en">Mira Help</span></h1>
+<p class="subtitle"><span class="ja">Mira の全機能を詳しく解説します</span><span class="en">Comprehensive guide to all Mira features</span></p>
+
+<!-- ===== はじめに ===== -->
+<h2 id="what-is-mira"><span class="ja">Mira とは</span><span class="en">What is Mira</span></h2>
+<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ねえミラ」と話しかけるだけで、AI との会話、Web 検索、アプリ起動、PC 操作、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira" to start conversations, search the web, launch apps, control your PC, analyze screens, and much more.</span></p>
+<p><span class="ja">Cortana が廃止された今、Mira は Windows ユーザーのための最先端の音声アシスタントです。完全オフラインでも動作し、プライバシーを守りながら強力な AI 機能を利用できます。</span><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. It works fully offline, protecting your privacy while providing powerful AI capabilities.</span></p>
+
+<h2 id="requirements"><span class="ja">動作環境</span><span class="en">System Requirements</span></h2>
+<ul>
+  <li><span class="ja"><strong>OS</strong>: Windows 10 (64-bit) 以降 / Windows 11</span><span class="en"><strong>OS</strong>: Windows 10 (64-bit) or later / Windows 11</span></li>
+  <li><span class="ja"><strong>.NET</strong>: .NET 9.0 Desktop Runtime（同梱）</span><span class="en"><strong>.NET</strong>: .NET 9.0 Desktop Runtime (bundled)</span></li>
+  <li><span class="ja"><strong>RAM</strong>: 4GB 以上（ローカル AI 使用時は 8GB 以上推奨）</span><span class="en"><strong>RAM</strong>: 4GB+ (8GB+ recommended for local AI)</span></li>
+  <li><span class="ja"><strong>マイク</strong>: 内蔵または USB マイク</span><span class="en"><strong>Microphone</strong>: Built-in or USB microphone</span></li>
+  <li><span class="ja"><strong>ストレージ</strong>: 約 300MB（Whisper モデル含む）</span><span class="en"><strong>Storage</strong>: ~300MB (including Whisper model)</span></li>
+</ul>
+
+<h2 id="quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></h2>
+<ol class="step-list">
+  <li><span class="ja">Mira をインストールし起動します。システムトレイに <strong>「M」アイコン</strong>が表示されます。</span><span class="en">Install and launch Mira. An <strong>"M" icon</strong> appears in the system tray.</span></li>
+  <li><span class="ja">初回起動時、Whisper 音声認識モデル（約 244MB）が自動ダウンロードされます。</span><span class="en">On first launch, the Whisper speech recognition model (~244MB) is automatically downloaded.</span></li>
+  <li><span class="ja"><strong>「ねえミラ」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span><span class="en">Say <strong>"Hey Mira"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
+  <li><span class="ja">質問や指示を話します。Mira が AI で応答し、音声で読み上げます。</span><span class="en">Speak your question or command. Mira responds with AI and reads it aloud.</span></li>
+  <li><span class="ja">トレイアイコンをダブルクリックで<strong>設定画面</strong>を開けます。</span><span class="en">Double-click the tray icon to open <strong>Settings</strong>.</span></li>
+</ol>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> AI プロバイダの設定がまだの場合、Mira はフォールバック応答（定型文）を返します。AI と会話するには、下記の「AI設定」でプロバイダを設定してください。</span><span class="en"><strong>💡 Tip:</strong> Without an AI provider configured, Mira returns fallback responses. Set up a provider in "AI Setup" below to enable AI conversations.</span></div>
+
+<h2 id="wakeword"><span class="ja">ウェイクワード設定</span><span class="en">Wake Word Setup</span></h2>
+<p><span class="ja">Mira は好きな言葉で起動できます。設定画面の「ウェイクワード」タブで変更します。</span><span class="en">Mira can be activated with any word you choose. Change it in the "Wake Word" tab in Settings.</span></p>
+<ul>
+  <li><span class="ja"><strong>デフォルト</strong>: 「ねえミラ」</span><span class="en"><strong>Default</strong>: "Hey Mira"</span></li>
+  <li><span class="ja"><strong>中断フレーズ</strong>: 「ストップ」「止めて」「やめて」で読み上げを中断</span><span class="en"><strong>Interrupt phrases</strong>: "Stop", "止めて" to interrupt speech</span></li>
+  <li><span class="ja">カンマ区切りで複数のフレーズを登録可能</span><span class="en">Register multiple phrases separated by commas</span></li>
+</ul>
+<div class="callout warn"><span class="ja"><strong>⚠️ 注意:</strong> ウェイクワードを変更した場合、Mira の再起動が必要です。</span><span class="en"><strong>⚠️ Note:</strong> Restart Mira after changing the wake word.</span></div>
+
+<!-- ===== AI設定 ===== -->
+<h2 id="ai-overview"><span class="ja">AI 機能の概要</span><span class="en">AI Overview</span></h2>
+<p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
+
+<h2 id="ai-models"><span class="ja">推奨モデル（PC スペック別）</span><span class="en">Recommended Models (by PC Spec)</span></h2>
+<table class="cmd-table">
+  <thead>
+    <tr><th><span class="ja">PCスペック</span><span class="en">PC Spec</span></th><th><span class="ja">推奨モデル</span><span class="en">Model</span></th><th>VRAM/RAM</th><th><span class="ja">品質</span><span class="en">Quality</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="ja">GPU 8GB+</span><span class="en">GPU 8GB+</span></td><td>llama3.1:8b</td><td>8GB VRAM</td><td><span class="ja">高</span><span class="en">High</span></td></tr>
+    <tr><td><span class="ja">GPU 4GB</span><span class="en">GPU 4GB</span></td><td>gemma3:4b</td><td>4GB VRAM</td><td><span class="ja">中〜高</span><span class="en">Med-High</span></td></tr>
+    <tr><td><span class="ja">CPU のみ</span><span class="en">CPU only</span></td><td>phi3:mini / qwen2.5:3b</td><td>8GB RAM</td><td><span class="ja">中</span><span class="en">Medium</span></td></tr>
+  </tbody>
+</table>
+
+<h2 id="ollama"><span class="ja">Ollama（ローカル AI）</span><span class="en">Ollama (Local AI)</span></h2>
+<div class="card">
+  <h4>🦙 Ollama <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
+  <p><span class="ja">PC 上でローカルに LLM を実行。API キー不要、完全オフライン、料金ゼロ。</span><span class="en">Run LLMs locally on your PC. No API key, fully offline, zero cost.</span></p>
+</div>
+<ol class="step-list">
+  <li><span class="ja"><a href="https://ollama.com">ollama.com</a> から Ollama をインストール</span><span class="en">Install Ollama from <a href="https://ollama.com">ollama.com</a></span></li>
+  <li><span class="ja">コマンドプロンプトで <code>ollama pull llama3.1:8b</code> を実行してモデルをダウンロード</span><span class="en">Run <code>ollama pull llama3.1:8b</code> in Command Prompt to download a model</span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Ollama</strong>、モデル: <strong>llama3.1:8b</strong></span><span class="en">Mira Settings → AI → Provider: <strong>Ollama</strong>, Model: <strong>llama3.1:8b</strong></span></li>
+</ol>
+
+<h2 id="lmstudio"><span class="ja">LM Studio（ローカル AI）</span><span class="en">LM Studio (Local AI)</span></h2>
+<div class="card">
+  <h4>🔬 LM Studio <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
+  <p><span class="ja">GUI でモデルを管理。OpenAI 互換 API を提供。</span><span class="en">Manage models with a GUI. Provides OpenAI-compatible API.</span></p>
+</div>
+<ol class="step-list">
+  <li><span class="ja"><a href="https://lmstudio.ai">lmstudio.ai</a> から LM Studio をインストール</span><span class="en">Install LM Studio from <a href="https://lmstudio.ai">lmstudio.ai</a></span></li>
+  <li><span class="ja">モデルをダウンロードし、ローカルサーバーを起動（デフォルト: <code>http://localhost:1234/v1</code>）</span><span class="en">Download a model and start the local server (default: <code>http://localhost:1234/v1</code>)</span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>LM Studio</strong></span><span class="en">Mira Settings → AI → Provider: <strong>LM Studio</strong></span></li>
+</ol>
+
+<h2 id="lemonade"><span class="ja">Lemonade（AMD GPU）</span><span class="en">Lemonade (AMD GPU)</span></h2>
+<div class="card">
+  <h4>🍋 Lemonade <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
+  <p><span class="ja">AMD GPU 用に最適化されたローカル AI。</span><span class="en">Local AI optimized for AMD GPUs.</span></p>
+</div>
+
+<h2 id="gemini"><span class="ja">Google Gemini</span><span class="en">Google Gemini</span></h2>
+<div class="card">
+  <h4>✨ Gemini <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-free"><span class="ja">無料枠あり</span><span class="en">Free Tier</span></span></h4>
+  <p><span class="ja">Google の最新 AI。無料枠が充実。Vision 対応。</span><span class="en">Google's latest AI. Generous free tier. Vision-capable.</span></p>
+</div>
+<ol class="step-list">
+  <li><span class="ja"><a href="https://aistudio.google.com/apikey">Google AI Studio</a> で API キーを取得</span><span class="en">Get an API key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a></span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Gemini</strong>、API キーを入力</span><span class="en">Mira Settings → AI → Provider: <strong>Gemini</strong>, enter API key</span></li>
+</ol>
+
+<h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
+<div class="card">
+  <h4>🤖 OpenAI <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-paid"><span class="ja">有料</span><span class="en">Paid</span></span></h4>
+  <p><span class="ja">GPT-4o 等の高性能モデル。Vision 対応。</span><span class="en">High-performance models like GPT-4o. Vision-capable.</span></p>
+</div>
+
+<h2 id="anthropic"><span class="ja">Anthropic (Claude)</span><span class="en">Anthropic (Claude)</span></h2>
+<div class="card">
+  <h4>🎭 Anthropic <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-paid"><span class="ja">有料</span><span class="en">Paid</span></span></h4>
+  <p><span class="ja">Claude シリーズ。Computer Use のネイティブ対応。</span><span class="en">Claude models. Native Computer Use support.</span></p>
+</div>
+
+<h2 id="custom"><span class="ja">カスタムエンドポイント</span><span class="en">Custom Endpoint</span></h2>
+<p><span class="ja">OpenAI 互換 API を提供するサービスなら何でも接続可能です。Base URL とモデル名を指定してください。</span><span class="en">Connect to any service that provides an OpenAI-compatible API. Specify the Base URL and model name.</span></p>
+
+<!-- ===== 音声 ===== -->
+<h2 id="stt"><span class="ja">音声認識（Whisper STT）</span><span class="en">Speech Recognition (Whisper STT)</span></h2>
+<p><span class="ja">Mira は <strong>Whisper.NET</strong> を使用してローカルで音声認識を行います。音声データは外部に送信されません。</span><span class="en">Mira uses <strong>Whisper.NET</strong> for local speech recognition. Audio data is never sent externally.</span></p>
+<p><span class="ja">設定画面の「音声認識」タブでモデルサイズを選択できます:</span><span class="en">Choose model size in the "Speech Recognition" tab:</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">モデル</span><span class="en">Model</span></th><th><span class="ja">サイズ</span><span class="en">Size</span></th><th><span class="ja">精度</span><span class="en">Accuracy</span></th><th><span class="ja">速度</span><span class="en">Speed</span></th></tr></thead>
+  <tbody>
+    <tr><td>tiny</td><td>75MB</td><td><span class="ja">低</span><span class="en">Low</span></td><td><span class="ja">最速</span><span class="en">Fastest</span></td></tr>
+    <tr><td>base</td><td>142MB</td><td><span class="ja">中</span><span class="en">Medium</span></td><td><span class="ja">速い</span><span class="en">Fast</span></td></tr>
+    <tr><td>small</td><td>244MB</td><td><span class="ja">高（推奨）</span><span class="en">High (Recommended)</span></td><td><span class="ja">普通</span><span class="en">Normal</span></td></tr>
+    <tr><td>medium</td><td>769MB</td><td><span class="ja">非常に高</span><span class="en">Very High</span></td><td><span class="ja">遅い</span><span class="en">Slow</span></td></tr>
+  </tbody>
+</table>
+
+<h2 id="tts"><span class="ja">音声合成（TTS）</span><span class="en">Text-to-Speech (TTS)</span></h2>
+<p><span class="ja">Mira は 4 段階のフォールバックチェーンで音声合成を行います。上位エンジンが利用できない場合、自動的に次のエンジンに切り替わります。</span><span class="en">Mira uses a 4-tier fallback chain for TTS. If the top engine is unavailable, it automatically switches to the next.</span></p>
+<pre>1. AivisSpeech (localhost:10101) — <span class="ja">最高品質日本語</span><span class="en">Best quality Japanese</span>
+2. VOICEVOX    (localhost:50021) — <span class="ja">高品質日本語</span><span class="en">High quality Japanese</span>
+3. Edge TTS    (Python edge-tts) — <span class="ja">多言語ニューラル音声</span><span class="en">Multilingual neural voice</span>
+4. System.Speech               — <span class="ja">常に利用可能</span><span class="en">Always available</span></pre>
+
+<h2 id="tts-engines"><span class="ja">TTS エンジン設定</span><span class="en">TTS Engine Setup</span></h2>
+<h3>AivisSpeech</h3>
+<p><span class="ja">最高品質の日本語音声合成エンジンです。<a href="https://aivis-project.com">aivis-project.com</a> からダウンロードし、ポート 10101 で起動してください。</span><span class="en">The highest quality Japanese TTS engine. Download from <a href="https://aivis-project.com">aivis-project.com</a> and run on port 10101.</span></p>
+<h3>VOICEVOX</h3>
+<p><span class="ja">AivisSpeech が利用できない場合の代替です。<a href="https://voicevox.hiroshiba.jp">voicevox.hiroshiba.jp</a> からダウンロード。デフォルトポート 50021。</span><span class="en">Alternative to AivisSpeech. Download from <a href="https://voicevox.hiroshiba.jp">voicevox.hiroshiba.jp</a>. Default port 50021.</span></p>
+<h3>Edge TTS</h3>
+<p><span class="ja">Microsoft Edge のニューラル音声を使用。インターネット接続が必要です。Python <code>edge-tts</code> パッケージを使用: <code>pip install edge-tts</code></span><span class="en">Uses Microsoft Edge neural voices. Requires internet. Uses Python <code>edge-tts</code>: <code>pip install edge-tts</code></span></p>
+
+<h2 id="emotion-tts"><span class="ja">感情 TTS</span><span class="en">Emotion TTS</span></h2>
+<p><span class="ja">AivisSpeech 使用時、AI の応答内容に応じて 6 つの感情スタイルを自動で切り替えます:</span><span class="en">When using AivisSpeech, Mira automatically switches between 6 emotion styles based on the AI response:</span></p>
+<ul>
+  <li><span class="ja">😊 通常 / 😄 嬉しい / 😢 悲しい / 😠 怒り / 😨 恐怖 / 😲 驚き</span><span class="en">😊 Normal / 😄 Happy / 😢 Sad / 😠 Angry / 😨 Fear / 😲 Surprise</span></li>
+</ul>
+
+<!-- ===== 音声コマンド ===== -->
+<h2 id="commands"><span class="ja">音声コマンド一覧</span><span class="en">Voice Command List</span></h2>
+<table class="cmd-table">
+  <thead>
+    <tr><th><span class="ja">コマンド</span><span class="en">Command</span></th><th><span class="ja">例</span><span class="en">Example</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>web_search</td><td><span class="ja">「天気を調べて」</span><span class="en">"Search the weather"</span></td><td><span class="ja">DuckDuckGo で検索</span><span class="en">Search via DuckDuckGo</span></td></tr>
+    <tr><td>open_app</td><td><span class="ja">「Chromeを開いて」</span><span class="en">"Open Chrome"</span></td><td><span class="ja">アプリを起動（50+対応）</span><span class="en">Launch app (50+ supported)</span></td></tr>
+    <tr><td>set_volume</td><td><span class="ja">「音量を50にして」</span><span class="en">"Set volume to 50"</span></td><td><span class="ja">システム音量を設定</span><span class="en">Set system volume</span></td></tr>
+    <tr><td>read_clipboard</td><td><span class="ja">「クリップボードを読んで」</span><span class="en">"Read the clipboard"</span></td><td><span class="ja">クリップボード内容を取得</span><span class="en">Read clipboard content</span></td></tr>
+    <tr><td>write_clipboard</td><td><span class="ja">「これをコピーして」</span><span class="en">"Copy this"</span></td><td><span class="ja">クリップボードに書き込み</span><span class="en">Write to clipboard</span></td></tr>
+    <tr><td>get_datetime</td><td><span class="ja">「今何時？」</span><span class="en">"What time is it?"</span></td><td><span class="ja">現在の日時を取得</span><span class="en">Get current date/time</span></td></tr>
+    <tr><td>open_file</td><td><span class="ja">「ドキュメントフォルダを開いて」</span><span class="en">"Open Documents folder"</span></td><td><span class="ja">ファイル/フォルダを開く</span><span class="en">Open file or folder</span></td></tr>
+    <tr><td>take_screenshot</td><td><span class="ja">「スクリーンショットを撮って」</span><span class="en">"Take a screenshot"</span></td><td><span class="ja">画面キャプチャ</span><span class="en">Capture screen</span></td></tr>
+    <tr><td>send_keys</td><td><span class="ja">「Ctrl+Cを押して」</span><span class="en">"Press Ctrl+C"</span></td><td><span class="ja">キーストロークを送信</span><span class="en">Send keystrokes</span></td></tr>
+    <tr><td>get_window_list</td><td><span class="ja">「開いているウィンドウは？」</span><span class="en">"What windows are open?"</span></td><td><span class="ja">ウィンドウ一覧を取得</span><span class="en">List open windows</span></td></tr>
+  </tbody>
+</table>
+
+<h2 id="memory"><span class="ja">記憶</span><span class="en">Memory</span></h2>
+<p><span class="ja">Mira は会話の中から重要な情報を自動で記憶します。「覚えて」と言えば明示的に記憶させることもできます。</span><span class="en">Mira automatically remembers important information from conversations. Say "Remember this" to explicitly save memories.</span></p>
+<ul>
+  <li><span class="ja"><strong>自動記憶</strong>: AI が重要な事実を自動的に抽出・保存</span><span class="en"><strong>Auto-memory</strong>: AI automatically extracts and saves important facts</span></li>
+  <li><span class="ja"><strong>ピン留め 📌</strong>: 重要な記憶をピン留めして永続保存</span><span class="en"><strong>Pin 📌</strong>: Pin important memories for permanent storage</span></li>
+  <li><span class="ja"><strong>記憶削除</strong>: 「忘れて」と言えば記憶を削除</span><span class="en"><strong>Delete</strong>: Say "Forget it" to delete memories</span></li>
+  <li><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\memory.json</code></span></li>
+</ul>
+
+<h2 id="alarm"><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Schedule</span></h2>
+<p><span class="ja">音声でアラームやスケジュールを設定できます。</span><span class="en">Set alarms and schedules by voice.</span></p>
+<ul>
+  <li><span class="ja">「5分後にアラーム」「14時にミーティングを入れて」</span><span class="en">"Set alarm in 5 minutes" / "Schedule a meeting at 2 PM"</span></li>
+  <li><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\alarms.json</code>, <code>schedules.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code>, <code>schedules.json</code></span></li>
+</ul>
+
+<!-- ===== Vision ===== -->
+<h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
+<p><span class="ja">「画面を見て」「画面に何が表示されている？」と話しかけると、Mira が AI を使って画面を分析します。</span><span class="en">Say "Look at the screen" or "What's on my screen?" and Mira analyzes the screen using AI.</span></p>
+<p><span class="ja">対応プロバイダ: Gemini, Claude, GPT-4o, Ollama (llava 等の Vision モデル)</span><span class="en">Supported providers: Gemini, Claude, GPT-4o, Ollama (llava and other Vision models)</span></p>
+
+<h2 id="computer-use"><span class="ja">Computer Use（自律 PC 操作）</span><span class="en">Computer Use (Autonomous PC Control)</span></h2>
+<p><span class="ja">「画面で OK ボタンをクリックして」「メモ帳を開いて」— AI が画面を見ながら、マウスやキーボードを自律的に操作します。</span><span class="en">"Click the OK button on screen" / "Open Notepad" — AI autonomously controls mouse and keyboard while watching the screen.</span></p>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> Claude (Sonnet/Opus) はネイティブ Computer Use API を使用し、他のプロバイダは汎用プロンプト方式で動作します。</span><span class="en"><strong>💡 Tip:</strong> Claude (Sonnet/Opus) uses the native Computer Use API, while other providers use a generic prompt-based approach.</span></div>
+
+<h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
+<p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
+<ul>
+  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ねえミラ」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular "Hey Mira")</span></li>
+  <li><span class="ja"><strong>停止フレーズ</strong>で即終了</span><span class="en"><strong>Stop phrase</strong> for instant termination</span></li>
+  <li><span class="ja">設定画面の「Live」タブで有効化</span><span class="en">Enable in the "Live" tab in Settings</span></li>
+</ul>
+
+<!-- ===== 設定 ===== -->
+<h2 id="custom-notes"><span class="ja">おぼえがき（Custom Notes）</span><span class="en">Custom Notes</span></h2>
+<p><span class="ja">設定画面で Mira に追加の指示を書けます。例: 「天気を聞かれたら Yahoo 天気で検索して」「タメ口はだめ」</span><span class="en">Write additional instructions for Mira in Settings. Example: "Search Yahoo Weather when asked about weather" / "Use polite language"</span></p>
+
+<h2 id="theme"><span class="ja">テーマ</span><span class="en">Theme</span></h2>
+<p><span class="ja">ダーク / ライトテーマを設定画面から切り替えられます。</span><span class="en">Switch between Dark / Light theme in Settings.</span></p>
+
+<h2 id="startup"><span class="ja">起動設定</span><span class="en">Startup Settings</span></h2>
+<p><span class="ja">「最小化起動」をオンにすると、Mira は起動時にウィンドウを表示せず、システムトレイに格納されます。</span><span class="en">Enable "Start minimized" to launch Mira directly to the system tray without showing a window.</span></p>
+
+<!-- ===== ライセンス ===== -->
+<h2 id="license"><span class="ja">試用・認証</span><span class="en">Trial & Activation</span></h2>
+<p><span class="ja">Mira は <strong>15 日間の無料試用</strong>ができます。試用期間中はすべての機能が利用可能です。</span><span class="en">Mira offers a <strong>15-day free trial</strong>. All features are available during the trial period.</span></p>
+<ol class="step-list">
+  <li><span class="ja">設定画面の「ライセンス」タブを開く</span><span class="en">Open the "License" tab in Settings</span></li>
+  <li><span class="ja">ハードウェア ID をコピー</span><span class="en">Copy your Hardware ID</span></li>
+  <li><span class="ja"><a href="download.html">購入ページ</a>でライセンスキーを購入</span><span class="en">Purchase a license key on the <a href="download.html">download page</a></span></li>
+  <li><span class="ja">ライセンスキーを入力して「認証」をクリック</span><span class="en">Enter the license key and click "Activate"</span></li>
+</ol>
+
+<h2 id="hwid"><span class="ja">ハードウェア ID</span><span class="en">Hardware ID</span></h2>
+<p><span class="ja">ハードウェア ID は <code>MR-HW-</code> で始まる 16 文字のコードです。PC ごとに固有の値で、ライセンスキーの生成に使用されます。設定画面の「ライセンス」タブで確認できます。</span><span class="en">The Hardware ID is a 16-character code starting with <code>MR-HW-</code>. It's unique to your PC and used to generate license keys. Find it in the "License" tab in Settings.</span></p>
+
+<!-- ===== その他 ===== -->
+<h2 id="faq">FAQ</h2>
+
+<h3><span class="ja">Q: インターネットなしで使えますか？</span><span class="en">Q: Can I use Mira without internet?</span></h3>
+<p><span class="ja"><strong>はい。</strong>Ollama（AI）+ Whisper（STT）+ AivisSpeech/VOICEVOX（TTS）の組み合わせで完全オフライン動作します。</span><span class="en"><strong>Yes.</strong> Use Ollama (AI) + Whisper (STT) + AivisSpeech/VOICEVOX (TTS) for fully offline operation.</span></p>
+
+<h3><span class="ja">Q: Mira はどんなデータを送信しますか？</span><span class="en">Q: What data does Mira send?</span></h3>
+<p><span class="ja">ローカルプロバイダ使用時はゼロ。クラウドプロバイダ使用時は音声認識後のテキストのみが API に送信されます。詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</span><span class="en">Zero with local providers. With cloud providers, only transcribed text is sent to the API. See our <a href="privacy.html">Privacy Policy</a>.</span></p>
+
+<h3><span class="ja">Q: VOICEVOX / AivisSpeech は別途インストールが必要ですか？</span><span class="en">Q: Do I need to install VOICEVOX / AivisSpeech separately?</span></h3>
+<p><span class="ja"><strong>はい。</strong>これらは外部ソフトウェアです。インストールして起動しておく必要があります。インストールしない場合、System.Speech にフォールバックします。</span><span class="en"><strong>Yes.</strong> These are separate software. They must be installed and running. Without them, Mira falls back to System.Speech.</span></p>
+
+<h2 id="troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></h2>
+
+<h3><span class="ja">ウェイクワードが反応しない</span><span class="en">Wake word not responding</span></h3>
+<ul>
+  <li><span class="ja">マイクがミュートになっていないか確認</span><span class="en">Check if microphone is muted</span></li>
+  <li><span class="ja">Windows のマイクアクセス許可を確認（設定 → プライバシー → マイク）</span><span class="en">Check Windows microphone permission (Settings → Privacy → Microphone)</span></li>
+  <li><span class="ja">Mira が一時停止中（オレンジのトレイアイコン）でないか確認</span><span class="en">Check if Mira is paused (orange tray icon)</span></li>
+</ul>
+
+<h3><span class="ja">TTS の音声が出ない</span><span class="en">No TTS audio output</span></h3>
+<ul>
+  <li><span class="ja">スピーカーがミュートになっていないか確認</span><span class="en">Check if speakers are muted</span></li>
+  <li><span class="ja">AivisSpeech / VOICEVOX が起動しているか確認</span><span class="en">Check if AivisSpeech / VOICEVOX is running</span></li>
+  <li><span class="ja">設定の TTS エンジン優先順位を確認</span><span class="en">Check TTS engine priority in Settings</span></li>
+</ul>
+
+<h3><span class="ja">AI が応答しない</span><span class="en">AI not responding</span></h3>
+<ul>
+  <li><span class="ja">設定で AI プロバイダが正しく設定されているか確認</span><span class="en">Check if AI provider is correctly configured in Settings</span></li>
+  <li><span class="ja">Ollama の場合: <code>ollama list</code> でモデルがインストールされているか確認</span><span class="en">For Ollama: run <code>ollama list</code> to verify model is installed</span></li>
+  <li><span class="ja">クラウドプロバイダの場合: API キーが正しいか確認</span><span class="en">For cloud providers: verify API key is correct</span></li>
+</ul>
+
+<h2 id="support"><span class="ja">サポート</span><span class="en">Support</span></h2>
+<p><span class="ja">ご質問やバグ報告は <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a> までお気軽にお問い合わせください。</span><span class="en">For questions or bug reports, please contact <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a>.</span></p>
+
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.body.setAttribute('data-lang',l);
+  document.documentElement.lang=l;
+  document.title=l==='ja'?'ヘルプ — Mira AI Voice Assistant':'Help — Mira AI Voice Assistant';
+  localStorage.setItem('mira-lang',l);
+}
+function toggleLang(){setLang(document.body.getAttribute('data-lang')==='ja'?'en':'ja')}
+(function(){
+  var s=localStorage.getItem('mira-lang');
+  if(s){setLang(s)}
+  else if(navigator.language&&!navigator.language.startsWith('ja')){setLang('en')}
+})();
+
+/* Sidebar active tracking */
+(function(){
+  var sections=document.querySelectorAll('.content h2[id]');
+  var navItems=document.querySelectorAll('.sidebar .nav-item');
+  if(!sections.length||!navItems.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        navItems.forEach(function(n){n.classList.remove('active')});
+        var a=document.querySelector('.sidebar a[href="#'+e.target.id+'"]');
+        if(a){a.classList.add('active');a.scrollIntoView({block:'nearest',behavior:'smooth'})}
+      }
+    });
+  },{rootMargin:'-56px 0px -65% 0px'});
+  sections.forEach(function(s){obs.observe(s)});
+})();
+</script>
+</body>
+</html>

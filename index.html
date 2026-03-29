@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mira — AI音声アシスタント for Windows</title>
+<meta name="description" content="Mira（ミラ）は Windows 向け AI 音声アシスタント。7つのAIプロバイダ、完全オフライン動作、画面認識、PC自律操作、リアルタイム音声対話。Cortana の後継がここに。">
+<meta name="theme-color" content="#060612">
+<meta property="og:title" content="Mira — AI Voice Assistant for Windows">
+<meta property="og:description" content="7 AI providers. Fully offline. Screen Vision. Computer Use. Real-time voice dialogue. The successor to Cortana is here.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Exo+2:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Base ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-abyss:#060612;
+  --bg-deep:#0A0A1E;
+  --bg-surface:#0F1529;
+  --bg-card:rgba(0,168,255,.04);
+  --bg-card-hover:rgba(0,168,255,.08);
+  --border:rgba(0,168,255,.1);
+  --border-hover:rgba(0,168,255,.2);
+  --text-white:#edf1f7;
+  --text-muted:rgba(232,236,244,.78);
+  --text-dim:rgba(232,236,244,.52);
+  --accent-cyan:#00A8FF;
+  --accent-cyan-light:#4DC9FF;
+  --accent-teal:#00D4AA;
+  --glow-cyan:rgba(0,168,255,.25);
+  --glow-teal:rgba(0,212,170,.15);
+  --gradient-main:linear-gradient(135deg,#00A8FF,#0066CC,#00D4AA);
+  --gradient-text:linear-gradient(135deg,#4DC9FF,#00A8FF,#00D4AA);
+  --state-listen:#00A8FF;
+  --state-process:#FF8C00;
+  --state-speak:#00CC66;
+  --radius:16px;
+  --radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:var(--bg-abyss);color:var(--text-white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-cyan);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent-teal)}
+img{max-width:100%;display:block}
+::selection{background:rgba(0,168,255,.3);color:#fff}
+
+/* Noise Texture */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat:repeat;opacity:.35}
+
+/* Language */
+.lang-btn{background:rgba(0,168,255,.08)!important;border:1px solid var(--border);border-radius:999px!important;padding:4px 14px!important;font-size:.78rem!important;font-weight:600!important;letter-spacing:.03em;cursor:pointer;transition:all .25s;color:var(--text-dim)}
+.lang-btn:hover{background:rgba(0,168,255,.15)!important;color:var(--text-white)!important;border-color:var(--border-hover)}
+[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
+
+/* ===== Navigation ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9998;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,18,.75);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text-white);letter-spacing:-.01em}
+.nav-brand img{width:28px;height:28px;border-radius:50%}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--text-white)}
+@media(max-width:700px){.nav-links .desk{display:none}.nav{padding:0 16px}}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
+.hero-glow-1{width:600px;height:600px;top:-180px;left:50%;transform:translateX(-60%);background:var(--accent-cyan);opacity:.18}
+.hero-glow-2{width:500px;height:500px;bottom:-200px;right:-80px;background:var(--accent-teal);opacity:.12}
+.hero-glow-3{width:350px;height:350px;top:35%;left:-120px;background:#0066CC;opacity:.1}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;border:1px solid var(--border);background:rgba(0,168,255,.04);font-size:.82rem;color:var(--text-muted);margin-bottom:32px;backdrop-filter:blur(8px);letter-spacing:.02em}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-cyan);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Avatar with breathing glow */
+.hero-avatar{position:relative;width:150px;height:150px;margin-bottom:32px}
+.hero-avatar img{width:150px;height:150px;border-radius:50%;position:relative;z-index:2;border:3px solid rgba(0,168,255,.3)}
+.hero-avatar::before{content:'';position:absolute;inset:-8px;border-radius:50%;background:var(--accent-cyan);opacity:.15;animation:breathe 4s ease-in-out infinite;z-index:1}
+.hero-avatar::after{content:'';position:absolute;inset:-20px;border-radius:50%;background:var(--accent-cyan);opacity:.06;animation:breathe 4s ease-in-out infinite .5s;z-index:0}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.15}50%{transform:scale(1.12);opacity:.25}}
+
+.hero h1{font-family:'Exo 2',sans-serif;font-size:clamp(2.6rem,6vw,4.2rem);font-weight:900;letter-spacing:-.04em;line-height:1.08;margin-bottom:16px}
+.hero h1 .gradient{background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:clamp(1rem,2vw,1.2rem);color:var(--text-muted);max-width:620px;margin:0 auto 40px;font-weight:400;line-height:1.7}
+.hero .subtitle strong{color:var(--text-white)}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:999px;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .25s;letter-spacing:-.01em;position:relative;overflow:hidden;font-family:'DM Sans',sans-serif}
+.btn-primary{background:var(--gradient-main);color:#fff;box-shadow:0 0 32px var(--glow-cyan),0 0 64px var(--glow-teal)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 48px var(--glow-cyan),0 0 96px var(--glow-teal);color:#fff;text-decoration:none}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .25s}
+.btn-primary:hover::after{opacity:1}
+.btn-outline{background:transparent;color:var(--text-white);border:1.5px solid rgba(0,168,255,.25)}
+.btn-outline:hover{background:rgba(0,168,255,.06);border-color:rgba(0,168,255,.4);color:var(--text-white);text-decoration:none}
+.btn svg{width:18px;height:18px}
+
+/* Social Proof */
+.social-proof{text-align:center;padding:40px 24px 0}
+.social-proof-items{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.social-proof-item{display:flex;flex-direction:column;align-items:center;gap:4px}
+.social-proof-num{font-family:'Exo 2',sans-serif;font-size:2rem;font-weight:900;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em}
+.social-proof-label{font-size:.78rem;color:var(--text-dim);font-weight:500}
+
+/* ===== Waveform Divider ===== */
+.waveform-divider{display:flex;align-items:center;justify-content:center;gap:4px;padding:48px 0;opacity:.5}
+.waveform-bar{width:3px;border-radius:2px;background:var(--accent-cyan);animation:waveBar 1.2s ease-in-out infinite}
+@keyframes waveBar{0%,100%{height:8px}50%{height:28px}}
+
+/* ===== Sections ===== */
+.section{padding:100px 24px}
+.section-header{text-align:center;max-width:660px;margin:0 auto 64px}
+.section-label{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:12px}
+.section-title{font-family:'Exo 2',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.section-desc{color:var(--text-muted);font-size:1.05rem;line-height:1.65}
+
+/* ===== 4 Powers Grid ===== */
+.powers{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+.power-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;transition:all .35s;position:relative;overflow:hidden}
+.power-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-4px)}
+.power-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-main);opacity:0;transition:opacity .35s}
+.power-card:hover::before{opacity:.7}
+.power-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:rgba(0,168,255,.08);border:1px solid rgba(0,168,255,.15)}
+.power-icon svg{width:28px;height:28px;color:var(--accent-cyan)}
+.power-card h3{font-family:'Exo 2',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:4px;letter-spacing:-.01em}
+.power-card .power-sub{font-size:.82rem;color:var(--accent-cyan);font-weight:500;margin-bottom:10px}
+.power-card p{font-size:.88rem;color:var(--text-muted);line-height:1.7}
+.power-card ul{list-style:none;padding:0;margin-top:12px}
+.power-card li{font-size:.84rem;color:var(--text-muted);padding:3px 0;padding-left:16px;position:relative}
+.power-card li::before{content:'›';position:absolute;left:0;color:var(--accent-cyan);font-weight:700}
+@media(max-width:700px){.powers{grid-template-columns:1fr}}
+
+/* ===== Showcase (Voice / Live / Computer Use) ===== */
+.showcase{position:relative;overflow:hidden}
+.showcase-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.showcase-text{position:relative;z-index:2}
+.showcase-text .section-label{text-align:left}
+.showcase-text h2{font-family:'Exo 2',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.showcase-text p{font-size:.95rem;color:var(--text-muted);line-height:1.75;margin-bottom:20px}
+.showcase-text ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.showcase-text li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--text-muted);line-height:1.6}
+.showcase-text li::before{content:'';width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.showcase-visual{position:relative;z-index:2}
+
+/* Voice Showcase */
+.voice-card{background:rgba(10,10,30,.85);border:1px solid var(--border-hover);border-radius:16px;padding:28px 24px;box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 60px rgba(0,168,255,.06)}
+.voice-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.voice-card-header img{width:44px;height:44px;border-radius:50%;border:2px solid var(--accent-cyan)}
+.voice-card-header .vc-info h4{font-size:.92rem;font-weight:600}
+.voice-card-header .vc-info p{font-size:.75rem;color:var(--accent-teal);font-weight:500}
+.voice-engines{display:flex;flex-direction:column;gap:10px}
+.voice-engine{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;background:rgba(0,168,255,.04);border:1px solid var(--border);transition:all .25s}
+.voice-engine:hover{background:rgba(0,168,255,.08);border-color:var(--border-hover)}
+.voice-engine .ve-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.voice-engine .ve-name{font-size:.85rem;font-weight:600;color:var(--text-white)}
+.voice-engine .ve-desc{font-size:.75rem;color:var(--text-muted)}
+.voice-engine .ve-tag{margin-left:auto;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.04em;flex-shrink:0}
+.ve-tag-free{background:rgba(0,212,170,.12);color:var(--accent-teal);border:1px solid rgba(0,212,170,.2)}
+.ve-tag-pro{background:rgba(0,168,255,.12);color:var(--accent-cyan);border:1px solid rgba(0,168,255,.2)}
+
+/* Gemini Live Showcase */
+.live-demo{display:flex;flex-direction:column;gap:12px}
+.live-bubble{padding:14px 18px;border-radius:14px;font-size:.88rem;line-height:1.6;max-width:90%;animation:liveFadeIn .5s ease both}
+.live-bubble-user{background:rgba(0,168,255,.1);border:1px solid rgba(0,168,255,.15);color:var(--text-white);align-self:flex-end;border-bottom-right-radius:4px;animation-delay:.2s}
+.live-bubble-mira{background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.12);color:var(--text-muted);align-self:flex-start;border-bottom-left-radius:4px;animation-delay:.6s}
+.live-bubble-user2{animation-delay:1s}
+.live-bubble-mira2{animation-delay:1.4s}
+@keyframes liveFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.live-indicator{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--accent-teal);font-weight:600;padding:8px 0}
+.live-indicator .pulse-ring{width:10px;height:10px;border-radius:50%;background:var(--accent-teal);animation:liveRing 1.5s ease-in-out infinite}
+@keyframes liveRing{0%,100%{box-shadow:0 0 0 0 rgba(0,212,170,.4)}50%{box-shadow:0 0 0 8px rgba(0,212,170,0)}}
+
+/* Computer Use Showcase */
+.cu-flow{display:flex;flex-direction:column;gap:8px}
+.cu-step{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:rgba(0,168,255,.03);border:1px solid var(--border);transition:all .35s}
+.cu-step:hover{background:rgba(0,168,255,.07);border-color:var(--border-hover);transform:translateX(4px)}
+.cu-step-num{width:32px;height:32px;border-radius:50%;background:rgba(0,168,255,.12);border:1px solid rgba(0,168,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Exo 2',sans-serif;font-size:.78rem;font-weight:700;color:var(--accent-cyan);flex-shrink:0}
+.cu-step-text h4{font-size:.88rem;font-weight:600;color:var(--text-white);margin-bottom:2px}
+.cu-step-text p{font-size:.78rem;color:var(--text-muted)}
+.cu-step-icon{margin-left:auto;font-size:1.1rem;flex-shrink:0}
+.cu-loop-arrow{text-align:center;color:var(--accent-cyan);font-size:.8rem;font-weight:600;padding:4px 0;opacity:.6}
+
+@media(max-width:700px){
+  .showcase-inner{grid-template-columns:1fr;gap:32px}
+  .showcase-visual{order:-1}
+}
+
+/* ===== Overlay Mockup ===== */
+.overlay-demo{max-width:500px;margin:0 auto}
+.overlay-mock{background:rgba(16,16,32,.9);border:1px solid rgba(0,168,255,.15);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 80px rgba(0,168,255,.08)}
+.overlay-avatar{width:44px;height:44px;border-radius:50%;border:2px solid var(--state-speak);flex-shrink:0;overflow:hidden}
+.overlay-avatar img{width:100%;height:100%}
+.overlay-content{flex:1;min-width:0}
+.overlay-status{font-size:.82rem;font-weight:600;color:var(--text-white);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.overlay-response{font-size:.82rem;color:var(--text-muted);line-height:1.5;overflow:hidden}
+.typewriter{display:inline;border-right:2px solid var(--accent-cyan);animation:blink .75s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
+
+/* ===== State Demo ===== */
+.state-demo{display:flex;gap:48px;justify-content:center;align-items:center;flex-wrap:wrap;padding:32px 0}
+.state-item{display:flex;align-items:center;gap:10px}
+.state-dot{width:12px;height:12px;border-radius:50%;animation:statePulse 2s ease-in-out infinite}
+@keyframes statePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.5}}
+.state-dot.listen{background:var(--state-listen)}
+.state-dot.process{background:var(--state-process);animation-delay:.3s}
+.state-dot.speak{background:var(--state-speak);animation-delay:.6s}
+.state-label{font-size:.88rem;color:var(--text-muted);font-weight:500}
+.state-arrow{color:var(--text-dim);font-size:1.2rem}
+
+/* ===== How It Works ===== */
+.steps{display:flex;gap:0;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto;position:relative}
+.step{flex:1;min-width:140px;max-width:180px;text-align:center;position:relative;padding:0 12px}
+.step-num{width:40px;height:40px;border-radius:50%;background:rgba(0,168,255,.1);border:1px solid rgba(0,168,255,.2);color:var(--accent-cyan);font-family:'Exo 2',sans-serif;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step-icon{font-size:1.5rem;margin-bottom:8px}
+.step h4{font-size:.88rem;font-weight:600;margin-bottom:4px}
+.step p{font-size:.8rem;color:var(--text-muted);line-height:1.55}
+.step-connector{position:absolute;top:20px;right:-20px;width:40px;display:flex;align-items:center;justify-content:center;color:var(--text-dim)}
+@media(max-width:700px){.steps{flex-direction:column;align-items:center;gap:20px}.step-connector{display:none}.step{max-width:260px}}
+
+/* ===== Providers ===== */
+.providers{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:800px;margin:0 auto;padding:32px 0}
+.provider{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--radius-sm);background:var(--bg-card);border:1px solid var(--border);font-size:.85rem;font-weight:600;color:var(--text-muted);transition:all .25s}
+.provider:hover{background:var(--bg-card-hover);color:var(--text-white);border-color:var(--border-hover)}
+.provider-dot{width:8px;height:8px;border-radius:50%}
+
+/* ===== Comparison ===== */
+.comparison{max-width:800px;margin:0 auto;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th,.compare-table td{padding:12px 16px;text-align:center;font-size:.85rem;border-bottom:1px solid rgba(0,168,255,.06)}
+.compare-table th{font-family:'Exo 2',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.compare-table th:first-child,.compare-table td:first-child{text-align:left;color:var(--text-muted)}
+.compare-table th.mira-col{background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.compare-table .check{color:var(--accent-teal);font-weight:700}
+.compare-table .cross{color:rgba(255,71,87,.6)}
+.compare-table .partial{color:rgba(255,140,0,.6)}
+.compare-table td.mira-cell{color:var(--accent-cyan);font-weight:600}
+
+/* ===== Features Grid ===== */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
+.feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px 20px;transition:all .3s}
+.feature-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-3px)}
+.feature-card .f-icon{font-size:1.3rem;margin-bottom:10px;display:block}
+.feature-card h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.feature-card p{font-size:.82rem;color:var(--text-muted);line-height:1.55}
+@media(max-width:800px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.features{grid-template-columns:1fr}}
+
+/* ===== Pricing ===== */
+.pricing-card{max-width:420px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:48px 36px;text-align:center;position:relative;overflow:hidden}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-main)}
+.pricing-badge{display:inline-block;padding:4px 14px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,168,255,.12);color:var(--accent-cyan);border:1px solid rgba(0,168,255,.2);margin-bottom:20px}
+.pricing-price{font-family:'Exo 2',sans-serif;font-size:3.2rem;font-weight:900;letter-spacing:-.04em;margin-bottom:4px}
+.pricing-price .currency{font-size:1.2rem;font-weight:600;vertical-align:super;margin-right:2px}
+.pricing-note{color:var(--text-dim);font-size:.85rem;margin-bottom:28px}
+.pricing-note s{opacity:.5}
+.pricing-features{list-style:none;text-align:left;margin-bottom:32px;display:flex;flex-direction:column;gap:12px}
+.pricing-features li{display:flex;gap:10px;align-items:center;font-size:.9rem;color:var(--text-muted)}
+.pricing-features li::before{content:'✓';color:var(--accent-teal);font-weight:700;font-size:.85rem}
+
+/* ===== CTA Section ===== */
+.cta-section{text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(150px);opacity:.12;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent-cyan)}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--text-muted)}
+.footer-copy{color:var(--text-dim);font-size:.8rem}
+
+/* ===== Animations ===== */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-d1{transition-delay:.1s}
+.fade-in-d2{transition-delay:.2s}
+.fade-in-d3{transition-delay:.3s}
+.fade-in-d4{transition-delay:.4s}
+.fade-in-d5{transition-delay:.5s}
+
+/* ===== Responsive ===== */
+@media(max-width:700px){
+  .hero{min-height:auto;padding:100px 20px 60px}
+  .hero-avatar{width:120px;height:120px}
+  .hero-avatar img{width:120px;height:120px}
+  .hero h1{font-size:2.2rem}
+  .section{padding:64px 20px}
+  .pricing-card{padding:36px 24px}
+  .nav{padding:0 16px}
+  .social-proof-items{gap:24px}
+}
+</style>
+</head>
+<body data-lang="ja">
+
+<!-- ===== Navigation ===== -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="mira_avatar.png" alt="Mira">
+    <span>Mira</span>
+  </a>
+  <div class="nav-links">
+    <a href="#powers" class="desk"><span class="ja">機能</span><span class="en">Features</span></a>
+    <a href="#how-it-works" class="desk"><span class="ja">仕組み</span><span class="en">How It Works</span></a>
+    <a href="#pricing"><span class="ja">価格</span><span class="en">Pricing</span></a>
+    <a href="download.html"><span class="ja">ダウンロード</span><span class="en">Download</span></a>
+    <a href="help.html"><span class="ja">ヘルプ</span><span class="en">Help</span></a>
+    <a href="javascript:void(0)" onclick="toggleLang()" class="lang-btn"><span class="ja">EN</span><span class="en">JA</span></a>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-glow hero-glow-3"></div>
+
+  <div class="hero-badge fade-in">
+    <span class="dot"></span>
+    <span class="ja">Cortana の後継、ここに。</span>
+    <span class="en">The successor to Cortana is here.</span>
+  </div>
+
+  <div class="hero-avatar fade-in fade-in-d1">
+    <img src="mira_avatar.png" alt="Mira AI Voice Assistant">
+  </div>
+
+  <h1 class="fade-in fade-in-d2">
+    <span class="ja">声で、<span class="gradient">操る。</span></span>
+    <span class="en">Control with <span class="gradient">your voice.</span></span>
+  </h1>
+
+  <p class="subtitle fade-in fade-in-d3">
+    <span class="ja">7つのAI。完全オフライン。AivisSpeech / VOICEVOX で好きな声。<br>Gemini Live でリアルタイム対話。Computer Use でPC自律操作。<br><strong>月額料金ゼロ。買い切り。</strong></span>
+    <span class="en">7 AI providers. Fully offline. AivisSpeech / VOICEVOX for any voice.<br>Gemini Live for real-time dialogue. Computer Use for autonomous PC control.<br><strong>No subscription. Buy once, own forever.</strong></span>
+  </p>
+
+  <div class="hero-cta fade-in fade-in-d4">
+    <a href="download.html" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      <span class="ja">無料で試す</span>
+      <span class="en">Try Free</span>
+    </a>
+    <a href="#powers" class="btn btn-outline">
+      <span class="ja">機能を見る →</span>
+      <span class="en">See Features →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<div class="social-proof fade-in">
+  <div class="social-proof-items">
+    <div class="social-proof-item">
+      <span class="social-proof-num">7+</span>
+      <span class="social-proof-label"><span class="ja">AIプロバイダ</span><span class="en">AI Providers</span></span>
+    </div>
+    <div class="social-proof-item">
+      <span class="social-proof-num">&lt;500ms</span>
+      <span class="social-proof-label"><span class="ja">応答レイテンシ</span><span class="en">Response Latency</span></span>
+    </div>
+    <div class="social-proof-item">
+      <span class="social-proof-num">15+</span>
+      <span class="social-proof-label"><span class="ja">音声コマンド</span><span class="en">Voice Commands</span></span>
+    </div>
+    <div class="social-proof-item">
+      <span class="social-proof-num">100%</span>
+      <span class="social-proof-label"><span class="ja">オフライン対応</span><span class="en">Offline Ready</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Waveform Divider -->
+<div class="waveform-divider" aria-hidden="true"></div>
+
+<!-- ===== 4 Powers ===== -->
+<section class="section" id="powers">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">Mira の能力</span><span class="en">Capabilities</span></div>
+    <h2 class="section-title">
+      <span class="ja">4つの力</span>
+      <span class="en">The 4 Powers</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">Mira は「耳」「脳」「目」「手」— 4つの力で、あなたの PC を完全にコントロールします。</span>
+      <span class="en">Mira controls your PC with 4 powers: Ears, Brain, Eyes, and Hands.</span>
+    </p>
+  </div>
+
+  <div class="powers">
+    <!-- Voice -->
+    <div class="power-card fade-in">
+      <div class="power-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </div>
+      <h3><span class="ja">👂 声 — Voice</span><span class="en">👂 Voice</span></h3>
+      <div class="power-sub"><span class="ja">聞く力 + 話す力</span><span class="en">Ears + Mouth</span></div>
+      <p><span class="ja">好きな名前で呼べるカスタムウェイクワード。Whisper で高精度な音声認識。<strong>AivisSpeech / VOICEVOX</strong> で好きなキャラクターの声に。感情TTS + 4段フォールバック。</span><span class="en">Custom wake word — call Mira any name. High-accuracy Whisper STT. <strong>AivisSpeech / VOICEVOX</strong> for your favorite character voice. Emotion TTS + 4-tier fallback.</span></p>
+      <ul>
+        <li><span class="ja">AivisSpeech / VOICEVOX 対応</span><span class="en">AivisSpeech / VOICEVOX Support</span></li>
+        <li><span class="ja">Whisper STT (ローカル)</span><span class="en">Whisper STT (Local)</span></li>
+        <li><span class="ja">ストリーミング TTS (500ms)</span><span class="en">Streaming TTS (500ms)</span></li>
+        <li><span class="ja">感情 TTS (6スタイル自動切替)</span><span class="en">Emotion TTS (6 Styles, Auto)</span></li>
+      </ul>
+    </div>
+
+    <!-- Brain -->
+    <div class="power-card fade-in fade-in-d1">
+      <div class="power-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><line x1="6" y1="6" x2="9.5" y2="10"/><line x1="18" y1="6" x2="14.5" y2="10"/><line x1="6" y1="18" x2="9.5" y2="14"/><line x1="18" y1="18" x2="14.5" y2="14"/></svg>
+      </div>
+      <h3><span class="ja">🧠 脳 — Brain</span><span class="en">🧠 Brain</span></h3>
+      <div class="power-sub"><span class="ja">考える力</span><span class="en">Intelligence</span></div>
+      <p><span class="ja">7つ以上のAIプロバイダに対応。Ollama でローカル LLM を使えば、API 料金ゼロ・完全オフラインで動作。会話を記憶し、文脈を理解します。</span><span class="en">7+ AI providers supported. Use Ollama for local LLMs — zero API cost, fully offline. Remembers conversations and understands context.</span></p>
+      <ul>
+        <li><span class="ja">Ollama / LM Studio / Lemonade</span><span class="en">Ollama / LM Studio / Lemonade</span></li>
+        <li><span class="ja">Gemini / OpenAI / Claude</span><span class="en">Gemini / OpenAI / Claude</span></li>
+        <li><span class="ja">会話記憶 + ピン留め</span><span class="en">Memory + Pin System</span></li>
+        <li><span class="ja">ストリーミング応答</span><span class="en">Streaming Responses</span></li>
+      </ul>
+    </div>
+
+    <!-- Eyes -->
+    <div class="power-card fade-in fade-in-d2">
+      <div class="power-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <h3><span class="ja">👁 目 — Eyes</span><span class="en">👁 Eyes</span></h3>
+      <div class="power-sub"><span class="ja">見る力</span><span class="en">Vision</span></div>
+      <p><span class="ja">画面をAIが認識・分析。Claude Computer Use で画面を見ながら自律的にマウス・キーボード操作。全 Vision 対応モデルで利用可能。</span><span class="en">AI sees and analyzes your screen. Claude Computer Use enables autonomous mouse/keyboard control. Works with all Vision-capable models.</span></p>
+      <ul>
+        <li><span class="ja">AI Screen Vision</span><span class="en">AI Screen Vision</span></li>
+        <li><span class="ja">Computer Use (自律操作)</span><span class="en">Computer Use (Autonomous)</span></li>
+        <li><span class="ja">マルチプロバイダ対応</span><span class="en">Multi-Provider Support</span></li>
+        <li><span class="ja">Gemini / Claude / GPT-4o</span><span class="en">Gemini / Claude / GPT-4o</span></li>
+      </ul>
+    </div>
+
+    <!-- Hands -->
+    <div class="power-card fade-in fade-in-d3">
+      <div class="power-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2h8"/><path d="M10 19l5-5m0 0l5 5m-5-5v12"/></svg>
+      </div>
+      <h3><span class="ja">🖐 手 — Hands</span><span class="en">🖐 Hands</span></h3>
+      <div class="power-sub"><span class="ja">操作する力</span><span class="en">PC Control</span></div>
+      <p><span class="ja">「Chromeを開いて」「音量を50にして」— 自然な言葉で PC を操作。Web 検索、アプリ起動、キー入力、アラーム、スケジュール管理まで。</span><span class="en">"Open Chrome." "Set volume to 50." Control your PC with natural voice. Web search, app launch, keystrokes, alarms, and scheduling.</span></p>
+      <ul>
+        <li><span class="ja">Web検索 / アプリ起動</span><span class="en">Web Search / App Launch</span></li>
+        <li><span class="ja">音量 / クリップボード</span><span class="en">Volume / Clipboard</span></li>
+        <li><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Scheduling</span></li>
+        <li><span class="ja">Gemini Live リアルタイム</span><span class="en">Gemini Live Real-time</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Voice Showcase: AivisSpeech / VOICEVOX ===== -->
+<section class="section showcase" style="background:var(--bg-deep)">
+  <div class="showcase-inner">
+    <div class="showcase-text fade-in">
+      <div class="section-label">
+        <span class="ja">好きな声で話す</span>
+        <span class="en">Speak with any voice</span>
+      </div>
+      <h2>
+        <span class="ja">AivisSpeech / VOICEVOX<br>対応。<span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">好きなキャラクターの声</span>で。</span>
+        <span class="en">AivisSpeech & VOICEVOX<br>support. <span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Your favorite voice.</span></span>
+      </h2>
+      <p>
+        <span class="ja">Mira は <strong>AivisSpeech</strong> と <strong>VOICEVOX</strong> に対応。100を超えるキャラクター音声の中から、好きな声を Mira の声に設定できます。感情TTS で6つのスタイルを自動切替。さらに 4段フォールバック で途切れることなく話し続けます。</span>
+        <span class="en">Mira supports <strong>AivisSpeech</strong> and <strong>VOICEVOX</strong>. Choose from 100+ character voices as Mira's voice. Emotion TTS auto-switches between 6 styles. 4-tier fallback ensures speech never stops.</span>
+      </p>
+      <ul>
+        <li style="--dot-color:var(--accent-teal)"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>AivisSpeech</strong> — 高品質日本語音声合成エンジン。豊かな表現力</span><span class="en"><strong>AivisSpeech</strong> — High-quality Japanese speech synthesis with rich expression</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>VOICEVOX</strong> — 無料で使える人気のキャラクター音声エンジン</span><span class="en"><strong>VOICEVOX</strong> — Popular free character voice engine</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>感情TTS</strong> — 嬉しい・悲しい・怒り等6スタイルをAIが自動選択</span><span class="en"><strong>Emotion TTS</strong> — AI auto-selects from 6 styles: happy, sad, angry, etc.</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>ストリーミング</strong> — AI回答を生成しながら同時に読み上げ。体感500ms</span><span class="en"><strong>Streaming</strong> — Speaks as AI generates. 500ms perceived latency</span></span></li>
+      </ul>
+    </div>
+    <div class="showcase-visual fade-in fade-in-d2">
+      <div class="voice-card">
+        <div class="voice-card-header">
+          <img src="mira_avatar.png" alt="Mira">
+          <div class="vc-info">
+            <h4><span class="ja">音声エンジン設定</span><span class="en">Voice Engine Settings</span></h4>
+            <p><span class="ja">4段フォールバック — 途切れない音声</span><span class="en">4-tier fallback — uninterrupted speech</span></p>
+          </div>
+        </div>
+        <div class="voice-engines">
+          <div class="voice-engine" style="border-color:rgba(0,212,170,.25)">
+            <div class="ve-icon" style="background:rgba(0,212,170,.1)">🎭</div>
+            <div>
+              <div class="ve-name">AivisSpeech</div>
+              <div class="ve-desc"><span class="ja">高品質・感情表現対応</span><span class="en">High quality with emotion</span></div>
+            </div>
+            <span class="ve-tag ve-tag-free">FREE</span>
+          </div>
+          <div class="voice-engine">
+            <div class="ve-icon" style="background:rgba(0,168,255,.1)">🗣️</div>
+            <div>
+              <div class="ve-name">VOICEVOX</div>
+              <div class="ve-desc"><span class="ja">100+ キャラクター音声</span><span class="en">100+ character voices</span></div>
+            </div>
+            <span class="ve-tag ve-tag-free">FREE</span>
+          </div>
+          <div class="voice-engine">
+            <div class="ve-icon" style="background:rgba(255,140,0,.1)">🌐</div>
+            <div>
+              <div class="ve-name"><span class="ja">クラウド TTS</span><span class="en">Cloud TTS</span></div>
+              <div class="ve-desc"><span class="ja">OpenAI / Google 等</span><span class="en">OpenAI / Google etc.</span></div>
+            </div>
+            <span class="ve-tag ve-tag-pro">CLOUD</span>
+          </div>
+          <div class="voice-engine">
+            <div class="ve-icon" style="background:rgba(139,92,246,.1)">💻</div>
+            <div>
+              <div class="ve-name">SAPI5</div>
+              <div class="ve-desc"><span class="ja">Windows 内蔵 — フォールバック用</span><span class="en">Windows built-in — fallback</span></div>
+            </div>
+            <span class="ve-tag ve-tag-pro">BUILTIN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gemini Live Showcase ===== -->
+<section class="section showcase">
+  <div class="showcase-inner" style="direction:rtl">
+    <div class="showcase-text fade-in" style="direction:ltr">
+      <div class="section-label">
+        <span class="ja">リアルタイム音声対話</span>
+        <span class="en">Real-time Voice Dialogue</span>
+      </div>
+      <h2>
+        <span class="ja">「ミラライブ」で<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">リアルタイム会話</span>が始まる。</span>
+        <span class="en">Say "Mira Live" to start<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">real-time conversation.</span></span>
+      </h2>
+      <p>
+        <span class="ja"><strong>Gemini Live</strong> モードでは、まるで人と話すように Mira とリアルタイムで対話できます。音声がストリーミングで直接AIに送信され、待ち時間なく自然な会話が成立。専用ウェイクフレーズ「<strong>ミラライブ</strong>」で即座に起動。通常モードの「ねえミラ」とは完全に分離されています。</span>
+        <span class="en"><strong>Gemini Live</strong> mode lets you converse with Mira in real-time, just like talking to a person. Voice streams directly to AI with zero wait — natural, flowing conversation. Activated by the dedicated wake phrase "<strong>Mira Live</strong>", completely separate from normal "Hey Mira" mode.</span>
+      </p>
+      <ul>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>WebSocket</strong> リアルタイムストリーミング — 遅延ほぼゼロ</span><span class="en"><strong>WebSocket</strong> real-time streaming — near-zero latency</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>Function Calling</strong> 対応 — 会話中にPC操作も可能</span><span class="en"><strong>Function Calling</strong> — Control your PC during conversation</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>画面キャプチャ</strong> — 今見ている画面について会話</span><span class="en"><strong>Screen capture</strong> — Talk about what's on your screen</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>停止フレーズ</strong> で即終了 — いつでも安全に停止</span><span class="en"><strong>Stop phrase</strong> — Safely exit anytime</span></span></li>
+      </ul>
+    </div>
+    <div class="showcase-visual fade-in fade-in-d2" style="direction:ltr">
+      <div class="live-demo">
+        <div class="live-indicator">
+          <span class="pulse-ring"></span>
+          <span class="ja">Gemini Live — リアルタイム接続中</span>
+          <span class="en">Gemini Live — Connected in real-time</span>
+        </div>
+        <div class="live-bubble live-bubble-user">
+          <span class="ja">🎤 今開いてるこのスプレッドシート、何が書いてある？</span>
+          <span class="en">🎤 What's in this spreadsheet I have open?</span>
+        </div>
+        <div class="live-bubble live-bubble-mira">
+          <span class="ja">📊 画面を見ますね… 売上データの月次レポートです。3月は前月比 +12% で、特に広告収入が大きく伸びています。</span>
+          <span class="en">📊 Let me look at the screen... It's a monthly sales report. March is up 12% month-over-month, with advertising revenue showing strong growth.</span>
+        </div>
+        <div class="live-bubble live-bubble-user live-bubble-user2">
+          <span class="ja">🎤 じゃあそのデータでグラフ作って</span>
+          <span class="en">🎤 Create a chart from that data</span>
+        </div>
+        <div class="live-bubble live-bubble-mira live-bubble-mira2">
+          <span class="ja">📈 了解です。Excelでグラフを作成しますね… 棒グラフと折れ線グラフ、どちらがいいですか？</span>
+          <span class="en">📈 Got it. Creating a chart in Excel... Would you prefer a bar chart or a line chart?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Computer Use Showcase ===== -->
+<section class="section showcase" style="background:var(--bg-deep)">
+  <div class="showcase-inner">
+    <div class="showcase-text fade-in">
+      <div class="section-label">
+        <span class="ja">AI 自律 PC 操作</span>
+        <span class="en">AI Autonomous PC Control</span>
+      </div>
+      <h2>
+        <span class="ja">見て、考えて、<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">自律操作する。</span></span>
+        <span class="en">See. Think.<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Act autonomously.</span></span>
+      </h2>
+      <p>
+        <span class="ja"><strong>Computer Use</strong> — AIが画面のスクリーンショットを撮影し、画面内容を理解して、マウスクリックやキーボード入力を自律的に実行。「このPDFを要約してWordに貼り付けて」のような複雑な作業も、Mira に任せるだけ。<strong>Claude / Gemini / GPT-4o</strong> 等、すべてのVision対応モデルで利用可能。</span>
+        <span class="en"><strong>Computer Use</strong> — AI captures screenshots, understands screen content, and autonomously performs mouse clicks and keyboard input. Complex tasks like "Summarize this PDF and paste it into Word" — just ask Mira. Works with <strong>Claude, Gemini, GPT-4o</strong>, and all Vision-capable models.</span>
+      </p>
+      <ul>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>Claude Computer Use</strong> — Anthropic ネイティブ API で最高精度</span><span class="en"><strong>Claude Computer Use</strong> — Highest accuracy via Anthropic native API</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>マルチプロバイダ</strong> — Gemini / GPT-4o / Ollama 全対応</span><span class="en"><strong>Multi-provider</strong> — Gemini / GPT-4o / Ollama all supported</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>自律ループ</strong> — 完了まで自動で繰り返し操作</span><span class="en"><strong>Autonomous loop</strong> — Repeats actions until task is complete</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>安全設計</strong> — 「ストップ」で即座に停止可能</span><span class="en"><strong>Safe design</strong> — Say "Stop" to halt immediately</span></span></li>
+      </ul>
+    </div>
+    <div class="showcase-visual fade-in fade-in-d2">
+      <div class="cu-flow">
+        <div class="cu-step">
+          <div class="cu-step-num">1</div>
+          <div class="cu-step-text">
+            <h4><span class="ja">スクリーンショット撮影</span><span class="en">Capture Screenshot</span></h4>
+            <p><span class="ja">現在の画面を自動キャプチャ</span><span class="en">Auto-capture current screen</span></p>
+          </div>
+          <span class="cu-step-icon">📸</span>
+        </div>
+        <div class="cu-loop-arrow">↓</div>
+        <div class="cu-step">
+          <div class="cu-step-num">2</div>
+          <div class="cu-step-text">
+            <h4><span class="ja">AI が画面を解析</span><span class="en">AI Analyzes Screen</span></h4>
+            <p><span class="ja">Vision AI が内容を理解し次の操作を決定</span><span class="en">Vision AI understands content and decides next action</span></p>
+          </div>
+          <span class="cu-step-icon">🧠</span>
+        </div>
+        <div class="cu-loop-arrow">↓</div>
+        <div class="cu-step">
+          <div class="cu-step-num">3</div>
+          <div class="cu-step-text">
+            <h4><span class="ja">マウス / キーボード操作</span><span class="en">Mouse / Keyboard Action</span></h4>
+            <p><span class="ja">クリック、入力、スクロール等を自律実行</span><span class="en">Clicks, types, scrolls — executed autonomously</span></p>
+          </div>
+          <span class="cu-step-icon">🖱️</span>
+        </div>
+        <div class="cu-loop-arrow">↓</div>
+        <div class="cu-step">
+          <div class="cu-step-num">4</div>
+          <div class="cu-step-text">
+            <h4><span class="ja">結果確認 → ループ</span><span class="en">Verify → Loop</span></h4>
+            <p><span class="ja">タスク完了まで 1〜3 を自動繰り返し</span><span class="en">Repeats steps 1-3 until task is complete</span></p>
+          </div>
+          <span class="cu-step-icon">🔄</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Overlay Demo ===== -->
+<section class="section" style="padding-top:0">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">リアルタイム UI</span><span class="en">Real-time UI</span></div>
+    <h2 class="section-title">
+      <span class="ja">常にデスクトップに寄り添う</span>
+      <span class="en">Always by your side</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">画面右下の透過オーバーレイで、Mira の状態をリアルタイムに確認。AIが考え、話す過程が目に見えます。</span>
+      <span class="en">A transparent overlay in the bottom-right shows Mira's state in real-time. Watch AI think and speak.</span>
+    </p>
+  </div>
+
+  <div class="overlay-demo fade-in">
+    <div class="overlay-mock">
+      <div class="overlay-avatar"><img src="mira_avatar.png" alt="Mira"></div>
+      <div class="overlay-content">
+        <div class="overlay-status">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);display:inline-block"></span>
+          <span class="ja">話しています...</span>
+          <span class="en">Speaking...</span>
+        </div>
+        <div class="overlay-response">
+          <span class="ja"><span class="typewriter" id="typewriter-ja">明日の天気は晴れで、最高気温は22度の予報です。お出かけ日和ですね！</span></span>
+          <span class="en"><span class="typewriter" id="typewriter-en">Tomorrow's forecast is sunny with a high of 72°F. Perfect for going out!</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- State Colors -->
+  <div class="state-demo fade-in">
+    <div class="state-item">
+      <span class="state-dot listen"></span>
+      <span class="state-label"><span class="ja">聞いてる</span><span class="en">Listening</span></span>
+    </div>
+    <span class="state-arrow">→</span>
+    <div class="state-item">
+      <span class="state-dot process"></span>
+      <span class="state-label"><span class="ja">考え中</span><span class="en">Processing</span></span>
+    </div>
+    <span class="state-arrow">→</span>
+    <div class="state-item">
+      <span class="state-dot speak"></span>
+      <span class="state-label"><span class="ja">話してる</span><span class="en">Speaking</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How It Works ===== -->
+<section class="section" id="how-it-works" style="background:var(--bg-deep)">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">仕組み</span><span class="en">How It Works</span></div>
+    <h2 class="section-title">
+      <span class="ja">声から行動へ、500msで</span>
+      <span class="en">From voice to action in 500ms</span>
+    </h2>
+  </div>
+
+  <div class="steps fade-in">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon">🎤</div>
+      <h4><span class="ja">ウェイクワード</span><span class="en">Wake Word</span></h4>
+      <p><span class="ja">「ねえミラ」で起動。好きな名前に変更可能</span><span class="en">"Hey Mira" to activate. Fully customizable.</span></p>
+      <span class="step-connector">→</span>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon">👂</div>
+      <h4><span class="ja">音声認識</span><span class="en">Speech-to-Text</span></h4>
+      <p><span class="ja">Whisper がローカルで高精度に文字起こし</span><span class="en">Whisper transcribes locally with high accuracy</span></p>
+      <span class="step-connector">→</span>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon">🧠</div>
+      <h4><span class="ja">AI処理</span><span class="en">AI Processing</span></h4>
+      <p><span class="ja">ローカル or クラウド AI がストリーミング応答</span><span class="en">Local or cloud AI responds with streaming</span></p>
+      <span class="step-connector">→</span>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-icon">🗣️</div>
+      <h4><span class="ja">ストリーミングTTS</span><span class="en">Streaming TTS</span></h4>
+      <p><span class="ja">生成と同時に読み上げ。体感500ms</span><span class="en">Speaks as AI generates. 500ms latency.</span></p>
+      <span class="step-connector">→</span>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-icon">⚡</div>
+      <h4><span class="ja">アクション実行</span><span class="en">Action</span></h4>
+      <p><span class="ja">検索・起動・操作を自動実行</span><span class="en">Auto-execute search, launch, control</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI Providers ===== -->
+<section class="section">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">AIプロバイダ</span><span class="en">AI Providers</span></div>
+    <h2 class="section-title">
+      <span class="ja">7つのAI。すべてあなたの選択。</span>
+      <span class="en">7 AI providers. All your choice.</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">ローカルで完全無料。クラウドで最高性能。どちらでも、両方でも。</span>
+      <span class="en">Fully free locally. Maximum performance in the cloud. Choose either, or both.</span>
+    </p>
+  </div>
+
+  <div class="providers fade-in">
+    <div class="provider"><span class="provider-dot" style="background:#7C3AED"></span> Ollama</div>
+    <div class="provider"><span class="provider-dot" style="background:#06B6D4"></span> LM Studio</div>
+    <div class="provider"><span class="provider-dot" style="background:#EF4444"></span> Lemonade</div>
+    <div class="provider"><span class="provider-dot" style="background:#10B981"></span> OpenAI</div>
+    <div class="provider"><span class="provider-dot" style="background:#F59E0B"></span> Anthropic</div>
+    <div class="provider"><span class="provider-dot" style="background:#3B82F6"></span> Gemini</div>
+    <div class="provider"><span class="provider-dot" style="background:#8B5CF6"></span> <span class="ja">カスタム</span><span class="en">Custom</span></div>
+  </div>
+
+  <p style="text-align:center;color:var(--text-dim);font-size:.88rem;margin-top:8px" class="fade-in">
+    <span class="ja">💡 Ollama / LM Studio / Lemonade はローカル動作。APIキー不要・完全オフライン。</span>
+    <span class="en">💡 Ollama / LM Studio / Lemonade run locally. No API key needed — fully offline.</span>
+  </p>
+</section>
+
+<!-- ===== Comparison ===== -->
+<section class="section" id="comparison" style="background:var(--bg-deep)">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">比較</span><span class="en">Comparison</span></div>
+    <h2 class="section-title">
+      <span class="ja">なぜ Mira なのか</span>
+      <span class="en">Why Mira?</span>
+    </h2>
+  </div>
+
+  <div class="comparison fade-in">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="text-align:left"><span class="ja">機能</span><span class="en">Feature</span></th>
+          <th>Cortana</th>
+          <th>Braina Pro</th>
+          <th class="mira-col">Mira</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ja">カスタムウェイクワード</span><span class="en">Custom Wake Word</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">オフライン AI</span><span class="en">Offline AI</span></td>
+          <td class="cross">✗</td><td class="partial">△</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">AivisSpeech / VOICEVOX</span><span class="en">AivisSpeech / VOICEVOX</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">高品質日本語 TTS</span><span class="en">Japanese TTS (High Quality)</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">ストリーミング応答</span><span class="en">Streaming Response</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">Screen Vision</span><span class="en">Screen Vision</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">Computer Use (自律操作)</span><span class="en">Computer Use (Autonomous)</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">リアルタイム音声対話</span><span class="en">Real-time Voice Dialogue</span></td>
+          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
+        </tr>
+        <tr>
+          <td><span class="ja">価格</span><span class="en">Price</span></td>
+          <td style="color:var(--text-dim)"><span class="ja">廃止</span><span class="en">Discontinued</span></td>
+          <td style="color:var(--text-dim)">$79<span class="ja">/年</span><span class="en">/yr</span></td>
+          <td class="mira-cell" style="font-weight:900"><span class="ja">¥1,980〜</span><span class="en">$12.99+</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== All Features ===== -->
+<section class="section" id="all-features">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">全機能</span><span class="en">All Features</span></div>
+    <h2 class="section-title">
+      <span class="ja">これが Mira の全力</span>
+      <span class="en">Everything Mira can do</span>
+    </h2>
+  </div>
+
+  <div class="features">
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">カスタムウェイクワード</span><span class="en">Custom Wake Word</span></h4><p><span class="ja">「ねえミラ」を好きな名前に変更</span><span class="en">Change "Hey Mira" to any name</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🗣️</span><h4><span class="ja">ストリーミング TTS</span><span class="en">Streaming TTS</span></h4><p><span class="ja">AI生成と同時に読み上げ。体感500ms</span><span class="en">Speaks as AI generates. 500ms latency</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎭</span><h4><span class="ja">AivisSpeech / VOICEVOX</span><span class="en">AivisSpeech / VOICEVOX</span></h4><p><span class="ja">100+キャラクター音声。好きな声で話す</span><span class="en">100+ character voices. Speak with your favorite</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔒</span><h4><span class="ja">完全オフライン</span><span class="en">Fully Offline</span></h4><p><span class="ja">Ollama + Whisper + AivisSpeech で動作</span><span class="en">Ollama + Whisper + AivisSpeech</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">👁️</span><h4><span class="ja">Screen Vision</span><span class="en">Screen Vision</span></h4><p><span class="ja">AIが画面を見て状況を理解</span><span class="en">AI sees and understands your screen</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🖱️</span><h4><span class="ja">Computer Use</span><span class="en">Computer Use</span></h4><p><span class="ja">AIがスクショ→解析→操作を自律ループ</span><span class="en">AI screenshot→analyze→act autonomous loop</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h4><p><span class="ja">リアルタイム音声対話。待ち時間ゼロ</span><span class="en">Real-time voice dialogue. Zero wait time</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="ja">会話記憶</span><span class="en">Conversation Memory</span></h4><p><span class="ja">重要な情報を記憶・ピン留め保存</span><span class="en">Remember important info with pin system</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="ja">Web 検索</span><span class="en">Web Search</span></h4><p><span class="ja">音声で検索、結果を読み上げ</span><span class="en">Search by voice, results read aloud</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">📱</span><h4><span class="ja">アプリ起動</span><span class="en">App Launch</span></h4><p><span class="ja">50+アプリを名前で起動</span><span class="en">Launch 50+ apps by name</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">⏰</span><h4><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Schedule</span></h4><p><span class="ja">音声でアラーム設定・予定管理</span><span class="en">Set alarms and manage schedule by voice</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🌙</span><h4><span class="ja">ダーク / ライトテーマ</span><span class="en">Dark / Light Theme</span></h4><p><span class="ja">お好みのテーマに切替</span><span class="en">Switch to your preferred theme</span></p></div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="section" id="pricing" style="background:var(--bg-deep)">
+  <div class="section-header fade-in">
+    <div class="section-label"><span class="ja">価格</span><span class="en">Pricing</span></div>
+    <h2 class="section-title">
+      <span class="ja">買い切り。ずっと使える。</span>
+      <span class="en">Buy once. Own forever.</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">サブスクリプションなし。1回の購入で永続ライセンス。Braina Pro は $79/年、ChatGPT Plus は $240/年。<br>Mira は<strong>買い切り ¥1,980〜</strong>。15日間無料でお試しいただけます。</span>
+      <span class="en">No subscription. One-time purchase for a permanent license. Braina Pro is $79/yr, ChatGPT Plus is $240/yr.<br>Mira is <strong>one-time from $12.99</strong>. Try free for 15 days.</span>
+    </p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:680px;margin:0 auto">
+    <div class="pricing-card fade-in" style="max-width:none">
+      <div class="pricing-badge">
+        <span class="ja">発売記念価格</span>
+        <span class="en">Launch Price</span>
+      </div>
+      <h3 style="font-family:'Exo 2',sans-serif;font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--text-muted)">
+        <span class="ja">💻 1PC ライセンス</span>
+        <span class="en">💻 1 PC License</span>
+      </h3>
+      <div class="pricing-price">
+        <span class="ja"><span class="currency">¥</span>1,980</span>
+        <span class="en"><span class="currency">$</span>12.99</span>
+      </div>
+      <p class="pricing-note">
+        <span class="ja"><s>通常 ¥2,980</s> · 買い切り · 永続</span>
+        <span class="en"><s>Regular $19.99</s> · One-time · Permanent</span>
+      </p>
+      <ul class="pricing-features">
+        <li><span class="ja">全機能利用可能</span><span class="en">All features included</span></li>
+        <li><span class="ja">永続ライセンス</span><span class="en">Permanent license</span></li>
+        <li><span class="ja">無料アップデート</span><span class="en">Free updates</span></li>
+        <li><span class="ja">15日間無料試用</span><span class="en">15-day free trial</span></li>
+      </ul>
+      <a href="download.html" class="btn btn-primary" style="width:100%;justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span class="ja">無料で試す</span>
+        <span class="en">Try Free</span>
+      </a>
+    </div>
+
+    <div class="pricing-card fade-in fade-in-d1" style="max-width:none">
+      <div class="pricing-badge">
+        <span class="ja">発売記念価格</span>
+        <span class="en">Launch Price</span>
+      </div>
+      <h3 style="font-family:'Exo 2',sans-serif;font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--text-muted)">
+        <span class="ja">🖥️ 台数無制限</span>
+        <span class="en">🖥️ Unlimited PCs</span>
+      </h3>
+      <div class="pricing-price">
+        <span class="ja"><span class="currency">¥</span>4,980</span>
+        <span class="en"><span class="currency">$</span>32.99</span>
+      </div>
+      <p class="pricing-note">
+        <span class="ja"><s>通常 ¥7,980</s> · 買い切り · 永続</span>
+        <span class="en"><s>Regular $52.99</s> · One-time · Permanent</span>
+      </p>
+      <ul class="pricing-features">
+        <li><span class="ja">全機能利用可能</span><span class="en">All features included</span></li>
+        <li><span class="ja">PC 台数無制限</span><span class="en">Unlimited PCs</span></li>
+        <li><span class="ja">優先サポート</span><span class="en">Priority support</span></li>
+        <li><span class="ja">15日間無料試用</span><span class="en">15-day free trial</span></li>
+      </ul>
+      <a href="download.html" class="btn btn-outline" style="width:100%;justify-content:center">
+        <span class="ja">詳細を見る →</span>
+        <span class="en">View Details →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="section cta-section">
+  <div class="cta-glow"></div>
+  <div class="section-header fade-in" style="margin-bottom:32px;position:relative;z-index:1">
+    <h2 class="section-title">
+      <span class="ja">Mira に会いませんか？</span>
+      <span class="en">Ready to meet Mira?</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ja">15日間の無料試用。クレジットカード不要。</span>
+      <span class="en">15-day free trial. No credit card required.</span>
+    </p>
+  </div>
+  <div class="fade-in" style="position:relative;z-index:1;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a href="download.html" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      <span class="ja">ダウンロード</span>
+      <span class="en">Download</span>
+    </a>
+    <a href="help.html" class="btn btn-outline">
+      <span class="ja">ヘルプを見る</span>
+      <span class="en">View Help</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="footer-links">
+    <a href="#powers"><span class="ja">機能</span><span class="en">Features</span></a>
+    <a href="download.html"><span class="ja">ダウンロード</span><span class="en">Download</span></a>
+    <a href="help.html"><span class="ja">ヘルプ</span><span class="en">Help</span></a>
+    <a href="privacy.html"><span class="ja">プライバシー</span><span class="en">Privacy</span></a>
+    <a href="mailto:support@mojosoft.biz"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    <a href="https://mojosoft.biz">Mojosoft</a>
+  </div>
+  <p class="footer-copy">© 2026 Mojosoft. All rights reserved.</p>
+</footer>
+
+<script>
+/* Language */
+function setLang(l){
+  document.body.setAttribute('data-lang',l);
+  document.documentElement.lang=l;
+  document.title=l==='ja'?'Mira — AI音声アシスタント for Windows':'Mira — AI Voice Assistant for Windows';
+  localStorage.setItem('mira-lang',l);
+}
+function toggleLang(){setLang(document.body.getAttribute('data-lang')==='ja'?'en':'ja')}
+(function(){
+  var s=localStorage.getItem('mira-lang');
+  if(s){setLang(s)}
+  else if(navigator.language&&!navigator.language.startsWith('ja')){setLang('en')}
+})();
+
+/* Scroll animations */
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
+
+/* Waveform bars */
+(function(){
+  var w=document.querySelector('.waveform-divider');
+  if(!w)return;
+  for(var i=0;i<14;i++){
+    var bar=document.createElement('div');
+    bar.className='waveform-bar';
+    bar.style.animationDelay=(i*0.08)+'s';
+    w.appendChild(bar);
+  }
+})();
+</script>
+</body>
+</html>

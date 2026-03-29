@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライセンス購入 — Mira AI Voice Assistant</title>
+<meta name="description" content="Mira AI Voice Assistant のライセンスを購入。1PC ¥1,980 / 台数無制限 ¥4,980。買い切り永続ライセンス。">
+<meta name="theme-color" content="#060612">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Exo+2:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-abyss:#060612;--bg-deep:#0A0A1E;--bg-surface:#0F1529;
+  --bg-card:rgba(0,168,255,.04);--bg-card-hover:rgba(0,168,255,.08);
+  --border:rgba(0,168,255,.1);--border-hover:rgba(0,168,255,.2);
+  --text-white:#edf1f7;--text-muted:rgba(232,236,244,.78);--text-dim:rgba(232,236,244,.52);
+  --accent-cyan:#00A8FF;--accent-teal:#00D4AA;
+  --glow-cyan:rgba(0,168,255,.25);--glow-teal:rgba(0,212,170,.15);
+  --gradient-main:linear-gradient(135deg,#00A8FF,#0066CC,#00D4AA);
+  --gradient-text:linear-gradient(135deg,#4DC9FF,#00A8FF,#00D4AA);
+  --radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg-abyss);color:var(--text-white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-cyan);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent-teal)}
+::selection{background:rgba(0,168,255,.3);color:#fff}
+
+/* Language */
+.lang-btn{background:rgba(0,168,255,.08)!important;border:1px solid var(--border);border-radius:999px!important;padding:4px 14px!important;font-size:.78rem!important;font-weight:600!important;cursor:pointer;transition:all .25s;color:var(--text-dim)}
+.lang-btn:hover{background:rgba(0,168,255,.15)!important;color:var(--text-white)!important}
+[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9998;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,18,.85);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text-white)}
+.nav-brand img{width:28px;height:28px;border-radius:50%}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text-white)}
+@media(max-width:700px){.nav-links .desk{display:none}.nav{padding:0 16px}}
+
+/* Hero */
+.hero{padding:120px 24px 40px;text-align:center;position:relative}
+.hero h1{font-family:'Exo 2',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:800;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero p{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin:0 auto}
+.hero .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:999px;border:1px solid rgba(0,212,170,.2);background:rgba(0,212,170,.06);font-size:.82rem;color:var(--accent-teal);font-weight:600;margin-bottom:20px}
+
+/* Pricing */
+.pricing-section{padding:0 24px 40px;max-width:740px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;position:relative;transition:transform .3s,box-shadow .3s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,168,255,.08)}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-main);border-radius:var(--radius) var(--radius) 0 0}
+.pricing-card.featured{border-color:rgba(0,168,255,.25)}
+.pricing-card h3{font-family:'Exo 2',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.pricing-price{font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
+.pricing-price .currency{font-size:1rem;font-weight:600;vertical-align:super;margin-right:2px}
+.pricing-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+.pricing-desc s{opacity:.4}
+.pricing-features{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:10px}
+.pricing-features li{display:flex;gap:10px;align-items:center;font-size:.88rem;color:var(--text-muted)}
+.pricing-features li::before{content:'✓';color:var(--accent-teal);font-weight:700}
+
+/* Hardware ID */
+.hwid-section{margin-bottom:20px}
+.hwid-section label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-muted)}
+.hwid-section input{width:100%;padding:10px 14px;background:rgba(0,168,255,.04);border:1px solid var(--border);border-radius:8px;color:var(--text-white);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;transition:border-color .2s}
+.hwid-section input:focus{border-color:var(--accent-cyan)}
+.hwid-section input::placeholder{color:var(--text-dim)}
+.hwid-help{font-size:.78rem;color:var(--text-dim);margin-top:6px}
+
+/* PayPal */
+.paypal-container{min-height:50px;margin-bottom:16px}
+.payment-note{font-size:.78rem;color:var(--text-dim);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* Comparison callout */
+.compare-callout{max-width:740px;margin:0 auto 40px;padding:0 24px}
+.compare-box{background:rgba(0,212,170,.04);border:1px solid rgba(0,212,170,.12);border-radius:var(--radius);padding:24px 28px;text-align:center}
+.compare-box h3{font-family:'Exo 2',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:12px;color:var(--accent-teal)}
+.compare-items{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.compare-item{text-align:center}
+.compare-item .name{font-size:.82rem;color:var(--text-dim);margin-bottom:4px}
+.compare-item .price{font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700}
+.compare-item .price.strike{text-decoration:line-through;color:var(--text-dim);font-weight:400}
+.compare-item .price.mira{color:var(--accent-cyan)}
+.compare-item .note{font-size:.72rem;color:var(--text-dim)}
+
+/* Info boxes */
+.info-section{max-width:700px;margin:0 auto;padding:0 24px}
+.info-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}
+.info-box h3{font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.info-box p{font-size:.88rem;color:var(--text-muted);margin-bottom:10px}
+.info-box ul,.info-box ol{padding-left:20px;margin-bottom:10px}
+.info-box li{font-size:.88rem;color:var(--text-muted);margin-bottom:6px}
+.info-box strong{color:var(--text-white)}
+.info-box code{background:rgba(0,168,255,.08);border:1px solid var(--border);padding:2px 7px;border-radius:4px;font-size:.82rem;font-family:'JetBrains Mono',monospace;color:var(--accent-cyan)}
+
+/* Bank */
+.bank-section{max-width:700px;margin:0 auto;padding:0 24px 60px}
+.bank-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.bank-box h3{font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.bank-row{display:flex;gap:8px;margin-bottom:8px;font-size:.88rem}
+.bank-row .label{color:var(--text-dim);min-width:100px}
+.bank-row .value{color:var(--text-white);font-weight:500}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--text-muted)}
+.footer-copy{color:var(--text-dim);font-size:.8rem}
+
+@media(max-width:700px){
+  .hero{padding:100px 20px 32px}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-card{padding:28px 24px}
+  .compare-items{gap:20px}
+}
+</style>
+</head>
+<body data-lang="ja">
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="mira_avatar.png" alt="Mira">
+    <span>Mira</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#powers" class="desk"><span class="ja">機能</span><span class="en">Features</span></a>
+    <a href="download.html"><span class="ja">ダウンロード</span><span class="en">Download</span></a>
+    <a href="help.html"><span class="ja">ヘルプ</span><span class="en">Help</span></a>
+    <a href="javascript:void(0)" onclick="toggleLang()" class="lang-btn"><span class="ja">EN</span><span class="en">JA</span></a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">
+    <span class="ja">🎉 発売記念価格で販売中</span>
+    <span class="en">🎉 Launch pricing available now</span>
+  </div>
+  <h1><span class="ja">Mira ライセンスを購入</span><span class="en">Purchase Mira License</span></h1>
+  <p><span class="ja">買い切り・永続ライセンス。サブスクリプションなし。一度の購入でずっと使えます。</span><span class="en">One-time purchase. Permanent license. No subscription. Buy once, own forever.</span></p>
+</div>
+
+<!-- Competitor comparison -->
+<div class="compare-callout">
+  <div class="compare-box">
+    <h3><span class="ja">他社と比較してください</span><span class="en">Compare with competitors</span></h3>
+    <div class="compare-items">
+      <div class="compare-item">
+        <div class="name">Braina Pro</div>
+        <div class="price strike">$79<span class="ja">/年</span><span class="en">/yr</span></div>
+        <div class="note"><span class="ja">サブスク</span><span class="en">Subscription</span></div>
+      </div>
+      <div class="compare-item">
+        <div class="name">ChatGPT Plus</div>
+        <div class="price strike">$240<span class="ja">/年</span><span class="en">/yr</span></div>
+        <div class="note"><span class="ja">サブスク</span><span class="en">Subscription</span></div>
+      </div>
+      <div class="compare-item">
+        <div class="name">Dragon</div>
+        <div class="price strike">$699</div>
+        <div class="note"><span class="ja">音声認識のみ</span><span class="en">STT only</span></div>
+      </div>
+      <div class="compare-item">
+        <div class="name" style="font-weight:700;color:var(--accent-cyan)">Mira</div>
+        <div class="price mira"><span class="ja">¥1,980〜</span><span class="en">$12.99+</span></div>
+        <div class="note" style="color:var(--accent-teal)"><span class="ja">買い切り・全機能</span><span class="en">One-time · All features</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing Cards -->
+<div class="pricing-section">
+  <div class="pricing-grid">
+    <!-- 1PC License -->
+    <div class="pricing-card featured">
+      <h3><span class="ja">💻 1PC ライセンス</span><span class="en">💻 1 PC License</span></h3>
+      <div class="pricing-price">
+        <span class="ja"><span class="currency">¥</span>1,980</span>
+        <span class="en"><span class="currency">$</span>12.99</span>
+      </div>
+      <p class="pricing-desc">
+        <span class="ja"><s>通常 ¥2,980</s> · 発売記念価格 · 買い切り</span>
+        <span class="en"><s>Regular $19.99</s> · Launch price · One-time</span>
+      </p>
+      <ul class="pricing-features">
+        <li><span class="ja">全機能利用可能</span><span class="en">All features included</span></li>
+        <li><span class="ja">永続ライセンス（期限なし）</span><span class="en">Permanent license (no expiration)</span></li>
+        <li><span class="ja">無料アップデート</span><span class="en">Free updates</span></li>
+        <li><span class="ja">メールサポート</span><span class="en">Email support</span></li>
+        <li><span class="ja">1台の PC に紐付け</span><span class="en">Bound to 1 PC</span></li>
+      </ul>
+
+      <div class="hwid-section">
+        <label>Hardware ID</label>
+        <input type="text" id="hwid-1pc" placeholder="MR-HW-XXXX-XXXX-XXXX-XXXX" maxlength="24">
+        <p class="hwid-help"><span class="ja">Mira の設定 → ライセンスタブで確認できます</span><span class="en">Find in Mira Settings → License tab</span></p>
+      </div>
+
+      <div class="paypal-container" id="paypal-1pc">
+        <p style="text-align:center;color:var(--text-dim);font-size:.85rem;padding:12px 0">
+          <span class="ja">💳 PayPal ボタン準備中</span>
+          <span class="en">💳 PayPal button coming soon</span>
+        </p>
+      </div>
+
+      <p class="payment-note">
+        <span class="ja">🔒 安全な決済 · 即時配信</span>
+        <span class="en">🔒 Secure payment · Instant delivery</span>
+      </p>
+    </div>
+
+    <!-- Unlimited PCs License -->
+    <div class="pricing-card">
+      <h3><span class="ja">🖥️ 台数無制限ライセンス</span><span class="en">🖥️ Unlimited PCs</span></h3>
+      <div class="pricing-price">
+        <span class="ja"><span class="currency">¥</span>4,980</span>
+        <span class="en"><span class="currency">$</span>32.99</span>
+      </div>
+      <p class="pricing-desc">
+        <span class="ja"><s>通常 ¥7,980</s> · 発売記念価格 · 買い切り</span>
+        <span class="en"><s>Regular $52.99</s> · Launch price · One-time</span>
+      </p>
+      <ul class="pricing-features">
+        <li><span class="ja">全機能利用可能</span><span class="en">All features included</span></li>
+        <li><span class="ja">永続ライセンス（期限なし）</span><span class="en">Permanent license (no expiration)</span></li>
+        <li><span class="ja">PC 台数無制限</span><span class="en">Unlimited PCs</span></li>
+        <li><span class="ja">無料アップデート</span><span class="en">Free updates</span></li>
+        <li><span class="ja">優先サポート</span><span class="en">Priority support</span></li>
+      </ul>
+
+      <div class="hwid-section">
+        <label>Hardware ID <span style="color:var(--text-dim);font-weight:400">(<span class="ja">任意</span><span class="en">Optional</span>)</span></label>
+        <input type="text" id="hwid-unlimited" placeholder="MR-HW-XXXX-XXXX-XXXX-XXXX" maxlength="24">
+      </div>
+
+      <div class="paypal-container" id="paypal-unlimited">
+        <p style="text-align:center;color:var(--text-dim);font-size:.85rem;padding:12px 0">
+          <span class="ja">💳 PayPal ボタン準備中</span>
+          <span class="en">💳 PayPal button coming soon</span>
+        </p>
+      </div>
+
+      <p class="payment-note">
+        <span class="ja">🔒 安全な決済 · 即時配信</span>
+        <span class="en">🔒 Secure payment · Instant delivery</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Info Boxes -->
+<div class="info-section">
+  <div class="info-box">
+    <h3><span class="ja">📋 ご購入前に</span><span class="en">📋 Before You Purchase</span></h3>
+    <ul>
+      <li><span class="ja">ライセンスキーはご購入後、メールで即時配信されます</span><span class="en">License key is delivered immediately by email after purchase</span></li>
+      <li><span class="ja">1PC ライセンスは 1 台の PC に紐付けられます（Hardware ID ベース）</span><span class="en">1 PC license is bound to 1 PC (Hardware ID based)</span></li>
+      <li><span class="ja">台数無制限ライセンスは PC 台数の制限なくご利用いただけます</span><span class="en">Unlimited PCs license can be used on any number of PCs</span></li>
+      <li><span class="ja">返金ポリシー: 購入後 14 日以内であれば全額返金いたします</span><span class="en">Refund policy: Full refund within 14 days of purchase</span></li>
+    </ul>
+  </div>
+
+  <div class="info-box">
+    <h3><span class="ja">🔑 Hardware ID の確認方法</span><span class="en">🔑 How to Find Your Hardware ID</span></h3>
+    <ol>
+      <li><span class="ja">Mira を起動します</span><span class="en">Launch Mira</span></li>
+      <li><span class="ja">システムトレイの「M」アイコンをダブルクリックして設定を開きます</span><span class="en">Double-click the "M" icon in the system tray to open Settings</span></li>
+      <li><span class="ja">「ライセンス」タブを開きます</span><span class="en">Open the "License" tab</span></li>
+      <li><span class="ja"><code>MR-HW-</code> で始まるコードを「コピー」ボタンでコピーします</span><span class="en">Copy the code starting with <code>MR-HW-</code> using the "Copy" button</span></li>
+    </ol>
+  </div>
+
+  <div class="info-box">
+    <h3><span class="ja">🔓 ライセンス認証方法</span><span class="en">🔓 How to Activate</span></h3>
+    <ol>
+      <li><span class="ja">メールで届いたライセンスキー (<code>MR-P-XXXX-...</code>) をコピーします</span><span class="en">Copy the license key (<code>MR-P-XXXX-...</code>) from your email</span></li>
+      <li><span class="ja">Mira の設定 → ライセンスタブを開きます</span><span class="en">Open Mira Settings → License tab</span></li>
+      <li><span class="ja">キーを入力して「認証する」をクリックします</span><span class="en">Enter the key and click "Activate"</span></li>
+      <li><span class="ja">「ライセンスが有効化されました」と表示されれば完了です</span><span class="en">You're done when "License activated successfully" appears</span></li>
+    </ol>
+  </div>
+</div>
+
+<!-- Bank Transfer -->
+<div class="bank-section">
+  <div class="bank-box">
+    <h3><span class="ja">🏦 銀行振込</span><span class="en">🏦 Bank Transfer</span></h3>
+    <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px">
+      <span class="ja">銀行振込をご希望の場合は、以下の口座にお振込みください。振込完了後、Hardware ID を添えて <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a> までご連絡ください。</span>
+      <span class="en">For bank transfer, please send payment to the account below. After transfer, contact <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a> with your Hardware ID.</span>
+    </p>
+    <div class="bank-row"><span class="label"><span class="ja">銀行名</span><span class="en">Bank</span></span><span class="value"><span class="ja">三菱UFJ銀行</span><span class="en">MUFG Bank</span></span></div>
+    <div class="bank-row"><span class="label"><span class="ja">支店名</span><span class="en">Branch</span></span><span class="value"><span class="ja">（お問い合わせ時にご案内します）</span><span class="en">(Provided upon inquiry)</span></span></div>
+    <div class="bank-row"><span class="label"><span class="ja">口座種別</span><span class="en">Type</span></span><span class="value"><span class="ja">普通</span><span class="en">Savings</span></span></div>
+    <div class="bank-row"><span class="label"><span class="ja">名義</span><span class="en">Name</span></span><span class="value">Mojosoft</span></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html"><span class="ja">トップ</span><span class="en">Home</span></a>
+    <a href="download.html"><span class="ja">ダウンロード</span><span class="en">Download</span></a>
+    <a href="help.html"><span class="ja">ヘルプ</span><span class="en">Help</span></a>
+    <a href="privacy.html"><span class="ja">プライバシー</span><span class="en">Privacy</span></a>
+    <a href="mailto:support@mojosoft.biz"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    <a href="https://mojosoft.biz">Mojosoft</a>
+  </div>
+  <p class="footer-copy">© 2026 Mojosoft. All rights reserved.</p>
+</footer>
+
+<script>
+function setLang(l){
+  document.body.setAttribute('data-lang',l);
+  document.documentElement.lang=l;
+  document.title=l==='ja'?'ライセンス購入 — Mira AI Voice Assistant':'Purchase License — Mira AI Voice Assistant';
+  localStorage.setItem('mira-lang',l);
+}
+function toggleLang(){setLang(document.body.getAttribute('data-lang')==='ja'?'en':'ja')}
+(function(){
+  var s=localStorage.getItem('mira-lang');
+  if(s){setLang(s)}
+  else if(navigator.language&&!navigator.language.startsWith('ja')){setLang('en')}
+})();
+</script>
+</body>
+</html>
