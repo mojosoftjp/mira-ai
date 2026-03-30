@@ -123,6 +123,7 @@ a:hover{text-decoration:underline}
     <div class="nav-group-label"><span class="ja">AI設定</span><span class="en">AI Setup</span></div>
     <a class="nav-item" href="#ai-overview"><span class="ja">AI機能の概要</span><span class="en">AI Overview</span></a>
     <a class="nav-item" href="#ai-models"><span class="ja">推奨モデル</span><span class="en">Recommended Models</span></a>
+    <a class="nav-item" href="#vision-models"><span class="ja">Vision対応モデル</span><span class="en">Vision Models</span></a>
     <a class="nav-item" href="#ollama"><span class="ja">Ollama</span><span class="en">Ollama</span></a>
     <a class="nav-item" href="#lmstudio"><span class="ja">LM Studio</span><span class="en">LM Studio</span></a>
     <a class="nav-item" href="#lemonade"><span class="ja">Lemonade</span><span class="en">Lemonade</span></a>
@@ -236,6 +237,90 @@ a:hover{text-decoration:underline}
     <tr><td><span class="ja">CPU のみ</span><span class="en">CPU only</span></td><td>phi3:mini / qwen2.5:3b</td><td>8GB RAM</td><td><span class="ja">中</span><span class="en">Medium</span></td></tr>
   </tbody>
 </table>
+
+<h2 id="vision-models"><span class="ja">Vision 対応ローカルモデル</span><span class="en">Vision-Capable Local Models</span></h2>
+<p><span class="ja">画面認識（Screen Vision）や Computer Use を<strong>ローカルで完全無料</strong>に使いたい場合、以下の Vision 対応モデルが利用できます。Ollama または LM Studio でダウンロードしてください。</span><span class="en">To use Screen Vision and Computer Use <strong>completely free and locally</strong>, the following Vision-capable models are available. Download them via Ollama or LM Studio.</span></p>
+
+<h3><span class="ja">軽量モデル（VRAM 2〜4GB）</span><span class="en">Lightweight Models (VRAM 2-4GB)</span></h3>
+<table class="cmd-table">
+  <thead>
+    <tr>
+      <th><span class="ja">モデル</span><span class="en">Model</span></th>
+      <th><span class="ja">サイズ</span><span class="en">Size</span></th>
+      <th>VRAM</th>
+      <th><span class="ja">Ollama コマンド</span><span class="en">Ollama Command</span></th>
+      <th><span class="ja">特徴</span><span class="en">Features</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Moondream2</strong></td>
+      <td>1.9B</td>
+      <td>~2GB</td>
+      <td><code>ollama pull moondream</code></td>
+      <td><span class="ja">最軽量。低スペック PC でも動作。速度重視向き</span><span class="en">Ultra-lightweight. Runs on low-spec PCs. Best for speed</span></td>
+    </tr>
+    <tr>
+      <td><strong>Qwen2.5-VL 3B</strong></td>
+      <td>3B</td>
+      <td>~3GB</td>
+      <td><code>ollama pull qwen2.5vl:3b</code></td>
+      <td><span class="ja">軽量クラス最強。日本語にも比較的対応</span><span class="en">Best-in-class for its size. Decent Japanese support</span></td>
+    </tr>
+    <tr>
+      <td><strong>Gemma 3 4B</strong></td>
+      <td>4B</td>
+      <td>~3GB</td>
+      <td><code>ollama pull gemma3:4b</code></td>
+      <td><span class="ja">Google 製。サイズの割に高品質。おすすめ</span><span class="en">By Google. High quality for its size. Recommended</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ja">中量級モデル（VRAM 6〜8GB）</span><span class="en">Mid-Range Models (VRAM 6-8GB)</span></h3>
+<table class="cmd-table">
+  <thead>
+    <tr>
+      <th><span class="ja">モデル</span><span class="en">Model</span></th>
+      <th><span class="ja">サイズ</span><span class="en">Size</span></th>
+      <th>VRAM</th>
+      <th><span class="ja">Ollama コマンド</span><span class="en">Ollama Command</span></th>
+      <th><span class="ja">特徴</span><span class="en">Features</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Qwen2.5-VL 7B</strong></td>
+      <td>7B</td>
+      <td>~6GB</td>
+      <td><code>ollama pull qwen2.5vl:7b</code></td>
+      <td><span class="ja">日本語が得意。精度と速度のバランス良好</span><span class="en">Good Japanese support. Well-balanced accuracy and speed</span></td>
+    </tr>
+    <tr>
+      <td><strong>MiniCPM-V 2.6</strong></td>
+      <td>8B</td>
+      <td>~6GB</td>
+      <td><code>ollama pull minicpm-v</code></td>
+      <td><span class="ja">OCR に特に強い。文字認識向き</span><span class="en">Excels at OCR. Best for text recognition</span></td>
+    </tr>
+    <tr>
+      <td><strong>Llama 3.2 Vision</strong></td>
+      <td>11B</td>
+      <td>~8GB</td>
+      <td><code>ollama pull llama3.2-vision</code></td>
+      <td><span class="ja">Meta 製。汎用性が高い</span><span class="en">By Meta. Highly versatile</span></td>
+    </tr>
+    <tr>
+      <td><strong>Gemma 3 12B</strong></td>
+      <td>12B</td>
+      <td>~8GB</td>
+      <td><code>ollama pull gemma3:12b</code></td>
+      <td><span class="ja">精度と速度の最適バランス。最もおすすめ</span><span class="en">Best balance of accuracy and speed. Most recommended</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout"><span class="ja"><strong>💡 おすすめ:</strong> 初めての方は <code>ollama pull gemma3:4b</code> をお試しください。VRAM 8GB 以上の GPU をお持ちなら <code>gemma3:12b</code> が最も高品質です。Mira の設定 → AI → プロバイダ: Ollama、モデル名に上記のモデル名を入力するだけで使えます。</span><span class="en"><strong>💡 Recommendation:</strong> Start with <code>ollama pull gemma3:4b</code>. If you have 8GB+ VRAM, <code>gemma3:12b</code> offers the best quality. Just enter the model name in Mira Settings → AI → Provider: Ollama.</span></div>
 
 <h2 id="ollama"><span class="ja">Ollama（ローカル AI）</span><span class="en">Ollama (Local AI)</span></h2>
 <div class="card">
