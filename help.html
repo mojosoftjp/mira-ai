@@ -141,8 +141,16 @@ a:hover{text-decoration:underline}
   <div class="nav-group">
     <div class="nav-group-label"><span class="ja">音声コマンド</span><span class="en">Voice Commands</span></div>
     <a class="nav-item" href="#commands"><span class="ja">コマンド一覧</span><span class="en">Command List</span></a>
-    <a class="nav-item" href="#memory"><span class="ja">記憶</span><span class="en">Memory</span></a>
-    <a class="nav-item" href="#alarm"><span class="ja">アラーム / スケジュール</span><span class="en">Alarm / Schedule</span></a>
+    <a class="nav-item" href="#cmd-vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
+    <a class="nav-item" href="#cmd-computer-use"><span class="ja">PC操作</span><span class="en">PC Control</span></a>
+    <a class="nav-item" href="#cmd-shortcuts"><span class="ja">ショートカット</span><span class="en">Shortcuts</span></a>
+    <a class="nav-item" href="#cmd-window"><span class="ja">ウィンドウ操作</span><span class="en">Window Control</span></a>
+    <a class="nav-item" href="#cmd-text"><span class="ja">テキスト入力・選択</span><span class="en">Text Input</span></a>
+    <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></a>
+    <a class="nav-item" href="#cmd-app"><span class="ja">アプリ起動</span><span class="en">App Launch</span></a>
+    <a class="nav-item" href="#cmd-system"><span class="ja">システム操作</span><span class="en">System</span></a>
+    <a class="nav-item" href="#cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timer & Alarm</span></a>
+    <a class="nav-item" href="#cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-group-label"><span class="ja">Vision・PC操作</span><span class="en">Vision & PC</span></div>
@@ -357,47 +365,171 @@ a:hover{text-decoration:underline}
 
 <!-- ===== 音声コマンド ===== -->
 <h2 id="commands"><span class="ja">音声コマンド一覧</span><span class="en">Voice Command List</span></h2>
+<p><span class="ja">Mira は音声を認識し、以下のコマンドを即座に実行します。AI に送信せずローカルで 0ms 判定するため、高速に動作します。どのコマンドにも当てはまらない発話は通常の AI 会話として処理されます。</span><span class="en">Mira recognizes your voice and instantly executes the commands below. Intent detection runs locally in 0ms without calling any AI, so it's extremely fast. Any utterance that doesn't match a command is processed as a normal AI conversation.</span></p>
+
+<!-- --- Screen Vision --- -->
+<h3 id="cmd-vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h3>
+<p><span class="ja">AI が画面をキャプチャして内容を分析・説明します。Vision 対応の AI プロバイダが必要です。</span><span class="en">AI captures and analyzes your screen. Requires a Vision-capable AI provider.</span></p>
 <table class="cmd-table">
-  <thead>
-    <tr><th><span class="ja">コマンド</span><span class="en">Command</span></th><th><span class="ja">例</span><span class="en">Example</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr>
-  </thead>
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
   <tbody>
-    <tr><td>web_search</td><td><span class="ja">「天気を調べて」</span><span class="en">"Search the weather"</span></td><td><span class="ja">DuckDuckGo で検索</span><span class="en">Search via DuckDuckGo</span></td></tr>
-    <tr><td>open_app</td><td><span class="ja">「Chromeを開いて」</span><span class="en">"Open Chrome"</span></td><td><span class="ja">アプリを起動（50+対応）</span><span class="en">Launch app (50+ supported)</span></td></tr>
-    <tr><td>set_volume</td><td><span class="ja">「音量を50にして」</span><span class="en">"Set volume to 50"</span></td><td><span class="ja">システム音量を設定</span><span class="en">Set system volume</span></td></tr>
-    <tr><td>read_clipboard</td><td><span class="ja">「クリップボードを読んで」</span><span class="en">"Read the clipboard"</span></td><td><span class="ja">クリップボード内容を取得</span><span class="en">Read clipboard content</span></td></tr>
-    <tr><td>write_clipboard</td><td><span class="ja">「これをコピーして」</span><span class="en">"Copy this"</span></td><td><span class="ja">クリップボードに書き込み</span><span class="en">Write to clipboard</span></td></tr>
-    <tr><td>get_datetime</td><td><span class="ja">「今何時？」</span><span class="en">"What time is it?"</span></td><td><span class="ja">現在の日時を取得</span><span class="en">Get current date/time</span></td></tr>
-    <tr><td>open_file</td><td><span class="ja">「ドキュメントフォルダを開いて」</span><span class="en">"Open Documents folder"</span></td><td><span class="ja">ファイル/フォルダを開く</span><span class="en">Open file or folder</span></td></tr>
-    <tr><td>take_screenshot</td><td><span class="ja">「スクリーンショットを撮って」</span><span class="en">"Take a screenshot"</span></td><td><span class="ja">画面キャプチャ</span><span class="en">Capture screen</span></td></tr>
-    <tr><td>send_keys</td><td><span class="ja">「Ctrl+Cを押して」</span><span class="en">"Press Ctrl+C"</span></td><td><span class="ja">キーストロークを送信</span><span class="en">Send keystrokes</span></td></tr>
-    <tr><td>get_window_list</td><td><span class="ja">「開いているウィンドウは？」</span><span class="en">"What windows are open?"</span></td><td><span class="ja">ウィンドウ一覧を取得</span><span class="en">List open windows</span></td></tr>
+    <tr><td><span class="ja">「画面を見て」「画面に何が映ってる？」</span><span class="en">"Look at the screen" / "What's on my screen?"</span></td><td><span class="ja">"What's on screen?" / "Look at the screen"</span><span class="en">"What's on screen?" / "Look at the screen"</span></td></tr>
+    <tr><td><span class="ja">「画面を説明して」「スクリーンの内容教えて」</span><span class="en">"Describe the screen" / "Tell me what's on screen"</span></td><td><span class="ja">"Describe the screen"</span><span class="en">"Describe the screen"</span></td></tr>
+    <tr><td><span class="ja">「スクリーンショットを撮って」「スクショ」</span><span class="en">"Take a screenshot" / "Screenshot"</span></td><td><span class="ja">"Screenshot" / "Capture screen"</span><span class="en">"Screenshot" / "Capture screen"</span></td></tr>
+    <tr><td><span class="ja">「このエラー何？」「このダイアログの意味教えて」</span><span class="en">"What is this error?" / "Explain this dialog"</span></td><td><span class="ja">"What is this error?"</span><span class="en">"What is this error?"</span></td></tr>
+    <tr><td><span class="ja">「画面に表示されている内容を読んで」</span><span class="en">"Read what's displayed on screen"</span></td><td><span class="ja">"Read the screen"</span><span class="en">"Read the screen"</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡</strong> 「画面の〇〇を<strong>クリック</strong>して」のように操作動詞が含まれる場合は、Screen Vision ではなく Computer Use に自動ルーティングされます。</span><span class="en"><strong>💡</strong> When action verbs like "click" are included (e.g., "click the X on screen"), the command is automatically routed to Computer Use instead of Screen Vision.</span></div>
+
+<!-- --- Computer Use --- -->
+<h3 id="cmd-computer-use"><span class="ja">PC 操作（Computer Use）</span><span class="en">PC Control (Computer Use)</span></h3>
+<p><span class="ja">AI が画面を見ながらマウス・キーボードを自律的に操作します。複合コマンド（複数の操作を一文で指示）にも対応。</span><span class="en">AI autonomously controls mouse and keyboard while watching the screen. Supports compound commands (multiple operations in a single sentence).</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja">「OK ボタンをクリックして」</span><span class="en">"Click the OK button"</span></td><td><span class="ja">"Click the OK button"</span><span class="en">"Click the OK button"</span></td></tr>
+    <tr><td><span class="ja">「アイコンをダブルクリック」</span><span class="en">"Double click the icon"</span></td><td><span class="ja">"Double click the icon"</span><span class="en">"Double click the icon"</span></td></tr>
+    <tr><td><span class="ja">「右クリックして」「〇〇を右クリック」</span><span class="en">"Right click" / "Right click on X"</span></td><td><span class="ja">"Right click on X"</span><span class="en">"Right click on X"</span></td></tr>
+    <tr><td><span class="ja">「画面の左に映っている〇〇をクリックして」</span><span class="en">"Click X shown on the left of the screen"</span></td><td><span class="ja">"On screen, click X"</span><span class="en">"On screen, click X"</span></td></tr>
+    <tr><td><span class="ja">「画面で〇〇して」「PCで〇〇して」</span><span class="en">"On screen, do X" / "On my PC, do X"</span></td><td><span class="ja">"On screen, ..." / "On my PC, ..."</span><span class="en">"On screen, ..." / "On my PC, ..."</span></td></tr>
+    <tr><td><span class="ja">「メモ帳を起動してこんにちはと入力して」<br>（複合コマンド）</span><span class="en">"Open Notepad and type hello" (compound command)</span></td><td><span class="ja">"Use screen to ..."</span><span class="en">"Use screen to ..."</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡</strong> Claude (Sonnet/Opus) はネイティブ Computer Use API を使用します。Gemini / GPT / Ollama 等は汎用プロンプト方式で動作します。</span><span class="en"><strong>💡</strong> Claude (Sonnet/Opus) uses the native Computer Use API. Gemini / GPT / Ollama etc. use a generic prompt-based approach.</span></div>
+
+<!-- --- Keyboard Shortcuts --- -->
+<h3 id="cmd-shortcuts"><span class="ja">ショートカット操作</span><span class="en">Keyboard Shortcuts</span></h3>
+<p><span class="ja">よく使うキーボードショートカットを音声で実行できます。即座にキーストロークを送信します。</span><span class="en">Execute common keyboard shortcuts by voice. Keystrokes are sent instantly.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">実行されるキー</span><span class="en">Key Sent</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja">「保存して」「セーブして」</span><span class="en">"Save"</span></td><td><kbd>Ctrl+S</kbd></td><td><span class="ja">ファイルを保存</span><span class="en">Save file</span></td></tr>
+    <tr><td><span class="ja">「元に戻して」「アンドゥ」</span><span class="en">"Undo"</span></td><td><kbd>Ctrl+Z</kbd></td><td><span class="ja">操作を元に戻す</span><span class="en">Undo</span></td></tr>
+    <tr><td><span class="ja">「やり直し」「リドゥ」</span><span class="en">"Redo"</span></td><td><kbd>Ctrl+Y</kbd></td><td><span class="ja">やり直す</span><span class="en">Redo</span></td></tr>
+    <tr><td><span class="ja">「全選択」「すべて選択」</span><span class="en">"Select all"</span></td><td><kbd>Ctrl+A</kbd></td><td><span class="ja">全て選択</span><span class="en">Select all</span></td></tr>
+    <tr><td><span class="ja">「ペーストして」「貼り付けて」</span><span class="en">"Paste"</span></td><td><kbd>Ctrl+V</kbd></td><td><span class="ja">貼り付け</span><span class="en">Paste</span></td></tr>
+    <tr><td><span class="ja">「切り取り」「カットして」</span><span class="en">"Cut"</span></td><td><kbd>Ctrl+X</kbd></td><td><span class="ja">切り取り</span><span class="en">Cut</span></td></tr>
+    <tr><td><span class="ja">「検索」「ファインド」</span><span class="en">"Find" (in-app)</span></td><td><kbd>Ctrl+F</kbd></td><td><span class="ja">アプリ内検索を開く</span><span class="en">Open in-app search</span></td></tr>
+    <tr><td><span class="ja">「印刷して」「プリントして」</span><span class="en">"Print"</span></td><td><kbd>Ctrl+P</kbd></td><td><span class="ja">印刷ダイアログを開く</span><span class="en">Open print dialog</span></td></tr>
+    <tr><td><span class="ja">「新しいタブ」「タブ開いて」</span><span class="en">"New tab"</span></td><td><kbd>Ctrl+T</kbd></td><td><span class="ja">新規タブを開く</span><span class="en">Open new tab</span></td></tr>
+    <tr><td><span class="ja">「タブを閉じて」「タブ消して」</span><span class="en">"Close tab"</span></td><td><kbd>Ctrl+W</kbd></td><td><span class="ja">タブを閉じる</span><span class="en">Close current tab</span></td></tr>
+    <tr><td><span class="ja">「更新して」「リロード」「リフレッシュ」</span><span class="en">"Refresh"</span></td><td><kbd>F5</kbd></td><td><span class="ja">ページを更新</span><span class="en">Refresh page</span></td></tr>
+    <tr><td><span class="ja">「デスクトップ表示」</span><span class="en">"Show desktop"</span></td><td><kbd>Win+D</kbd></td><td><span class="ja">デスクトップを表示</span><span class="en">Show desktop</span></td></tr>
+    <tr><td><span class="ja">「タスクマネージャー」</span><span class="en">"Task manager"</span></td><td><kbd>Ctrl+Shift+Esc</kbd></td><td><span class="ja">タスクマネージャーを起動</span><span class="en">Open Task Manager</span></td></tr>
+    <tr><td><span class="ja">「閉じて」「ウィンドウ閉じて」</span><span class="en">"Close" / "Close window"</span></td><td><kbd>Alt+F4</kbd></td><td><span class="ja">ウィンドウを閉じる（確認あり）</span><span class="en">Close window (with confirmation)</span></td></tr>
+    <tr><td><span class="ja">「〇〇を閉じて」（例: 「メモ帳を閉じて」）</span><span class="en">"Close Notepad"</span></td><td><kbd>Alt+F4</kbd></td><td><span class="ja">指定アプリを閉じる（確認あり）</span><span class="en">Close specified app (with confirmation)</span></td></tr>
   </tbody>
 </table>
 
-<h2 id="memory"><span class="ja">記憶</span><span class="en">Memory</span></h2>
-<p><span class="ja">Mira は会話の中から重要な情報を自動で記憶します。「覚えて」と言えば明示的に記憶させることもできます。</span><span class="en">Mira automatically remembers important information from conversations. Say "Remember this" to explicitly save memories.</span></p>
-<ul>
-  <li><span class="ja"><strong>自動記憶</strong>: AI が重要な事実を自動的に抽出・保存</span><span class="en"><strong>Auto-memory</strong>: AI automatically extracts and saves important facts</span></li>
-  <li><span class="ja"><strong>ピン留め 📌</strong>: 重要な記憶をピン留めして永続保存</span><span class="en"><strong>Pin 📌</strong>: Pin important memories for permanent storage</span></li>
-  <li><span class="ja"><strong>記憶削除</strong>: 「忘れて」と言えば記憶を削除</span><span class="en"><strong>Delete</strong>: Say "Forget it" to delete memories</span></li>
-  <li><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\memory.json</code></span></li>
-</ul>
+<!-- --- Window Control --- -->
+<h3 id="cmd-window"><span class="ja">ウィンドウ操作</span><span class="en">Window Control</span></h3>
+<p><span class="ja">ウィンドウの最大化・最小化・切り替えを音声で操作できます。</span><span class="en">Control window state and switch between apps by voice.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja">「最大化して」</span><span class="en">"Maximize" / "Maximize window"</span></td><td><span class="ja">"Maximize"</span><span class="en">"Maximize"</span></td><td><span class="ja">ウィンドウを最大化</span><span class="en">Maximize window</span></td></tr>
+    <tr><td><span class="ja">「最小化して」</span><span class="en">"Minimize" / "Minimize window"</span></td><td><span class="ja">"Minimize"</span><span class="en">"Minimize"</span></td><td><span class="ja">ウィンドウを最小化</span><span class="en">Minimize window</span></td></tr>
+    <tr><td><span class="ja">「ウィンドウを元に戻して」「元のサイズに」</span><span class="en">"Restore window"</span></td><td><span class="ja">"Restore"</span><span class="en">"Restore"</span></td><td><span class="ja">元のサイズに戻す</span><span class="en">Restore to original size</span></td></tr>
+    <tr><td><span class="ja">「Chrome に切り替えて」「Excel をフォーカスして」</span><span class="en">"Switch to Chrome" / "Focus on Excel"</span></td><td><span class="ja">"Switch to ..." / "Focus on ..."</span><span class="en">"Switch to ..." / "Focus on ..."</span></td><td><span class="ja">指定アプリを前面に</span><span class="en">Bring app to foreground</span></td></tr>
+    <tr><td><span class="ja">「〇〇をアクティブにして」「〇〇を前面にして」</span><span class="en">"Bring up X" / "Go to X"</span></td><td><span class="ja">"Go to ..." / "Bring up ..."</span><span class="en">"Go to ..." / "Bring up ..."</span></td><td><span class="ja">指定アプリを前面に</span><span class="en">Bring app to foreground</span></td></tr>
+  </tbody>
+</table>
 
-<h2 id="alarm"><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Schedule</span></h2>
-<p><span class="ja">音声でアラームやスケジュールを設定できます。</span><span class="en">Set alarms and schedules by voice.</span></p>
-<ul>
-  <li><span class="ja">「5分後にアラーム」「14時にミーティングを入れて」</span><span class="en">"Set alarm in 5 minutes" / "Schedule a meeting at 2 PM"</span></li>
-  <li><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\alarms.json</code>, <code>schedules.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code>, <code>schedules.json</code></span></li>
-</ul>
+<!-- --- Text Input & Selection --- -->
+<h3 id="cmd-text"><span class="ja">テキスト入力・選択テキスト操作</span><span class="en">Text Input & Selection</span></h3>
+<p><span class="ja">音声でテキストを入力したり、選択中のテキストを翻訳・要約できます。</span><span class="en">Type text by voice, or translate/summarize selected text.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja">「こんにちはと入力して」</span><span class="en">"Type hello"</span></td><td><span class="ja">"Type ..." / "Input ..."</span><span class="en">"Type ..." / "Input ..."</span></td><td><span class="ja">テキストを入力</span><span class="en">Type text</span></td></tr>
+    <tr><td><span class="ja">「「会議の議事録」と書いて」（括弧付き）</span><span class="en">"Write meeting notes"</span></td><td><span class="ja">"Write ..."</span><span class="en">"Write ..."</span></td><td><span class="ja">括弧内のテキストを入力</span><span class="en">Type quoted text</span></td></tr>
+    <tr><td><span class="ja">「翻訳して」「英語にして」「英訳して」</span><span class="en">"Translate" / "Translate this"</span></td><td><span class="ja">"Translate" / "Translate this"</span><span class="en">"Translate" / "Translate this"</span></td><td><span class="ja">選択テキストを翻訳</span><span class="en">Translate selected text</span></td></tr>
+    <tr><td><span class="ja">「日本語にして」「和訳して」</span><span class="en">"Translate to Japanese"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">選択テキストを和訳</span><span class="en">Translate to Japanese</span></td></tr>
+    <tr><td><span class="ja">「要約して」「まとめて」</span><span class="en">"Summarize" / "Summarize this"</span></td><td><span class="ja">"Summarize" / "Summarize this"</span><span class="en">"Summarize" / "Summarize this"</span></td><td><span class="ja">選択テキストを要約</span><span class="en">Summarize selected text</span></td></tr>
+    <tr><td><span class="ja">「選択テキストを説明して」</span><span class="en">"Explain selected text"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">選択テキストを説明</span><span class="en">Explain selected text</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡</strong> 翻訳・要約は、事前にテキストを選択（ドラッグ等）した状態で発話してください。Mira が自動で選択テキストを取得して処理します。</span><span class="en"><strong>💡</strong> For translate/summarize, select text first (drag, etc.) before speaking. Mira automatically retrieves and processes the selected text.</span></div>
+
+<!-- --- Search & Weather --- -->
+<h3 id="cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></h3>
+<p><span class="ja">Web 検索や天気情報を音声で取得できます。検索結果は AI が読み上げます。</span><span class="en">Get web search results and weather information by voice. Results are read aloud by AI.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja"><strong>Web検索</strong><br>(DuckDuckGo)</span><span class="en"><strong>Web Search</strong><br>(DuckDuckGo)</span></td><td><span class="ja">「〇〇を調べて」「〇〇を検索して」<br>「〇〇について教えて」</span><span class="en">"Search for X" / "Look up X"<br>"What is X?"</span></td><td><span class="ja">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span><span class="en">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span></td></tr>
+    <tr><td><span class="ja"><strong>Web検索</strong><br>(用語)</span><span class="en"><strong>Web Search</strong><br>(What is)</span></td><td><span class="ja">「〇〇って何？」「〇〇とは？」</span><span class="en">"What is X?" / "What are X?"</span></td><td><span class="ja">"What is ...?" / "Find ..."</span><span class="en">"What is ...?" / "Find ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>ブラウザ検索</strong><br>(Google)</span><span class="en"><strong>Browser Search</strong><br>(Google)</span></td><td><span class="ja">「〇〇をググって」「〇〇をグーグルで」</span><span class="en">"Google X"</span></td><td><span class="ja">"Google ..."</span><span class="en">"Google ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>天気</strong></span><span class="en"><strong>Weather</strong></span></td><td><span class="ja">「今日の天気は？」「東京の天気教えて」<br>「明日の気温」「降水確率は？」</span><span class="en">"What's the weather?" / "Weather in Tokyo"<br>"Tomorrow's temperature"</span></td><td><span class="ja">"Weather" / "Forecast"<br>"Temperature in ..."</span><span class="en">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡 「調べて」vs「ググって」の違い:</strong>「調べて」は DuckDuckGo で検索して結果を AI が読み上げます。「ググって」はブラウザで Google 検索ページを直接開きます。</span><span class="en"><strong>💡 "Search" vs "Google":</strong> "Search" uses DuckDuckGo and AI reads the results aloud. "Google" opens the Google search page directly in your browser.</span></div>
+
+<!-- --- App Launch & Website --- -->
+<h3 id="cmd-app"><span class="ja">アプリ起動・Web サイトを開く</span><span class="en">App Launch & Open Website</span></h3>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja">「Chrome を開いて」「メモ帳を起動して」</span><span class="en">"Open Chrome" / "Launch Notepad"</span></td><td><span class="ja">"Open ..." / "Launch ..." / "Start ..."</span><span class="en">"Open ..." / "Launch ..." / "Start ..."</span></td><td><span class="ja">アプリを起動（50+対応）</span><span class="en">Launch app (50+ supported)</span></td></tr>
+    <tr><td><span class="ja">「エクスプローラーを立ち上げて」</span><span class="en">"Run Explorer"</span></td><td><span class="ja">"Run ..."</span><span class="en">"Run ..."</span></td><td><span class="ja">アプリを起動</span><span class="en">Launch app</span></td></tr>
+    <tr><td><span class="ja">「Gmail のサイトを開いて」</span><span class="en">"Open Gmail site"</span></td><td><span class="ja">"Open the YouTube page"</span><span class="en">"Open the YouTube page"</span></td><td><span class="ja">Web サイトをブラウザで開く</span><span class="en">Open website in browser</span></td></tr>
+    <tr><td><span class="ja">「Amazon のページを開いて」</span><span class="en">"Open the Amazon website"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">Web サイトをブラウザで開く</span><span class="en">Open website in browser</span></td></tr>
+  </tbody>
+</table>
+
+<!-- --- System Operations --- -->
+<h3 id="cmd-system"><span class="ja">システム操作</span><span class="en">System Operations</span></h3>
+<p><span class="ja">音量・クリップボード・日時など、システム情報の取得や操作ができます。</span><span class="en">Control volume, clipboard, date/time, and other system functions.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja"><strong>音量</strong></span><span class="en"><strong>Volume</strong></span></td><td><span class="ja">「音量を50にして」「ボリューム上げて」<br>「音量いくつ？」</span><span class="en">"Set volume to 50" / "Volume up"<br>"What's the volume?"</span></td><td><span class="ja">"Set volume to ..." / "Volume up/down"</span><span class="en">"Set volume to ..." / "Volume up/down"</span></td></tr>
+    <tr><td><span class="ja"><strong>ミュート</strong></span><span class="en"><strong>Mute</strong></span></td><td><span class="ja">「ミュートして」「消音して」<br>「ミュート解除」</span><span class="en">"Mute" / "Unmute"</span></td><td><span class="ja">"Mute" / "Unmute"</span><span class="en">"Mute" / "Unmute"</span></td></tr>
+    <tr><td><span class="ja"><strong>クリップボード<br>（読み取り）</strong></span><span class="en"><strong>Clipboard<br>(Read)</strong></span></td><td><span class="ja">「クリップボードを読んで」<br>「クリップボードの内容教えて」</span><span class="en">"Read clipboard" / "What's in the clipboard?"</span></td><td><span class="ja">"Read clipboard" / "Show clipboard"</span><span class="en">"Read clipboard" / "Show clipboard"</span></td></tr>
+    <tr><td><span class="ja"><strong>クリップボード<br>（書き込み）</strong></span><span class="en"><strong>Clipboard<br>(Write)</strong></span></td><td><span class="ja">「〇〇をコピーして」<br>「クリップボードにコピーして」</span><span class="en">"Copy X to clipboard"</span></td><td><span class="ja">"Copy ..."</span><span class="en">"Copy ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>時刻</strong></span><span class="en"><strong>Time</strong></span></td><td><span class="ja">「今何時？」「時刻教えて」</span><span class="en">"What time is it?" / "Current time"</span></td><td><span class="ja">"What time is it?"</span><span class="en">"What time is it?"</span></td></tr>
+    <tr><td><span class="ja"><strong>日付</strong></span><span class="en"><strong>Date</strong></span></td><td><span class="ja">「今日何曜日？」「今日の日付」<br>「今日は何日？」</span><span class="en">"What day is it?" / "What's the date?"<br>"Today's date"</span></td><td><span class="ja">"What day is it?" / "What's the date?"</span><span class="en">"What day is it?" / "What's the date?"</span></td></tr>
+  </tbody>
+</table>
+
+<!-- --- Timer & Alarm --- -->
+<h3 id="cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timers & Alarms</span></h3>
+<p><span class="ja">カウントダウンタイマーやアラームを音声で設定・管理できます。</span><span class="en">Set and manage countdown timers and alarms by voice.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja"><strong>タイマー設定</strong></span><span class="en"><strong>Set Timer</strong></span></td><td><span class="ja">「3分タイマー」「タイマー5分」<br>「10秒計って」</span><span class="en">"Set a 3 minute timer"<br>"Timer for 5 minutes"</span></td><td><span class="ja">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span><span class="en">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span></td></tr>
+    <tr><td><span class="ja"><strong>タイマー停止</strong></span><span class="en"><strong>Cancel Timer</strong></span></td><td><span class="ja">「タイマー止めて」「タイマーキャンセル」</span><span class="en">"Cancel timer" / "Stop timer"</span></td><td><span class="ja">"Cancel timer"</span><span class="en">"Cancel timer"</span></td></tr>
+    <tr><td><span class="ja"><strong>タイマー確認</strong></span><span class="en"><strong>List Timers</strong></span></td><td><span class="ja">「タイマーある？」「タイマー確認」<br>「タイマーの残り時間」</span><span class="en">"Any timers?" / "List timers"</span></td><td><span class="ja">"Any timers?"</span><span class="en">"Any timers?"</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム設定</strong></span><span class="en"><strong>Set Alarm</strong></span></td><td><span class="ja">「7時にアラーム」「14時30分に起こして」<br>「明日6時に目覚まし」</span><span class="en">"Set alarm for 7 AM"<br>"Wake me up at 2:30 PM"</span></td><td><span class="ja">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span><span class="en">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム停止</strong></span><span class="en"><strong>Cancel Alarm</strong></span></td><td><span class="ja">「アラーム消して」「目覚まし止めて」<br>「アラーム解除」</span><span class="en">"Cancel alarm" / "Stop alarm"<br>"Clear alarms"</span></td><td><span class="ja">"Cancel alarm" / "Delete alarm"</span><span class="en">"Cancel alarm" / "Delete alarm"</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム確認</strong></span><span class="en"><strong>List Alarms</strong></span></td><td><span class="ja">「アラームある？」「セットされてるアラームは？」</span><span class="en">"Any alarms set?" / "List alarms"<br>"What alarms?"</span></td><td><span class="ja">"List alarms" / "Show alarms"</span><span class="en">"List alarms" / "Show alarms"</span></td></tr>
+  </tbody>
+</table>
+<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span></p>
+
+<!-- --- Memory & Schedule --- -->
+<h3 id="cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></h3>
+<p><span class="ja">Mira は会話の中から重要な情報を自動で記憶します。「覚えて」と言えば明示的に記憶させることもできます。</span><span class="en">Mira automatically remembers important information from conversations. Say "Remember this" to explicitly save memories.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja"><strong>記憶（自動）</strong></span><span class="en"><strong>Memory (Auto)</strong></span></td><td colspan="2"><span class="ja">AI が重要な事実を自動的に抽出・保存します。ピン留め📌で永続保存も可能。</span><span class="en">AI automatically extracts and saves important facts. Pin 📌 for permanent storage.</span></td></tr>
+    <tr><td><span class="ja"><strong>個別削除</strong></span><span class="en"><strong>Forget One</strong></span></td><td><span class="ja">「〇〇を忘れて」「〇〇の記憶を消して」</span><span class="en">"Forget X" / "Forget about X"</span></td><td><span class="ja">"Forget ..." / "Forget about ..."</span><span class="en">"Forget ..." / "Forget about ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>全削除</strong></span><span class="en"><strong>Forget All</strong></span></td><td><span class="ja">「全部忘れて」「記憶をクリアして」<br>「記憶をリセット」</span><span class="en">"Forget everything" / "Clear memory"<br>"Reset memory"</span></td><td><span class="ja">"Forget everything" / "Clear all memories"</span><span class="en">"Forget everything" / "Clear all memories"</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール確認</strong></span><span class="en"><strong>List Schedule</strong></span></td><td><span class="ja">「予定を教えて」「スケジュール確認」<br>「今後の予定は？」</span><span class="en">"What's my schedule?" / "List schedule"<br>"Any appointments?"</span></td><td><span class="ja">"What's my schedule?" / "Show schedule"</span><span class="en">"What's my schedule?" / "Show schedule"</span></td></tr>
+  </tbody>
+</table>
+<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span></p>
 
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
-<p><span class="ja">「画面を見て」「画面に何が表示されている？」と話しかけると、Mira が AI を使って画面を分析します。</span><span class="en">Say "Look at the screen" or "What's on my screen?" and Mira analyzes the screen using AI.</span></p>
+<p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
 <p><span class="ja">推奨プロバイダ: Claude Sonnet 4.6、Gemini 2.5 Flash、Qwen3-VL 8B（ローカル）</span><span class="en">Recommended providers: Claude Sonnet 4.6, Gemini 2.5 Flash, Qwen3-VL 8B (local)</span></p>
 
 <h2 id="computer-use"><span class="ja">Computer Use（自律 PC 操作）</span><span class="en">Computer Use (Autonomous PC Control)</span></h2>
-<p><span class="ja">「画面で OK ボタンをクリックして」「メモ帳を開いて」— AI が画面を見ながら、マウスやキーボードを自律的に操作します。</span><span class="en">"Click the OK button on screen" / "Open Notepad" — AI autonomously controls mouse and keyboard while watching the screen.</span></p>
+<p><span class="ja">AI が画面を見ながらマウス・キーボードを自律的に操作します。クリック・ダブルクリック・右クリック・テキスト入力・複合コマンドに対応。音声コマンドの詳細は <a href="#cmd-computer-use">PC 操作コマンド</a> を参照。</span><span class="en">AI autonomously controls mouse and keyboard while watching the screen. Supports click, double-click, right-click, text input, and compound commands. See <a href="#cmd-computer-use">PC Control commands</a> for details.</span></p>
 <div class="callout"><span class="ja"><strong>💡 ヒント:</strong> Claude (Sonnet/Opus) はネイティブ Computer Use API を使用し、他のプロバイダは汎用プロンプト方式で動作します。</span><span class="en"><strong>💡 Tip:</strong> Claude (Sonnet/Opus) uses the native Computer Use API, while other providers use a generic prompt-based approach.</span></div>
 
 <h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
