@@ -205,12 +205,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <p class="hwid-help"><span class="ja">Mira の設定 → ライセンスタブで確認できます</span><span class="en">Find in Mira Settings → License tab</span></p>
       </div>
 
-      <div class="paypal-container" id="paypal-1pc">
-        <p style="text-align:center;color:var(--text-dim);font-size:.85rem;padding:12px 0">
-          <span class="ja">💳 PayPal ボタン準備中</span>
-          <span class="en">💳 PayPal button coming soon</span>
-        </p>
-      </div>
+      <div class="paypal-container" id="paypal-1pc"></div>
 
       <p class="payment-note">
         <span class="ja">🔒 安全な決済 · 即時配信</span>
@@ -242,12 +237,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <input type="text" id="hwid-unlimited" placeholder="MR-HW-XXXX-XXXX-XXXX-XXXX" maxlength="24">
       </div>
 
-      <div class="paypal-container" id="paypal-unlimited">
-        <p style="text-align:center;color:var(--text-dim);font-size:.85rem;padding:12px 0">
-          <span class="ja">💳 PayPal ボタン準備中</span>
-          <span class="en">💳 PayPal button coming soon</span>
-        </p>
-      </div>
+      <div class="paypal-container" id="paypal-unlimited"></div>
 
       <p class="payment-note">
         <span class="ja">🔒 安全な決済 · 即時配信</span>
@@ -295,6 +285,29 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
 </div>
 
+<!-- Success Modal -->
+<div id="success-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:var(--bg-card,#1e293b);border-radius:16px;padding:32px;max-width:420px;width:90%;text-align:center;color:var(--text,#e2e8f0)">
+    <div style="font-size:3rem;margin-bottom:12px">🎉</div>
+    <h2 style="margin:0 0 8px"><span class="ja">ご購入ありがとうございます！</span><span class="en">Thank You for Your Purchase!</span></h2>
+    <p style="color:var(--text-dim,#94a3b8);font-size:.9rem;margin-bottom:16px">
+      <span class="ja">24時間以内にライセンスキーをメールでお届けします。</span>
+      <span class="en">Your license key will be sent via email within 24 hours.</span>
+    </p>
+    <div style="background:rgba(100,210,255,.08);border-radius:8px;padding:12px;text-align:left;font-size:.9rem;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-dim,#94a3b8)"><span class="ja">製品</span><span class="en">Product</span></span><span id="modal-product"></span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-dim,#94a3b8)"><span class="ja">金額</span><span class="en">Amount</span></span><span id="modal-amount"></span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-dim,#94a3b8)">Email</span><span id="modal-email"></span></div>
+      <div id="modal-hwid-row" style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--text-dim,#94a3b8)">Hardware ID</span><span id="modal-hwid"></span></div>
+    </div>
+    <p style="color:var(--text-dim,#94a3b8);font-size:.8rem;margin-bottom:16px">
+      <span class="ja">ライセンスキーが届かない場合は <a href="mailto:support@mojosoft.biz" style="color:#64D2FF">support@mojosoft.biz</a> までご連絡ください。</span>
+      <span class="en">If you don't receive your key, contact <a href="mailto:support@mojosoft.biz" style="color:#64D2FF">support@mojosoft.biz</a></span>
+    </p>
+    <button onclick="closeSuccessModal()" style="background:#64D2FF;color:#1B2A4A;border:none;border-radius:8px;padding:10px 32px;font-weight:bold;cursor:pointer;font-size:1rem">OK</button>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer>
   <div class="footer-links">
@@ -308,7 +321,58 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   <p class="footer-copy">© 2026 Mojosoft. All rights reserved.</p>
 </footer>
 
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AQW_pNfSyvlWxHshLEfmnSzEq85x3im5k-2Khrpns2wh7XV2yp5oYYkwb1_8-8fT2U6fnVIX4xlrTvgO&currency=JPY&locale=ja_JP"></script>
 <script>
+function showSuccessModal(product, amount, email, hardwareId) {
+  document.getElementById('modal-product').textContent = product;
+  document.getElementById('modal-amount').textContent = amount;
+  document.getElementById('modal-email').textContent = email;
+  var hwidRow = document.getElementById('modal-hwid-row');
+  var hwidVal = document.getElementById('modal-hwid');
+  if (hardwareId) { hwidRow.style.display = 'flex'; hwidVal.textContent = hardwareId; }
+  else { hwidRow.style.display = 'none'; }
+  document.getElementById('success-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeSuccessModal() {
+  document.getElementById('success-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('success-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeSuccessModal();
+});
+
+function validateHwid(id) { return /^MR-HW-[A-Z0-9]{16}$/.test(id); }
+
+if (document.getElementById('paypal-1pc')) {
+  paypal.Buttons({
+    style: { layout: 'vertical', color: 'blue', shape: 'rect', label: 'paypal' },
+    createOrder: function(data, actions) {
+      var input = document.getElementById('hwid-1pc');
+      var hwid = input ? input.value.trim().toUpperCase() : '';
+      if (!hwid) { input.focus(); alert(document.body.getAttribute('data-lang') === 'ja' ? 'ハードウェアIDを入力してください。' : 'Please enter your Hardware ID.'); return Promise.reject(); }
+      if (!validateHwid(hwid)) { input.focus(); alert(document.body.getAttribute('data-lang') === 'ja' ? 'ハードウェアIDの形式が正しくありません' : 'Invalid Hardware ID format'); return Promise.reject(); }
+      return actions.order.create({ purchase_units: [{ description: 'Mira 1PC License [HW:' + hwid + ']', amount: { currency_code: 'JPY', value: '1980', breakdown: { item_total: { currency_code: 'JPY', value: '1980' } } }, items: [{ name: 'Mira 1PC License', sku: 'MR010', unit_amount: { currency_code: 'JPY', value: '1980' }, quantity: '1', description: 'HW:' + hwid }], custom_id: 'MR010|' + hwid }] });
+    },
+    onApprove: function(data, actions) { return actions.order.capture().then(function(details) { var hwid = document.getElementById('hwid-1pc').value.trim().toUpperCase(); var lang = document.body.getAttribute('data-lang'); showSuccessModal('Mira 1PC License', lang === 'ja' ? '¥1,980' : '$12.99', details.payer.email_address, hwid); }); },
+    onError: function(err) { console.error('PayPal Error:', err); alert('Payment error. Please try again.'); }
+  }).render('#paypal-1pc');
+}
+
+if (document.getElementById('paypal-unlimited')) {
+  paypal.Buttons({
+    style: { layout: 'vertical', color: 'gold', shape: 'rect', label: 'paypal' },
+    createOrder: function(data, actions) {
+      var input = document.getElementById('hwid-unlimited');
+      var hwid = input ? input.value.trim().toUpperCase() : '';
+      return actions.order.create({ purchase_units: [{ description: hwid ? 'Mira Unlimited [HW:' + hwid + ']' : 'Mira Unlimited PCs License', amount: { currency_code: 'JPY', value: '4980', breakdown: { item_total: { currency_code: 'JPY', value: '4980' } } }, items: [{ name: 'Mira Unlimited PCs License', sku: 'MR011', unit_amount: { currency_code: 'JPY', value: '4980' }, quantity: '1', description: hwid ? 'HW:' + hwid : 'Unlimited PCs' }], custom_id: 'MR011|' + (hwid || 'UNLIMITED') }] });
+    },
+    onApprove: function(data, actions) { return actions.order.capture().then(function(details) { var input = document.getElementById('hwid-unlimited'); var hwid = input ? input.value.trim().toUpperCase() : ''; var lang = document.body.getAttribute('data-lang'); showSuccessModal('Mira Unlimited PCs', lang === 'ja' ? '¥4,980' : '$32.99', details.payer.email_address, hwid || null); }); },
+    onError: function(err) { console.error('PayPal Error:', err); alert('Payment error. Please try again.'); }
+  }).render('#paypal-unlimited');
+}
+
 function setLang(l){
   document.body.setAttribute('data-lang',l);
   document.documentElement.lang=l;
