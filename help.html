@@ -147,6 +147,7 @@ a:hover{text-decoration:underline}
     <a class="nav-item" href="#cmd-window"><span class="ja">ウィンドウ操作</span><span class="en">Window Control</span></a>
     <a class="nav-item" href="#cmd-text"><span class="ja">テキスト入力・選択</span><span class="en">Text Input</span></a>
     <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></a>
+    <a class="nav-item" href="#cmd-webwatch"><span class="ja">Webウォッチ</span><span class="en">Web Watch</span></a>
     <a class="nav-item" href="#cmd-app"><span class="ja">アプリ起動</span><span class="en">App Launch</span></a>
     <a class="nav-item" href="#cmd-system"><span class="ja">システム操作</span><span class="en">System</span></a>
     <a class="nav-item" href="#cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timer & Alarm</span></a>
@@ -161,6 +162,7 @@ a:hover{text-decoration:underline}
   <div class="nav-group">
     <div class="nav-group-label"><span class="ja">設定</span><span class="en">Settings</span></div>
     <a class="nav-item" href="#custom-notes"><span class="ja">おぼえがき</span><span class="en">Custom Notes</span></a>
+    <a class="nav-item" href="#webwatch-settings"><span class="ja">Webウォッチ設定</span><span class="en">Web Watch Setup</span></a>
     <a class="nav-item" href="#theme"><span class="ja">テーマ</span><span class="en">Theme</span></a>
     <a class="nav-item" href="#startup"><span class="ja">起動設定</span><span class="en">Startup</span></a>
   </div>
@@ -466,6 +468,18 @@ a:hover{text-decoration:underline}
 </table>
 <div class="callout"><span class="ja"><strong>💡 「調べて」vs「ググって」の違い:</strong>「調べて」は DuckDuckGo で検索して結果を AI が読み上げます。「ググって」はブラウザで Google 検索ページを直接開きます。</span><span class="en"><strong>💡 "Search" vs "Google":</strong> "Search" uses DuckDuckGo and AI reads the results aloud. "Google" opens the Google search page directly in your browser.</span></div>
 
+<!-- --- Web Watch --- -->
+<h3 id="cmd-webwatch"><span class="ja">Webウォッチ <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Web Watch <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
+<p><span class="ja">よくチェックするWebページをキーワードで登録し、音声でその内容を取得・要約してもらえる機能です。設定画面の「Webウォッチ」タブでキーワードとURLのペアを登録してください。</span><span class="en">Register frequently-checked web pages with keywords and get their content fetched and summarized by voice. Set up keyword-URL pairs in the "Web Watch" tab in Settings.</span></p>
+<table class="cmd-table">
+  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">動作</span><span class="en">Action</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="ja"><strong>内容取得<br>（AI要約）</strong></span><span class="en"><strong>Fetch Content<br>(AI Summary)</strong></span></td><td><span class="ja">「最新ニュース教えて」<br>「天気予報を教えて」<br>「株価どう？」</span><span class="en">"Tell me the latest news"<br>"What's the weather forecast?"<br>"How are the stocks?"</span></td><td><span class="ja">登録URLのページ内容を取得し、AIが要約して読み上げ</span><span class="en">Fetches page content from registered URL, AI summarizes and reads aloud</span></td></tr>
+    <tr><td><span class="ja"><strong>ブラウザで表示</strong></span><span class="en"><strong>Open in Browser</strong></span></td><td><span class="ja">「最新ニュース<strong>表示して</strong>」<br>「天気予報<strong>開いて</strong>」<br>「株価<strong>見せて</strong>」</span><span class="en">"<strong>Show</strong> me the latest news"<br>"<strong>Open</strong> the weather forecast"</span></td><td><span class="ja">登録URLをブラウザで直接オープン</span><span class="en">Opens registered URL directly in browser</span></td></tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡 設定例:</strong> キーワード「最新ニュース」に <code>https://news.yahoo.co.jp/</code> を登録すると、「最新ニュース教えて」でYahooニュースの主要記事をAIが要約して読み上げます。「最新ニュース表示して」ならブラウザで直接ページを開きます。キーワードは<strong>部分一致</strong>で発火するため、厳密に一致させる必要はありません。</span><span class="en"><strong>💡 Example:</strong> Register keyword "latest news" with <code>https://news.yahoo.co.jp/</code>. Say "Tell me the latest news" and AI will summarize Yahoo News articles. Say "Show me the latest news" to open the page in your browser. Keywords use <strong>partial matching</strong>, so they don't need to match exactly.</span></div>
+
 <!-- --- App Launch & Website --- -->
 <h3 id="cmd-app"><span class="ja">アプリ起動・Web サイトを開く</span><span class="en">App Launch & Open Website</span></h3>
 <table class="cmd-table">
@@ -543,6 +557,18 @@ a:hover{text-decoration:underline}
 <!-- ===== 設定 ===== -->
 <h2 id="custom-notes"><span class="ja">おぼえがき（Custom Notes）</span><span class="en">Custom Notes</span></h2>
 <p><span class="ja">設定画面で Mira に追加の指示を書けます。例: 「天気を聞かれたら Yahoo 天気で検索して」「タメ口はだめ」</span><span class="en">Write additional instructions for Mira in Settings. Example: "Search Yahoo Weather when asked about weather" / "Use polite language"</span></p>
+
+<h2 id="webwatch-settings"><span class="ja">Webウォッチ設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Web Watch Setup <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
+<p><span class="ja">設定画面の「Webウォッチ」タブで、キーワードとURLのペアを登録します。</span><span class="en">Register keyword-URL pairs in the "Web Watch" tab in Settings.</span></p>
+<ol class="step-list">
+  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span><span class="en">Open Settings (double-click Mira tray icon → "Settings" button)</span></li>
+  <li><span class="ja">「Webウォッチ」タブを選択</span><span class="en">Select the "Web Watch" tab</span></li>
+  <li><span class="ja">キーワード欄に発話で使う単語（例: 「最新ニュース」）を入力</span><span class="en">Enter a keyword you'll use in voice commands (e.g., "latest news")</span></li>
+  <li><span class="ja">URL欄に取得したいページのURLを入力（例: <code>https://news.yahoo.co.jp/</code>）</span><span class="en">Enter the URL of the page to fetch (e.g., <code>https://news.yahoo.co.jp/</code>)</span></li>
+  <li><span class="ja">「追加」ボタンをクリック</span><span class="en">Click "Add"</span></li>
+  <li><span class="ja">「保存」ボタンで設定を保存（キャンセルで破棄）</span><span class="en">Click "Save" to save settings (Cancel to discard)</span></li>
+</ol>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは部分一致で発火します。「ニュース」と登録すれば「今日のニュース教えて」「ニュースの概要を教えて」など、「ニュース」を含む発話すべてにマッチします。複数のキーワード-URLペアを登録でき、長いキーワードが優先的にマッチします。</span><span class="en"><strong>💡 Tip:</strong> Keywords use partial matching. Register "news" and it matches any utterance containing "news" like "What's the news today?" or "Give me a news summary." You can register multiple keyword-URL pairs; longer keywords take priority.</span></div>
 
 <h2 id="theme"><span class="ja">テーマ</span><span class="en">Theme</span></h2>
 <p><span class="ja">ダーク / ライトテーマを設定画面から切り替えられます。</span><span class="en">Switch between Dark / Light theme in Settings.</span></p>

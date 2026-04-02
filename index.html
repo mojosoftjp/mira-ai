@@ -447,10 +447,10 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="ja">🖐 手 — Hands</span><span class="en">🖐 Hands</span></h3>
       <div class="power-sub"><span class="ja">操作する力</span><span class="en">PC Control</span></div>
-      <p><span class="ja">「Chromeを開いて」「音量を50にして」— 自然な言葉で PC を操作。Web 検索、アプリ起動、キー入力、アラーム、スケジュール管理まで。</span><span class="en">"Open Chrome." "Set volume to 50." Control your PC with natural voice. Web search, app launch, keystrokes, alarms, and scheduling.</span></p>
+      <p><span class="ja">「Chromeを開いて」「音量を50にして」— 自然な言葉で PC を操作。Web 検索、アプリ起動、キー入力、アラーム、スケジュール管理まで。<strong>Webウォッチ</strong>でお気に入りサイトの最新情報を声で取得。</span><span class="en">"Open Chrome." "Set volume to 50." Control your PC with natural voice. Web search, app launch, keystrokes, alarms, and scheduling. <strong>Web Watch</strong> fetches your favorite sites on command.</span></p>
       <ul>
+        <li><span class="ja">Webウォッチ (NEW!)</span><span class="en">Web Watch (NEW!)</span></li>
         <li><span class="ja">Web検索 / アプリ起動</span><span class="en">Web Search / App Launch</span></li>
-        <li><span class="ja">音量 / クリップボード</span><span class="en">Volume / Clipboard</span></li>
         <li><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Scheduling</span></li>
         <li><span class="ja">Gemini Live リアルタイム</span><span class="en">Gemini Live Real-time</span></li>
       </ul>
@@ -660,6 +660,71 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
             <p><span class="ja">タスク完了まで 1〜3 を自動繰り返し</span><span class="en">Repeats steps 1-3 until task is complete</span></p>
           </div>
           <span class="cu-step-icon">🔄</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Web Watch Showcase (NEW in v1.0.6) ===== -->
+<section class="section showcase">
+  <div class="showcase-split fade-in">
+    <div class="showcase-text">
+      <div class="section-label">
+        <span class="ja">NEW — v1.0.6</span>
+        <span class="en">NEW — v1.0.6</span>
+      </div>
+      <h2 class="section-title" style="text-align:left">
+        <span class="ja">Web<span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">ウォッチ</span></span>
+        <span class="en">Web <span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Watch</span></span>
+      </h2>
+      <p class="showcase-desc">
+        <span class="ja"><strong>キーワード</strong>と<strong>URL</strong>をペアで登録するだけ。「最新ニュース教えて」と話しかければ、Mira が指定サイトにアクセスして内容を要約・読み上げ。ブラウザを開く必要すらありません。<br><br>「主要なニュースだけ教えて」「全部教えて」のように<strong>指示を追加するだけで、AIが読み上げ方を柔軟に調整</strong>。「表示して」と言えばブラウザで表示もOK。</span>
+        <span class="en">Register <strong>keyword + URL</strong> pairs. Say "Tell me the latest news" and Mira fetches the site, summarizes, and reads it aloud — no browser needed.<br><br>Add instructions like "just the highlights" or "everything" and <strong>AI adapts its summary on the fly</strong>. Say "show" to open in browser instead.</span>
+      </p>
+    </div>
+    <div class="showcase-visual">
+      <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;max-width:380px;margin:0 auto">
+        <div style="font-size:.75rem;color:var(--accent-cyan);font-weight:600;letter-spacing:.06em;margin-bottom:16px">
+          <span class="ja">SETTINGS — WEBウォッチ</span>
+          <span class="en">SETTINGS — WEB WATCH</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:rgba(0,168,255,.06);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <span style="color:var(--accent-cyan);font-weight:600;min-width:100px">
+              <span class="ja">最新ニュース</span><span class="en">Latest News</span>
+            </span>
+            <span style="color:var(--text-dim);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">news.yahoo.co.jp</span>
+          </div>
+          <div style="background:rgba(0,168,255,.06);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <span style="color:var(--accent-cyan);font-weight:600;min-width:100px">
+              <span class="ja">天気予報</span><span class="en">Weather</span>
+            </span>
+            <span style="color:var(--text-dim);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">weather.yahoo.co.jp</span>
+          </div>
+          <div style="background:rgba(0,168,255,.06);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <span style="color:var(--accent-cyan);font-weight:600;min-width:100px">
+              <span class="ja">株価</span><span class="en">Stocks</span>
+            </span>
+            <span style="color:var(--text-dim);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">finance.yahoo.co.jp</span>
+          </div>
+        </div>
+        <div style="margin-top:18px;padding:14px;background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);border-radius:var(--radius-sm)">
+          <div style="font-size:.8rem;color:var(--accent-teal);font-weight:600;margin-bottom:8px">
+            <span class="ja">音声コマンド例:</span><span class="en">Voice commands:</span>
+          </div>
+          <div style="font-size:.82rem;color:var(--text-muted);line-height:1.8">
+            <span class="ja">
+              「最新ニュース教えて」→ 要約読み上げ<br>
+              「最新ニュースの主要なのだけ」→ AI が絞る<br>
+              「最新ニュース表示して」→ ブラウザで表示
+            </span>
+            <span class="en">
+              "Tell me the latest news" → Summarize<br>
+              "Just the headlines" → AI filters<br>
+              "Show the latest news" → Open in browser
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -877,6 +942,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
     <div class="feature-card fade-in"><span class="f-icon">🖱️</span><h4><span class="ja">Computer Use</span><span class="en">Computer Use</span></h4><p><span class="ja">AIがスクショ→解析→操作を自律ループ</span><span class="en">AI screenshot→analyze→act autonomous loop</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h4><p><span class="ja">リアルタイム音声対話。待ち時間ゼロ</span><span class="en">Real-time voice dialogue. Zero wait time</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="ja">会話記憶</span><span class="en">Conversation Memory</span></h4><p><span class="ja">重要な情報を記憶・ピン留め保存</span><span class="en">Remember important info with pin system</span></p></div>
+    <div class="feature-card fade-in" style="border-color:var(--accent-cyan);box-shadow:0 0 16px var(--glow-cyan)"><span class="f-icon">🌐</span><h4><span class="ja">Webウォッチ <span style="font-size:.7rem;background:var(--gradient-main);color:#fff;padding:2px 8px;border-radius:999px;vertical-align:middle">NEW</span></span><span class="en">Web Watch <span style="font-size:.7rem;background:var(--gradient-main);color:#fff;padding:2px 8px;border-radius:999px;vertical-align:middle">NEW</span></span></h4><p><span class="ja">キーワードで指定サイトの内容を要約・読み上げ</span><span class="en">Fetch & summarize any site by keyword</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="ja">Web 検索</span><span class="en">Web Search</span></h4><p><span class="ja">音声で検索、結果を読み上げ</span><span class="en">Search by voice, results read aloud</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">📱</span><h4><span class="ja">アプリ起動</span><span class="en">App Launch</span></h4><p><span class="ja">50+アプリを名前で起動</span><span class="en">Launch 50+ apps by name</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">⏰</span><h4><span class="ja">アラーム / スケジュール</span><span class="en">Alarms / Schedule</span></h4><p><span class="ja">音声でアラーム設定・予定管理</span><span class="en">Set alarms and manage schedule by voice</span></p></div>
