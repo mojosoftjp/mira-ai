@@ -237,14 +237,15 @@ a:hover{text-decoration:underline}
 <p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
 
 <h2 id="vision-models"><span class="ja">Vision 推奨モデル（実機テスト済み）</span><span class="en">Recommended Vision Models (Tested)</span></h2>
-<p><span class="ja">以下の 3 モデルは実機テストで<strong>画面認識（Screen Vision）と Computer Use の両方が正常に動作</strong>することを確認済みです。</span><span class="en">The following 3 models have been <strong>tested and confirmed working</strong> for both Screen Vision and Computer Use.</span></p>
+<p><span class="ja">以下のモデルは実機テストで<strong>画面認識（Screen Vision）および Computer Use の動作</strong>を確認済みです。</span><span class="en">The following models have been <strong>tested for Screen Vision and Computer Use</strong>.</span></p>
 
 <table class="cmd-table">
   <thead>
     <tr>
       <th><span class="ja">モデル</span><span class="en">Model</span></th>
       <th><span class="ja">種別</span><span class="en">Type</span></th>
-      <th><span class="ja">CU 方式</span><span class="en">CU Method</span></th>
+      <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
+      <th><span class="ja">PC操作</span><span class="en">PC Ctrl</span></th>
       <th><span class="ja">会話</span><span class="en">Chat</span></th>
       <th><span class="ja">特徴</span><span class="en">Features</span></th>
     </tr>
@@ -253,21 +254,32 @@ a:hover{text-decoration:underline}
     <tr>
       <td><strong>Claude Sonnet 4.6</strong></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
-      <td><span class="ja">ネイティブ API</span><span class="en">Native API</span></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>◎</td>
       <td><span class="ja">最も正確。Computer Use ネイティブ対応で操作精度が高い。おすすめ</span><span class="en">Most accurate. Native Computer Use API for precise operations. Recommended</span></td>
     </tr>
     <tr>
       <td><strong>Gemini 2.5 Flash</strong></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
-      <td><span class="ja">汎用パス</span><span class="en">Generic</span></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>◎</td>
-      <td><span class="ja">コスパ最強。高速で安価。会話・Vision 両方優秀</span><span class="en">Best cost-performance. Fast and affordable. Excellent at both chat and vision</span></td>
+      <td><span class="ja">コスパ最強。高速で安価。会話・Vision 両方優秀。無料枠 250回/日</span><span class="en">Best cost-performance. Fast and affordable. Free tier: 250/day</span></td>
+    </tr>
+    <tr>
+      <td><strong>Gemini 2.5 Flash-Lite</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
+      <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>◎</td>
+      <td><span class="ja"><strong>初期設定モデル</strong>。画面認識OK。PC操作には不向き。無料枠 1,000回/日</span><span class="en"><strong>Default model</strong>. Screen Vision OK. Not suited for PC control. Free: 1,000/day</span></td>
     </tr>
     <tr>
       <td><strong>Qwen3-VL 8B</strong></td>
       <td><span class="ja">ローカル</span><span class="en">Local</span></td>
-      <td><span class="ja">汎用パス</span><span class="en">Generic</span></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>△</td>
       <td><span class="ja">ローカル唯一の実用モデル。API キー不要・完全無料。VRAM 6GB〜</span><span class="en">Only practical local model. No API key, completely free. VRAM 6GB+</span></td>
     </tr>
@@ -309,12 +321,48 @@ a:hover{text-decoration:underline}
 <h2 id="gemini"><span class="ja">Google Gemini</span><span class="en">Google Gemini</span></h2>
 <div class="card">
   <h4>✨ Gemini <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-free"><span class="ja">無料枠あり</span><span class="en">Free Tier</span></span></h4>
-  <p><span class="ja">Google の最新 AI。無料枠が充実。Vision 対応。</span><span class="en">Google's latest AI. Generous free tier. Vision-capable.</span></p>
+  <p><span class="ja">Google の最新 AI。<strong>クレジットカード不要</strong>で無料枠が利用可能。Mira の初期設定プロバイダ。</span><span class="en">Google's latest AI. <strong>No credit card required</strong> for the free tier. Mira's default provider.</span></p>
 </div>
 <ol class="step-list">
-  <li><span class="ja"><a href="https://aistudio.google.com/apikey">Google AI Studio</a> で API キーを取得</span><span class="en">Get an API key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a></span></li>
+  <li><span class="ja"><a href="https://aistudio.google.com/apikey">Google AI Studio</a> で API キーを取得（Google アカウントがあれば無料）</span><span class="en">Get an API key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (free with a Google account)</span></li>
   <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Gemini</strong>、API キーを入力</span><span class="en">Mira Settings → AI → Provider: <strong>Gemini</strong>, enter API key</span></li>
 </ol>
+
+<table class="cmd-table">
+  <thead>
+    <tr>
+      <th><span class="ja">モデル</span><span class="en">Model</span></th>
+      <th><span class="ja">無料枠</span><span class="en">Free Tier</span></th>
+      <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
+      <th><span class="ja">PC操作</span><span class="en">PC Ctrl</span></th>
+      <th><span class="ja">おすすめ用途</span><span class="en">Best For</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Flash-Lite</strong> <span style="color:#4CAF50">★</span></td>
+      <td><strong>1,000<span class="ja">回/日</span><span class="en">/day</span></strong></td>
+      <td>✅</td>
+      <td>❌</td>
+      <td><span class="ja">日常会話・質問応答・画面認識（初期設定）</span><span class="en">Daily chat, Q&A, screen vision (default)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Flash</strong></td>
+      <td><strong>250<span class="ja">回/日</span><span class="en">/day</span></strong></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td><span class="ja">高度な推論・PC操作・複雑なタスク</span><span class="en">Advanced reasoning, PC control, complex tasks</span></td>
+    </tr>
+    <tr>
+      <td><strong>Pro</strong></td>
+      <td><strong>100<span class="ja">回/日</span><span class="en">/day</span></strong></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td><span class="ja">最高精度が必要な場面</span><span class="en">When highest accuracy is needed</span></td>
+    </tr>
+  </tbody>
+</table>
+<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら Flash-Lite の無料枠で十分です。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns 429 error, resets next day). For typical daily use (~tens of requests), Flash-Lite's free tier is more than enough.</span></div>
 
 <h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
 <div class="card">
@@ -541,7 +589,7 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
 <p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="ja">推奨プロバイダ: Claude Sonnet 4.6、Gemini 2.5 Flash、Qwen3-VL 8B（ローカル）</span><span class="en">Recommended providers: Claude Sonnet 4.6, Gemini 2.5 Flash, Qwen3-VL 8B (local)</span></p>
+<p><span class="ja">推奨プロバイダ: Claude Sonnet 4.6、Gemini 2.5 Flash、Gemini 2.5 Flash-Lite（無料・画面認識のみ）、Qwen3-VL 8B（ローカル）</span><span class="en">Recommended providers: Claude Sonnet 4.6, Gemini 2.5 Flash, Gemini 2.5 Flash-Lite (free, vision only), Qwen3-VL 8B (local)</span></p>
 
 <h2 id="computer-use"><span class="ja">Computer Use（自律 PC 操作）</span><span class="en">Computer Use (Autonomous PC Control)</span></h2>
 <p><span class="ja">AI が画面を見ながらマウス・キーボードを自律的に操作します。クリック・ダブルクリック・右クリック・テキスト入力・複合コマンドに対応。音声コマンドの詳細は <a href="#cmd-computer-use">PC 操作コマンド</a> を参照。</span><span class="en">AI autonomously controls mouse and keyboard while watching the screen. Supports click, double-click, right-click, text input, and compound commands. See <a href="#cmd-computer-use">PC Control commands</a> for details.</span></p>
