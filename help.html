@@ -143,10 +143,6 @@ a:hover{text-decoration:underline}
     <div class="nav-group-label"><span class="ja">音声コマンド</span><span class="en">Voice Commands</span></div>
     <a class="nav-item" href="#commands"><span class="ja">コマンド一覧</span><span class="en">Command List</span></a>
     <a class="nav-item" href="#cmd-vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
-    <a class="nav-item" href="#cmd-computer-use"><span class="ja">PC操作</span><span class="en">PC Control</span></a>
-    <a class="nav-item" href="#cmd-shortcuts"><span class="ja">ショートカット</span><span class="en">Shortcuts</span></a>
-    <a class="nav-item" href="#cmd-window"><span class="ja">ウィンドウ操作</span><span class="en">Window Control</span></a>
-    <a class="nav-item" href="#cmd-text"><span class="ja">テキスト入力・選択</span><span class="en">Text Input</span></a>
     <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></a>
     <a class="nav-item" href="#cmd-webwatch"><span class="ja">Webウォッチ</span><span class="en">Web Watch</span></a>
     <a class="nav-item" href="#cmd-app"><span class="ja">音声ランチャー</span><span class="en">Voice Launcher</span></a>
@@ -155,9 +151,8 @@ a:hover{text-decoration:underline}
     <a class="nav-item" href="#cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">Vision・PC操作</span><span class="en">Vision & PC</span></div>
+    <div class="nav-group-label"><span class="ja">Vision・Live</span><span class="en">Vision & Live</span></div>
     <a class="nav-item" href="#vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
-    <a class="nav-item" href="#computer-use"><span class="ja">Computer Use</span><span class="en">Computer Use</span></a>
     <a class="nav-item" href="#gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></a>
   </div>
   <div class="nav-group">
@@ -432,80 +427,6 @@ a:hover{text-decoration:underline}
     <tr><td><span class="ja">「画面に表示されている内容を読んで」</span><span class="en">"Read what's displayed on screen"</span></td><td><span class="ja">"Read the screen"</span><span class="en">"Read the screen"</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡</strong> 「画面の〇〇を<strong>クリック</strong>して」のように操作動詞が含まれる場合は、Screen Vision ではなく Computer Use に自動ルーティングされます。</span><span class="en"><strong>💡</strong> When action verbs like "click" are included (e.g., "click the X on screen"), the command is automatically routed to Computer Use instead of Screen Vision.</span></div>
-
-<!-- --- Computer Use --- -->
-<h3 id="cmd-computer-use"><span class="ja">PC 操作（Computer Use）</span><span class="en">PC Control (Computer Use)</span></h3>
-<p><span class="ja">AI が画面を見ながらマウス・キーボードを自律的に操作します。複合コマンド（複数の操作を一文で指示）にも対応。</span><span class="en">AI autonomously controls mouse and keyboard while watching the screen. Supports compound commands (multiple operations in a single sentence).</span></p>
-<table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
-  <tbody>
-    <tr><td><span class="ja">「OK ボタンをクリックして」</span><span class="en">"Click the OK button"</span></td><td><span class="ja">"Click the OK button"</span><span class="en">"Click the OK button"</span></td></tr>
-    <tr><td><span class="ja">「アイコンをダブルクリック」</span><span class="en">"Double click the icon"</span></td><td><span class="ja">"Double click the icon"</span><span class="en">"Double click the icon"</span></td></tr>
-    <tr><td><span class="ja">「右クリックして」「〇〇を右クリック」</span><span class="en">"Right click" / "Right click on X"</span></td><td><span class="ja">"Right click on X"</span><span class="en">"Right click on X"</span></td></tr>
-    <tr><td><span class="ja">「画面の左に映っている〇〇をクリックして」</span><span class="en">"Click X shown on the left of the screen"</span></td><td><span class="ja">"On screen, click X"</span><span class="en">"On screen, click X"</span></td></tr>
-    <tr><td><span class="ja">「画面で〇〇して」「PCで〇〇して」</span><span class="en">"On screen, do X" / "On my PC, do X"</span></td><td><span class="ja">"On screen, ..." / "On my PC, ..."</span><span class="en">"On screen, ..." / "On my PC, ..."</span></td></tr>
-    <tr><td><span class="ja">「メモ帳を起動してこんにちはと入力して」<br>（複合コマンド）</span><span class="en">"Open Notepad and type hello" (compound command)</span></td><td><span class="ja">"Use screen to ..."</span><span class="en">"Use screen to ..."</span></td></tr>
-  </tbody>
-</table>
-<div class="callout"><span class="ja"><strong>💡</strong> Claude (Sonnet/Opus) はネイティブ Computer Use API を使用します。Gemini / GPT / Ollama 等は汎用プロンプト方式で動作します。</span><span class="en"><strong>💡</strong> Claude (Sonnet/Opus) uses the native Computer Use API. Gemini / GPT / Ollama etc. use a generic prompt-based approach.</span></div>
-
-<!-- --- Keyboard Shortcuts --- -->
-<h3 id="cmd-shortcuts"><span class="ja">ショートカット操作</span><span class="en">Keyboard Shortcuts</span></h3>
-<p><span class="ja">よく使うキーボードショートカットを音声で実行できます。即座にキーストロークを送信します。</span><span class="en">Execute common keyboard shortcuts by voice. Keystrokes are sent instantly.</span></p>
-<table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">実行されるキー</span><span class="en">Key Sent</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
-  <tbody>
-    <tr><td><span class="ja">「保存して」「セーブして」</span><span class="en">"Save"</span></td><td><kbd>Ctrl+S</kbd></td><td><span class="ja">ファイルを保存</span><span class="en">Save file</span></td></tr>
-    <tr><td><span class="ja">「元に戻して」「アンドゥ」</span><span class="en">"Undo"</span></td><td><kbd>Ctrl+Z</kbd></td><td><span class="ja">操作を元に戻す</span><span class="en">Undo</span></td></tr>
-    <tr><td><span class="ja">「やり直し」「リドゥ」</span><span class="en">"Redo"</span></td><td><kbd>Ctrl+Y</kbd></td><td><span class="ja">やり直す</span><span class="en">Redo</span></td></tr>
-    <tr><td><span class="ja">「全選択」「すべて選択」</span><span class="en">"Select all"</span></td><td><kbd>Ctrl+A</kbd></td><td><span class="ja">全て選択</span><span class="en">Select all</span></td></tr>
-    <tr><td><span class="ja">「ペーストして」「貼り付けて」</span><span class="en">"Paste"</span></td><td><kbd>Ctrl+V</kbd></td><td><span class="ja">貼り付け</span><span class="en">Paste</span></td></tr>
-    <tr><td><span class="ja">「切り取り」「カットして」</span><span class="en">"Cut"</span></td><td><kbd>Ctrl+X</kbd></td><td><span class="ja">切り取り</span><span class="en">Cut</span></td></tr>
-    <tr><td><span class="ja">「検索」「ファインド」</span><span class="en">"Find" (in-app)</span></td><td><kbd>Ctrl+F</kbd></td><td><span class="ja">アプリ内検索を開く</span><span class="en">Open in-app search</span></td></tr>
-    <tr><td><span class="ja">「印刷して」「プリントして」</span><span class="en">"Print"</span></td><td><kbd>Ctrl+P</kbd></td><td><span class="ja">印刷ダイアログを開く</span><span class="en">Open print dialog</span></td></tr>
-    <tr><td><span class="ja">「新しいタブ」「タブ開いて」</span><span class="en">"New tab"</span></td><td><kbd>Ctrl+T</kbd></td><td><span class="ja">新規タブを開く</span><span class="en">Open new tab</span></td></tr>
-    <tr><td><span class="ja">「タブを閉じて」「タブ消して」</span><span class="en">"Close tab"</span></td><td><kbd>Ctrl+W</kbd></td><td><span class="ja">タブを閉じる</span><span class="en">Close current tab</span></td></tr>
-    <tr><td><span class="ja">「更新して」「リロード」「リフレッシュ」</span><span class="en">"Refresh"</span></td><td><kbd>F5</kbd></td><td><span class="ja">ページを更新</span><span class="en">Refresh page</span></td></tr>
-    <tr><td><span class="ja">「デスクトップ表示」</span><span class="en">"Show desktop"</span></td><td><kbd>Win+D</kbd></td><td><span class="ja">デスクトップを表示</span><span class="en">Show desktop</span></td></tr>
-    <tr><td><span class="ja">「タスクマネージャー」</span><span class="en">"Task manager"</span></td><td><kbd>Ctrl+Shift+Esc</kbd></td><td><span class="ja">タスクマネージャーを起動</span><span class="en">Open Task Manager</span></td></tr>
-    <tr><td><span class="ja">「閉じて」「ウィンドウ閉じて」</span><span class="en">"Close" / "Close window"</span></td><td><kbd>Alt+F4</kbd></td><td><span class="ja">ウィンドウを閉じる（確認あり）</span><span class="en">Close window (with confirmation)</span></td></tr>
-    <tr><td><span class="ja">「〇〇を閉じて」（例: 「メモ帳を閉じて」）</span><span class="en">"Close Notepad"</span></td><td><kbd>Alt+F4</kbd></td><td><span class="ja">指定アプリを閉じる（確認あり）</span><span class="en">Close specified app (with confirmation)</span></td></tr>
-  </tbody>
-</table>
-
-<!-- --- Window Control --- -->
-<h3 id="cmd-window"><span class="ja">ウィンドウ操作</span><span class="en">Window Control</span></h3>
-<p><span class="ja">ウィンドウの最大化・最小化・スクロール・切���替えを音声で操作できます。</span><span class="en">Control window state, scroll, and switch between apps by voice.</span></p>
-<table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
-  <tbody>
-    <tr><td><span class="ja">「最大化して」</span><span class="en">"Maximize" / "Maximize window"</span></td><td><span class="ja">"Maximize"</span><span class="en">"Maximize"</span></td><td><span class="ja">ウィンドウを最大化</span><span class="en">Maximize window</span></td></tr>
-    <tr><td><span class="ja">「最小化して」</span><span class="en">"Minimize" / "Minimize window"</span></td><td><span class="ja">"Minimize"</span><span class="en">"Minimize"</span></td><td><span class="ja">ウィンドウを最小化</span><span class="en">Minimize window</span></td></tr>
-    <tr><td><span class="ja">「ウィンドウを元に戻して」「元のサイズに」</span><span class="en">"Restore window"</span></td><td><span class="ja">"Restore"</span><span class="en">"Restore"</span></td><td><span class="ja">元のサイズに戻す</span><span class="en">Restore to original size</span></td></tr>
-    <tr><td><span class="ja">「上にスクロール」「スクロールアップ」</span><span class="en">"Scroll up"</span></td><td><span class="ja">"Scroll up"</span><span class="en">"Scroll up"</span></td><td><span class="ja">画面を上にスクロール</span><span class="en">Scroll up</span></td></tr>
-    <tr><td><span class="ja">「下にスクロール」「スクロールダウン」</span><span class="en">"Scroll down"</span></td><td><span class="ja">"Scroll down"</span><span class="en">"Scroll down"</span></td><td><span class="ja">画面を下にスクロール</span><span class="en">Scroll down</span></td></tr>
-    <tr><td><span class="ja">「Chrome に切り替えて」「Excel をフォーカスして」</span><span class="en">"Switch to Chrome" / "Focus on Excel"</span></td><td><span class="ja">"Switch to ..." / "Focus on ..."</span><span class="en">"Switch to ..." / "Focus on ..."</span></td><td><span class="ja">指定アプリを前面に</span><span class="en">Bring app to foreground</span></td></tr>
-    <tr><td><span class="ja">「〇〇をアクティブにして」「〇〇を前面にして」</span><span class="en">"Bring up X" / "Go to X"</span></td><td><span class="ja">"Go to ..." / "Bring up ..."</span><span class="en">"Go to ..." / "Bring up ..."</span></td><td><span class="ja">指定アプリを前面に</span><span class="en">Bring app to foreground</span></td></tr>
-  </tbody>
-</table>
-
-<!-- --- Text Input & Selection --- -->
-<h3 id="cmd-text"><span class="ja">テキスト入力・選択テキスト操作</span><span class="en">Text Input & Selection</span></h3>
-<p><span class="ja">音声でテキストを入力したり、選択中のテキストを翻訳・要約できます。</span><span class="en">Type text by voice, or translate/summarize selected text.</span></p>
-<table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
-  <tbody>
-    <tr><td><span class="ja">「こんにちはと入力して」</span><span class="en">"Type hello"</span></td><td><span class="ja">"Type ..." / "Input ..."</span><span class="en">"Type ..." / "Input ..."</span></td><td><span class="ja">テキストを入力</span><span class="en">Type text</span></td></tr>
-    <tr><td><span class="ja">「「会議の議事録」と書いて」（括弧付き）</span><span class="en">"Write meeting notes"</span></td><td><span class="ja">"Write ..."</span><span class="en">"Write ..."</span></td><td><span class="ja">括弧内のテキストを入力</span><span class="en">Type quoted text</span></td></tr>
-    <tr><td><span class="ja">「翻訳して」「英語にして」「英訳して」</span><span class="en">"Translate" / "Translate this"</span></td><td><span class="ja">"Translate" / "Translate this"</span><span class="en">"Translate" / "Translate this"</span></td><td><span class="ja">選択テキストを翻訳</span><span class="en">Translate selected text</span></td></tr>
-    <tr><td><span class="ja">「日本語にして」「和訳して」</span><span class="en">"Translate to Japanese"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">選択テキストを和訳</span><span class="en">Translate to Japanese</span></td></tr>
-    <tr><td><span class="ja">「要約して」「まとめて」</span><span class="en">"Summarize" / "Summarize this"</span></td><td><span class="ja">"Summarize" / "Summarize this"</span><span class="en">"Summarize" / "Summarize this"</span></td><td><span class="ja">選択テキストを要約</span><span class="en">Summarize selected text</span></td></tr>
-    <tr><td><span class="ja">「選択テキストを説明して」</span><span class="en">"Explain selected text"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">選択テキストを説明</span><span class="en">Explain selected text</span></td></tr>
-  </tbody>
-</table>
-<div class="callout"><span class="ja"><strong>💡</strong> 翻訳・要約は、事前にテキストを選択（ドラッグ等）した状態で発話してください。Mira が自動で選択テキストを取得して処理します。</span><span class="en"><strong>💡</strong> For translate/summarize, select text first (drag, etc.) before speaking. Mira automatically retrieves and processes the selected text.</span></div>
-
 <!-- --- Search & Weather --- -->
 <h3 id="cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></h3>
 <p><span class="ja">Web 検索や天気情報を音声で取得できます。検索結果は AI が読み上げます。</span><span class="en">Get web search results and weather information by voice. Results are read aloud by AI.</span></p>
@@ -594,10 +515,6 @@ a:hover{text-decoration:underline}
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
 <p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
 <p><span class="ja">推奨プロバイダ: Claude Sonnet 4.6、Gemini 2.5 Flash、Gemini 2.5 Flash-Lite（無料・画面認識のみ）、Qwen3-VL 8B（ローカル）</span><span class="en">Recommended providers: Claude Sonnet 4.6, Gemini 2.5 Flash, Gemini 2.5 Flash-Lite (free, vision only), Qwen3-VL 8B (local)</span></p>
-
-<h2 id="computer-use"><span class="ja">Computer Use（自律 PC 操作）</span><span class="en">Computer Use (Autonomous PC Control)</span></h2>
-<p><span class="ja">AI が画面を見ながらマウス・キーボードを自律的に操作します。クリック・ダブルクリック・右クリック・テキスト入力・複合コマンドに対応。音声コマンドの詳細は <a href="#cmd-computer-use">PC 操作コマンド</a> を参照。</span><span class="en">AI autonomously controls mouse and keyboard while watching the screen. Supports click, double-click, right-click, text input, and compound commands. See <a href="#cmd-computer-use">PC Control commands</a> for details.</span></p>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> Claude (Sonnet/Opus) はネイティブ Computer Use API を使用し、他のプロバイダは汎用プロンプト方式で動作します。</span><span class="en"><strong>💡 Tip:</strong> Claude (Sonnet/Opus) uses the native Computer Use API, while other providers use a generic prompt-based approach.</span></div>
 
 <h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
