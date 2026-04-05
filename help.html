@@ -183,7 +183,7 @@ a:hover{text-decoration:underline}
 
 <!-- ===== はじめに ===== -->
 <h2 id="what-is-mira"><span class="ja">Mira とは</span><span class="en">What is Mira</span></h2>
-<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ねえミラ」と話しかけるだけで、AI との会話、Web 検索、アプリ起動、PC 操作、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira" to start conversations, search the web, launch apps, control your PC, analyze screens, and much more.</span></p>
+<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ねえミラ」と話しかけるだけで、AI との会話、Web 検索、音声ランチャーでアプリ起動、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira" to start conversations, search the web, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
 <p><span class="ja">Cortana が廃止された今、Mira は Windows ユーザーのための最先端の音声アシスタントです。完全オフラインでも動作し、プライバシーを守りながら強力な AI 機能を利用できます。</span><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. It works fully offline, protecting your privacy while providing powerful AI capabilities.</span></p>
 
 <h2 id="requirements"><span class="ja">動作環境</span><span class="en">System Requirements</span></h2>
@@ -233,7 +233,7 @@ a:hover{text-decoration:underline}
 <p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
 
 <h2 id="vision-models"><span class="ja">Vision 推奨モデル（実機テスト済み）</span><span class="en">Recommended Vision Models (Tested)</span></h2>
-<p><span class="ja">以下のモデルは実機テストで<strong>画面認識（Screen Vision）および Computer Use の動作</strong>を確認済みです。</span><span class="en">The following models have been <strong>tested for Screen Vision and Computer Use</strong>.</span></p>
+<p><span class="ja">以下のモデルは実機テストで<strong>画面認識（Screen Vision）の動作</strong>を確認済みです。</span><span class="en">The following models have been <strong>tested for Screen Vision</strong>.</span></p>
 
 <table class="cmd-table">
   <thead>
@@ -241,7 +241,6 @@ a:hover{text-decoration:underline}
       <th><span class="ja">モデル</span><span class="en">Model</span></th>
       <th><span class="ja">種別</span><span class="en">Type</span></th>
       <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
-      <th><span class="ja">PC操作</span><span class="en">PC Ctrl</span></th>
       <th><span class="ja">会話</span><span class="en">Chat</span></th>
       <th><span class="ja">特徴</span><span class="en">Features</span></th>
     </tr>
@@ -251,14 +250,12 @@ a:hover{text-decoration:underline}
       <td><strong>Claude Sonnet 4.6</strong></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
       <td>✅</td>
-      <td>✅</td>
       <td>◎</td>
-      <td><span class="ja">最も正確。Computer Use ネイティブ対応で操作精度が高い。おすすめ</span><span class="en">Most accurate. Native Computer Use API for precise operations. Recommended</span></td>
+      <td><span class="ja">最も正確。高い画面認識精度。おすすめ</span><span class="en">Most accurate. High screen recognition precision. Recommended</span></td>
     </tr>
     <tr>
       <td><strong>Gemini 2.5 Flash</strong></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
-      <td>✅</td>
       <td>✅</td>
       <td>◎</td>
       <td><span class="ja">コスパ最強。高速で安価。会話・Vision 両方優秀。無料枠 250回/日</span><span class="en">Best cost-performance. Fast and affordable. Free tier: 250/day</span></td>
@@ -267,14 +264,12 @@ a:hover{text-decoration:underline}
       <td><strong>Gemini 2.5 Flash-Lite</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
       <td>✅</td>
-      <td>❌</td>
       <td>◎</td>
-      <td><span class="ja"><strong>初期設定モデル</strong>。画面認識OK。PC操作には不向き。無料枠 1,000回/日</span><span class="en"><strong>Default model</strong>. Screen Vision OK. Not suited for PC control. Free: 1,000/day</span></td>
+      <td><span class="ja"><strong>初期設定モデル</strong>。画面認識OK。無料枠 1,000回/日</span><span class="en"><strong>Default model</strong>. Screen Vision OK. Free: 1,000/day</span></td>
     </tr>
     <tr>
       <td><strong>Qwen3-VL 8B</strong></td>
       <td><span class="ja">ローカル</span><span class="en">Local</span></td>
-      <td>✅</td>
       <td>✅</td>
       <td>△</td>
       <td><span class="ja">ローカル唯一の実用モデル。API キー不要・完全無料。VRAM 6GB〜</span><span class="en">Only practical local model. No API key, completely free. VRAM 6GB+</span></td>
@@ -282,7 +277,7 @@ a:hover{text-decoration:underline}
   </tbody>
 </table>
 
-<div class="callout warn"><span class="ja"><strong>⚠️ 4B 以下のモデルについて:</strong> Qwen3-VL-4B 等の小型モデルでは画面読み取り（Screen Vision）は動作しますが、Computer Use（座標指定・複数ステップの操作計画）は精度不足で実用的ではありません。</span><span class="en"><strong>⚠️ About 4B and smaller models:</strong> Small models like Qwen3-VL-4B can handle Screen Vision (reading screen content), but Computer Use (coordinate targeting, multi-step operation planning) lacks sufficient accuracy for practical use.</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ 4B 以下のモデルについて:</strong> Qwen3-VL-4B 等の小型モデルでは画面読み取り（Screen Vision）は動作しますが、認識精度が低いため実用的ではありません。8B 以上のモデルを推奨します。</span><span class="en"><strong>⚠️ About 4B and smaller models:</strong> Small models like Qwen3-VL-4B can handle Screen Vision (reading screen content), but lack sufficient accuracy for practical use. 8B+ models are recommended.</span></div>
 
 <div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Qwen3-VL 8B）は <strong>Ollama</strong>: <code>ollama pull qwen3-vl:8b</code> または <strong>LM Studio</strong>: 「<code>qwen3-vl-8b</code>」で検索してダウンロード。</span><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local (Qwen3-VL 8B), use <strong>Ollama</strong>: <code>ollama pull qwen3-vl:8b</code> or <strong>LM Studio</strong>: search "<code>qwen3-vl-8b</code>".</span></div>
 
@@ -330,7 +325,6 @@ a:hover{text-decoration:underline}
       <th><span class="ja">モデル</span><span class="en">Model</span></th>
       <th><span class="ja">無料枠</span><span class="en">Free Tier</span></th>
       <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
-      <th><span class="ja">PC操作</span><span class="en">PC Ctrl</span></th>
       <th><span class="ja">おすすめ用途</span><span class="en">Best For</span></th>
     </tr>
   </thead>
@@ -339,20 +333,17 @@ a:hover{text-decoration:underline}
       <td><strong>Flash-Lite</strong> <span style="color:#4CAF50">★</span></td>
       <td><strong>1,000<span class="ja">回/日</span><span class="en">/day</span></strong></td>
       <td>✅</td>
-      <td>❌</td>
       <td><span class="ja">日常会話・質問応答・画面認識（初期設定）</span><span class="en">Daily chat, Q&A, screen vision (default)</span></td>
     </tr>
     <tr>
       <td><strong>Flash</strong></td>
       <td><strong>250<span class="ja">回/日</span><span class="en">/day</span></strong></td>
       <td>✅</td>
-      <td>✅</td>
-      <td><span class="ja">高度な推論・PC操作・複雑なタスク</span><span class="en">Advanced reasoning, PC control, complex tasks</span></td>
+      <td><span class="ja">高度な推論・複雑なタスク</span><span class="en">Advanced reasoning, complex tasks</span></td>
     </tr>
     <tr>
       <td><strong>Pro</strong></td>
       <td><span class="ja">有料<br><small style="color:#999">※無料枠は不安定</small></span><span class="en">Paid<br><small style="color:#999">*Free tier unstable</small></span></td>
-      <td>✅</td>
       <td>✅</td>
       <td><span class="ja">最高精度が必要な場面（課金推奨）</span><span class="en">When highest accuracy is needed (billing recommended)</span></td>
     </tr>
@@ -369,7 +360,7 @@ a:hover{text-decoration:underline}
 <h2 id="anthropic"><span class="ja">Anthropic (Claude)</span><span class="en">Anthropic (Claude)</span></h2>
 <div class="card">
   <h4>🎭 Anthropic <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-paid"><span class="ja">有料</span><span class="en">Paid</span></span></h4>
-  <p><span class="ja">Claude シリーズ。Computer Use のネイティブ対応。</span><span class="en">Claude models. Native Computer Use support.</span></p>
+  <p><span class="ja">Claude シリーズ。高精度な画面認識対応。</span><span class="en">Claude models. High-accuracy screen vision.</span></p>
 </div>
 
 <h2 id="custom"><span class="ja">カスタムエンドポイント</span><span class="en">Custom Endpoint</span></h2>
