@@ -149,7 +149,7 @@ a:hover{text-decoration:underline}
     <a class="nav-item" href="#cmd-text"><span class="ja">テキスト入力・選択</span><span class="en">Text Input</span></a>
     <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></a>
     <a class="nav-item" href="#cmd-webwatch"><span class="ja">Webウォッチ</span><span class="en">Web Watch</span></a>
-    <a class="nav-item" href="#cmd-app"><span class="ja">アプリ起動</span><span class="en">App Launch</span></a>
+    <a class="nav-item" href="#cmd-app"><span class="ja">音声ランチャー</span><span class="en">Voice Launcher</span></a>
     <a class="nav-item" href="#cmd-system"><span class="ja">システム操作</span><span class="en">System</span></a>
     <a class="nav-item" href="#cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timer & Alarm</span></a>
     <a class="nav-item" href="#cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></a>
@@ -164,6 +164,7 @@ a:hover{text-decoration:underline}
     <div class="nav-group-label"><span class="ja">設定</span><span class="en">Settings</span></div>
     <a class="nav-item" href="#custom-notes"><span class="ja">おぼえがき</span><span class="en">Custom Notes</span></a>
     <a class="nav-item" href="#webwatch-settings"><span class="ja">Webウォッチ設定</span><span class="en">Web Watch Setup</span></a>
+    <a class="nav-item" href="#voicelauncher-settings"><span class="ja">音声ランチャー設定</span><span class="en">Voice Launcher Setup</span></a>
     <a class="nav-item" href="#theme"><span class="ja">テーマ</span><span class="en">Theme</span></a>
     <a class="nav-item" href="#startup"><span class="ja">起動設定</span><span class="en">Startup</span></a>
   </div>
@@ -529,17 +530,18 @@ a:hover{text-decoration:underline}
 </table>
 <div class="callout"><span class="ja"><strong>💡 設定例:</strong> キーワード「最新ニュース」に <code>https://news.yahoo.co.jp/</code> を登録すると、「最新ニュース教えて」でYahooニュースの主要記事をAIが要約して読み上げます。「最新ニュース表示して」ならブラウザで直接ページを開きます。キーワードは<strong>部分一致</strong>で発火するため、厳密に一致させる必要はありません。</span><span class="en"><strong>💡 Example:</strong> Register keyword "latest news" with <code>https://news.yahoo.co.jp/</code>. Say "Tell me the latest news" and AI will summarize Yahoo News articles. Say "Show me the latest news" to open the page in your browser. Keywords use <strong>partial matching</strong>, so they don't need to match exactly.</span></div>
 
-<!-- --- App Launch & Website --- -->
-<h3 id="cmd-app"><span class="ja">アプリ起動・Web サイトを開く</span><span class="en">App Launch & Open Website</span></h3>
+<!-- --- Voice Launcher --- -->
+<h3 id="cmd-app"><span class="ja">音声ランチャー（Voice Launcher）</span><span class="en">Voice Launcher</span></h3>
+<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを自由に登録できます。登録したキーワードを含む発話をすると、対応するアプリやURLが起動します。</span><span class="en">Register keyword-command pairs in the "Voice Launcher" tab in Settings. When your speech contains a registered keyword, the corresponding app or URL is launched.</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th><th><span class="ja">説明</span><span class="en">Description</span></th></tr></thead>
+  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">登録キーワード</span><span class="en">Registered Keyword</span></th><th><span class="ja">動作</span><span class="en">Action</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja">「Chrome を開いて」「メモ帳を起動して」</span><span class="en">"Open Chrome" / "Launch Notepad"</span></td><td><span class="ja">"Open ..." / "Launch ..." / "Start ..."</span><span class="en">"Open ..." / "Launch ..." / "Start ..."</span></td><td><span class="ja">アプリを起動（50+対応）</span><span class="en">Launch app (50+ supported)</span></td></tr>
-    <tr><td><span class="ja">「エクスプローラーを立ち上げて」</span><span class="en">"Run Explorer"</span></td><td><span class="ja">"Run ..."</span><span class="en">"Run ..."</span></td><td><span class="ja">アプリを起動</span><span class="en">Launch app</span></td></tr>
-    <tr><td><span class="ja">「Gmail のサイトを開いて」</span><span class="en">"Open Gmail site"</span></td><td><span class="ja">"Open the YouTube page"</span><span class="en">"Open the YouTube page"</span></td><td><span class="ja">Web サイトをブラウザで開く</span><span class="en">Open website in browser</span></td></tr>
-    <tr><td><span class="ja">「Amazon のページを開いて」</span><span class="en">"Open the Amazon website"</span></td><td><span class="ja">—</span><span class="en">—</span></td><td><span class="ja">Web サイトをブラウザで開く</span><span class="en">Open website in browser</span></td></tr>
+    <tr><td><span class="ja">「Chrome を開いて」</span><span class="en">"Open Chrome"</span></td><td><span class="ja">Chrome</span><span class="en">Chrome</span></td><td><span class="ja">登録されたコマンド（例: chrome.exe）を実行</span><span class="en">Executes registered command (e.g., chrome.exe)</span></td></tr>
+    <tr><td><span class="ja">「メモ帳を起動して」</span><span class="en">"Launch Notepad"</span></td><td><span class="ja">メモ帳, Notepad</span><span class="en">Notepad</span></td><td><span class="ja">キーワードはカンマ区切りで複数登録可能</span><span class="en">Multiple keywords per command (comma-separated)</span></td></tr>
+    <tr><td><span class="ja">「Gmail を開いて」</span><span class="en">"Open Gmail"</span></td><td><span class="ja">Gmail</span><span class="en">Gmail</span></td><td><span class="ja">URLを登録すればブラウザで開く</span><span class="en">Register a URL to open in browser</span></td></tr>
   </tbody>
 </table>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは<strong>部分一致</strong>で発火します。「開いて」「起動して」「立ち上げて」などの動詞と組み合わせて使えます。コマンドには実行ファイルのパス（例: <code>C:\Program Files\...\app.exe</code>）やURL（例: <code>https://mail.google.com</code>）を指定できます。</span><span class="en"><strong>💡 Tip:</strong> Keywords use <strong>partial matching</strong>. Combine with verbs like "open", "launch", "start". Commands can be executable paths (e.g., <code>C:\Program Files\...\app.exe</code>) or URLs (e.g., <code>https://mail.google.com</code>).</span></div>
 
 <!-- --- System Operations --- -->
 <h3 id="cmd-system"><span class="ja">システム操作</span><span class="en">System Operations</span></h3>
@@ -619,6 +621,18 @@ a:hover{text-decoration:underline}
 </ol>
 <div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは部分一致で発火します。「ニュース」と登録すれば「今日のニュース教えて」「ニュースの概要を教えて」など、「ニュース」を含む発話すべてにマッチします。複数のキーワード-URLペアを登録でき、長いキーワードが優先的にマッチします。</span><span class="en"><strong>💡 Tip:</strong> Keywords use partial matching. Register "news" and it matches any utterance containing "news" like "What's the news today?" or "Give me a news summary." You can register multiple keyword-URL pairs; longer keywords take priority.</span></div>
 
+<h2 id="voicelauncher-settings"><span class="ja">音声ランチャー設定</span><span class="en">Voice Launcher Setup</span></h2>
+<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを登録します。登録したキーワードを含む音声コマンドで、アプリやWebサイトを起動できます。</span><span class="en">Register keyword-command pairs in the "Voice Launcher" tab in Settings. Launch apps and websites using voice commands that contain registered keywords.</span></p>
+<ol class="step-list">
+  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span><span class="en">Open Settings (double-click Mira tray icon → "Settings" button)</span></li>
+  <li><span class="ja">「音声ランチャー」タブを選択</span><span class="en">Select the "Voice Launcher" tab</span></li>
+  <li><span class="ja">キーワード欄に発話で使う単語を入力（例: 「Chrome, クローム」）。カンマ区切りで複数登録可能</span><span class="en">Enter keywords you'll use in voice commands (e.g., "Chrome"). Comma-separated for multiple keywords</span></li>
+  <li><span class="ja">コマンド欄に実行ファイルのパスまたはURLを入力（例: <code>chrome.exe</code> または <code>https://mail.google.com</code>）</span><span class="en">Enter the executable path or URL (e.g., <code>chrome.exe</code> or <code>https://mail.google.com</code>)</span></li>
+  <li><span class="ja">「追加」ボタンをクリック</span><span class="en">Click "Add"</span></li>
+  <li><span class="ja">「保存」ボタンで設定を保存</span><span class="en">Click "Save" to save settings</span></li>
+</ol>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> コマンドに <code>.exe</code> や <code>.bat</code> のパスを指定するとアプリが起動し、<code>https://</code> で始まるURLを指定するとブラウザで開きます。PATHが通っている実行ファイル（例: <code>notepad.exe</code>、<code>calc.exe</code>）はファイル名だけでOKです。</span><span class="en"><strong>💡 Tip:</strong> Specify an <code>.exe</code> or <code>.bat</code> path to launch an app, or a URL starting with <code>https://</code> to open in browser. Executables in PATH (e.g., <code>notepad.exe</code>, <code>calc.exe</code>) need only the filename.</span></div>
+
 <h2 id="theme"><span class="ja">テーマ</span><span class="en">Theme</span></h2>
 <p><span class="ja">ダーク / ライトテーマを設定画面から切り替えられます。</span><span class="en">Switch between Dark / Light theme in Settings.</span></p>
 
@@ -641,6 +655,59 @@ a:hover{text-decoration:underline}
 <!-- ===== その他 ===== -->
 <h2 id="faq">FAQ</h2>
 
+<h3><span class="ja">Q: 音声認識の精度が低い・誤認識が多い</span><span class="en">Q: Speech recognition accuracy is low / too many misrecognitions</span></h3>
+<p><span class="ja">設定の「音声認識」タブで、より高精度なモデルに変更してみてください。</span><span class="en">Try switching to a more accurate model in the "Speech Recognition" tab in Settings.</span></p>
+<ul>
+  <li><span class="ja"><strong>small</strong>（デフォルト・244MB）: バランス型。一般的な用途に十分</span><span class="en"><strong>small</strong> (default, 244MB): Balanced. Sufficient for general use</span></li>
+  <li><span class="ja"><strong>medium</strong>（769MB）: 高精度。専門用語や早口に強い</span><span class="en"><strong>medium</strong> (769MB): High accuracy. Better with technical terms and fast speech</span></li>
+  <li><span class="ja"><strong>large-v3</strong>（1.5GB）: 最高精度。PCスペックに余裕がある場合に推奨</span><span class="en"><strong>large-v3</strong> (1.5GB): Highest accuracy. Recommended if your PC has enough resources</span></li>
+</ul>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> モデルを変更すると初回のみダウンロードが必要です。また、マイクの入力レベルが低すぎないか、Windows のサウンド設定も確認してください。</span><span class="en"><strong>💡 Tip:</strong> Changing models requires a one-time download. Also check that your microphone input level isn't too low in Windows Sound settings.</span></div>
+
+<h3><span class="ja">Q: 呼んでいないのにMiraが反応する</span><span class="en">Q: Mira responds even when I didn't call it</span></h3>
+<p><span class="ja">ウェイクワードが短いと、環境音やテレビの音声で誤って起動することがあります。以下の対策を試してください:</span><span class="en">Short wake words can be accidentally triggered by ambient noise or TV audio. Try these solutions:</span></p>
+<ul>
+  <li><span class="ja"><strong>ウェイクワードを長めにする</strong>: 「ミラ」→「ねえミラ」「おーいミラ」など、5モーラ以上推奨</span><span class="en"><strong>Use a longer wake word</strong>: "Mira" → "Hey Mira", "Hello Mira" — 3+ syllables recommended</span></li>
+  <li><span class="ja"><strong>中断フレーズも長めに</strong>: 「ストップ」→「ミラストップ」にすると誤停止も防げます</span><span class="en"><strong>Longer stop phrase too</strong>: "Stop" → "Mira Stop" to prevent false stops</span></li>
+  <li><span class="ja">マイクとスピーカーが近い場合、Mira 自身の音声が回り込む可能性があります。ヘッドセットの使用も効果的です</span><span class="en">If your mic and speakers are close, Mira's own voice may feed back. Using a headset can help</span></li>
+</ul>
+
+<h3><span class="ja">Q: Webウォッチがうまく動かない</span><span class="en">Q: Web Watch isn't working properly</span></h3>
+<p><span class="ja">以下を確認してください:</span><span class="en">Check the following:</span></p>
+<ul>
+  <li><span class="ja"><strong>キーワードを変えてみる</strong>: 音声認識で正しく認識される単語に変更。例:「ニュース」が「入っす」と認識される場合、「最新ニュース」に変更</span><span class="en"><strong>Try different keywords</strong>: Change to words that are reliably recognized. E.g., if "news" is misrecognized, try "latest news"</span></li>
+  <li><span class="ja"><strong>複数キーワードを登録</strong>: カンマ区切りで「ニュース, 最新ニュース, にゅーす」のように複数登録するとマッチ率が上がります</span><span class="en"><strong>Register multiple keywords</strong>: Use comma-separated keywords like "news, latest news" to increase match rate</span></li>
+  <li><span class="ja"><strong>URLが正しいか確認</strong>: ブラウザで直接URLを開いて、内容が表示されるか確認してください</span><span class="en"><strong>Verify the URL</strong>: Open the URL directly in a browser to make sure it loads content</span></li>
+  <li><span class="ja"><strong>AIプロバイダが設定されているか確認</strong>: Webウォッチの要約機能にはAIプロバイダが必要です</span><span class="en"><strong>Check AI provider is configured</strong>: The summary feature requires an AI provider</span></li>
+</ul>
+
+<h3><span class="ja">Q: 音声ランチャーでアプリが起動しない</span><span class="en">Q: Voice Launcher doesn't launch apps</span></h3>
+<p><span class="ja">以下を確認してください:</span><span class="en">Check the following:</span></p>
+<ul>
+  <li><span class="ja"><strong>キーワードが正しく認識されているか</strong>: ログ（設定 → 「ログ」タブ）で実際に認識されたテキストを確認</span><span class="en"><strong>Is the keyword recognized correctly?</strong>: Check the actual recognized text in the log (Settings → "Log" tab)</span></li>
+  <li><span class="ja"><strong>コマンドのパスが正しいか</strong>: フルパスで指定するか、PATHが通っているコマンドを使用</span><span class="en"><strong>Is the command path correct?</strong>: Use a full path or a command that's in your system PATH</span></li>
+  <li><span class="ja">「開いて」「起動して」「立ち上げて」などの起動系の動詞と一緒にキーワードを発話してください</span><span class="en">Include launch verbs like "open", "launch", "start" along with the keyword</span></li>
+</ul>
+
+<h3><span class="ja">Q: 画面認識（Vision）が使えない</span><span class="en">Q: Screen Vision doesn't work</span></h3>
+<p><span class="ja">Vision対応のAIプロバイダが必要です。以下のいずれかを設定してください:</span><span class="en">You need a Vision-capable AI provider. Set up one of the following:</span></p>
+<ul>
+  <li><span class="ja"><strong>Gemini 2.5 Flash / Flash-Lite</strong>（推奨・無料枠あり）</span><span class="en"><strong>Gemini 2.5 Flash / Flash-Lite</strong> (recommended, free tier available)</span></li>
+  <li><span class="ja"><strong>Claude Sonnet / Opus</strong>（高精度・有料）</span><span class="en"><strong>Claude Sonnet / Opus</strong> (high accuracy, paid)</span></li>
+  <li><span class="ja"><strong>Ollama + Qwen3-VL 8B</strong>（ローカル・無料）</span><span class="en"><strong>Ollama + Qwen3-VL 8B</strong> (local, free)</span></li>
+</ul>
+
+<h3><span class="ja">Q: 天気情報を聞くと地域の設定を促される</span><span class="en">Q: Mira asks me to set my location when I ask about weather</span></h3>
+<p><span class="ja">設定画面の「AI」タブにある「デフォルト天気地域」欄にお住まいの地域名を入力してください（例: 「東京」「大阪」「横浜」）。「今日の天気教えて」と言ったとき、この地域の天気が返ります。空欄の場合、地域の設定を促します。</span><span class="en">Enter your location in the "Default Weather Location" field in the "AI" tab in Settings (e.g., "Tokyo", "Osaka", "New York"). When you say "What's the weather?", this location's weather will be returned. If empty, Mira will ask you to set it.</span></p>
+
+<h3><span class="ja">Q: AIの応答が遅い</span><span class="en">Q: AI responses are slow</span></h3>
+<p><span class="ja">以下を試してみてください:</span><span class="en">Try the following:</span></p>
+<ul>
+  <li><span class="ja"><strong>クラウドAPIを使う</strong>: Gemini Flash-Lite は無料かつ高速（1,000回/日）</span><span class="en"><strong>Use a cloud API</strong>: Gemini Flash-Lite is free and fast (1,000 requests/day)</span></li>
+  <li><span class="ja"><strong>ローカルの場合</strong>: より小さいモデルに変更（例: gemma3:4b）、またはGPUアクセラレーションを有効に</span><span class="en"><strong>For local</strong>: Switch to a smaller model (e.g., gemma3:4b) or enable GPU acceleration</span></li>
+  <li><span class="ja"><strong>Lemonade</strong>（AMD NPU）: AMD Ryzen AI搭載PCならLemonade経由で高速推論が可能</span><span class="en"><strong>Lemonade</strong> (AMD NPU): Fast inference via Lemonade on AMD Ryzen AI PCs</span></li>
+</ul>
+
 <h3><span class="ja">Q: インターネットなしで使えますか？</span><span class="en">Q: Can I use Mira without internet?</span></h3>
 <p><span class="ja"><strong>はい。</strong>Ollama（AI）+ Whisper（STT）+ AivisSpeech/VOICEVOX（TTS）の組み合わせで完全オフライン動作します。</span><span class="en"><strong>Yes.</strong> Use Ollama (AI) + Whisper (STT) + AivisSpeech/VOICEVOX (TTS) for fully offline operation.</span></p>
 
@@ -649,6 +716,17 @@ a:hover{text-decoration:underline}
 
 <h3><span class="ja">Q: VOICEVOX / AivisSpeech は別途インストールが必要ですか？</span><span class="en">Q: Do I need to install VOICEVOX / AivisSpeech separately?</span></h3>
 <p><span class="ja"><strong>はい。</strong>これらは外部ソフトウェアです。インストールして起動しておく必要があります。インストールしない場合、System.Speech にフォールバックします。</span><span class="en"><strong>Yes.</strong> These are separate software. They must be installed and running. Without them, Mira falls back to System.Speech.</span></p>
+
+<h3><span class="ja">Q: 無料で使えるAIプロバイダはありますか？</span><span class="en">Q: Are there any free AI providers?</span></h3>
+<p><span class="ja"><strong>はい。</strong>以下が無料で利用可能です:</span><span class="en"><strong>Yes.</strong> The following are available for free:</span></p>
+<ul>
+  <li><span class="ja"><strong>Gemini Flash-Lite</strong>: 無料枠 1,000回/日（APIキー取得は初回セットアップウィザードで案内）</span><span class="en"><strong>Gemini Flash-Lite</strong>: Free tier, 1,000 requests/day (API key setup guided in first-run wizard)</span></li>
+  <li><span class="ja"><strong>Ollama</strong>: 完全無料のローカルAI。PCにインストールするだけ</span><span class="en"><strong>Ollama</strong>: Completely free local AI. Just install on your PC</span></li>
+  <li><span class="ja"><strong>LM Studio</strong>: Ollamaと同様のローカルAI。GUIで操作しやすい</span><span class="en"><strong>LM Studio</strong>: Local AI similar to Ollama. Easy GUI interface</span></li>
+</ul>
+
+<h3><span class="ja">Q: 記憶機能をオフにしたい</span><span class="en">Q: How to disable the memory feature</span></h3>
+<p><span class="ja">「全部忘れて」「記憶をクリアして」と言うと、保存された記憶をすべて削除できます。現時点では記憶機能自体をオフにする設定はありませんが、不要な記憶は個別に「〇〇を忘れて」で削除できます。</span><span class="en">Say "Forget everything" or "Clear memory" to delete all saved memories. There's no setting to disable the memory feature entirely, but you can delete individual memories by saying "Forget [topic]".</span></p>
 
 <h2 id="troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></h2>
 
