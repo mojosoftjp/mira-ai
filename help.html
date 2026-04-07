@@ -183,7 +183,7 @@ a:hover{text-decoration:underline}
 
 <!-- ===== はじめに ===== -->
 <h2 id="what-is-mira"><span class="ja">Mira とは</span><span class="en">What is Mira</span></h2>
-<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ねえミラ」と話しかけるだけで、AI との会話、Web 検索、音声ランチャーでアプリ起動、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira" to start conversations, search the web, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
+<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ミラお願い」と話しかけるだけで、AI との会話、Web 検索、音声ランチャーでアプリ起動、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "OK Mira" to start conversations, search the web, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
 <p><span class="ja">Cortana が廃止された今、Mira は Windows ユーザーのための最先端の音声アシスタントです。完全オフラインでも動作し、プライバシーを守りながら強力な AI 機能を利用できます。</span><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. It works fully offline, protecting your privacy while providing powerful AI capabilities.</span></p>
 
 <h2 id="requirements"><span class="ja">動作環境</span><span class="en">System Requirements</span></h2>
@@ -199,7 +199,7 @@ a:hover{text-decoration:underline}
 <ol class="step-list">
   <li><span class="ja">Mira をインストールし起動します。システムトレイに <strong>「M」アイコン</strong>が表示されます。</span><span class="en">Install and launch Mira. An <strong>"M" icon</strong> appears in the system tray.</span></li>
   <li><span class="ja">初回起動時、Whisper 音声認識モデル（約 244MB）が自動ダウンロードされます。</span><span class="en">On first launch, the Whisper speech recognition model (~244MB) is automatically downloaded.</span></li>
-  <li><span class="ja"><strong>「ねえミラ」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span><span class="en">Say <strong>"Hey Mira"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
+  <li><span class="ja"><strong>「ミラお願い」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span><span class="en">Say <strong>"OK Mira"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
   <li><span class="ja">質問や指示を話します。Mira が AI で応答し、音声で読み上げます。</span><span class="en">Speak your question or command. Mira responds with AI and reads it aloud.</span></li>
   <li><span class="ja">トレイアイコンをダブルクリックで<strong>設定画面</strong>を開けます。</span><span class="en">Double-click the tray icon to open <strong>Settings</strong>.</span></li>
 </ol>
@@ -208,8 +208,8 @@ a:hover{text-decoration:underline}
 <h2 id="wakeword"><span class="ja">ウェイクワード設定</span><span class="en">Wake Word Setup</span></h2>
 <p><span class="ja">Mira は好きな言葉で起動できます。設定画面の「ウェイクワード」タブで変更します。</span><span class="en">Mira can be activated with any word you choose. Change it in the "Wake Word" tab in Settings.</span></p>
 <ul>
-  <li><span class="ja"><strong>デフォルト</strong>: 「ねえミラ」</span><span class="en"><strong>Default</strong>: "Hey Mira"</span></li>
-  <li><span class="ja"><strong>中断フレーズ</strong>: 「ミラストップ」「ミラ止めて」「ミラやめて」で読み上げを中断（誤検出防止のため長めの語を推奨）</span><span class="en"><strong>Interrupt phrases</strong>: "Mira Stop", "Mira Cancel" to interrupt speech (longer phrases recommended to avoid false triggers)</span></li>
+  <li><span class="ja"><strong>デフォルト</strong>: 「ミラお願い」「ミラ質問です」「OK Mira」</span><span class="en"><strong>Default</strong>: "OK Mira", "Mira please", "Mira question"</span></li>
+  <li><span class="ja"><strong>中断フレーズ</strong>: 「ミラストップして」「ミラ止めてください」「Mira stop please」で読み上げを中断（誤検出防止のため長めの語を推奨）</span><span class="en"><strong>Interrupt phrases</strong>: "Mira stop please", "Mira cancel please" to interrupt speech (longer phrases recommended to avoid false triggers)</span></li>
   <li><span class="ja">カンマ区切りで複数のフレーズを登録可能</span><span class="en">Register multiple phrases separated by commas</span></li>
 </ul>
 <div class="callout warn"><span class="ja"><strong>⚠️ 注意:</strong> ウェイクワードを変更した場合、Mira の再起動が必要です。</span><span class="en"><strong>⚠️ Note:</strong> Restart Mira after changing the wake word.</span></div>
@@ -222,11 +222,11 @@ a:hover{text-decoration:underline}
   </thead>
   <tbody>
     <tr><td>3〜4</td><td><span class="ja">ストップ、止めて</span><span class="en">Stop, Cancel</span></td><td><span class="ja">⚠️ 高い（環境音やTTS回り込みで頻発しやすい）</span><span class="en">⚠️ High (frequent with ambient noise or TTS feedback)</span></td></tr>
-    <tr><td>5〜6</td><td><span class="ja">ミラストップ、ミラ止めて</span><span class="en">Mira Stop, Mira Cancel</span></td><td><span class="ja">✅ 低い（実用レベル・推奨）</span><span class="en">✅ Low (practical level — recommended)</span></td></tr>
-    <tr><td>7+</td><td><span class="ja">ミラちゃんストップ</span><span class="en">Hey Mira Stop</span></td><td><span class="ja">✅ 極めて低い（ただし言いにくい場合も）</span><span class="en">✅ Very low (but may be harder to say)</span></td></tr>
+    <tr><td>5〜6</td><td><span class="ja">ミラお願い、ミラ止めて</span><span class="en">OK Mira, Mira Cancel</span></td><td><span class="ja">✅ 低い（実用レベル）</span><span class="en">✅ Low (practical level)</span></td></tr>
+    <tr><td>7+</td><td><span class="ja">ミラストップして、ミラ質問です</span><span class="en">Mira stop please, Mira question</span></td><td><span class="ja">✅ 極めて低い（推奨）</span><span class="en">✅ Very low (recommended)</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップ）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ねえミラ」（4モーラ）や「おーいミラ」（5モーラ）のほうが誤検出が起きにくくなります。</span><span class="en"><strong>💡 Tip:</strong> Combining a proper noun with an action word (e.g., "Mira" + "Stop") is most effective. The same applies to wake words — longer phrases like "Hey Mira" (4 syllables) are more reliable than short words like "Mira" alone (2 syllables).</span></div>
+<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップして）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ミラお願い」（6モーラ）や「ミラ質問です」（7モーラ）のほうが誤検出が起きにくくなります。</span><span class="en"><strong>💡 Tip:</strong> Combining a proper noun with an action word (e.g., "Mira" + "stop please") is most effective. The same applies to wake words — longer phrases like "OK Mira" (5 syllables) are more reliable than short words like "Mira" alone (2 syllables).</span></div>
 
 <!-- ===== AI設定 ===== -->
 <h2 id="ai-overview"><span class="ja">AI 機能の概要</span><span class="en">AI Overview</span></h2>
@@ -510,7 +510,7 @@ a:hover{text-decoration:underline}
 <h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
 <ul>
-  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ねえミラ」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular "Hey Mira")</span></li>
+  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular "OK Mira")</span></li>
   <li><span class="ja"><strong>停止フレーズ</strong>で即終了</span><span class="en"><strong>Stop phrase</strong> for instant termination</span></li>
   <li><span class="ja">設定画面の「Live」タブで有効化</span><span class="en">Enable in the "Live" tab in Settings</span></li>
 </ul>
@@ -577,8 +577,8 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: 呼んでいないのにMiraが反応する</span><span class="en">Q: Mira responds even when I didn't call it</span></h3>
 <p><span class="ja">ウェイクワードが短いと、環境音やテレビの音声で誤って起動することがあります。以下の対策を試してください:</span><span class="en">Short wake words can be accidentally triggered by ambient noise or TV audio. Try these solutions:</span></p>
 <ul>
-  <li><span class="ja"><strong>ウェイクワードを長めにする</strong>: 「ミラ」→「ねえミラ」「おーいミラ」など、5モーラ以上推奨</span><span class="en"><strong>Use a longer wake word</strong>: "Mira" → "Hey Mira", "Hello Mira" — 3+ syllables recommended</span></li>
-  <li><span class="ja"><strong>中断フレーズも長めに</strong>: 「ストップ」→「ミラストップ」にすると誤停止も防げます</span><span class="en"><strong>Longer stop phrase too</strong>: "Stop" → "Mira Stop" to prevent false stops</span></li>
+  <li><span class="ja"><strong>ウェイクワードを長めにする</strong>: 「ミラ」→「ミラお願い」「ミラ質問です」など、6モーラ以上推奨</span><span class="en"><strong>Use a longer wake word</strong>: "Mira" → "OK Mira", "Mira question" — 5+ syllables recommended</span></li>
+  <li><span class="ja"><strong>中断フレーズも長めに</strong>: 「ストップ」→「ミラストップして」にすると誤停止も防げます</span><span class="en"><strong>Longer stop phrase too</strong>: "Stop" → "Mira stop please" to prevent false stops</span></li>
   <li><span class="ja">マイクとスピーカーが近い場合、Mira 自身の音声が回り込む可能性があります。ヘッドセットの使用も効果的です</span><span class="en">If your mic and speakers are close, Mira's own voice may feed back. Using a headset can help</span></li>
 </ul>
 
