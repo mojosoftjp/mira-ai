@@ -192,13 +192,13 @@ a:hover{text-decoration:underline}
   <li><span class="ja"><strong>.NET</strong>: .NET 9.0 Desktop Runtime（同梱）</span><span class="en"><strong>.NET</strong>: .NET 9.0 Desktop Runtime (bundled)</span></li>
   <li><span class="ja"><strong>RAM</strong>: 4GB 以上（ローカル AI 使用時は 8GB 以上推奨）</span><span class="en"><strong>RAM</strong>: 4GB+ (8GB+ recommended for local AI)</span></li>
   <li><span class="ja"><strong>マイク</strong>: 内蔵または USB マイク</span><span class="en"><strong>Microphone</strong>: Built-in or USB microphone</span></li>
-  <li><span class="ja"><strong>ストレージ</strong>: 約 300MB（Whisper モデル含む）</span><span class="en"><strong>Storage</strong>: ~300MB (including Whisper model)</span></li>
+  <li><span class="ja"><strong>ストレージ</strong>: 約 500MB〜（Whisper モデル含む。推奨モデル large-v3-turbo: 1.6GB）</span><span class="en"><strong>Storage</strong>: ~500MB+ (including Whisper model. Recommended large-v3-turbo: 1.6GB)</span></li>
 </ul>
 
 <h2 id="quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></h2>
 <ol class="step-list">
   <li><span class="ja">Mira をインストールし起動します。システムトレイに <strong>「M」アイコン</strong>が表示されます。</span><span class="en">Install and launch Mira. An <strong>"M" icon</strong> appears in the system tray.</span></li>
-  <li><span class="ja">初回起動時、Whisper 音声認識モデル（約 244MB）が自動ダウンロードされます。</span><span class="en">On first launch, the Whisper speech recognition model (~244MB) is automatically downloaded.</span></li>
+  <li><span class="ja">初回起動時、Whisper 音声認識モデル（デフォルト small: 466MB）が自動ダウンロードされます。設定から推奨の <strong>large-v3-turbo</strong>（1.6GB）に変更可能。</span><span class="en">On first launch, the Whisper speech recognition model (default small: 466MB) is automatically downloaded. You can switch to the recommended <strong>large-v3-turbo</strong> (1.6GB) in Settings.</span></li>
   <li><span class="ja"><strong>「ミラお願い」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span><span class="en">Say <strong>"Hey Mira please"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
   <li><span class="ja">質問や指示を話します。Mira が AI で応答し、音声で読み上げます。</span><span class="en">Speak your question or command. Mira responds with AI and reads it aloud.</span></li>
   <li><span class="ja">トレイアイコンをダブルクリックで<strong>設定画面</strong>を開けます。</span><span class="en">Double-click the tray icon to open <strong>Settings</strong>.</span></li>
@@ -367,10 +367,10 @@ a:hover{text-decoration:underline}
 <table class="cmd-table">
   <thead><tr><th><span class="ja">モデル</span><span class="en">Model</span></th><th><span class="ja">サイズ</span><span class="en">Size</span></th><th><span class="ja">精度</span><span class="en">Accuracy</span></th><th><span class="ja">速度</span><span class="en">Speed</span></th></tr></thead>
   <tbody>
-    <tr><td>tiny</td><td>75MB</td><td><span class="ja">低</span><span class="en">Low</span></td><td><span class="ja">最速</span><span class="en">Fastest</span></td></tr>
-    <tr><td>base</td><td>142MB</td><td><span class="ja">中</span><span class="en">Medium</span></td><td><span class="ja">速い</span><span class="en">Fast</span></td></tr>
-    <tr><td>small</td><td>244MB</td><td><span class="ja">高（推奨）</span><span class="en">High (Recommended)</span></td><td><span class="ja">普通</span><span class="en">Normal</span></td></tr>
-    <tr><td>medium</td><td>769MB</td><td><span class="ja">非常に高</span><span class="en">Very High</span></td><td><span class="ja">遅い</span><span class="en">Slow</span></td></tr>
+    <tr><td>small</td><td>466MB</td><td><span class="ja">低</span><span class="en">Low</span></td><td><span class="ja">高速</span><span class="en">Fast</span></td></tr>
+    <tr><td>medium</td><td>1.5GB</td><td><span class="ja">中（バランス型）</span><span class="en">Medium (Balanced)</span></td><td><span class="ja">普通</span><span class="en">Normal</span></td></tr>
+    <tr><td><strong>large-v3-turbo</strong></td><td>1.6GB</td><td><span class="ja"><strong>高（推奨）</strong>。高速＋高精度</span><span class="en"><strong>High (Recommended)</strong>. Fast + accurate</span></td><td><span class="ja">高速</span><span class="en">Fast</span></td></tr>
+    <tr><td>large-v3</td><td>2.9GB</td><td><span class="ja">最高精度</span><span class="en">Highest</span></td><td><span class="ja">低速</span><span class="en">Slow</span></td></tr>
   </tbody>
 </table>
 
@@ -564,9 +564,9 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: 音声認識の精度が低い・誤認識が多い</span><span class="en">Q: Speech recognition accuracy is low / too many misrecognitions</span></h3>
 <p><span class="ja">設定の「音声認識」タブで、より高精度なモデルに変更してみてください。</span><span class="en">Try switching to a more accurate model in the "Speech Recognition" tab in Settings.</span></p>
 <ul>
-  <li><span class="ja"><strong>small</strong>（デフォルト・244MB）: バランス型。一般的な用途に十分</span><span class="en"><strong>small</strong> (default, 244MB): Balanced. Sufficient for general use</span></li>
-  <li><span class="ja"><strong>medium</strong>（769MB）: 高精度。専門用語や早口に強い</span><span class="en"><strong>medium</strong> (769MB): High accuracy. Better with technical terms and fast speech</span></li>
-  <li><span class="ja"><strong>large-v3</strong>（1.5GB）: 最高精度。PCスペックに余裕がある場合に推奨</span><span class="en"><strong>large-v3</strong> (1.5GB): Highest accuracy. Recommended if your PC has enough resources</span></li>
+  <li><span class="ja"><strong>small</strong>（デフォルト・466MB）: 高速だが低精度</span><span class="en"><strong>small</strong> (default, 466MB): Fast but lower accuracy</span></li>
+  <li><span class="ja"><strong>large-v3-turbo</strong>（1.6GB・推奨）: 高速＋高精度。最もバランスが良い</span><span class="en"><strong>large-v3-turbo</strong> (1.6GB, recommended): Fast + accurate. Best balance</span></li>
+  <li><span class="ja"><strong>large-v3</strong>（2.9GB）: 最高精度だが低速。PCスペックに余裕がある場合に</span><span class="en"><strong>large-v3</strong> (2.9GB): Highest accuracy but slow. For high-spec PCs</span></li>
 </ul>
 <div class="callout"><span class="ja"><strong>💡 ヒント:</strong> モデルを変更すると初回のみダウンロードが必要です。また、マイクの入力レベルが低すぎないか、Windows のサウンド設定も確認してください。</span><span class="en"><strong>💡 Tip:</strong> Changing models requires a one-time download. Also check that your microphone input level isn't too low in Windows Sound settings.</span></div>
 
