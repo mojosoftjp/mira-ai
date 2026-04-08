@@ -261,25 +261,25 @@ a:hover{text-decoration:underline}
       <td><span class="ja"><strong>初期設定モデル</strong>。コスパ最強・高速。会話・Vision 両方優秀。無料枠 250回/日</span><span class="en"><strong>Default model</strong>. Best cost-performance, fast. Free tier: 250/day</span></td>
     </tr>
     <tr>
-      <td><strong>Gemini 2.5 Flash-Lite</strong></td>
-      <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
-      <td>✅</td>
-      <td>◎</td>
-      <td><span class="ja">画面認識OK。軽量で高速。無料枠 1,000回/日</span><span class="en">Screen Vision OK. Lightweight and fast. Free: 1,000/day</span></td>
-    </tr>
-    <tr>
-      <td><strong>Qwen3-VL 8B</strong></td>
+      <td><strong>Gemma 4 E4B-IT</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
       <td><span class="ja">ローカル</span><span class="en">Local</span></td>
       <td>✅</td>
-      <td>△</td>
-      <td><span class="ja">ローカルで実績あり。API キー不要・完全無料。VRAM 6GB〜</span><span class="en">Tested local model. No API key, completely free. VRAM 6GB+</span></td>
+      <td>◎</td>
+      <td><span class="ja"><strong>ローカル最推奨</strong>。高速・高精度。ツールマーカー完全対応。API キー不要・完全無料。VRAM 6GB〜</span><span class="en"><strong>Top local pick</strong>. Fast & accurate. Full tool marker support. No API key, completely free. VRAM 6GB+</span></td>
+    </tr>
+    <tr>
+      <td><strong>Gemma 4 26B</strong></td>
+      <td><span class="ja">ローカル</span><span class="en">Local</span></td>
+      <td>✅</td>
+      <td>◎</td>
+      <td><span class="ja">より高精度なローカルモデル。ツールマーカー完全対応。VRAM 16GB〜</span><span class="en">Higher accuracy local model. Full tool marker support. VRAM 16GB+</span></td>
     </tr>
   </tbody>
 </table>
 
-<div class="callout warn"><span class="ja"><strong>⚠️ 4B 以下のモデルについて:</strong> Qwen3-VL-4B 等の小型モデルでは画面読み取り（Screen Vision）は動作しますが、認識精度が低いため実用的ではありません。8B 以上のモデルを推奨します。</span><span class="en"><strong>⚠️ About 4B and smaller models:</strong> Small models like Qwen3-VL-4B can handle Screen Vision (reading screen content), but lack sufficient accuracy for practical use. 8B+ models are recommended.</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ 小型モデルについて:</strong> 4B 以下の小型モデルでは画面読み取り（Screen Vision）は動作しますが、認識精度が低いため実用的ではありません。Gemma 4 E4B-IT 以上のモデルを推奨します。</span><span class="en"><strong>⚠️ About small models:</strong> Models with 4B or fewer parameters can handle Screen Vision but lack sufficient accuracy for practical use. Gemma 4 E4B-IT or larger is recommended.</span></div>
 
-<div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Qwen3-VL 8B）は <strong>Ollama</strong>: <code>ollama pull qwen3-vl:8b</code> または <strong>LM Studio</strong>: 「<code>qwen3-vl-8b</code>」で検索してダウンロード。</span><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local (Qwen3-VL 8B), use <strong>Ollama</strong>: <code>ollama pull qwen3-vl:8b</code> or <strong>LM Studio</strong>: search "<code>qwen3-vl-8b</code>".</span></div>
+<div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Gemma 4）は <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> または <strong>LM Studio</strong>: 「<code>gemma-4-e4b-it</code>」で検索してダウンロード。</span><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local (Gemma 4), use <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> or <strong>LM Studio</strong>: search "<code>gemma-4-e4b-it</code>".</span></div>
 
 <h2 id="ollama"><span class="ja">Ollama（ローカル AI）</span><span class="en">Ollama (Local AI)</span></h2>
 <div class="card">
@@ -336,12 +336,6 @@ a:hover{text-decoration:underline}
       <td><span class="ja">初期設定モデル。高速・高精度。会話・画面認識・ツール呼出し全て対応</span><span class="en">Default model. Fast & accurate. Chat, vision, tool calling all supported</span></td>
     </tr>
     <tr>
-      <td><strong>Flash-Lite</strong></td>
-      <td><strong>1,000<span class="ja">回/日</span><span class="en">/day</span></strong></td>
-      <td>✅</td>
-      <td><span class="ja">日常会話・質問応答・画面認識（軽量・大容量無料枠）</span><span class="en">Daily chat, Q&A, screen vision (lightweight, large free tier)</span></td>
-    </tr>
-    <tr>
       <td><strong>Pro</strong></td>
       <td><span class="ja">有料<br><small style="color:#999">※無料枠は不安定</small></span><span class="en">Paid<br><small style="color:#999">*Free tier unstable</small></span></td>
       <td>✅</td>
@@ -349,7 +343,7 @@ a:hover{text-decoration:underline}
     </tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡</strong> Flash-Lite / Flash の無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら Flash-Lite の無料枠で十分です。Pro の無料枠は Google の方針により変動するため、安定利用には課金が推奨されます。</span><span class="en"><strong>💡</strong> Exceeding Flash-Lite / Flash free tiers will NOT result in charges (returns 429 error, resets next day). For typical daily use (~tens of requests), Flash-Lite's free tier is more than enough. Pro's free tier is subject to change by Google, so billing is recommended for stable access.</span></div>
+<div class="callout"><span class="ja"><strong>💡</strong> Flash の無料枠（250回/日）を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。Pro の無料枠は Google の方針により変動するため、安定利用には課金が推奨されます。</span><span class="en"><strong>💡</strong> Exceeding Flash's free tier (250/day) will NOT result in charges (returns 429 error, resets next day). For typical daily use (~tens of requests), the free tier is more than enough. Pro's free tier is subject to change by Google, so billing is recommended for stable access.</span></div>
 
 <h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
 <div class="card">
@@ -498,6 +492,8 @@ a:hover{text-decoration:underline}
     <tr><td><span class="ja"><strong>個別削除</strong></span><span class="en"><strong>Forget One</strong></span></td><td><span class="ja">「〇〇を忘れて」「〇〇の記憶を消して」</span><span class="en">"Forget X" / "Forget about X"</span></td><td><span class="ja">"Forget ..." / "Forget about ..."</span><span class="en">"Forget ..." / "Forget about ..."</span></td></tr>
     <tr><td><span class="ja"><strong>全削除</strong></span><span class="en"><strong>Forget All</strong></span></td><td><span class="ja">「全部忘れて」「記憶をクリアして」<br>「記憶をリセット」</span><span class="en">"Forget everything" / "Clear memory"<br>"Reset memory"</span></td><td><span class="ja">"Forget everything" / "Clear all memories"</span><span class="en">"Forget everything" / "Clear all memories"</span></td></tr>
     <tr><td><span class="ja"><strong>スケジュール確認</strong></span><span class="en"><strong>List Schedule</strong></span></td><td><span class="ja">「予定を教えて」「スケジュール確認」<br>「今後の予定は？」</span><span class="en">"What's my schedule?" / "List schedule"<br>"Any appointments?"</span></td><td><span class="ja">"What's my schedule?" / "Show schedule"</span><span class="en">"What's my schedule?" / "Show schedule"</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール追加</strong></span><span class="en"><strong>Add Schedule</strong></span></td><td><span class="ja">「4月10日に歯医者の予約を入れて」<br>「明日の15時に会議」</span><span class="en">"Schedule a dentist appointment on April 10th"<br>"Meeting tomorrow at 3pm"</span></td><td><span class="ja">"Add schedule..." / "Schedule..."</span><span class="en">"Add schedule..." / "Schedule..."</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール削除</strong></span><span class="en"><strong>Delete Schedule</strong></span></td><td><span class="ja">「歯医者の予約を削除して」<br>「4月10日のスケジュールを消して」</span><span class="en">"Delete the dentist appointment"<br>"Remove the April 10th schedule"</span></td><td><span class="ja">"Delete schedule..." / "Remove schedule..."</span><span class="en">"Delete schedule..." / "Remove schedule..."</span></td></tr>
   </tbody>
 </table>
 <p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span></p>
@@ -505,12 +501,12 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
 <p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="ja">推奨プロバイダ: Claude Sonnet 4.6、Gemini 2.5 Flash、Gemini 2.5 Flash-Lite（無料・画面認識のみ）、Qwen3-VL 8B（ローカル）</span><span class="en">Recommended providers: Claude Sonnet 4.6, Gemini 2.5 Flash, Gemini 2.5 Flash-Lite (free, vision only), Qwen3-VL 8B (local)</span></p>
+<p><span class="ja">推奨プロバイダ: Gemini 2.5 Flash（無料枠 250回/日）、Claude Sonnet 4.6、Gemma 4 E4B-IT / 26B（ローカル・無料）</span><span class="en">Recommended providers: Gemini 2.5 Flash (free: 250/day), Claude Sonnet 4.6, Gemma 4 E4B-IT / 26B (local, free)</span></p>
 
 <h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
 <ul>
-  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular "OK Mira")</span></li>
+  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular wake words)</span></li>
   <li><span class="ja"><strong>停止フレーズ</strong>で即終了</span><span class="en"><strong>Stop phrase</strong> for instant termination</span></li>
   <li><span class="ja">設定画面の「Live」タブで有効化</span><span class="en">Enable in the "Live" tab in Settings</span></li>
 </ul>
@@ -602,9 +598,9 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: 画面認識（Vision）が使えない</span><span class="en">Q: Screen Vision doesn't work</span></h3>
 <p><span class="ja">Vision対応のAIプロバイダが必要です。以下のいずれかを設定してください:</span><span class="en">You need a Vision-capable AI provider. Set up one of the following:</span></p>
 <ul>
-  <li><span class="ja"><strong>Gemini 2.5 Flash-Lite / Flash / Pro</strong>（推奨・無料枠あり）</span><span class="en"><strong>Gemini 2.5 Flash-Lite / Flash / Pro</strong> (recommended, free tier available)</span></li>
+  <li><span class="ja"><strong>Gemini 2.5 Flash / Pro</strong>（推奨・無料枠あり）</span><span class="en"><strong>Gemini 2.5 Flash / Pro</strong> (recommended, free tier available)</span></li>
   <li><span class="ja"><strong>Claude 4.5 Haiku / 4.6 Sonnet / Opus</strong>（高精度）</span><span class="en"><strong>Claude 4.5 Haiku / 4.6 Sonnet / Opus</strong> (high accuracy)</span></li>
-  <li><span class="ja"><strong>Ollama（またはLM Studio）+ Qwen3-VL 8B</strong>（ローカル・無料）</span><span class="en"><strong>Ollama (or LM Studio) + Qwen3-VL 8B</strong> (local, free)</span></li>
+  <li><span class="ja"><strong>Ollama（またはLM Studio）+ Gemma 4 E4B-IT / 26B</strong>（ローカル・無料）</span><span class="en"><strong>Ollama (or LM Studio) + Gemma 4 E4B-IT / 26B</strong> (local, free)</span></li>
 </ul>
 
 <h3><span class="ja">Q: 天気情報を聞くと地域の設定を促される</span><span class="en">Q: Mira asks me to set my location when I ask about weather</span></h3>
@@ -613,7 +609,7 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: AIの応答が遅い</span><span class="en">Q: AI responses are slow</span></h3>
 <p><span class="ja">以下を試してみてください:</span><span class="en">Try the following:</span></p>
 <ul>
-  <li><span class="ja"><strong>クラウドAPIを使う</strong>: Gemini Flash-Lite は無料かつ高速（1,000回/日）</span><span class="en"><strong>Use a cloud API</strong>: Gemini Flash-Lite is free and fast (1,000 requests/day)</span></li>
+  <li><span class="ja"><strong>クラウドAPIを使う</strong>: Gemini Flash は無料かつ高速（250回/日）</span><span class="en"><strong>Use a cloud API</strong>: Gemini Flash is free and fast (250 requests/day)</span></li>
   <li><span class="ja"><strong>ローカルの場合</strong>: より小さいモデルに変更（例: gemma3:4b）、またはGPUアクセラレーションを有効に</span><span class="en"><strong>For local</strong>: Switch to a smaller model (e.g., gemma3:4b) or enable GPU acceleration</span></li>
   <li><span class="ja"><strong>Lemonade</strong>（AMD NPU）: AMD Ryzen AI搭載PCならLemonade経由で高速推論が可能</span><span class="en"><strong>Lemonade</strong> (AMD NPU): Fast inference via Lemonade on AMD Ryzen AI PCs</span></li>
 </ul>
@@ -630,7 +626,7 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: 無料で使えるAIプロバイダはありますか？</span><span class="en">Q: Are there any free AI providers?</span></h3>
 <p><span class="ja"><strong>はい。</strong>以下が無料で利用可能です:</span><span class="en"><strong>Yes.</strong> The following are available for free:</span></p>
 <ul>
-  <li><span class="ja"><strong>Gemini Flash-Lite</strong>: 無料枠 1,000回/日（APIキー取得は初回セットアップウィザードで案内）</span><span class="en"><strong>Gemini Flash-Lite</strong>: Free tier, 1,000 requests/day (API key setup guided in first-run wizard)</span></li>
+  <li><span class="ja"><strong>Gemini Flash</strong>: 無料枠 250回/日（APIキー取得は初回セットアップウィザードで案内）</span><span class="en"><strong>Gemini Flash</strong>: Free tier, 250 requests/day (API key setup guided in first-run wizard)</span></li>
   <li><span class="ja"><strong>Ollama</strong>: 完全無料のローカルAI。PCにインストールするだけ</span><span class="en"><strong>Ollama</strong>: Completely free local AI. Just install on your PC</span></li>
   <li><span class="ja"><strong>LM Studio</strong>: Ollamaと同様のローカルAI。GUIで操作しやすい</span><span class="en"><strong>LM Studio</strong>: Local AI similar to Ollama. Easy GUI interface</span></li>
 </ul>
