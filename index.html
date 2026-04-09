@@ -98,6 +98,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .btn-primary:hover::after{opacity:1}
 .btn-outline{background:transparent;color:var(--text-white);border:1.5px solid rgba(0,168,255,.25)}
 .btn-outline:hover{background:rgba(0,168,255,.06);border-color:rgba(0,168,255,.4);color:var(--text-white);text-decoration:none}
+.btn-msstore{background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;box-shadow:0 0 32px rgba(0,120,212,.35)}
+.btn-msstore:hover{transform:translateY(-2px);box-shadow:0 0 48px rgba(0,120,212,.5);color:#fff;text-decoration:none}
 .btn svg{width:18px;height:18px}
 
 /* Social Proof */
@@ -341,6 +343,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </p>
 
   <div class="hero-cta fade-in fade-in-d4">
+    <a href="https://apps.microsoft.com/detail/9MSWSR4GRSV6" class="btn btn-msstore" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zM12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zM12.5 12.5H24V24H12.5z"/></svg>
+      <span class="ja">Microsoft Store</span>
+      <span class="en">Microsoft Store</span>
+    </a>
     <a href="download.html" class="btn btn-primary">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       <span class="ja">無料で試す</span>
@@ -350,6 +357,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <span class="ja">機能を見る →</span>
       <span class="en">See Features →</span>
     </a>
+  </div>
+  <div style="margin-top:18px;display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid rgba(0,188,242,.3);background:rgba(0,120,212,.08);font-size:.78rem;color:#4dc9ff;font-weight:600">
+    <span style="width:6px;height:6px;border-radius:50%;background:#00bcf2;box-shadow:0 0 8px #00bcf2"></span>
+    <span class="ja">Microsoft Store で公開中 — v1.5.6</span>
+    <span class="en">Now on Microsoft Store — v1.5.6</span>
   </div>
 </section>
 

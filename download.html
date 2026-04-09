@@ -55,6 +55,25 @@ a:hover{color:var(--accent-teal)}
 .trial-btn svg{width:22px;height:22px}
 .trial-note{color:var(--text-dim);font-size:.85rem;margin-top:16px;line-height:1.6}
 
+/* Microsoft Store CTA */
+.store-cta-section{max-width:640px;margin:0 auto 50px;padding:0 24px}
+.store-cta-card{position:relative;background:linear-gradient(135deg,rgba(0,120,212,.12),rgba(0,188,242,.06));border:1px solid rgba(0,188,242,.35);border-radius:var(--radius);padding:36px 32px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,120,212,.12)}
+.store-cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0078d4,#00bcf2,#50e6ff);border-radius:var(--radius) var(--radius) 0 0}
+.store-recommended-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;padding:5px 16px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;box-shadow:0 4px 20px rgba(0,120,212,.4);white-space:nowrap}
+.store-cta-title{font-family:'Exo 2',sans-serif;font-size:1.5rem;font-weight:800;margin:12px 0 8px;color:var(--text-white)}
+.store-cta-desc{color:var(--text-muted);font-size:.95rem;margin-bottom:24px;line-height:1.6}
+.btn-store-big{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 40px;border-radius:12px;background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;font-size:1.05rem;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 8px 30px rgba(0,120,212,.35);border:none;cursor:pointer}
+.btn-store-big:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,120,212,.5);color:#fff}
+.btn-store-big svg{width:22px;height:22px;flex-shrink:0}
+.store-features{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(0,188,242,.15)}
+.store-features span{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text-muted)}
+.store-features span::before{content:'✓';color:#00bcf2;font-weight:700}
+.or-divider-big{max-width:500px;margin:0 auto 40px;padding:0 24px;text-align:center;position:relative;color:var(--text-dim);font-size:.82rem;font-weight:600;letter-spacing:.12em}
+.or-divider-big::before,.or-divider-big::after{content:'';position:absolute;top:50%;width:calc(50% - 50px);height:1px;background:var(--border)}
+.or-divider-big::before{left:24px}
+.or-divider-big::after{right:24px}
+.or-divider-big span{background:var(--bg-abyss);padding:0 16px;position:relative;z-index:1}
+
 /* SmartScreen */
 .smartscreen{max-width:600px;margin:0 auto 60px;padding:0 24px}
 .smartscreen-box{background:rgba(255,140,0,.05);border:1px solid rgba(255,140,0,.15);border-left:3px solid #FF8C00;border-radius:0 8px 8px 0;padding:16px 20px;font-size:.88rem;color:var(--text-muted)}
@@ -149,7 +168,43 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 <!-- Hero -->
 <div class="dl-hero">
   <h1><span class="ja">Mira をダウンロード</span><span class="en">Download Mira</span></h1>
-  <p><span class="ja">15日間の無料試用。クレジットカード不要。すべての機能をお試しいただけます。</span><span class="en">15-day free trial. No credit card required. Try all features.</span></p>
+  <p><span class="ja">Microsoft Store 版がおすすめ。直接ダウンロードで 15日間の無料試用も可能です。</span><span class="en">Microsoft Store is recommended. Direct download offers a 15-day free trial.</span></p>
+</div>
+
+<!-- Microsoft Store CTA (RECOMMENDED) -->
+<div class="store-cta-section">
+  <div class="store-cta-card">
+    <div class="store-recommended-badge">
+      <span class="ja">⭐ おすすめ</span><span class="en">⭐ RECOMMENDED</span>
+    </div>
+    <div class="store-cta-title">
+      <span class="ja">Microsoft Store で入手</span>
+      <span class="en">Get from Microsoft Store</span>
+    </div>
+    <p class="store-cta-desc">
+      <span class="ja">ワンクリック購入・自動アップデート・ライセンスキー不要。<br>Microsoft の信頼できる配信でかんたん導入。</span>
+      <span class="en">One-click purchase · Auto-updates · No license key needed.<br>Trusted Microsoft distribution for effortless install.</span>
+    </p>
+    <a href="https://apps.microsoft.com/detail/9MSWSR4GRSV6" class="btn-store-big" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h11.5v11.5H0zM12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zM12.5 12.5H24V24H12.5z"/>
+      </svg>
+      <span class="ja">Microsoft Store で入手 — ¥980</span>
+      <span class="en">Get from Microsoft Store — ¥980</span>
+    </a>
+    <div class="store-features">
+      <span><span class="ja">SmartScreen 警告なし</span><span class="en">No SmartScreen warning</span></span>
+      <span><span class="ja">自動アップデート</span><span class="en">Auto-updates</span></span>
+      <span><span class="ja">Hardware ID 不要</span><span class="en">No Hardware ID</span></span>
+      <span><span class="ja">Microsoft 決済</span><span class="en">Microsoft payment</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- OR Divider -->
+<div class="or-divider-big">
+  <span class="ja">または 直接ダウンロード</span>
+  <span class="en">OR DIRECT DOWNLOAD</span>
 </div>
 
 <!-- Free Trial Download -->
