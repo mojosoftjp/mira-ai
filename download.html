@@ -267,8 +267,16 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   <div class="changelog-item">
     <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">AI モデルの更新</span><span class="en">Updated AI models</span></h3>
     <p>
-      <span class="ja">Gemini の選択肢に最新モデルを追加し、初期設定を、常に最新世代を指す gemini-flash-latest に変更しました。</span>
+      <span class="ja">Gemini の選択肢に最新モデルを追加し、初期設定を、常に最新の Flash 世代を指す gemini-flash-latest に変更しました。</span>
       <span class="en">Added the latest Gemini models and changed the default to gemini-flash-latest, which always points to the newest Flash generation.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">一部の AI モデルで応答が返らない不具合を修正</span><span class="en">Fixed: no response from some AI models</span></h3>
+    <p>
+      <span class="ja">Gemini の一部のモデルで、話しかけても「エラーが発生しました」としか返らない不具合を修正しました。Mira が送っていた設定を受け付けないモデルがあったことが原因です。</span>
+      <span class="en">Fixed an issue where certain Gemini models would only answer "an error occurred" when you spoke to Mira. Some models rejected a parameter Mira was sending.</span>
     </p>
   </div>
 
