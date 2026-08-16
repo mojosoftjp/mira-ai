@@ -76,6 +76,18 @@ a:hover{color:var(--accent-teal)}
 .or-divider-big::after{right:24px}
 .or-divider-big span{background:var(--bg-abyss);padding:0 16px;position:relative;z-index:1}
 
+/* Changelog */
+.changelog{max-width:760px;margin:0 auto 60px;padding:0 24px}
+.changelog h2{font-size:1.3rem;color:var(--text-white);margin-bottom:6px}
+.changelog-date{color:var(--text-dim);font-size:.82rem;margin-bottom:24px}
+.changelog-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px}
+.changelog-item h3{font-size:.98rem;color:var(--text-white);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.changelog-tag{font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px;flex-shrink:0}
+.tag-new{background:rgba(0,188,242,.14);color:#4dc9ff;border:1px solid rgba(0,188,242,.3)}
+.tag-fix{background:rgba(76,175,80,.13);color:#7ed683;border:1px solid rgba(76,175,80,.3)}
+.changelog-item p{color:var(--text-muted);font-size:.88rem;line-height:1.75;margin:0}
+.changelog-older{color:var(--text-dim);font-size:.84rem;margin-top:20px;text-align:center}
+
 /* SmartScreen */
 .smartscreen{max-width:600px;margin:0 auto 60px;padding:0 24px}
 .smartscreen-box{background:rgba(255,140,0,.05);border:1px solid rgba(255,140,0,.15);border-left:3px solid #FF8C00;border-radius:0 8px 8px 0;padding:16px 20px;font-size:.88rem;color:var(--text-muted)}
@@ -212,6 +224,57 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
     Version 2.1.0<br>
     <span class="ja">Windows 10/11 (64-bit) · 約 54MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
     <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
+  </p>
+</div>
+
+<!-- Changelog -->
+<div class="changelog">
+  <h2><span class="ja">v2.1.0 の更新内容</span><span class="en">What's new in v2.1.0</span></h2>
+  <p class="changelog-date"><span class="ja">2026年8月16日</span><span class="en">August 16, 2026</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">マイクを選べるようになりました</span><span class="en">Choose your microphone</span></h3>
+    <p>
+      <span class="ja">これまでは Windows の既定の録音デバイスを自動的に使っていたため、既定のマイクが音声を返さない機器（USB スピーカーが公開しているだけのマイク端子など）に設定されていると、声にまったく反応しないことがありました。設定画面の「ウェイクワード」タブで使用するマイクを選べるようになり、ウェイクワードの認識と音声入力の両方に反映されます。</span>
+      <span class="en">Mira used to always use the Windows default recording device. If that device returned no audio — for example a microphone jack that a USB speaker merely exposes — Mira would not respond to your voice at all. You can now pick the microphone on the Wake Word tab in Settings, and it applies to both wake word detection and voice input.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">マイク音量ブースト</span><span class="en">Microphone boost</span></h3>
+    <p>
+      <span class="ja">Windows のマイク音量を最大にしても声が小さすぎる機器のために、アプリ側で最大 10 倍まで増幅できるようになりました。「マイクをテスト」ボタンで実際の入力レベルを測定できるので、音声認識に十分な音量が出ているかその場で確認できます。</span>
+      <span class="en">For devices that are still too quiet with the Windows microphone level at maximum, Mira can now amplify the input up to 10x. The "Test microphone" button measures the actual input level so you can confirm it is loud enough for speech recognition.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">声に反応しなくなる不具合を修正</span><span class="en">Fixed: Mira stops responding to your voice</span></h3>
+    <p>
+      <span class="ja">マイクから音声が取得できないとき、音声認識エンジンが数秒おきに再起動を繰り返して復帰できなくなる問題を修正しました。問題が発生した場合は通知でお知らせし、対処方法をご案内します。</span>
+      <span class="en">Fixed an issue where the speech recognition engine would restart every few seconds and never recover when no audio was reaching it. Mira now notifies you when this happens and explains how to fix it.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">タスクトレイアイコンを見やすく</span><span class="en">Clearer tray icon</span></h3>
+    <p>
+      <span class="ja">待機中のアイコンをオレンジに変更しました。グレーは一時停止中を表すようになり、動作しているかどうかが一目でわかります。</span>
+      <span class="en">The idle icon is now orange. Grey now means paused, so you can tell at a glance whether Mira is running.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">AI モデルの更新</span><span class="en">Updated AI models</span></h3>
+    <p>
+      <span class="ja">Gemini の選択肢に最新モデルを追加し、初期設定を、常に最新世代を指す gemini-flash-latest に変更しました。</span>
+      <span class="en">Added the latest Gemini models and changed the default to gemini-flash-latest, which always points to the newest Flash generation.</span>
+    </p>
+  </div>
+
+  <p class="changelog-older">
+    <span class="ja">v2.0.0 では完全無料化を実施しました。</span>
+    <span class="en">v2.0.0 made Mira completely free.</span>
   </p>
 </div>
 

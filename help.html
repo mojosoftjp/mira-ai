@@ -122,6 +122,7 @@ a:hover{text-decoration:underline}
     <a class="nav-item" href="#requirements"><span class="ja">動作環境</span><span class="en">Requirements</span></a>
     <a class="nav-item" href="#quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></a>
     <a class="nav-item" href="#wakeword"><span class="ja">ウェイクワード</span><span class="en">Wake Word</span></a>
+    <a class="nav-item" href="#microphone"><span class="ja">マイク設定</span><span class="en">Microphone</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-group-label"><span class="ja">AI設定</span><span class="en">AI Setup</span></div>
@@ -235,6 +236,36 @@ a:hover{text-decoration:underline}
 </table>
 <div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップして）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ミラお願い」（6モーラ）や「ミラ質問です」（7モーラ）のほうが誤検出が起きにくくなります。</span><span class="en"><strong>💡 Tip:</strong> Combining a proper noun with an action word (e.g., "Mira" + "stop please") is most effective. The same applies to wake words — longer phrases like "Hey Mira please" (5 syllables) are more reliable than short words like "Mira" alone (2 syllables).</span></div>
 
+<h2 id="microphone"><span class="ja">マイク設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Microphone Setup <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
+<p><span class="ja">設定画面の「ウェイクワード」タブで、Mira が使うマイクを選べます。ここで選んだマイクは<strong>ウェイクワードの認識と音声入力の両方</strong>に使われます。</span><span class="en">Choose the microphone Mira uses on the "Wake Word" tab in Settings. The microphone you select is used for <strong>both wake word detection and voice input</strong>.</span></p>
+<ul>
+  <li><span class="ja"><strong>初期設定</strong>: 「Windows の既定のマイク」</span><span class="en"><strong>Default</strong>: "Windows default microphone"</span></li>
+  <li><span class="ja">選択したマイクは名前で記録されるため、USB 機器を抜き差ししても別のマイクに切り替わりません</span><span class="en">The selected microphone is stored by name, so unplugging and reconnecting USB devices will not silently switch Mira to a different one</span></li>
+  <li><span class="ja">変更は保存するとすぐ反映されます（再起動不要）</span><span class="en">Changes take effect as soon as you save (no restart needed)</span></li>
+</ul>
+<div class="callout warn"><span class="ja"><strong>⚠️ 声にまったく反応しない場合:</strong> Windows の既定の録音デバイスが、音声を返さない機器になっている可能性があります。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識される機器があります。この場合はここで実際に使っているマイクを明示的に選んでください。</span><span class="en"><strong>⚠️ If Mira never responds to your voice:</strong> your Windows default recording device may be one that returns no audio at all. Some USB speakers and monitors expose a "microphone" endpoint to Windows without actually having a microphone. Select the microphone you really use here.</span></div>
+
+<h3><span class="ja">マイクをテスト</span><span class="en">Test Microphone</span></h3>
+<p><span class="ja">「マイクをテスト」ボタンを押すと 3 秒間録音し、実際の入力レベルを表示します。</span><span class="en">The "Test microphone" button records for 3 seconds and shows the actual input level.</span></p>
+<table class="cmd-table">
+  <thead>
+    <tr><th><span class="ja">表示</span><span class="en">Reading</span></th><th><span class="ja">意味</span><span class="en">Meaning</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="ja">平均</span><span class="en">Average</span></td><td><span class="ja">音声認識に通るかを決める値。必要値（0.0080）を下回ると、聞き取れても認識処理に進みません</span><span class="en">Decides whether speech recognition runs. Below the required value (0.0080), audio is discarded even if you can hear it</span></td></tr>
+    <tr><td><span class="ja">ピーク</span><span class="en">Peak</span></td><td><span class="ja">瞬間的な最大音量。0.5 を超えると音が割れている可能性があり、かえって認識精度が落ちます</span><span class="en">The loudest moment. Above 0.5 the audio may be clipping, which reduces recognition accuracy</span></td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ja">マイク音量ブースト</span><span class="en">Microphone Boost</span></h3>
+<p><span class="ja">Windows のマイク音量を最大にしても声が小さすぎる場合に、Mira 側で最大 10 倍まで増幅できます。</span><span class="en">If your voice is still too quiet with the Windows microphone level at maximum, Mira can amplify the input up to 10x.</span></p>
+<ol>
+  <li><span class="ja">まず等倍（x1.0）のまま「マイクをテスト」を押し、普段の距離・普段の声で話す</span><span class="en">First press "Test microphone" at x1.0 and speak at your normal distance and volume</span></li>
+  <li><span class="ja">平均が必要値を超えていればブーストは不要です</span><span class="en">If the average exceeds the required value, no boost is needed</span></li>
+  <li><span class="ja">下回る場合はスライダーを少しずつ上げ、平均が必要値を超え、かつピークが 0.5 を超えない値を探す</span><span class="en">If it falls short, raise the slider gradually until the average clears the required value while the peak stays under 0.5</span></li>
+</ol>
+<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> ブーストは声と雑音を同じだけ大きくするため、音質そのものは良くなりません。マイクに近づけるならそちらのほうが確実です。ブーストは「マイクから離れて使いたい」「感度の低いマイクしかない」場合の補正としてお使いください。</span><span class="en"><strong>💡 Tip:</strong> Boost amplifies your voice and background noise equally, so it does not improve audio quality. Moving closer to the microphone is always more effective. Use boost when you need to work at a distance or only have a low-sensitivity microphone.</span></div>
+
 <!-- ===== AI設定 ===== -->
 <h2 id="ai-overview"><span class="ja">AI 機能の概要</span><span class="en">AI Overview</span></h2>
 <p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
@@ -261,11 +292,11 @@ a:hover{text-decoration:underline}
       <td><span class="ja">最も正確。高い画面認識精度。おすすめ</span><span class="en">Most accurate. High screen recognition precision. Recommended</span></td>
     </tr>
     <tr>
-      <td><strong>Gemini 2.5 Flash</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
+      <td><strong>gemini-flash-latest</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
       <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja"><strong>初期設定モデル</strong>。コスパ最強・高速。会話・Vision 両方優秀。無料枠 250回/日</span><span class="en"><strong>Default model</strong>. Best cost-performance, fast. Free tier: 250/day</span></td>
+      <td><span class="ja"><strong>初期設定モデル</strong>。コスパ最強・高速。会話・Vision 両方優秀。無料枠あり</span><span class="en"><strong>Default model</strong>. Best cost-performance, fast. Strong at both chat and vision. Free tier available</span></td>
     </tr>
     <tr>
       <td><strong>Gemma 4 E4B-IT</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
@@ -337,20 +368,27 @@ a:hover{text-decoration:underline}
   </thead>
   <tbody>
     <tr>
-      <td><strong>Flash</strong> <span style="color:#4CAF50">★</span></td>
-      <td><strong>250<span class="ja">回/日</span><span class="en">/day</span></strong></td>
+      <td><strong>gemini-flash-latest</strong> <span style="color:#4CAF50">★</span></td>
+      <td><span class="ja">あり</span><span class="en">Yes</span></td>
       <td>✅</td>
-      <td><span class="ja">初期設定モデル。高速・高精度。会話・画面認識・ツール呼出し全て対応</span><span class="en">Default model. Fast & accurate. Chat, vision, tool calling all supported</span></td>
+      <td><span class="ja">初期設定モデル。高速・高精度で、会話・画面認識・ツール呼出しすべてに対応。常に最新の Flash 世代を指すため、モデル名を変えずに新世代へ追従します</span><span class="en">Default model. Fast and accurate, with chat, vision and tool calling all supported. Always points to the newest Flash generation, so it follows new releases without changing the model name</span></td>
     </tr>
     <tr>
-      <td><strong>Pro</strong></td>
-      <td><span class="ja">有料<br><small style="color:#999">※無料枠は不安定</small></span><span class="en">Paid<br><small style="color:#999">*Free tier unstable</small></span></td>
+      <td><strong>gemini-flash-lite-latest</strong></td>
+      <td><span class="ja">あり</span><span class="en">Yes</span></td>
       <td>✅</td>
-      <td><span class="ja">最高精度が必要な場面（課金推奨）</span><span class="en">When highest accuracy is needed (billing recommended)</span></td>
+      <td><span class="ja">より軽量・高速。シンプルな会話向け</span><span class="en">Lighter and faster. Good for simple conversations</span></td>
+    </tr>
+    <tr>
+      <td><strong>gemini-pro-latest</strong></td>
+      <td><span class="ja">限定的<br><small style="color:#999">※課金推奨</small></span><span class="en">Limited<br><small style="color:#999">*billing recommended</small></span></td>
+      <td>✅</td>
+      <td><span class="ja">最高精度が必要な場面</span><span class="en">When highest accuracy is needed</span></td>
     </tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡</strong> Flash の無料枠（250回/日）を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。Pro の無料枠は Google の方針により変動するため、安定利用には課金が推奨されます。</span><span class="en"><strong>💡</strong> Exceeding Flash's free tier (250/day) will NOT result in charges (returns 429 error, resets next day). For typical daily use (~tens of requests), the free tier is more than enough. Pro's free tier is subject to change by Google, so billing is recommended for stable access.</span></div>
+<p><span class="ja">上記のほか、世代を固定したい場合は <code>gemini-3.7-flash</code> / <code>gemini-3.6-flash</code> / <code>gemini-3.5-flash</code> / <code>gemini-3.5-flash-lite</code> / <code>gemini-2.5-flash</code> / <code>gemini-2.5-pro</code> も選択できます。</span><span class="en">If you prefer to pin a specific generation, you can also select <code>gemini-3.7-flash</code>, <code>gemini-3.6-flash</code>, <code>gemini-3.5-flash</code>, <code>gemini-3.5-flash-lite</code>, <code>gemini-2.5-flash</code> or <code>gemini-2.5-pro</code>.</span></p>
+<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns a 429 error, resets the next day). For typical daily use (~tens of requests), the free tier is more than enough. Daily limits vary by model and generation and are subject to change by Google — see the <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API rate limits page</a> for current values.</span></div>
 
 <h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
 <div class="card">
@@ -508,7 +546,7 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
 <p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="ja">推奨プロバイダ: Gemini 2.5 Flash（無料枠 250回/日）、Claude Sonnet 4.6、Gemma 4 E4B-IT / 26B（ローカル・無料）</span><span class="en">Recommended providers: Gemini 2.5 Flash (free: 250/day), Claude Sonnet 4.6, Gemma 4 E4B-IT / 26B (local, free)</span></p>
+<p><span class="ja">推奨プロバイダ: gemini-flash-latest（無料枠あり）、Claude Sonnet 4.6、Gemma 4 E4B-IT / 26B（ローカル・無料）</span><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Sonnet 4.6, Gemma 4 E4B-IT / 26B (local, free)</span></p>
 
 <h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
@@ -596,7 +634,7 @@ a:hover{text-decoration:underline}
 <h3><span class="ja">Q: 画面認識（Vision）が使えない</span><span class="en">Q: Screen Vision doesn't work</span></h3>
 <p><span class="ja">Vision対応のAIプロバイダが必要です。以下のいずれかを設定してください:</span><span class="en">You need a Vision-capable AI provider. Set up one of the following:</span></p>
 <ul>
-  <li><span class="ja"><strong>Gemini 2.5 Flash / Pro</strong>（推奨・無料枠あり）</span><span class="en"><strong>Gemini 2.5 Flash / Pro</strong> (recommended, free tier available)</span></li>
+  <li><span class="ja"><strong>gemini-flash-latest</strong>（推奨・無料枠あり）</span><span class="en"><strong>gemini-flash-latest</strong> (recommended, free tier available)</span></li>
   <li><span class="ja"><strong>Claude 4.5 Haiku / 4.6 Sonnet / Opus</strong>（高精度）</span><span class="en"><strong>Claude 4.5 Haiku / 4.6 Sonnet / Opus</strong> (high accuracy)</span></li>
   <li><span class="ja"><strong>Ollama（またはLM Studio）+ Gemma 4 E4B-IT / 26B</strong>（ローカル・無料）</span><span class="en"><strong>Ollama (or LM Studio) + Gemma 4 E4B-IT / 26B</strong> (local, free)</span></li>
 </ul>
@@ -635,11 +673,20 @@ a:hover{text-decoration:underline}
 <h2 id="troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></h2>
 
 <h3><span class="ja">ウェイクワードが反応しない</span><span class="en">Wake word not responding</span></h3>
+<p><span class="ja">まず<strong>正しいマイクが選ばれているか</strong>を確認してください。声にまったく反応しない場合、最も多い原因はこれです。</span><span class="en">First, check that <strong>the right microphone is selected</strong>. This is by far the most common cause when Mira does not respond at all.</span></p>
+<ol>
+  <li><span class="ja">設定 → 「ウェイクワード」タブを開く</span><span class="en">Open Settings → "Wake Word" tab</span></li>
+  <li><span class="ja">「マイク」で実際に使っているマイクを選ぶ</span><span class="en">Select the microphone you actually use under "Microphone"</span></li>
+  <li><span class="ja">「マイクをテスト」を押し、普段の距離で話して平均が必要値を超えるか確認する</span><span class="en">Press "Test microphone", speak at your normal distance, and check that the average clears the required value</span></li>
+  <li><span class="ja">超えない場合は「マイク音量ブースト」を上げるか、マイクに近づく（詳しくは<a href="#microphone">マイク設定</a>）</span><span class="en">If it falls short, raise "Microphone boost" or move closer (see <a href="#microphone">Microphone Setup</a>)</span></li>
+</ol>
+<p><span class="ja">それでも解決しない場合:</span><span class="en">If that does not help:</span></p>
 <ul>
   <li><span class="ja">マイクがミュートになっていないか確認</span><span class="en">Check if microphone is muted</span></li>
   <li><span class="ja">Windows のマイクアクセス許可を確認（設定 → プライバシー → マイク）</span><span class="en">Check Windows microphone permission (Settings → Privacy → Microphone)</span></li>
-  <li><span class="ja">Mira が一時停止中（オレンジのトレイアイコン）でないか確認</span><span class="en">Check if Mira is paused (orange tray icon)</span></li>
+  <li><span class="ja">Mira が一時停止中（<strong>グレー</strong>のトレイアイコン）でないか確認。動作中はオレンジ、聞き取り中は青になります</span><span class="en">Check whether Mira is paused (<strong>grey</strong> tray icon). It is orange when running and blue while listening</span></li>
 </ul>
+<div class="callout"><span class="ja"><strong>💡 補足:</strong> マイクから音声がまったく届いていない場合、Mira がタスクトレイの通知でお知らせします。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識され、既定のデバイスになってしまう機器があります。</span><span class="en"><strong>💡 Note:</strong> Mira shows a tray notification when no audio at all is reaching it from the microphone. Some USB speakers and monitors expose a "microphone" endpoint to Windows without having one, and can end up as your default recording device.</span></div>
 
 <h3><span class="ja">TTS の音声が出ない</span><span class="en">No TTS audio output</span></h3>
 <ul>
