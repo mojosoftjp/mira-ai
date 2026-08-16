@@ -368,26 +368,44 @@ a:hover{text-decoration:underline}
   </thead>
   <tbody>
     <tr>
+      <td><strong>gemini-3.7-flash</strong></td>
+      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td>✅</td>
+      <td><span class="ja">最新世代の Flash。高速・高精度</span><span class="en">Newest Flash generation. Fast and accurate</span></td>
+    </tr>
+    <tr>
+      <td><strong>gemini-3.6-flash</strong></td>
+      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td>✅</td>
+      <td><span class="ja">ひとつ前の世代</span><span class="en">Previous generation</span></td>
+    </tr>
+    <tr>
+      <td><strong>gemini-3.5-flash</strong> / <strong>-lite</strong></td>
+      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td>✅</td>
+      <td><span class="ja">lite はより軽量・高速。シンプルな会話向け</span><span class="en">The lite variant is lighter and faster, good for simple conversations</span></td>
+    </tr>
+    <tr>
+      <td><strong>gemini-2.5-pro</strong></td>
+      <td><span class="ja">限定的<br><small style="color:#999">※課金推奨</small></span><span class="en">Limited<br><small style="color:#999">*billing recommended</small></span></td>
+      <td>✅</td>
+      <td><span class="ja">最高精度が必要な場面</span><span class="en">When highest accuracy is needed</span></td>
+    </tr>
+    <tr>
       <td><strong>gemini-flash-latest</strong> <span style="color:#4CAF50">★</span></td>
       <td><span class="ja">あり</span><span class="en">Yes</span></td>
       <td>✅</td>
-      <td><span class="ja">初期設定モデル。高速・高精度で、会話・画面認識・ツール呼出しすべてに対応。常に最新の Flash 世代を指すため、モデル名を変えずに新世代へ追従します</span><span class="en">Default model. Fast and accurate, with chat, vision and tool calling all supported. Always points to the newest Flash generation, so it follows new releases without changing the model name</span></td>
-    </tr>
-    <tr>
-      <td><strong>gemini-flash-lite-latest</strong></td>
-      <td><span class="ja">あり</span><span class="en">Yes</span></td>
-      <td>✅</td>
-      <td><span class="ja">より軽量・高速。シンプルな会話向け</span><span class="en">Lighter and faster. Good for simple conversations</span></td>
+      <td><span class="ja">初期設定モデル。常に最新の Flash 世代を指すため、モデル名を変えずに新世代へ追従します</span><span class="en">Default model. Always points to the newest Flash generation, so it follows new releases without changing the model name</span></td>
     </tr>
     <tr>
       <td><strong>gemini-pro-latest</strong></td>
       <td><span class="ja">限定的<br><small style="color:#999">※課金推奨</small></span><span class="en">Limited<br><small style="color:#999">*billing recommended</small></span></td>
       <td>✅</td>
-      <td><span class="ja">最高精度が必要な場面</span><span class="en">When highest accuracy is needed</span></td>
+      <td><span class="ja">常に最新の Pro 世代を指します。現時点ではプレビュー版が使われます</span><span class="en">Always points to the newest Pro generation. At present this resolves to a preview release</span></td>
     </tr>
   </tbody>
 </table>
-<p><span class="ja">上記のほか、世代を固定したい場合は <code>gemini-3.7-flash</code> / <code>gemini-3.6-flash</code> / <code>gemini-3.5-flash</code> / <code>gemini-3.5-flash-lite</code> / <code>gemini-2.5-flash</code> / <code>gemini-2.5-pro</code> も選択できます。</span><span class="en">If you prefer to pin a specific generation, you can also select <code>gemini-3.7-flash</code>, <code>gemini-3.6-flash</code>, <code>gemini-3.5-flash</code>, <code>gemini-3.5-flash-lite</code>, <code>gemini-2.5-flash</code> or <code>gemini-2.5-pro</code>.</span></p>
+<div class="callout warn"><span class="ja"><strong>⚠️ <code>-latest</code> の付くモデルについて:</strong> 指す先は Google 側の判断で変わります。応答の品質や傾向が急に変わったと感じた場合は、<code>gemini-3.7-flash</code> のように世代を固定したモデルを選ぶと挙動が安定します。</span><span class="en"><strong>⚠️ About models ending in <code>-latest</code>:</strong> what they point to changes at Google's discretion. If response quality or behaviour suddenly shifts, pin a specific generation such as <code>gemini-3.7-flash</code> for stable behaviour.</span></div>
 <div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns a 429 error, resets the next day). For typical daily use (~tens of requests), the free tier is more than enough. Daily limits vary by model and generation and are subject to change by Google — see the <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API rate limits page</a> for current values.</span></div>
 
 <h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
