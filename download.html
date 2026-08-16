@@ -241,6 +241,14 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
 
   <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">初回起動時の音声案内を修正 (v2.1.1)</span><span class="en">Fixed: first-run voice guidance (v2.1.1)</span></h3>
+    <p>
+      <span class="ja">初回起動時の案内が、旧バージョンで廃止したウェイクワード「ねぇミラ」を案内していたため、案内どおりに呼びかけても反応しませんでした。実際に設定されているウェイクワードを案内するようにしました。</span>
+      <span class="en">The first-run guidance suggested a wake word that was retired in an earlier version, so following it did nothing. It now announces your actual configured wake word.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
     <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">マイクを選べるようになりました</span><span class="en">Choose your microphone</span></h3>
     <p>
       <span class="ja">これまでは Windows の既定の録音デバイスを自動的に使っていたため、既定のマイクが音声を返さない機器（USB スピーカーが公開しているだけのマイク端子など）に設定されていると、声にまったく反応しないことがありました。設定画面の「ウェイクワード」タブで使用するマイクを選べるようになり、ウェイクワードの認識と音声入力の両方に反映されます。</span>
