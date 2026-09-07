@@ -215,13 +215,13 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Direct Download -->
 <div class="trial-section">
-  <a href="https://mojosoft.biz/Mira_Setup_2.1.2.exe" class="trial-btn" download>
+  <a href="https://mojosoft.biz/Mira_Setup_2.2.0.exe" class="trial-btn" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     <span class="ja">無料ダウンロード</span>
     <span class="en">Free Download</span>
   </a>
   <p class="trial-note">
-    Version 2.1.2<br>
+    Version 2.2.0<br>
     <span class="ja">Windows 10/11 (64-bit) · 約 54MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
     <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
   </p>
@@ -229,76 +229,52 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Changelog -->
 <div class="changelog">
-  <h2><span class="ja">v2.1.2 の更新内容</span><span class="en">What's new in v2.1.2</span></h2>
-  <p class="changelog-date"><span class="ja">2026年8月16日</span><span class="en">August 16, 2026</span></p>
+  <h2><span class="ja">v2.2.0 の更新内容</span><span class="en">What's new in v2.2.0</span></h2>
+  <p class="changelog-date"><span class="ja">2026年9月7日</span><span class="en">September 7, 2026</span></p>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">API キーが保存されない不具合を修正 (v2.1.1)</span><span class="en">Fixed: API key was not saved (v2.1.1)</span></h3>
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">最新の AI モデルに対応しました</span><span class="en">Support for the latest AI models</span></h3>
     <p>
-      <span class="ja">設定画面の AI タブで入力した API キーが保存されず、再起動すると消えてしまう不具合を修正しました。v2.1.0 でこの問題に遭遇した方は、最新版に更新のうえ、お手数ですが再度 API キーを入力してください。</span>
-      <span class="en">Fixed an issue where an API key entered on the AI tab in Settings was not saved and disappeared after a restart. If you hit this in v2.1.0, please update to the latest version and enter your API key once more.</span>
+      <span class="ja">選べる AI モデルを最新世代に更新しました。Gemini は 3.8 Flash を追加、OpenAI は GPT-5.6 世代（terra / luna / sol）、Claude は Claude 5 世代（Haiku 4.5 / Sonnet 5 / Opus 5）に対応しています。</span>
+      <span class="en">The model list has been updated to the current generation. Gemini adds 3.8 Flash, OpenAI moves to the GPT-5.6 family (terra / luna / sol), and Claude moves to the Claude 5 family (Haiku 4.5 / Sonnet 5 / Opus 5).</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">初回起動時の音声案内を修正 (v2.1.2)</span><span class="en">Fixed: first-run voice guidance (v2.1.2)</span></h3>
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">OpenAI で応答が返らない不具合を修正</span><span class="en">Fixed: no response when using OpenAI</span></h3>
     <p>
-      <span class="ja">初回起動時の案内が、旧バージョンで廃止したウェイクワード「ねぇミラ」を案内していたため、案内どおりに呼びかけても反応しませんでした。実際に設定されているウェイクワードを案内するようにしました。</span>
-      <span class="en">The first-run guidance suggested a wake word that was retired in an earlier version, so following it did nothing. It now announces your actual configured wake word.</span>
+      <span class="ja">OpenAI の GPT-5 世代のモデルを選ぶと、Mira が送っていた内容をモデル側が受け付けず、話しかけても応答が返らないことがありました。モデルごとの仕様の違いを自動で判別して送り直すようにしたため、今後同じ理由で応答が止まることはありません。ローカルの AI（Ollama / LM Studio など）はこれまでどおり動作します。</span>
+      <span class="en">With a GPT-5 generation OpenAI model selected, the request Mira sent was rejected by the model, so conversations could return no response at all. Mira now detects these per-model differences automatically and resends, so a conversation will no longer stall for this reason. Local AI backends such as Ollama and LM Studio keep working as before.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">マイクを選べるようになりました</span><span class="en">Choose your microphone</span></h3>
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">画面認識が将来使えなくなる問題を解消</span><span class="en">Fixed: screen recognition would have stopped working</span></h3>
     <p>
-      <span class="ja">これまでは Windows の既定の録音デバイスを自動的に使っていたため、既定のマイクが音声を返さない機器（USB スピーカーが公開しているだけのマイク端子など）に設定されていると、声にまったく反応しないことがありました。設定画面の「ウェイクワード」タブで使用するマイクを選べるようになり、ウェイクワードの認識と音声入力の両方に反映されます。</span>
-      <span class="en">Mira used to always use the Windows default recording device. If that device returned no audio — for example a microphone jack that a USB speaker merely exposes — Mira would not respond to your voice at all. You can now pick the microphone on the Wake Word tab in Settings, and it applies to both wake word detection and voice input.</span>
+      <span class="ja">AI プロバイダに OpenAI を選んでいる場合、画面認識だけは設定と関係なく古いモデルを使う作りになっていました。このモデルは 2026 年 10 月に提供終了が予告されており、そのままでは設定画面から回避できない状態になるところでした。設定で選んだモデルをそのまま使うよう変更しています。</span>
+      <span class="en">When OpenAI was selected as the AI provider, screen recognition ignored your model setting and always used an older model. That model is scheduled to be retired in October 2026, which would have left the problem impossible to work around from Settings. Screen recognition now uses the model you selected.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">マイク音量ブースト</span><span class="en">Microphone boost</span></h3>
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">モデル一覧を整理しました</span><span class="en">A shorter model list</span></h3>
     <p>
-      <span class="ja">Windows のマイク音量を最大にしても声が小さすぎる機器のために、アプリ側で最大 10 倍まで増幅できるようになりました。「マイクをテスト」ボタンで実際の入力レベルを測定できるので、音声認識に十分な音量が出ているかその場で確認できます。</span>
-      <span class="en">For devices that are still too quiet with the Windows microphone level at maximum, Mira can now amplify the input up to 10x. The "Test microphone" button measures the actual input level so you can confirm it is loud enough for speech recognition.</span>
+      <span class="ja">Gemini の選択肢が世代ごとに増え続けて選びにくくなっていたため、役割が重ならない 5 つに絞りました。初期設定の gemini-flash-latest は常に最新世代を指すため、そのままお使いいただけます。すでに選んでいるモデルが一覧から外れた場合も、設定はそのまま維持されます。</span>
+      <span class="en">The Gemini list kept growing with each generation and had become hard to choose from, so it is now down to five entries with no overlapping roles. The default, gemini-flash-latest, always points to the newest generation, so no change is needed. If a model you had selected is no longer listed, your setting is preserved.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">声に反応しなくなる不具合を修正</span><span class="en">Fixed: Mira stops responding to your voice</span></h3>
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">画面認識の細かな修正</span><span class="en">Screen recognition fix</span></h3>
     <p>
-      <span class="ja">マイクから音声が取得できないとき、音声認識エンジンが数秒おきに再起動を繰り返して復帰できなくなる問題を修正しました。問題が発生した場合は通知でお知らせし、対処方法をご案内します。</span>
-      <span class="en">Fixed an issue where the speech recognition engine would restart every few seconds and never recover when no audio was reaching it. Mira now notifies you when this happens and explains how to fix it.</span>
-    </p>
-  </div>
-
-  <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">タスクトレイアイコンを見やすく</span><span class="en">Clearer tray icon</span></h3>
-    <p>
-      <span class="ja">待機中のアイコンをオレンジに変更しました。グレーは一時停止中を表すようになり、動作しているかどうかが一目でわかります。</span>
-      <span class="en">The idle icon is now orange. Grey now means paused, so you can tell at a glance whether Mira is running.</span>
-    </p>
-  </div>
-
-  <div class="changelog-item">
-    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">AI モデルの更新</span><span class="en">Updated AI models</span></h3>
-    <p>
-      <span class="ja">Gemini の選択肢に最新モデルを追加し、初期設定を、常に最新の Flash 世代を指す gemini-flash-latest に変更しました。</span>
-      <span class="en">Added the latest Gemini models and changed the default to gemini-flash-latest, which always points to the newest Flash generation.</span>
-    </p>
-  </div>
-
-  <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">一部の AI モデルで応答が返らない不具合を修正</span><span class="en">Fixed: no response from some AI models</span></h3>
-    <p>
-      <span class="ja">Gemini の一部のモデルで、話しかけても「エラーが発生しました」としか返らない不具合を修正しました。Mira が送っていた設定を受け付けないモデルがあったことが原因です。</span>
-      <span class="en">Fixed an issue where certain Gemini models would only answer "an error occurred" when you spoke to Mira. Some models rejected a parameter Mira was sending.</span>
+      <span class="ja">一部の言語環境（小数点にカンマを使う地域）で、画面認識のリクエストが正しく送れないことがある問題を修正しました。</span>
+      <span class="en">Fixed an issue where screen recognition requests could be malformed in locales that use a comma as the decimal separator.</span>
     </p>
   </div>
 
   <p class="changelog-older">
-    <span class="ja">v2.0.0 では完全無料化を実施しました。</span>
-    <span class="en">v2.0.0 made Mira completely free.</span>
+    <span class="ja">v2.1.x ではマイクの選択・音量ブーストの追加と、API キーが保存されない不具合の修正を行いました。v2.0.0 では完全無料化を実施しました。</span>
+    <span class="en">v2.1.x added microphone selection and input boost, and fixed an issue where API keys were not saved. v2.0.0 made Mira completely free.</span>
   </p>
 </div>
 
