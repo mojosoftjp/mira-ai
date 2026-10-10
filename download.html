@@ -232,13 +232,13 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Direct Download -->
 <div class="trial-section">
-  <a href="https://mojosoft.biz/Mira_Setup_2.2.0.exe" class="trial-btn" download>
+  <a href="https://mojosoft.biz/Mira_Setup_2.3.0.exe" class="trial-btn" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     <span class="ja">無料ダウンロード</span>
     <span class="en">Free Download</span>
   </a>
   <p class="trial-note">
-    Version 2.2.0<br>
+    Version 2.3.0<br>
     <span class="ja">Windows 10/11 (64-bit) · 約 54MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
     <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
   </p>
@@ -246,52 +246,60 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Changelog -->
 <div class="changelog">
-  <h2><span class="ja">v2.2.0 の更新内容</span><span class="en">What's new in v2.2.0</span></h2>
-  <p class="changelog-date"><span class="ja">2026年9月7日</span><span class="en">September 7, 2026</span></p>
+  <h2><span class="ja">v2.3.0 の更新内容</span><span class="en">What's new in v2.3.0</span></h2>
+  <p class="changelog-date"><span class="ja">2026年10月10日</span><span class="en">October 10, 2026</span></p>
 
   <div class="changelog-item">
     <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">最新の AI モデルに対応しました</span><span class="en">Support for the latest AI models</span></h3>
     <p>
-      <span class="ja">選べる AI モデルを最新世代に更新しました。Gemini は 3.8 Flash を追加、OpenAI は GPT-5.6 世代（terra / luna / sol）、Claude は Claude 5 世代（Haiku 4.5 / Sonnet 5 / Opus 5）に対応しています。</span>
-      <span class="en">The model list has been updated to the current generation. Gemini adds 3.8 Flash, OpenAI moves to the GPT-5.6 family (terra / luna / sol), and Claude moves to the Claude 5 family (Haiku 4.5 / Sonnet 5 / Opus 5).</span>
+      <span class="ja">OpenAI は GPT-6 世代（gpt-6.1-sol / gpt-6-luna）、Claude は Claude 5.5 世代（Haiku 5.5 / Sonnet 5.5 / Opus 5.5）、Gemini Live は Gemini 3.8 Live に対応しました。Claude の初期設定は、これまでの Haiku 4.5 の約 10 分の 1 の料金で使える Haiku 5.5 です。</span>
+      <span class="en">OpenAI moves to the GPT-6 family (gpt-6.1-sol / gpt-6-luna), Claude to the Claude 5.5 family (Haiku 5.5 / Sonnet 5.5 / Opus 5.5), and Gemini Live to Gemini 3.8 Live. The default Claude model is now Haiku 5.5, at about one tenth of the price of Haiku 4.5.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">OpenAI で応答が返らない不具合を修正</span><span class="en">Fixed: no response when using OpenAI</span></h3>
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">選んでいたモデルを後継のモデルへ自動で切り替えます</span><span class="en">Your selected model now moves to its successor</span></h3>
     <p>
-      <span class="ja">OpenAI の GPT-5 世代のモデルを選ぶと、Mira が送っていた内容をモデル側が受け付けず、話しかけても応答が返らないことがありました。モデルごとの仕様の違いを自動で判別して送り直すようにしたため、今後同じ理由で応答が止まることはありません。ローカルの AI（Ollama / LM Studio など）はこれまでどおり動作します。</span>
-      <span class="en">With a GPT-5 generation OpenAI model selected, the request Mira sent was rejected by the model, so conversations could return no response at all. Mira now detects these per-model differences automatically and resends, so a conversation will no longer stall for this reason. Local AI backends such as Ollama and LM Studio keep working as before.</span>
+      <span class="ja">更新後に初めて起動したとき、設定に残っている前の世代のモデルを、同じ価格帯以下の後継モデルへ 1 度だけ切り替えます（例: gpt-5.6-terra → gpt-6.1-sol、Claude Haiku 4.5 → Haiku 5.5、Gemini 2.5 Pro → Gemini 3.8 Flash）。v2.2.0 では「一覧から外れても設定は維持」としていましたが、古いモデルのまま料金や速さで損をしないよう方針を変えました。gemini-flash-latest のような「常に最新を指す名前」と、ご自分で入力したモデル名は変更しません。切り替え後も設定画面で選び直せます。</span>
+      <span class="en">The first time you start this version, any previous-generation model left in your settings is switched once to a successor at the same price or lower (for example gpt-5.6-terra → gpt-6.1-sol, Claude Haiku 4.5 → Haiku 5.5, Gemini 2.5 Pro → Gemini 3.8 Flash). v2.2.0 kept such settings unchanged; we changed this so you don't keep paying more or waiting longer on an older model. Names that always point to the newest model, such as gemini-flash-latest, and model names you typed yourself are left unchanged. You can still pick a different model in Settings afterwards.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">画面認識が将来使えなくなる問題を解消</span><span class="en">Fixed: screen recognition would have stopped working</span></h3>
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">Claude の画面認識で答えが返らない不具合を修正</span><span class="en">Fixed: Claude screen recognition returned no answer</span></h3>
     <p>
-      <span class="ja">AI プロバイダに OpenAI を選んでいる場合、画面認識だけは設定と関係なく古いモデルを使う作りになっていました。このモデルは 2026 年 10 月に提供終了が予告されており、そのままでは設定画面から回避できない状態になるところでした。設定で選んだモデルをそのまま使うよう変更しています。</span>
-      <span class="en">When OpenAI was selected as the AI provider, screen recognition ignored your model setting and always used an older model. That model is scheduled to be retired in October 2026, which would have left the problem impossible to work around from Settings. Screen recognition now uses the model you selected.</span>
+      <span class="ja">Claude の新しいモデルは答える前に考える仕組みを持っており、その場合に画面認識が何も答えないことがありました。答えを正しく受け取るよう修正しました。うまく読み取れなかったときは、推測で答えず「画面の分析に失敗しました」とお伝えします。</span>
+      <span class="en">The new Claude models can think before they answer, and when they did, screen recognition returned nothing. Mira now reads the answer correctly. If the screen can't be read, Mira tells you that the analysis failed instead of guessing.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">モデル一覧を整理しました</span><span class="en">A shorter model list</span></h3>
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">設定の変更が画面認識にもすぐ反映されるように</span><span class="en">Settings changes now apply to screen recognition right away</span></h3>
     <p>
-      <span class="ja">Gemini の選択肢が世代ごとに増え続けて選びにくくなっていたため、役割が重ならない 5 つに絞りました。初期設定の gemini-flash-latest は常に最新世代を指すため、そのままお使いいただけます。すでに選んでいるモデルが一覧から外れた場合も、設定はそのまま維持されます。</span>
-      <span class="en">The Gemini list kept growing with each generation and had become hard to choose from, so it is now down to five entries with no overlapping roles. The default, gemini-flash-latest, always points to the newest generation, so no change is needed. If a model you had selected is no longer listed, your setting is preserved.</span>
+      <span class="ja">設定画面で API キーやモデルを変えても、画面認識だけは再起動するまで以前の設定のまま動いていました。保存した時点で切り替わるよう修正しました。</span>
+      <span class="en">Changing your API key or model in Settings did not reach screen recognition until you restarted Mira. It now switches as soon as you save.</span>
     </p>
   </div>
 
   <div class="changelog-item">
-    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">画面認識の細かな修正</span><span class="en">Screen recognition fix</span></h3>
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">応答の出だしを速くしました</span><span class="en">Faster first response</span></h3>
     <p>
-      <span class="ja">一部の言語環境（小数点にカンマを使う地域）で、画面認識のリクエストが正しく送れないことがある問題を修正しました。</span>
-      <span class="en">Fixed an issue where screen recognition requests could be malformed in locales that use a comma as the decimal separator.</span>
+      <span class="ja">新しいモデルが考えすぎて返事が遅くならないよう、考える量を控えめに指定しています。</span>
+      <span class="en">Mira now asks the new models to keep their thinking short, so replies start sooner.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">その他の修正</span><span class="en">Other changes</span></h3>
+    <p>
+      <span class="ja">Gemini 2.5 Pro は新しい API キーでは使えないことがあるため、一覧から外しました。また、AI が安全上の理由で回答を控えたときに、黙ったままにならず一言お伝えするようにしました。</span>
+      <span class="en">Gemini 2.5 Pro has been removed from the list, as it may not work with newly created API keys. When the AI declines to answer for safety reasons, Mira now says so instead of staying silent.</span>
     </p>
   </div>
 
   <p class="changelog-older">
-    <span class="ja">v2.1.x ではマイクの選択・音量ブーストの追加と、API キーが保存されない不具合の修正を行いました。v2.0.0 では完全無料化を実施しました。</span>
-    <span class="en">v2.1.x added microphone selection and input boost, and fixed an issue where API keys were not saved. v2.0.0 made Mira completely free.</span>
+    <span class="ja">v2.2.0 では AI モデルを GPT-5.6 / Claude 5 世代に更新し、OpenAI で応答が返らない不具合を修正しました。v2.1.x ではマイクの選択・音量ブーストの追加と、API キーが保存されない不具合の修正を行いました。v2.0.0 では完全無料化を実施しました。</span>
+    <span class="en">v2.2.0 updated the AI models to the GPT-5.6 / Claude 5 families and fixed missing responses with OpenAI. v2.1.x added microphone selection and input boost, and fixed an issue where API keys were not saved. v2.0.0 made Mira completely free.</span>
   </p>
 </div>
 
