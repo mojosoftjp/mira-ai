@@ -232,13 +232,13 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Direct Download -->
 <div class="trial-section">
-  <a href="https://mojosoft.biz/Mira_Setup_2.3.0.exe" class="trial-btn" download>
+  <a href="https://mojosoft.biz/Mira_Setup_2.3.1.exe" class="trial-btn" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     <span class="ja">無料ダウンロード</span>
     <span class="en">Free Download</span>
   </a>
   <p class="trial-note">
-    Version 2.3.0<br>
+    Version 2.3.1<br>
     <span class="ja">Windows 10/11 (64-bit) · 約 54MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
     <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
   </p>
@@ -246,7 +246,82 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Changelog -->
 <div class="changelog">
-  <h2><span class="ja">v2.3.0 の更新内容</span><span class="en">What's new in v2.3.0</span></h2>
+  <h2><span class="ja">v2.3.1 の更新内容</span><span class="en">What's new in v2.3.1</span></h2>
+  <p class="changelog-date"><span class="ja">2026年10月13日</span><span class="en">October 13, 2026</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">読み上げの声がロボットのようになる問題を修正</span><span class="en">Fixed: the voice turned robotic</span></h3>
+    <p>
+      <span class="ja">2026年10月に Microsoft の読み上げサービスの接続先が変わり、Edge TTS（自然な声）が使えなくなって、Windows 標準の音声に切り替わっていました。新しい接続先で読み上げるよう修正しました（Edge TTS は、PC に Python の edge-tts が入っている場合に使われます）。</span>
+      <span class="en">In October 2026 Microsoft moved its read-aloud service, so Edge TTS (the natural voice) stopped working and Mira fell back to the standard Windows voice. Mira now uses the new endpoint. (Edge TTS is used when Python's edge-tts is installed on your PC.)</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">ライブモードが暴走する問題を修正</span><span class="en">Fixed: Live mode running out of control</span></h3>
+    <p>
+      <span class="ja">スピーカーから出た Mira 自身の声をマイクが拾い、それを話しかけられたと受け取って、割り込みと返事を繰り返してしまうことがありました。Mira が話している間と、Mira がツール（画面の確認など）を使っている間は、マイクの音を送らないようにしました（このため、Mira の話の途中で声で割り込むことはできません。「ミラストップして」でライブモードを終えることはできます）。また、返事を最後まで受け取ってから話し始めていたため毎回数秒の無言があり、その間の小さな物音で返事が取り消されることがありました。返事は届いたそばから話し始めるようにしました。</span>
+      <span class="en">Mira could pick up its own voice from the speakers, take it as you speaking, and keep interrupting and answering itself. The microphone is no longer sent while Mira is speaking or using a tool such as checking the screen (so you can't interrupt Mira by voice mid-sentence; saying the stop phrase still ends Live mode). Mira also used to wait until the whole reply had arrived before speaking, leaving several seconds of silence in which a small noise could cancel the reply. Replies now start playing as soon as they arrive.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">ライブモードで話し始めが聞き取られない問題を修正</span><span class="en">Fixed: the start of what you say could be lost in Live mode</span></h3>
+    <p>
+      <span class="ja">Mira が話し終えた直後に話し始めると、最初の部分が送られず、聞き間違いの原因になっていました（例:「明後日は」が「さては」に）。話し始めを取りこぼしにくくしました。また、返事が届いたときにまだ話していた場合は、話し終えるまで返事を待つようにしました。</span>
+      <span class="en">If you started speaking right after Mira finished, the first part was not sent, which caused mishearing. This is now much less likely. Also, if you are still talking when a reply arrives, Mira now waits until you finish.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">ライブモードが周りの会話に反応しないように</span><span class="en">Live mode no longer reacts to conversations not meant for it</span></h3>
+    <p>
+      <span class="ja">近くの人の会話を自分への依頼と受け取り、頼まれていないのに画面を確認することがありました。話しかけられたときだけ応答し、画面は頼まれたときだけ確認するよう AI への指示を改めました（AI の判断によるため、完全には防げない場合があります。画面を送りたくない場合は、設定のライブモードのタブで「画面キャプチャ」を無効にしてください）。また、新しくインストールした場合は「画面キャプチャ」を初期設定で無効にしました（以前から使っている方の設定は変わりません）。</span>
+      <span class="en">Live mode could take a nearby conversation as a request and look at your screen without being asked. Its instructions now tell the AI to respond only when you talk to it and to look at the screen only when asked. (As this relies on the AI's judgment, it may not be prevented completely. If you don't want your screen sent, turn off Screen Capture in the Live mode tab of Settings.) Screen Capture is now also off by default for new installs (existing settings are kept).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">ライブモードの言語を設定できるようにしました</span><span class="en">Language setting for Live mode</span></h3>
+    <p>
+      <span class="ja">短い発話を外国語と聞き違え、画面にスペイン語などが表示されたり、返事まで外国語になったりすることがありました。設定のライブモードのタブにある「言語（聞き取り・返事）」で、日本語・英語・自動判定を選べます。初期設定は「Windows の言語に合わせる」です（日本語・英語以外の Windows では自動判定）。言語を決めているときは返事がその言語になります。また、日本語を選んでいるときは、日本語の文字を含まない文字起こしを画面に「…」と表示します（英語を選んでいるときは、スペイン語などと思われる一部の文字起こし）。</span>
+      <span class="en">Short phrases could be misheard as another language, showing Spanish and other languages on screen or even getting a reply in them. In the Live mode tab of Settings, Language (listening &amp; replies) lets you choose Japanese, English or auto-detect. The default is Match Windows language (auto-detect when Windows uses a language other than Japanese or English). With a language set, replies are in that language. With Japanese set, transcripts with no Japanese characters are shown as "…"; with English set, some transcripts that look Spanish or Portuguese are.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">ライブモードが勝手に始まることを減らしました</span><span class="en">Live mode starts by itself less often</span></h3>
+    <p>
+      <span class="ja">周りの音を「ミラライブ」と聞き間違えて、ライブモードが勝手に始まることがありました。ライブモードの起動には通常の呼びかけより高い精度での検出を求めるようにし、起きにくくしました。</span>
+      <span class="en">Surrounding sounds could be mistaken for "Mira live" and start Live mode by itself. Live mode now requires a higher-confidence detection than a regular wake word, so this happens less often.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">オフにした設定が、再起動すると元に戻る不具合を修正</span><span class="en">Fixed: settings you turned off came back on after a restart</span></h3>
+    <p>
+      <span class="ja">これまで初期設定でオンだった項目（Windows 起動時に開始、感情表現、アバターの表示、ライブモードの PC 操作と画面キャプチャ）をオフにしても保存されず、次に起動するとオンに戻っていました。正しく保存されるようにし、以前オフにしていた項目は、更新後の起動時にオフに戻します（ただし、オンに戻った後に設定画面で保存していた場合はオンのままです。念のため設定画面でご確認ください）。</span>
+      <span class="en">Options that were on by default (Start with Windows, emotional expression, avatar, and Live mode PC control and screen capture) were not saved when turned off, and came back on at the next start. They are now saved correctly, and options you had turned off are switched back off when you start the updated version (unless you saved Settings after they came back on, so please check your settings once).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">Gemini のモデル一覧を整理しました</span><span class="en">Gemini model list cleanup</span></h3>
+    <p>
+      <span class="ja">gemini-3.7-flash は Google 側で Gemini 3.8 Flash に置き換えられ、選んでも 3.8 Flash が使われる状態になっていたため、一覧から外しました。選んでいた方の設定は gemini-3.8-flash に切り替わります（実際に使われるモデルは変わりません）。</span>
+      <span class="en">Google has replaced gemini-3.7-flash with Gemini 3.8 Flash, so selecting it already used 3.8 Flash. It has been removed from the list, and the setting of anyone who chose it now shows gemini-3.8-flash (the model actually used does not change).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">初回セットアップ画面の Gemini の説明を修正</span><span class="en">Corrected the Gemini description in first-run setup</span></h3>
+    <p>
+      <span class="ja">Gemini の無料枠を「最大 1,000 リクエスト/日」と案内していましたが、Google は1日あたりの上限を公開しておらず、実際の値はモデルやアカウントによって異なるため、記載を改めました。あわせて、無料枠では送信した内容が Google の製品改善に使われることがある旨を追記しました。</span>
+      <span class="en">The setup screen described the Gemini free tier as "up to 1,000 requests/day". Google does not publish a daily limit and the actual value varies by model and account, so this has been corrected. The screen now also mentions that on the free tier, what you send may be used by Google to improve its products.</span>
+    </p>
+  </div>
+
+  <h2 style="margin-top:2.5rem"><span class="ja">v2.3.0 の更新内容</span><span class="en">What's new in v2.3.0</span></h2>
   <p class="changelog-date"><span class="ja">2026年10月10日</span><span class="en">October 10, 2026</span></p>
 
   <div class="changelog-item">

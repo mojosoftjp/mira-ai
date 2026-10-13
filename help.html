@@ -399,12 +399,6 @@ a:hover{text-decoration:underline}
       <td><span class="ja">最新世代の Flash。高速・高精度</span><span class="en">Newest Flash generation. Fast and accurate</span></td>
     </tr>
     <tr>
-      <td><strong>gemini-3.7-flash</strong></td>
-      <td><span class="ja">あり</span><span class="en">Yes</span></td>
-      <td>✅</td>
-      <td><span class="ja">ひとつ前の世代。最新世代の調子が悪いときの切り替え先に</span><span class="en">Previous generation. A fallback if the newest one misbehaves</span></td>
-    </tr>
-    <tr>
       <td><strong>gemini-3.5-flash-lite</strong></td>
       <td><span class="ja">あり</span><span class="en">Yes</span></td>
       <td>✅</td>
@@ -420,7 +414,7 @@ a:hover{text-decoration:underline}
 </table>
 <div class="callout"><span class="ja"><strong>💡 Gemini 2.5 系について:</strong> 2026年9月18日から、Gemini 2.5 系のモデルは過去に使ったことのある利用者に限られ、新しい API キーでは使えないことがあります。そのため一覧から外しました（Mira v2.3.0 で、選んでいた方は gemini-3.8-flash などの後継へ自動で切り替わります）。</span><span class="en"><strong>💡 About Gemini 2.5 models:</strong> Since September 18, 2026, Gemini 2.5 models are limited to users who have used them before and may not work with new API keys, so they were removed from the list (Mira v2.3.0 switches anyone who had selected one to a successor such as gemini-3.8-flash).</span></div>
 <div class="callout warn"><span class="ja"><strong>⚠️ <code>-latest</code> の付くモデルについて:</strong> 指す先は Google 側の判断で変わります。応答の品質や傾向が急に変わったと感じた場合は、<code>gemini-3.8-flash</code> のように世代を固定したモデルを選ぶと挙動が安定します。</span><span class="en"><strong>⚠️ About models ending in <code>-latest</code>:</strong> what they point to changes at Google's discretion. If response quality or behaviour suddenly shifts, pin a specific generation such as <code>gemini-3.8-flash</code> for stable behaviour.</span></div>
-<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns a 429 error, resets the next day). For typical daily use (~tens of requests), the free tier is more than enough. Daily limits vary by model and generation and are subject to change by Google — see the <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API rate limits page</a> for current values.</span></div>
+<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。なお、無料枠では送信した内容が Google の製品改善に使われることがあります（課金を有効にしたプロジェクトでは使われません。詳しくは<a href="privacy.html">プライバシーポリシー</a>）。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns a 429 error, resets the next day). For typical daily use (~tens of requests), the free tier is more than enough. Daily limits vary by model and generation and are subject to change by Google — see the <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API rate limits page</a> for current values. Note that on the free tier, what you send may be used by Google to improve its products (not on projects with billing enabled; see the <a href="privacy.html">Privacy Policy</a>).</span></div>
 
 <h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
 <div class="card">
@@ -584,9 +578,12 @@ a:hover{text-decoration:underline}
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
 <ul>
   <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular wake words)</span></li>
-  <li><span class="ja"><strong>停止フレーズ</strong>で即終了</span><span class="en"><strong>Stop phrase</strong> for instant termination</span></li>
+  <li><span class="ja"><strong>停止フレーズ</strong>で即終了（トレイの「一時停止」でも終了します）</span><span class="en"><strong>Stop phrase</strong> for instant termination (pausing from the tray also ends it)</span></li>
   <li><span class="ja">設定画面の「Live」タブで有効化</span><span class="en">Enable in the "Live" tab in Settings</span></li>
   <li><span class="ja">使用モデル: <strong>gemini-3.8-live</strong>（設定の「Live」タブで変更可）</span><span class="en">Model: <strong>gemini-3.8-live</strong> (changeable in the "Live" tab in Settings)</span></li>
+  <li><span class="ja"><strong>言語（聞き取り・返事）</strong>: 日本語・英語・自動判定から選べます。初期設定は「Windows の言語に合わせる」（日本語・英語以外の Windows では自動判定）。言語を決めると返事はその言語になり、短い発話を外国語と取り違えることが減ります</span><span class="en"><strong>Language (listening &amp; replies)</strong>: choose Japanese, English or auto-detect. The default is Match Windows language (auto-detect when Windows uses a language other than Japanese or English). With a language set, replies are in that language and short phrases are less often mistaken for another language</span></li>
+  <li><span class="ja">Mira が話している間とツールを使っている間は、マイクの音を送りません（スピーカーの声を拾って暴走しないため）。話の途中で声で割り込むことはできませんが、停止フレーズで終了できます</span><span class="en">The microphone is not sent while Mira is speaking or using a tool (so it doesn't pick up its own voice from the speakers). You can't interrupt by voice mid-sentence, but the stop phrase still ends Live mode</span></li>
+  <li><span class="ja"><strong>画面キャプチャ</strong>（v2.3.1 から、新しくインストールした場合は初期設定で無効）: 「Live」タブで有効にすると、頼まれたときに AI が画面を確認します。スクリーンショットは Google に送信されます。AI の判断によるため、頼んでいないのに確認することもあります</span><span class="en"><strong>Screen Capture</strong> (off by default for new installs from v2.3.1): when turned on in the "Live" tab, the AI looks at your screen when you ask. Screenshots are sent to Google. As this relies on the AI's judgment, it may occasionally look without being asked</span></li>
 </ul>
 
 <!-- ===== 設定 ===== -->
