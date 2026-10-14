@@ -297,6 +297,22 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   .nav{padding:0 16px}
   .social-proof-items{gap:24px}
 }
+
+/* ===== Data flow / FAQ ===== */
+.flow-table th,.flow-table td{text-align:left;vertical-align:top;line-height:1.6}
+.flow-table td:first-child{color:var(--text-white);font-weight:600;white-space:nowrap}
+.flow-note{max-width:800px;margin:20px auto 0;color:var(--text-dim);font-size:.85rem;line-height:1.7}
+.faq{grid-template-columns:repeat(2,1fr)}
+.faq .feature-card p{font-size:.85rem;line-height:1.7}
+@media(max-width:700px){
+  .faq{grid-template-columns:1fr}
+  .flow-table thead{display:none}
+  .flow-table,.flow-table tbody,.flow-table tr,.flow-table td{display:block;width:100%}
+  .flow-table tr{padding:14px 0;border-bottom:1px solid rgba(0,168,255,.1)}
+  .flow-table td{border:none;padding:3px 0}
+  .flow-table td:first-child{white-space:normal}
+  .flow-table td[data-label]::before{content:attr(data-label);display:block;font-size:.72rem;color:var(--text-dim);margin-top:4px}
+}
 </style>
   <link rel="canonical" href="https://mojosoftjp.github.io/mira-ai/">
   <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/" hreflang="ja">
@@ -406,7 +422,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
   <div class="hero-badge fade-in">
     <span class="dot"></span>
-    <span class="ja">Cortana の後継、ここに。</span>
+    <span class="ja">Cortana の代わりに、Mira を。</span>
   </div>
 
   <div class="hero-avatar fade-in fade-in-d1">
@@ -418,7 +434,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </h1>
 
   <p class="subtitle fade-in fade-in-d3">
-    <span class="ja">7つのAI。完全オフライン対応。AivisSpeech / VOICEVOX で好きな声。<br>Gemini Live でリアルタイム対話。Screen Vision で画面をAIが理解。<br><strong>完全無料のフリーソフトです。</strong></span>
+    <span class="ja">Windows の AI 音声アシスタント。AivisSpeech / VOICEVOX で好きな声。<br>Gemini Live でリアルタイム対話。Screen Vision で画面をAIが理解。<br>7つのAIに対応し、ローカル AI ならオフラインでも。<strong>完全無料のフリーソフトです。</strong></span>
   </p>
 
   <div class="hero-cta fade-in fade-in-d4">
@@ -448,16 +464,16 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <span class="social-proof-label"><span class="ja">AIプロバイダ</span></span>
     </div>
     <div class="social-proof-item">
-      <span class="social-proof-num">&lt;500ms</span>
-      <span class="social-proof-label"><span class="ja">応答レイテンシ</span></span>
+      <span class="social-proof-num">¥0</span>
+      <span class="social-proof-label"><span class="ja">完全無料</span></span>
     </div>
     <div class="social-proof-item">
       <span class="social-proof-num">15+</span>
       <span class="social-proof-label"><span class="ja">音声コマンド</span></span>
     </div>
     <div class="social-proof-item">
-      <span class="social-proof-num">100%</span>
-      <span class="social-proof-label"><span class="ja">オフライン対応</span></span>
+      <span class="social-proof-num">Local</span>
+      <span class="social-proof-label"><span class="ja">音声認識は PC の中</span></span>
     </div>
   </div>
 </div>
@@ -473,7 +489,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <span class="ja">4つの力</span>
     </h2>
     <p class="section-desc">
-      <span class="ja">Mira は「耳」「脳」「目」「手」— 4つの力で、あなたの PC を完全にコントロールします。</span>
+      <span class="ja">Mira は「耳」「脳」「目」「手」— 4つの力で、あなたの PC 作業を声で手伝います。</span>
     </p>
   </div>
 
@@ -485,11 +501,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="ja">👂 声 — Voice</span></h3>
       <div class="power-sub"><span class="ja">聞く力 + 話す力</span></div>
-      <p><span class="ja">好きな名前で呼べるカスタムウェイクワード。Whisper で高精度な音声認識。<strong>AivisSpeech / VOICEVOX</strong> で好きなキャラクターの声に。感情TTS + 4段フォールバック。<br><small>※音声認識(STT)は完全ローカル処理。ローカルLLM + ローカルTTS(AivisSpeech等)で完全オフライン運用可能</small></span></p>
+      <p><span class="ja">好きな名前で呼べるカスタムウェイクワード。Whisper で高精度な音声認識。<strong>AivisSpeech / VOICEVOX</strong> で好きなキャラクターの声に。感情TTS + 4段フォールバック。<br><small>※音声認識(STT)は PC の中で処理。ローカルLLM + ローカルTTS(AivisSpeech等)ならオフラインでも使えます（音声認識のモデルは初回にダウンロード）</small></span></p>
       <ul>
         <li><span class="ja">AivisSpeech / VOICEVOX 対応</span></li>
         <li><span class="ja">Whisper STT (ローカル)</span></li>
-        <li><span class="ja">ストリーミング TTS (500ms)</span></li>
+        <li><span class="ja">ストリーミング TTS</span></li>
         <li><span class="ja">感情 TTS (6スタイル自動切替)</span></li>
       </ul>
     </div>
@@ -501,7 +517,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="ja">🧠 脳 — Brain</span></h3>
       <div class="power-sub"><span class="ja">考える力</span></div>
-      <p><span class="ja">7つ以上のAIプロバイダに対応。Ollama でローカル LLM を使えば、API 料金ゼロ・完全オフラインで動作。会話を記憶し、文脈を理解します。</span></p>
+      <p><span class="ja">7つ以上のAIプロバイダに対応。Ollama でローカル LLM を使えば、API 料金ゼロ。インターネットなしでも会話できます。会話を記憶し、文脈を理解します。</span></p>
       <ul>
         <li><span class="ja">Ollama / LM Studio / Lemonade</span></li>
         <li><span class="ja">Gemini / OpenAI / Claude</span></li>
@@ -517,11 +533,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="ja">👁 目 — Eyes</span></h3>
       <div class="power-sub"><span class="ja">見る力</span></div>
-      <p><span class="ja">画面をAIが認識・分析。「画面を見て」「このエラー何？」と聞くだけで、表示内容をAIが解説。全 Vision 対応モデルで利用可能。</span></p>
+      <p><span class="ja">画面をAIが認識・分析。「画面を見て」「このエラー何？」と聞くだけで、表示内容をAIが解説。Gemini・Claude・OpenAI の画像に対応したモデルで利用できます。</span></p>
       <ul>
         <li><span class="ja">AI Screen Vision</span></li>
         <li><span class="ja">マルチプロバイダ対応</span></li>
-        <li><span class="ja">Gemini / Claude / Ollama</span></li>
+        <li><span class="ja">Gemini / Claude / OpenAI</span></li>
       </ul>
     </div>
 
@@ -578,8 +594,8 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <ul>
         <li style="--dot-color:var(--accent-teal)"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>AivisSpeech</strong> — 高品質日本語音声合成エンジン。豊かな表現力</span></span></li>
         <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>VOICEVOX</strong> — 無料で使える人気のキャラクター音声エンジン</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>感情TTS</strong> — 嬉しい・悲しい・怒り等6スタイルをAIが自動選択</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>ストリーミング</strong> — AI回答を生成しながら同時に読み上げ。体感500ms</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>感情TTS</strong> — あまあま・おちつき・からかい・せつなめ等6スタイルを、文の内容から自動で切替</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>ストリーミング</strong> — AI回答を生成しながら同時に読み上げ</span></span></li>
       </ul>
     </div>
     <div class="showcase-visual fade-in fade-in-d2">
@@ -611,8 +627,8 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
           <div class="voice-engine">
             <div class="ve-icon" style="background:rgba(255,140,0,.1)">🌐</div>
             <div>
-              <div class="ve-name"><span class="ja">クラウド TTS</span></div>
-              <div class="ve-desc"><span class="ja">OpenAI / Google 等</span></div>
+              <div class="ve-name">Edge TTS</div>
+              <div class="ve-desc"><span class="ja">Microsoft のオンライン音声（Python の edge-tts が必要）</span></div>
             </div>
             <span class="ve-tag ve-tag-pro">CLOUD</span>
           </div>
@@ -647,12 +663,12 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <span class="ja">「ミラライブ」で<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">リアルタイム会話</span>が始まる。</span>
       </h2>
       <p>
-        <span class="ja"><strong>Gemini Live</strong> モードでは、まるで人と話すように Mira とリアルタイムで対話できます。音声がストリーミングで直接AIに送信され、待ち時間なく自然な会話が成立。専用ウェイクフレーズ「<strong>ミラライブ</strong>」で即座に起動。通常モードの「ミラお願い」とは完全に分離されています。</span>
+        <span class="ja"><strong>Gemini Live</strong> モードでは、まるで人と話すように Mira とリアルタイムで対話できます。音声がストリーミングで直接AI（Google）に送られ、自然な会話が成立。専用ウェイクフレーズ「<strong>ミラライブ</strong>」で即座に起動。通常モードの「ミラお願い」とは完全に分離されています。初期設定はオフで、設定画面でオンにして使います。</span>
       </p>
       <ul>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>WebSocket</strong> リアルタイムストリーミング — 遅延ほぼゼロ</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>Function Calling</strong> 対応 — 天気・検索・アラームを会話中に実行</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>画面キャプチャ</strong> — 今見ている画面について会話</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>WebSocket</strong> — 音声をそのままやりとり</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>PC 操作</strong> — アプリの起動・キー操作・文字入力・音量・クリップボードを会話中に実行（検索はブラウザで Google を開きます）</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>画面キャプチャ</strong>（初期設定はオフ） — 今見ている画面について会話</span></span></li>
         <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="ja"><strong>停止フレーズ</strong> で即終了 — いつでも安全に停止</span></span></li>
       </ul>
     </div>
@@ -669,10 +685,10 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
           <span class="ja">📊 画面を見ますね… 売上データの月次レポートです。3月は前月比 +12% で、特に広告収入が大きく伸びています。</span>
         </div>
         <div class="live-bubble live-bubble-user live-bubble-user2">
-          <span class="ja">🎤 じゃあそのデータでグラフ作って</span>
+          <span class="ja">🎤 じゃあその要点をクリップボードにコピーして</span>
         </div>
         <div class="live-bubble live-bubble-mira live-bubble-mira2">
-          <span class="ja">📈 了解です。Excelでグラフを作成しますね… 棒グラフと折れ線グラフ、どちらがいいですか？</span>
+          <span class="ja">📋 要点を短くまとめて、クリップボードにコピーしました。メモ帳などに貼り付けられます。</span>
         </div>
       </div>
     </div>
@@ -805,7 +821,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   <div class="section-header fade-in">
     <div class="section-label"><span class="ja">仕組み</span></div>
     <h2 class="section-title">
-      <span class="ja">声から行動へ、500msで</span>
+      <span class="ja">声から行動へ</span>
     </h2>
   </div>
 
@@ -835,14 +851,14 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <div class="step-num">4</div>
       <div class="step-icon">🗣️</div>
       <h4><span class="ja">ストリーミングTTS</span></h4>
-      <p><span class="ja">生成と同時に読み上げ。体感500ms</span></p>
+      <p><span class="ja">生成と同時に読み上げ</span></p>
       <span class="step-connector">→</span>
     </div>
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-icon">⚡</div>
       <h4><span class="ja">アクション実行</span></h4>
-      <p><span class="ja">検索・起動・操作を自動実行</span></p>
+      <p><span class="ja">検索・アプリ起動・アラームなどを実行</span></p>
     </div>
   </div>
 </section>
@@ -871,7 +887,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <div class="provider"><span class="provider-dot" style="background:#8B5CF6"></span> <span class="ja">カスタム</span></div>
       </div>
       <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8">
-        <span class="ja"><strong>BYOK（Bring Your Own Key）</strong> — あなた自身のAPIキーで利用。月額課金なし、使った分だけ。ローカル動作の Ollama / LM Studio / Lemonade なら<strong>完全オフライン・完全無料</strong>で動作します。</span>
+        <span class="ja"><strong>BYOK（Bring Your Own Key）</strong> — あなた自身のAPIキーで利用。月額課金なし、使った分だけ。ローカル動作の Ollama / LM Studio / Lemonade なら<strong>インターネットなし・無料</strong>で会話できます。</span>
       </p>
       <p style="color:var(--text-dim);font-size:.88rem;margin-top:12px">
         <span class="ja">💡 設定画面のドロップダウンで<strong>ワンクリックで切替</strong>。会話の途中でも自由に変更可能。</span>
@@ -888,60 +904,18 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 <!-- ===== Comparison ===== -->
 <section class="section" id="comparison" style="background:var(--bg-deep)">
   <div class="section-header fade-in">
-    <div class="section-label"><span class="ja">比較</span></div>
+    <div class="section-label"><span class="ja">特長</span></div>
     <h2 class="section-title">
       <span class="ja">なぜ Mira なのか</span>
     </h2>
   </div>
 
-  <div class="comparison fade-in">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th style="text-align:left"><span class="ja">機能</span></th>
-          <th>Cortana</th>
-          <th>Braina Pro</th>
-          <th class="mira-col">Mira</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="ja">カスタムウェイクワード</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">オフライン AI</span></td>
-          <td class="cross">✗</td><td class="partial">△</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">AivisSpeech / VOICEVOX</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">高品質日本語 TTS</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">ストリーミング応答</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">Screen Vision</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">リアルタイム音声対話</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="ja">価格</span></td>
-          <td style="color:var(--text-dim)"><span class="ja">廃止</span></td>
-          <td style="color:var(--text-dim)">$79<span class="ja">/年</span></td>
-          <td class="mira-cell" style="font-weight:900"><span class="ja">無料</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="features">
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">好きな言葉で呼べる</span></h4><p><span class="ja">呼びかけの言葉を自由に変えられます（初期設定は「ミラお願い」）。</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎭</span><h4><span class="ja">キャラクターの声で話す</span></h4><p><span class="ja">AivisSpeech・VOICEVOX（別途インストール・無料）の好きな声で答えます。</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="ja">AI を選べる</span></h4><p><span class="ja">Gemini・OpenAI・Claude のほか、ローカル LLM（Ollama・LM Studio・Lemonade）でも使えます。</span></p></div>
   </div>
+  <p class="flow-note fade-in" style="text-align:center"><span class="ja">Windows 標準の音声アクセスや Copilot との違いは<a href="guide/voice-control-windows.html">「Windows で声でパソコンを操作する方法」</a>で比べています。</span></p>
 </section>
 
 <!-- ===== All Features ===== -->
@@ -955,14 +929,14 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
   <div class="features">
     <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">カスタムウェイクワード</span></h4><p><span class="ja">「ミラお願い」を好きな名前に変更</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🗣️</span><h4><span class="ja">ストリーミング TTS</span></h4><p><span class="ja">AI生成と同時に読み上げ。体感500ms</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🗣️</span><h4><span class="ja">ストリーミング TTS</span></h4><p><span class="ja">AI生成と同時に読み上げ</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🎭</span><h4><span class="ja">AivisSpeech / VOICEVOX</span></h4><p><span class="ja">100+キャラクター音声。好きな声で話す</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🔒</span><h4><span class="ja">完全オフライン対応</span></h4><p><span class="ja">ローカルSTT + ローカルLLM + ローカルTTSで完全にPC内で完結</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔒</span><h4><span class="ja">オフラインでも使える</span></h4><p><span class="ja">ローカルの音声認識・LLM・読み上げを選べば、会話は PC の中で完結</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">👁️</span><h4><span class="ja">Screen Vision</span></h4><p><span class="ja">AIが画面を見て状況を理解</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">Gemini Live</span></h4><p><span class="ja">リアルタイム音声対話。待ち時間ゼロ</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="ja">Gemini Live</span></h4><p><span class="ja">リアルタイム音声対話</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="ja">会話記憶</span></h4><p><span class="ja">重要な情報を記憶・ピン留め保存</span></p></div>
     <div class="feature-card fade-in" style="border-color:var(--accent-cyan);box-shadow:0 0 16px var(--glow-cyan)"><span class="f-icon">🌐</span><h4><span class="ja">Webウォッチ <span style="font-size:.7rem;background:var(--gradient-main);color:#fff;padding:2px 8px;border-radius:999px;vertical-align:middle">NEW</span></span></h4><p><span class="ja">キーワードで指定サイトの内容を要約・読み上げ</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="ja">Web 検索</span></h4><p><span class="ja">音声で検索、結果を読み上げ</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="ja">Web 検索</span></h4><p><span class="ja">「〜をググって」でブラウザに Google の検索結果を開く</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">📱</span><h4><span class="ja">音声ランチャー</span></h4><p><span class="ja">キーワード登録でアプリ・サイトを起動</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">⏰</span><h4><span class="ja">アラーム / スケジュール</span></h4><p><span class="ja">音声でアラーム設定・予定管理</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🌙</span><h4><span class="ja">ダーク / ライトテーマ</span></h4><p><span class="ja">お好みのテーマに切替</span></p></div>
@@ -1006,6 +980,54 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
 </section>
 
+<!-- ===== Data Flow ===== -->
+<section class="section" id="data-flow">
+  <div class="section-header fade-in">
+    <div class="section-label">データの流れ</div>
+    <h2 class="section-title">どこで処理し、何を送るか</h2>
+    <p class="section-desc">呼びかけの検出と音声認識は PC の中で行います。外に送るのは、あなたが選んだ AI やサービスが必要とするものだけです。</p>
+  </div>
+
+  <div class="comparison fade-in">
+    <table class="compare-table flow-table">
+      <thead>
+        <tr><th>機能</th><th>処理する場所</th><th>外に送るもの</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>呼びかけの検出</td><td data-label="処理する場所">PC の中（Windows の音声認識エンジン）</td><td data-label="外に送るもの">なし</td></tr>
+        <tr><td>音声認識</td><td data-label="処理する場所">PC の中（Whisper）</td><td data-label="外に送るもの">なし（音声は文字にしたあと破棄。認識用のモデルは初回に Hugging Face からダウンロード）</td></tr>
+        <tr><td>AI との会話</td><td data-label="処理する場所">選んだ AI</td><td data-label="外に送るもの">クラウドの AI（Gemini・OpenAI・Claude）: 文字にした言葉、最近の会話、Mira が覚えた情報・おぼえがき・予定、検索結果などを各社へ。<br>ローカル LLM（Ollama・LM Studio・Lemonade）: なし</td></tr>
+        <tr><td>読み上げ</td><td data-label="処理する場所">AivisSpeech・VOICEVOX・Windows 標準の音声は PC の中。Edge TTS は Microsoft</td><td data-label="外に送るもの">Edge TTS を使うときだけ、読み上げる文章</td></tr>
+        <tr><td>画面認識（頼んだとき）</td><td data-label="処理する場所">会話に使っているクラウドの AI（Gemini・Claude・OpenAI）。ローカル LLM などを使っている場合は、保存されている Claude → Gemini のキーの順で使います（どちらも無ければ使えません）</td><td data-label="外に送るもの">メインのモニターの画面全体のスクリーンショット</td></tr>
+        <tr><td>ライブモード（初期設定はオフ）</td><td data-label="処理する場所">Google（Gemini Live）</td><td data-label="外に送るもの">マイクの音声と、AI が使ったツールの結果（クリップボードの文字など）。ライブモードを始めるたびに、Mira が覚えた情報・おぼえがき・これからの予定も AI への指示として送ります。画面キャプチャをオンにしたときはスクリーンショット</td></tr>
+        <tr><td>天気・Web 検索・Web ウォッチ</td><td data-label="処理する場所">各サービス</td><td data-label="外に送るもの">地名（OpenStreetMap・Open-Meteo）と検索語（DuckDuckGo）。Web ウォッチは登録したサイトを読み込み、その文章を AI に渡します</td></tr>
+        <tr><td>設定・API キー・記憶・会話の記録・診断ログ</td><td data-label="処理する場所">PC の中（%LOCALAPPDATA%\Mira）</td><td data-label="外に送るもの">なし（API キーは Windows の機能で暗号化。会話の記録と診断ログ（diag.log）がいつ消えるかは<a href="privacy.html">プライバシーポリシー</a>をご覧ください）</td></tr>
+      </tbody>
+    </table>
+    <p class="flow-note">利用状況の収集（テレメトリー）や更新の自動確認はありません。会話や個人の情報を Mojosoft に送ることもありません（設定画面と「ミラについて」を開いたときに、他の製品の紹介を表示するため mojosoft.biz に接続します）。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq" style="background:var(--bg-deep)">
+  <div class="section-header fade-in">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくある質問</h2>
+  </div>
+
+  <div class="features faq">
+    <div class="feature-card fade-in"><h4>無料ですか？</h4><p>無料です。機能の制限・試用期間・サブスクリプションはありません。クラウドの AI を使う場合は、各社の API の料金がかかることがあります（初期設定の Gemini には無料枠があります）。</p></div>
+    <div class="feature-card fade-in"><h4>API キーは必要ですか？</h4><p>クラウドの AI（Gemini・OpenAI・Claude）を使うときは、ご自身の API キーが必要です。初期設定の Gemini のキーは Google AI Studio で無料で取得できます。ローカル LLM（Ollama・LM Studio・Lemonade）なら API キーは要りません。</p></div>
+    <div class="feature-card fade-in"><h4>インターネットなしで使えますか？</h4><p>使えます。AI にローカル LLM を、読み上げに AivisSpeech・VOICEVOX か Windows 標準の音声を選ぶと、呼びかけから返事の読み上げまで PC の中で完結します。音声認識のモデルは最初に一度だけダウンロードが必要です。天気・Web 検索・画面認識・ライブモードはインターネットを使います。なお、クラウドの API キーを保存していると、Mira の起動時や設定の保存時にローカルの AI が起動していなければ、クラウドの AI に切り替わります。環境変数に API キーが設定されている場合も同じです。切り替わったあとは、Mira を再起動するか設定を保存するまでクラウドの AI のままです。</p></div>
+    <div class="feature-card fade-in"><h4>話した声は外部に送られますか？</h4><p>通常の会話では、声は PC の中で文字にしてから破棄します。クラウドの AI を選んでいる場合に送るのは、文字にした言葉です。マイクの音声そのものを送るのは、ライブモード（Google の Gemini Live・初期設定はオフ）を使うときだけです。なお、返事のあとは続けて話せるように、呼びかけなしでしばらく聞き取ります。そのあいだに近くの人が話した言葉も文字にされ、クラウドの AI を選んでいる場合はその AI に送られます。</p></div>
+    <div class="feature-card fade-in"><h4>マウスのクリックや文字入力もできますか？</h4><p>クリックやウィンドウの操作はできません。できるのは、アプリやサイトの起動、音量の調整、クリップボードの読み書き、アラーム・スケジュールなどです。ライブモードでは、AI がキー操作や文字入力も行えます（設定でオフにできます）。Windows 全体を声で操作したいときは、Windows 標準の「音声アクセス」が向いています。</p></div>
+    <div class="feature-card fade-in"><h4>Copilot や Windows の音声アクセスとの違いは？</h4><p>音声アクセスは、声でクリックや文字入力をして Windows を操作するための標準機能です。Copilot は Microsoft の AI アシスタントです。Mira は、呼びかけて AI と話し、天気の確認・アプリの起動・アラームを声で済ませるためのアプリで、使う AI（ローカル LLM を含む）や読み上げの声を選べます。詳しくは<a href="guide/voice-control-windows.html">「Windows で声でパソコンを操作する方法」</a>で比べています。</p></div>
+    <div class="feature-card fade-in"><h4>どんな声で話しますか？</h4><p>AivisSpeech や VOICEVOX をインストールして起動しておくと、好きなキャラクターの声で話します。ない場合は Edge TTS（Microsoft のオンラインの音声。Python の edge-tts が必要）か、Windows 標準の音声で話します。</p></div>
+    <div class="feature-card fade-in"><h4>会話の内容は保存されますか？</h4><p>会話の記録、Mira が覚えた情報、診断ログ（diag.log）は、PC の中（%LOCALAPPDATA%\Mira）にだけ保存します。会話の記録は、30 日を過ぎた分を次に会話を記録するときに削除します。聞き取った言葉は診断ログにも残ります。診断ログは日数では消えず、起動時に 1MB を超えていると diag.log.old に移し、その前の分を消します。覚えた情報は設定画面で確認・削除できます。ダウンロード版は、アンインストールしてもこのフォルダが残ります。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p></div>
+    <div class="feature-card fade-in"><h4>対応している Windows は？</h4><p>Windows 10（64 ビット・バージョン 2004 以降）と Windows 11 です。Microsoft Store か、このサイトのダウンロードページから入手できます。</p></div>
+  </div>
+</section>
+
 <!-- ===== Final CTA ===== -->
 <section class="section cta-section">
   <div class="cta-glow"></div>
@@ -1034,6 +1056,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
     <a href="#powers"><span class="ja">機能</span></a>
     <a href="download.html"><span class="ja">ダウンロード</span></a>
     <a href="help.html"><span class="ja">ヘルプ</span></a>
+    <a href="guide/voice-control-windows.html">声で PC を操作する方法</a>
     <a href="privacy.html"><span class="ja">プライバシー</span></a>
     <a href="mailto:support@mojosoft.biz"><span class="ja">お問い合わせ</span></a>
     <a href="https://mojosoft.biz">Mojosoft</a>

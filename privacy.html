@@ -102,7 +102,7 @@ footer a:hover{color:var(--text-muted)}
     <span class="ja">プライバシーポリシー</span>
   </h1>
   <p class="date">
-    <span class="ja">最終更新: 2026年10月13日</span>
+    <span class="ja">最終更新: 2026年10月14日</span>
   </p>
 
   <h2>
@@ -116,48 +116,85 @@ footer a:hover{color:var(--text-muted)}
     <span class="ja">データ収集について</span>
   </h2>
   <p>
-    <span class="ja"><strong>Mira はユーザーの個人情報を収集・送信しません。</strong>すべてのデータはお使いの PC のローカルに保存されます。Mojosoft のサーバーに送信されるデータはありません。</span>
+    <span class="ja"><strong>Mira には、利用状況の収集（テレメトリー）、エラー報告の自動送信、更新の自動確認の仕組みはありません。</strong>会話・設定・記憶などのデータはお使いの PC の中に保存し、Mojosoft に送ることはありません。ただし、設定画面と「ミラについて」画面を開いたときに、Mojosoft の他の製品の紹介を表示するため mojosoft.biz に接続します（通常の Web 閲覧と同じく、接続元の IP アドレスと Mira のバージョンがサーバーに届きます）。外部のサービスに送るデータについては、以下の各項目をご覧ください。</span>
   </p>
 
   <h2>
     <span class="ja">ローカル保存データ</span>
   </h2>
   <p>
-    <span class="ja">Mira は以下のデータをお使いの PC 内 (<code>%LOCALAPPDATA%\Mira\</code>) に保存します:</span>
+    <span class="ja">Mira は以下のデータをお使いの PC 内 (<code>%LOCALAPPDATA%\Mira\</code>) に保存します（Microsoft Store 版の保存場所は下記の「データの削除」をご覧ください）:</span>
   </p>
   <ul>
-    <li><span class="ja"><strong>settings.json</strong> — アプリの設定（AI プロバイダ、TTS 設定、ウェイクワード等）</span></li>
-    <li><span class="ja"><strong>secrets.dat</strong> — API キー（Windows DPAPI で暗号化保存）</span></li>
-    <li><span class="ja"><strong>memory.json</strong> — 会話の中で Mira が記憶した情報</span></li>
-    <li><span class="ja"><strong>schedules.json</strong> — スケジュール・アラーム</span></li>
-    <li><span class="ja"><strong>diag.log</strong> — 診断ログ（自動ローテーション）</span></li>
+    <li><span class="ja"><strong>settings.json</strong> — アプリの設定（AI プロバイダ、読み上げ、ウェイクワード、おぼえがき、音声ランチャー・Web ウォッチの登録内容など）</span></li>
+    <li><span class="ja"><strong>secrets.dat</strong> — API キー（Windows DPAPI で暗号化。同じ Windows ユーザーでのみ復号できます）</span></li>
+    <li><span class="ja"><strong>memory.json</strong> — 会話の中で Mira が記憶した情報（設定画面で確認・削除できます）</span></li>
+    <li><span class="ja"><strong>conversations フォルダ</strong> — 会話の記録（音声認識した文章、AI の返事、AI に渡したツールの結果＝画面認識で読み取った画面の文字、Web ウォッチで読み込んだページの文章、検索結果など）。新しい会話を記録するときに、作られてから 30 日を過ぎた記録のファイルを削除します。Mira を使わなくなった場合や、ダウンロード版をアンインストールした場合は残ります（下記「データの削除」をご覧ください）。また、記録にはその起動中の直近の発言（最大 20 件）をまとめて書くため、前の会話の発言が次の会話の記録にも重ねて書かれることがあります</span></li>
+    <li><span class="ja"><strong>schedules.json・alarms.json・timers.json</strong> — スケジュール・アラーム・タイマー</span></li>
+    <li><span class="ja"><strong>diag.log</strong> — 診断ログ（音声認識した文章、AI の返事の一部、検索した言葉、天気の地名、記憶や予定の内容（設定画面で削除した記憶を含みます）、ライブモードで聞き取った文章、AI が使ったツールとその引数（入力した文字やクリップボードに書いた文字など）、画面認識の結果の一部などを含みます）。起動したときに 1MB を超えていれば diag.log.old に切り替えます。起動している間は大きくなり続け、期限なく残ります</span></li>
+    <li><span class="ja"><strong>crash.log</strong> — アプリが異常終了したときの記録</span></li>
+    <li><span class="ja"><strong>Models フォルダ</strong> — 音声認識のモデル</span></li>
+    <li><span class="ja"><strong>promotions_cache.json・ad_icons フォルダ</strong> — 製品紹介の表示用のキャッシュ</span></li>
   </ul>
+
+  <h2>
+    <span class="ja">データの削除</span>
+  </h2>
+  <p>
+    <span class="ja">ダウンロード版は、アンインストールしても上記のデータ（<code>%LOCALAPPDATA%\Mira\</code>）を削除しません。不要な場合は、アンインストールした後にこのフォルダを削除してください。Microsoft Store 版では、Windows がアプリごとに管理する場所にデータが保存されることがあります。<code>%LOCALAPPDATA%\Mira\</code> フォルダがある場合は、同じようにこのフォルダを削除してください。</span>
+  </p>
 
   <h2>
     <span class="ja">AI プロバイダへのデータ送信</span>
   </h2>
   <p>
-    <span class="ja">Mira でクラウド AI プロバイダ（Gemini、OpenAI、Anthropic 等）を使用する場合、<strong>音声認識後のテキスト</strong>と、AI が答えるために使う情報（Mira が覚えた記憶・予定・おぼえがき、ツールの結果（Web 検索の結果や、ライブモードで読み取ったクリップボードの文字など））が、選択したプロバイダの API に送信されます。各プロバイダのプライバシーポリシーが適用されます。</span>
+    <span class="ja">Mira でクラウド AI プロバイダ（Gemini、OpenAI、Anthropic 等）を使用する場合、<strong>音声認識後のテキスト</strong>と<strong>直近の会話の履歴</strong>、AI が答えるために使う情報（Mira が覚えた記憶・予定・おぼえがき、ツールの結果（Web 検索の結果、Web ウォッチで読み込んだページの文章、画面認識の結果の文章など））が、選択したプロバイダの API に送信されます。会話が終わったときには、覚えておく情報を取り出すため、その会話の文章を同じプロバイダに送信します。API キーは、設定画面で入力したもののほか、環境変数（<code>GEMINI_API_KEY</code>・<code>OPENAI_API_KEY</code>・<code>ANTHROPIC_API_KEY</code>）に設定されたものも使います。各プロバイダのプライバシーポリシーが適用されます。ライブモードで送るデータは、選択したプロバイダにかかわらず Google に送信されます（下記「Gemini Live モード」をご覧ください）。</span>
   </p>
   <p>
-    <span class="ja"><strong>Gemini API を無料枠で使う場合のご注意:</strong> Google の料金ページによると、無料枠では送信した内容（会話のテキスト、AI に渡す記憶・予定・おぼえがき、ツールの結果（クリップボードの文字など）、画面認識のスクリーンショット、Gemini Live の音声と画面キャプチャなど）が Google の製品改善に使われることがあります。課金を有効にしたプロジェクト（有料枠）の API キーでは使われません。最新の扱いは <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API の料金ページ</a>をご確認ください。</span>
+    <span class="ja"><strong>プロバイダの自動切り替え:</strong> 起動したときと設定を保存したときに、選んだプロバイダに接続できない（または API キーが無い）と、Mira は使えるほかのプロバイダに自動で切り替えます。順番は、ローカルの AI（Ollama、LM Studio、Lemonade）→ Anthropic → OpenAI → Gemini → カスタムの接続先（設定している場合）です。クラウドのプロバイダは、Mira に保存したキーか環境変数のキーがあるものだけが対象です。切り替えた後は、次に起動するか設定を保存するまで、会話・記憶・予定・おぼえがき・ツールの結果はそのプロバイダに送信されます。</span>
   </p>
   <p>
-    <span class="ja"><strong>ローカル AI（Ollama、LM Studio、Lemonade）を使用する場合、データは一切外部に送信されません。</strong></span>
+    <span class="ja"><strong>Gemini API を無料枠で使う場合のご注意:</strong> Google の料金ページによると、無料枠では送信した内容（会話のテキスト、AI に渡す記憶・予定・おぼえがき、ツールの結果（クリップボードの文字など）、画面認識のスクリーンショット、Gemini Live の音声と画面キャプチャなど）が Google の製品改善に使われることがあります。課金を有効にしたプロジェクト（有料枠）の API キーでは使われません。また、Google の利用規約によると、無料枠では送信した内容を Google の担当者（人間）が読んだり注釈を付けたりすることがあり、Google は無料枠に機密情報や個人情報を送らないよう求めています（Mira が覚えた記憶・おぼえがき・予定は、会話のたびに送信されます）。欧州経済領域（EEA）・スイス・英国では、無料枠にも有料枠と同じデータの扱いが適用されます。最新の扱いは <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API の料金ページ</a>と<a href="https://ai.google.dev/gemini-api/terms">Gemini API の利用規約</a>をご確認ください。</span>
+  </p>
+  <p>
+    <span class="ja"><strong>ローカル AI（Ollama、LM Studio、Lemonade）を使用する場合、AI との会話の内容は外部に送信されません。</strong>ただし、Web 検索・天気・Web ウォッチを使ったとき、Edge TTS で読み上げるとき（いずれも下記）、画面認識を使ったとき（クラウドの AI プロバイダに送信されます）、Gemini Live モードを使ったとき（Google に送信されます）は外部に接続します。また、ローカルの AI に接続できないと、クラウドの AI に切り替わることがあります（上記「プロバイダの自動切り替え」をご覧ください）。</span>
   </p>
 
   <h2>
     <span class="ja">Screen Vision（画面認識）</span>
   </h2>
   <p>
-    <span class="ja">画面認識（Screen Vision）を使用する場合、<strong>スクリーンショット画像</strong>が選択した Vision 対応 AI プロバイダに送信されます。ローカルの Vision 対応モデル（Ollama + llava 等）を使用すれば、外部送信なしで利用できます（ただし、Gemini Live モード中の画面キャプチャは、この設定にかかわらず Google に送信されます。下記参照）。</span>
+    <span class="ja">画面認識（Screen Vision）を使用する場合、<strong>メインのモニターの画面全体のスクリーンショット画像</strong>が、API キーを設定したクラウドの AI プロバイダ（Gemini、Anthropic、OpenAI）に送信されます。現在のバージョンでは、ローカルの AI では画面認識を使えません。スクリーンショットの画像はメモリ上でだけ扱い、ファイルには保存しませんが、画面から読み取った文字は会話の記録（上記）に残ります。Gemini Live モード中の画面キャプチャについては下記をご覧ください。</span>
+  </p>
+
+  <h2>
+    <span class="ja">読み上げ（Edge TTS）</span>
+  </h2>
+  <p>
+    <span class="ja">読み上げに Edge TTS（Microsoft のオンラインの音声。お使いの PC にインストールされた Python の edge-tts を利用します）を使う場合、<strong>読み上げる文章が Microsoft のサーバーに送信されます</strong>。初期設定（自動）では、AivisSpeech・VOICEVOX が起動していないときに使われます。また、選んだ音声（自動・AivisSpeech・VOICEVOX・Windows 標準のどれでも）が使えないときや読み上げに失敗したときは、PC に Python の edge-tts がインストールされていれば、Edge TTS に切り替えて読み上げることがあります。そのときも、読み上げる文章が Microsoft に送信されます。AivisSpeech・VOICEVOX・Windows 標準の音声は PC の中で処理します。文章を Microsoft に送りたくない場合は、edge-tts をアンインストールしてください（例: <code>pip uninstall edge-tts</code>）。</span>
+  </p>
+
+  <h2>
+    <span class="ja">天気・Web 検索・Web ウォッチ</span>
+  </h2>
+  <ul>
+    <li><span class="ja"><strong>天気</strong> — Mira の中の辞書に無い地名は OpenStreetMap（Nominatim）に送って位置を調べ、その緯度・経度を Open-Meteo に送って天気を取得します。</span></li>
+    <li><span class="ja"><strong>Web 検索</strong> — 検索する言葉を DuckDuckGo に送ります。ローカルの AI を使っている場合や AI を設定していない場合も、「〜を調べて」「〜って何」などの言い方で検索します。「〜をググって」「〜をグーグルで」と頼んだときと、ライブモードで AI が検索するときは、既定のブラウザで Google 検索を開きます（検索する言葉は、ブラウザから Google に送られます）。</span></li>
+    <li><span class="ja"><strong>Web ウォッチ</strong> — 登録したサイトのページを読み込み、その文章を AI に渡します。</span></li>
+  </ul>
+
+  <h2>
+    <span class="ja">音声認識のモデルのダウンロード</span>
+  </h2>
+  <p>
+    <span class="ja">音声認識のモデルが PC に無いときは、Hugging Face からダウンロードします（通常は最初の一度だけです）。</span>
   </p>
 
   <h2>
     <span class="ja">Gemini Live モード</span>
   </h2>
   <p>
-    <span class="ja">Gemini Live モードでは、<strong>音声データがリアルタイムで Google のサーバーにストリーミング送信</strong>されます。Google の利用規約およびプライバシーポリシーが適用されます。Live モードは初期設定では無効です。設定で有効にすると、ウェイクフレーズ（初期設定「ミラライブ」）を検出したときに始まり、停止フレーズで終わります。周りの音をウェイクフレーズと誤って検出して始まることがあるため、v2.3.1 からは通常の呼びかけより高い精度で検出したときだけ起動するようにしています。Live を使わない場合は、無効のままにしておくことをおすすめします。</span>
+    <span class="ja">Gemini Live モードでは、<strong>音声データがリアルタイムで Google のサーバーにストリーミング送信</strong>されます。通常の会話で選んだプロバイダにかかわらず、おぼえがき、Mira が覚えた記憶、これからの予定、ツールの結果（クリップボードの文字など）も Google に送信されます（画面キャプチャを有効にしている場合はスクリーンショットも。下記参照）。Google の利用規約およびプライバシーポリシーが適用されます。Live モードは初期設定では無効です。設定で有効にすると、ウェイクフレーズ（初期設定「ミラライブ」）を検出したときに始まり、停止フレーズで終わります。一度始まると、停止フレーズ・トレイの一時停止・最長 28 分のいずれかまで、マイクの音を送り続けます（Mira が話している間などを除きます）。周りの音をウェイクフレーズと誤って検出して始まることがあるため、v2.3.1 からは通常の呼びかけより高い精度で検出したときだけ起動するようにしています。Live を使わない場合は、無効のままにしておくことをおすすめします。</span>
   </p>
   <p>
     <span class="ja">ライブモードの「画面キャプチャ」を有効にしているときは、AI が画面を確認すると、その<strong>スクリーンショットも Google に送信</strong>されます（v2.3.1 から、新しくインストールした場合の初期設定は無効です。それ以前から使っている場合は、以前の設定のままです）。v2.3.1 からは、ユーザーに頼まれたときだけ画面を確認するよう AI に指示していますが、AI の判断によるため、頼んでいないのに確認することが完全になくなるとは限りません。画面を送りたくない場合は、設定のライブモードのタブで「画面キャプチャ」を無効にしてください。</span>
@@ -167,7 +204,7 @@ footer a:hover{color:var(--text-muted)}
     <span class="ja">マイクの使用</span>
   </h2>
   <p>
-    <span class="ja">Mira はウェイクワード検出のためにマイク入力を常時監視しますが、<strong>録音データは保存も送信もされません</strong>（Gemini Live モード中を除きます。上記参照）。音声認識（STT）は PC 上のローカル Whisper モデルで処理され、認識後の音声データは破棄されます。</span>
+    <span class="ja">Mira はウェイクワード検出のためにマイク入力を常時監視しますが、<strong>録音データは保存も送信もされません</strong>（Gemini Live モード中を除きます。上記参照）。音声認識（STT）は PC 上のローカル Whisper モデルで処理され、認識後の音声データは破棄されます。認識した文章は、会話の記録と診断ログ（上記）に残ります。Mira が返事をした後は、続けて話せるように、呼びかけなしで聞き取りを続けます（1 回の呼びかけにつき最大 5 回まで）。その間に聞こえた発話（周りの人の声を含みます）も文字にされ、会話の記録に残ります。クラウドの AI を使っている場合は、その文章がプロバイダに送信されます。</span>
   </p>
 
   <h2>

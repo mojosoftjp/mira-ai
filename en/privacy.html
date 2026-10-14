@@ -102,7 +102,7 @@ footer a:hover{color:var(--text-muted)}
     <span class="en">Privacy Policy</span>
   </h1>
   <p class="date">
-    <span class="en">Last updated: October 13, 2026</span>
+    <span class="en">Last updated: October 14, 2026</span>
   </p>
 
   <h2>
@@ -116,48 +116,85 @@ footer a:hover{color:var(--text-muted)}
     <span class="en">Data Collection</span>
   </h2>
   <p>
-    <span class="en"><strong>Mira does not collect or transmit your personal information.</strong> All data is stored locally on your PC. No data is sent to Mojosoft's servers.</span>
+    <span class="en"><strong>Mira has no usage tracking (telemetry), no automatic error reporting and no automatic update check.</strong> Your conversations, settings and memory are stored on your PC and are never sent to Mojosoft. The one exception: when you open Settings or the About window, Mira connects to mojosoft.biz to show our other products (as with any web request, the server sees your IP address and the Mira version). For data sent to outside services, see the sections below.</span>
   </p>
 
   <h2>
     <span class="en">Locally Stored Data</span>
   </h2>
   <p>
-    <span class="en">Mira stores the following data locally on your PC (<code>%LOCALAPPDATA%\Mira\</code>):</span>
+    <span class="en">Mira stores the following data locally on your PC (<code>%LOCALAPPDATA%\Mira\</code>; for where the Microsoft Store version stores it, see "Deleting Your Data" below):</span>
   </p>
   <ul>
-    <li><span class="en"><strong>settings.json</strong> — App settings (AI provider, TTS, wake word, etc.)</span></li>
-    <li><span class="en"><strong>secrets.dat</strong> — API keys (encrypted with Windows DPAPI)</span></li>
-    <li><span class="en"><strong>memory.json</strong> — Information Mira remembers from conversations</span></li>
-    <li><span class="en"><strong>schedules.json</strong> — Schedules and alarms</span></li>
-    <li><span class="en"><strong>diag.log</strong> — Diagnostic logs (auto-rotated)</span></li>
+    <li><span class="en"><strong>settings.json</strong> — App settings (AI provider, speech, wake word, notes, Voice Launcher and Web Watch entries, etc.)</span></li>
+    <li><span class="en"><strong>secrets.dat</strong> — API keys (encrypted with Windows DPAPI; only your Windows user account can decrypt them)</span></li>
+    <li><span class="en"><strong>memory.json</strong> — Information Mira remembers from conversations (you can review and delete it in Settings)</span></li>
+    <li><span class="en"><strong>conversations folder</strong> — Conversation log (your transcribed speech, the AI's replies, and tool results given to the AI: text read from your screen by Screen Vision, page text read by Web Watch, search results, etc.). When a new conversation is logged, log files created more than 30 days earlier are deleted. They remain if you stop using Mira or uninstall the download version (see "Deleting Your Data" below). Also, each time a conversation is logged, Mira writes the most recent messages since it started (up to 20), so messages from an earlier conversation can be written again into a later log</span></li>
+    <li><span class="en"><strong>schedules.json, alarms.json, timers.json</strong> — Schedules, alarms and timers</span></li>
+    <li><span class="en"><strong>diag.log</strong> — Diagnostic log (includes transcribed speech, parts of the AI's replies, search terms, weather locations, memory and schedule text (including memories you delete in Settings), what Live mode heard and the tools the AI used there with their arguments (such as text it typed or copied to the clipboard), and parts of Screen Vision results). It is switched to diag.log.old only at startup, if it is over 1 MB. While Mira runs it keeps growing, and it is kept with no time limit</span></li>
+    <li><span class="en"><strong>crash.log</strong> — Information recorded if the app crashes</span></li>
+    <li><span class="en"><strong>Models folder</strong> — Speech recognition models</span></li>
+    <li><span class="en"><strong>promotions_cache.json, ad_icons folder</strong> — Cache for showing our other products</span></li>
   </ul>
+
+  <h2>
+    <span class="en">Deleting Your Data</span>
+  </h2>
+  <p>
+    <span class="en">Uninstalling the download version does not delete the data above (<code>%LOCALAPPDATA%\Mira\</code>). If you no longer need it, delete this folder after uninstalling. The Microsoft Store version may store its data in an app-specific location managed by Windows. If a <code>%LOCALAPPDATA%\Mira\</code> folder exists, delete it in the same way.</span>
+  </p>
 
   <h2>
     <span class="en">Data Sent to AI Providers</span>
   </h2>
   <p>
-    <span class="en">When using cloud AI providers (Gemini, OpenAI, Anthropic, etc.), <strong>transcribed text</strong> from your voice input, together with what the AI uses to answer (the memory, schedule and notes Mira keeps, and tool results such as web search results or clipboard text read in Live mode), is sent to the selected provider's API. Each provider's privacy policy applies.</span>
+    <span class="en">When using cloud AI providers (Gemini, OpenAI, Anthropic, etc.), <strong>transcribed text</strong> from your voice input and <strong>the recent conversation history</strong>, together with what the AI uses to answer (the memory, schedule and notes Mira keeps, and tool results such as web search results, page text read by Web Watch, or Screen Vision descriptions), are sent to the selected provider's API. When a conversation ends, its text is sent to the same provider to pick out things worth remembering. Besides keys entered in Settings, Mira also uses API keys set in environment variables (<code>GEMINI_API_KEY</code>, <code>OPENAI_API_KEY</code>, <code>ANTHROPIC_API_KEY</code>). Each provider's privacy policy applies. Data sent in Live mode goes to Google, whichever provider you selected (see "Gemini Live Mode" below).</span>
   </p>
   <p>
-    <span class="en"><strong>Note on the Gemini API free tier:</strong> According to Google's pricing page, on the free tier the content you send (such as conversation text, the memory, schedule and notes given to the AI, tool results such as clipboard text, Screen Vision screenshots, and Gemini Live audio and screen captures) may be used by Google to improve its products. It is not used when your API key belongs to a project with billing enabled (paid tier). See the <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing page</a> for the current terms.</span>
+    <span class="en"><strong>Automatic provider switching:</strong> When Mira starts and when you save settings, if it cannot reach the provider you selected (or that provider has no API key), Mira automatically switches to another available provider. The order is: local AI (Ollama, LM Studio, Lemonade), then Anthropic, OpenAI, Gemini, then a custom endpoint (if you set one). A cloud provider is used only if its key is saved in Mira or set as an environment variable. After switching, your conversations, memory, schedule, notes and tool results are sent to that provider until Mira restarts or you save settings again.</span>
   </p>
   <p>
-    <span class="en"><strong>When using local AI (Ollama, LM Studio, Lemonade), no data is sent externally.</strong></span>
+    <span class="en"><strong>Note on the Gemini API free tier:</strong> According to Google's pricing page, on the free tier the content you send (such as conversation text, the memory, schedule and notes given to the AI, tool results such as clipboard text, Screen Vision screenshots, and Gemini Live audio and screen captures) may be used by Google to improve its products. It is not used when your API key belongs to a project with billing enabled (paid tier). Also, according to Google's terms, on the free tier human reviewers at Google may read and annotate what you send, and Google asks you not to send sensitive, confidential or personal information (Mira sends the memory, notes and schedule it keeps with every conversation). If you are in the European Economic Area, Switzerland or the UK, Google applies the same data terms as the paid tier to free-tier use as well. See the <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing page</a> and the <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a> for the current terms.</span>
+  </p>
+  <p>
+    <span class="en"><strong>When using local AI (Ollama, LM Studio, Lemonade), your conversations with the AI are not sent externally.</strong> Mira still connects to outside services when you use web search, weather or Web Watch, when it speaks with Edge TTS (see below), when you use Screen Vision (sent to a cloud AI provider), and when you use Gemini Live mode (sent to Google). Also, if Mira cannot reach your local AI, it may switch to a cloud AI (see "Automatic provider switching" above).</span>
   </p>
 
   <h2>
     <span class="en">Screen Vision</span>
   </h2>
   <p>
-    <span class="en">When using Screen Vision, <strong>screenshot images</strong> are sent to the selected Vision-capable AI provider. Using a local Vision model (e.g., Ollama + llava) keeps all data on your PC (except for screen captures during Gemini Live mode, which are sent to Google regardless of this setting; see below).</span>
+    <span class="en">When using Screen Vision, <strong>a screenshot of your entire main monitor</strong> is sent to a cloud AI provider for which you have set an API key (Gemini, Anthropic or OpenAI). In the current version, Screen Vision does not work with local AI. Screenshot images are handled in memory only and are not saved to files, but the text read from the screen stays in the conversation log (see above). For screen captures in Gemini Live mode, see below.</span>
+  </p>
+
+  <h2>
+    <span class="en">Speech Output (Edge TTS)</span>
+  </h2>
+  <p>
+    <span class="en">When Mira speaks with Edge TTS (Microsoft's online voices, using the Python edge-tts package installed on your PC), <strong>the text being spoken is sent to Microsoft's servers</strong>. With the default (Auto) setting, Edge TTS is used when AivisSpeech and VOICEVOX are not running. Also, whichever voice you select (Auto, AivisSpeech, VOICEVOX or the built-in Windows voice), if it is unavailable or fails to speak, Mira may switch to Edge TTS when Python edge-tts is installed on your PC. The text being spoken is then sent to Microsoft as well. AivisSpeech, VOICEVOX and the built-in Windows voice run on your PC. If you don't want text sent to Microsoft, uninstall edge-tts (for example, <code>pip uninstall edge-tts</code>).</span>
+  </p>
+
+  <h2>
+    <span class="en">Weather, Web Search and Web Watch</span>
+  </h2>
+  <ul>
+    <li><span class="en"><strong>Weather</strong> — Place names not in Mira's built-in list are sent to OpenStreetMap (Nominatim) to find their location, and the latitude and longitude are sent to Open-Meteo to get the forecast.</span></li>
+    <li><span class="en"><strong>Web search</strong> — Search terms are sent to DuckDuckGo. Mira searches when you say things like "search for…" or "what is…", even when you use local AI or have not set up an AI. When you say "google …", and when the AI searches in Live mode, Mira opens a Google search in your default browser (the search terms are sent to Google by the browser).</span></li>
+    <li><span class="en"><strong>Web Watch</strong> — Mira reads the pages you register and passes their text to the AI.</span></li>
+  </ul>
+
+  <h2>
+    <span class="en">Speech Model Download</span>
+  </h2>
+  <p>
+    <span class="en">If the speech recognition model is not on your PC, Mira downloads it from Hugging Face (normally only once).</span>
   </p>
 
   <h2>
     <span class="en">Gemini Live Mode</span>
   </h2>
   <p>
-    <span class="en">In Gemini Live mode, <strong>audio data is streamed in real-time to Google's servers</strong>. Google's terms of service and privacy policy apply. Live mode is off by default. When enabled in Settings, it starts when the wake phrase is detected ("Mira live" by default) and ends with a stop phrase. Because surrounding sounds can occasionally be mistaken for the wake phrase, from v2.3.1 Live starts only when the phrase is detected with higher confidence than a regular wake word. If you don't use Live, we recommend leaving it disabled.</span>
+    <span class="en">In Gemini Live mode, <strong>audio data is streamed in real-time to Google's servers</strong>. Whichever provider you selected for normal conversation, Live mode also sends your notes, the memory Mira keeps, upcoming schedules and tool results (such as clipboard text) to Google (and screenshots when Screen Capture is on; see below). Google's terms of service and privacy policy apply. Live mode is off by default. When enabled in Settings, it starts when the wake phrase is detected ("Mira live" by default) and ends with a stop phrase. Once started, it keeps sending microphone audio (except at times such as while Mira is speaking) until you say a stop phrase, pause Mira from the tray, or 28 minutes pass. Because surrounding sounds can occasionally be mistaken for the wake phrase, from v2.3.1 Live starts only when the phrase is detected with higher confidence than a regular wake word. If you don't use Live, we recommend leaving it disabled.</span>
   </p>
   <p>
     <span class="en">When Live mode's Screen Capture option is on, any time the AI looks at your screen <strong>the screenshot is also sent to Google</strong> (from v2.3.1 it is off by default for new installs; if you installed an earlier version, your previous setting is kept). From v2.3.1 the AI is instructed to look at the screen only when you ask, but as this relies on the AI's judgment, it may still occasionally look without being asked. If you don't want your screen sent, turn off Screen Capture in the Live mode tab of Settings.</span>
@@ -167,7 +204,7 @@ footer a:hover{color:var(--text-muted)}
     <span class="en">Microphone Usage</span>
   </h2>
   <p>
-    <span class="en">Mira monitors microphone input for wake word detection, but <strong>audio data is neither saved nor transmitted</strong> (except during Gemini Live mode; see above). Speech recognition (STT) is processed by a local Whisper model on your PC, and audio data is discarded after transcription.</span>
+    <span class="en">Mira monitors microphone input for wake word detection, but <strong>audio data is neither saved nor transmitted</strong> (except during Gemini Live mode; see above). Speech recognition (STT) is processed by a local Whisper model on your PC, and audio data is discarded after transcription. The transcribed text remains in the conversation log and the diagnostic log (see above). After Mira replies, it keeps listening without the wake word so you can continue the conversation (up to 5 times per wake word). Anything said during that time, including by people nearby, is transcribed and kept in the conversation log. If you use a cloud AI, that text is sent to the provider.</span>
   </p>
 
   <h2>

@@ -147,7 +147,7 @@ a:hover{text-decoration:underline}
   <div class="nav-group">
     <div class="nav-group-label"><span class="en">AI Setup</span></div>
     <a class="nav-item" href="#ai-overview"><span class="en">AI Overview</span></a>
-    <a class="nav-item" href="#vision-models"><span class="en">Vision Models</span></a>
+    <a class="nav-item" href="#vision-models"><span class="en">Recommended Models</span></a>
     <a class="nav-item" href="#ollama"><span class="en">Ollama</span></a>
     <a class="nav-item" href="#lmstudio"><span class="en">LM Studio</span></a>
     <a class="nav-item" href="#lemonade"><span class="en">Lemonade</span></a>
@@ -184,13 +184,11 @@ a:hover{text-decoration:underline}
     <a class="nav-item" href="#custom-notes"><span class="en">Custom Notes</span></a>
     <a class="nav-item" href="#webwatch-settings"><span class="en">Web Watch Setup</span></a>
     <a class="nav-item" href="#voicelauncher-settings"><span class="en">Voice Launcher Setup</span></a>
-    <a class="nav-item" href="#theme"><span class="en">Theme</span></a>
     <a class="nav-item" href="#startup"><span class="en">Startup</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-group-label"><span class="en">License</span></div>
-    <a class="nav-item" href="#license"><span class="en">Trial & Activation</span></a>
-    <a class="nav-item" href="#hwid"><span class="en">Hardware ID</span></a>
+    <a class="nav-item" href="#license"><span class="en">Free Software</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-group-label"><span class="en">Other</span></div>
@@ -207,8 +205,8 @@ a:hover{text-decoration:underline}
 
 <!-- ===== はじめに ===== -->
 <h2 id="what-is-mira"><span class="en">What is Mira</span></h2>
-<p><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira please" to start conversations, search the web, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
-<p><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. It works fully offline, protecting your privacy while providing powerful AI capabilities.</span></p>
+<p><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira" to start conversations, get weather forecasts, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
+<p><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. With a local AI it can also work without internet, protecting your privacy while providing powerful AI capabilities.</span></p>
 
 <h2 id="requirements"><span class="en">System Requirements</span></h2>
 <ul>
@@ -223,7 +221,7 @@ a:hover{text-decoration:underline}
 <ol class="step-list">
   <li><span class="en">Install and launch Mira. An <strong>"M" icon</strong> appears in the system tray.</span></li>
   <li><span class="en">On first launch, the Whisper speech recognition model (default small: 466MB) is automatically downloaded. You can switch to the recommended <strong>large-v3-turbo</strong> (1.6GB) in Settings.</span></li>
-  <li><span class="en">Say <strong>"Hey Mira please"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
+  <li><span class="en">Say <strong>"Hey Mira"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
   <li><span class="en">Speak your question or command. Mira responds with AI and reads it aloud.</span></li>
   <li><span class="en">Double-click the tray icon to open <strong>Settings</strong>.</span></li>
 </ol>
@@ -236,11 +234,12 @@ a:hover{text-decoration:underline}
   <div style="font-size:.78rem;color:#8a9bb4;margin-top:8px"><span class="en">Settings — Wake word and Memory</span></div>
 </div>
 <ul>
-  <li><span class="en"><strong>Default</strong>: "Hey Mira please", "Mira onegai", "Mira shitsumon desu"</span></li>
-  <li><span class="en"><strong>Interrupt phrases</strong>: "Mira stop please", "Mira cancel please" to interrupt speech (longer phrases recommended to avoid false triggers)</span></li>
+  <li><span class="en"><strong>Default</strong>: "OK Mira", "Hey Mira", "Mira please"</span></li>
+  <li><span class="en"><strong>Interrupt phrases</strong>: "Mira stop please", "Mira stop", "Stop Mira" to interrupt speech (longer phrases recommended to avoid false triggers)</span></li>
   <li><span class="en">Register multiple phrases separated by commas</span></li>
+  <li><span class="en">These defaults apply when the Windows display language is not Japanese. On Japanese Windows the defaults are different (wake words 「ミラお願い」, 「ミラ質問です」, "Hey Mira please"; interrupt phrases 「ミラストップして」, 「ミラ止めてください」, "Mira stop please")</span></li>
 </ul>
-<div class="callout warn"><span class="en"><strong>⚠️ Note:</strong> Restart Mira after changing the wake word.</span></div>
+<div class="callout"><span class="en"><strong>💡 Tip:</strong> Wake word changes take effect as soon as you save (no restart needed).</span></div>
 
 <h3><span class="en">Tips to Reduce False Recognition</span></h3>
 <p><span class="en">Background noise or speaker audio feeding back into the microphone can cause unintended wake or stop triggers. <strong>Setting longer phrases</strong> significantly reduces false recognition.</span></p>
@@ -290,8 +289,8 @@ a:hover{text-decoration:underline}
 <h2 id="ai-overview"><span class="en">AI Overview</span></h2>
 <p><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
 
-<h2 id="vision-models"><span class="en">Recommended Vision Models (Tested)</span></h2>
-<p><span class="en">The following models have been <strong>tested for Screen Vision</strong>.</span></p>
+<h2 id="vision-models"><span class="en">Recommended Models (Tested)</span></h2>
+<p><span class="en">The following models have been tested on real hardware. <strong>Screen Vision</strong> was tested with the cloud models. Gemma 4 is for conversation and cannot be used for Screen Vision in v2.3.1.</span></p>
 
 <table class="cmd-table">
   <thead>
@@ -328,23 +327,23 @@ a:hover{text-decoration:underline}
     <tr>
       <td><strong>Gemma 4 E4B-IT</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
       <td><span class="en">Local</span></td>
-      <td>✅</td>
+      <td>—</td>
       <td>◎</td>
-      <td><span class="en"><strong>Top local pick</strong>. Fast & accurate. Full tool marker support. No API key, completely free. VRAM 6GB+</span></td>
+      <td><span class="en"><strong>Top local pick for conversation</strong>. Fast & accurate. Full tool marker support. No API key, completely free. VRAM 6GB+</span></td>
     </tr>
     <tr>
       <td><strong>Gemma 4 26B</strong></td>
       <td><span class="en">Local</span></td>
-      <td>✅</td>
+      <td>—</td>
       <td>◎</td>
-      <td><span class="en">Higher accuracy local model. Full tool marker support. VRAM 16GB+</span></td>
+      <td><span class="en">Higher accuracy local model for conversation. Full tool marker support. VRAM 16GB+</span></td>
     </tr>
   </tbody>
 </table>
 
-<div class="callout warn"><span class="en"><strong>⚠️ About small models:</strong> Models with 4B or fewer parameters can handle Screen Vision but lack sufficient accuracy for practical use. Gemma 4 E4B-IT or larger is recommended.</span></div>
+<div class="callout warn"><span class="en"><strong>⚠️ Screen Vision in v2.3.1:</strong> Screen Vision works only with cloud AI (Gemini, Claude, OpenAI). Even when you talk to a local AI (Ollama, LM Studio, Lemonade), Screen Vision needs a Gemini or Claude API key (without one, Mira asks you to set a Gemini or Anthropic API key in Settings).</span></div>
 
-<div class="callout"><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local (Gemma 4), use <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> or <strong>LM Studio</strong>: search "<code>gemma-4-e4b-it</code>".</span></div>
+<div class="callout"><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local conversation (Gemma 4), use <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> or <strong>LM Studio</strong>: search "<code>gemma-4-e4b-it</code>".</span></div>
 
 <h2 id="ollama"><span class="en">Ollama (Local AI)</span></h2>
 <div class="card">
@@ -435,7 +434,7 @@ a:hover{text-decoration:underline}
 
 <!-- ===== 音声 ===== -->
 <h2 id="stt"><span class="en">Speech Recognition (Whisper STT)</span></h2>
-<p><span class="en">Mira uses <strong>Whisper.NET</strong> for local speech recognition. Audio data is never sent externally.</span></p>
+<p><span class="en">Mira uses <strong>Whisper.NET</strong> for local speech recognition. Audio data is never sent externally (except in Live mode).</span></p>
 <p><span class="en">Choose model size in the "Speech Recognition" tab:</span></p>
 <table class="cmd-table">
   <thead><tr><th><span class="en">Model</span></th><th><span class="en">Size</span></th><th><span class="en">Accuracy</span></th><th><span class="en">Speed</span></th></tr></thead>
@@ -463,14 +462,15 @@ a:hover{text-decoration:underline}
 <p><span class="en">Uses Microsoft Edge neural voices. Requires internet. Uses Python <code>edge-tts</code>: <code>pip install edge-tts</code></span></p>
 
 <h2 id="emotion-tts"><span class="en">Emotion TTS</span></h2>
-<p><span class="en">When using AivisSpeech, Mira automatically switches between 6 emotion styles based on the AI response:</span></p>
+<p><span class="en">When using AivisSpeech or VOICEVOX, Mira automatically switches between 6 voice styles based on the AI response ("Emotion Style Auto-Switch" on the "Text-to-Speech" tab in Settings):</span></p>
 <ul>
-  <li><span class="en">😊 Normal / 😄 Happy / 😢 Sad / 😠 Angry / 😨 Fear / 😲 Surprise</span></li>
+  <li><span class="en">Normal / Casual (ふつー) / Sweet (あまあま, happy) / Calm (おちつき) / Teasing (からかい) / Wistful (せつなめ, sad)</span></li>
 </ul>
+<p><span class="en">Mira switches only when the selected speaker has styles with these names (for example AivisSpeech's "まお"). Otherwise it keeps the style you chose. Normal is the style you chose in Settings.</span></p>
 
 <!-- ===== 音声コマンド ===== -->
 <h2 id="commands"><span class="en">Voice Command List</span></h2>
-<p><span class="en">Mira recognizes your voice and instantly executes the commands below. Intent detection runs locally in 0ms without calling any AI, so it's extremely fast. Any utterance that doesn't match a command is processed as a normal AI conversation.</span></p>
+<p><span class="en">Mira recognizes your voice and instantly executes the commands below. Intent detection runs locally without calling any AI, so commands run right away. Any utterance that doesn't match a command is processed as a normal AI conversation (adding and deleting schedule entries is handled by the AI, so an AI provider is required).</span></p>
 
 <!-- --- Screen Vision --- -->
 <h3 id="cmd-vision"><span class="en">Screen Vision</span></h3>
@@ -478,26 +478,25 @@ a:hover{text-decoration:underline}
 <table class="cmd-table">
   <thead><tr><th><span class="en">Example</span></th><th><span class="en">English</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="en">"Look at the screen" / "What's on my screen?"</span></td><td><span class="en">"What's on screen?" / "Look at the screen"</span></td></tr>
+    <tr><td><span class="en">"Look at the screen" / "What's on the screen?"</span></td><td><span class="en">"What's on screen?" / "Look at the screen"</span></td></tr>
     <tr><td><span class="en">"Describe the screen" / "Tell me what's on screen"</span></td><td><span class="en">"Describe the screen"</span></td></tr>
     <tr><td><span class="en">"Take a screenshot" / "Screenshot"</span></td><td><span class="en">"Screenshot" / "Capture screen"</span></td></tr>
-    <tr><td><span class="en">"What is this error?" / "Explain this dialog"</span></td><td><span class="en">"What is this error?"</span></td></tr>
-    <tr><td><span class="en">"Read what's displayed on screen"</span></td><td><span class="en">"Read the screen"</span></td></tr>
+    <tr><td><span class="en">"What is this error?"</span></td><td><span class="en">"What is this error?"</span></td></tr>
   </tbody>
 </table>
 <!-- --- Search & Weather --- -->
 <h3 id="cmd-search"><span class="en">Search & Weather</span></h3>
-<p><span class="en">Get web search results and weather information by voice. Results are read aloud by AI.</span></p>
+<p><span class="en">Ask about the weather by voice, or open Google search results in your browser.</span></p>
 <table class="cmd-table">
   <thead><tr><th><span class="en">Category</span></th><th><span class="en">Example</span></th><th><span class="en">English</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="en"><strong>Web Search</strong><br>(DuckDuckGo)</span></td><td><span class="en">"Search for X" / "Look up X"<br>"What is X?"</span></td><td><span class="en">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span></td></tr>
-    <tr><td><span class="en"><strong>Web Search</strong><br>(What is)</span></td><td><span class="en">"What is X?" / "What are X?"</span></td><td><span class="en">"What is ...?" / "Find ..."</span></td></tr>
+    <tr><td><span class="en"><strong>Web Search</strong> *<br>(DuckDuckGo)</span></td><td><span class="en">"Search for X" / "Look up X"<br>"What is X?"</span></td><td><span class="en">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span></td></tr>
+    <tr><td><span class="en"><strong>Web Search</strong> *<br>(What is)</span></td><td><span class="en">"What is X?" / "What are X?"</span></td><td><span class="en">"What is ...?" / "Find ..."</span></td></tr>
     <tr><td><span class="en"><strong>Browser Search</strong><br>(Google)</span></td><td><span class="en">"Google X"</span></td><td><span class="en">"Google ..."</span></td></tr>
     <tr><td><span class="en"><strong>Weather</strong></span></td><td><span class="en">"What's the weather?" / "Weather in Tokyo"<br>"Tomorrow's temperature"</span></td><td><span class="en">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="en"><strong>💡 "Search" vs "Google":</strong> "Search" uses DuckDuckGo and AI reads the results aloud. "Google" opens the Google search page directly in your browser.</span></div>
+<div class="callout warn"><span class="en"><strong>⚠️ * Web search in v2.3.1:</strong> Voice search such as "Search for X" may return no results in v2.3.1 (a fix is planned for the next version). Saying "Google X" opens the Google search results in your default browser.</span></div>
 
 <!-- --- Web Watch --- -->
 <h3 id="cmd-webwatch"><span class="en">Web Watch <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
@@ -530,10 +529,10 @@ a:hover{text-decoration:underline}
 <table class="cmd-table">
   <thead><tr><th><span class="en">Category</span></th><th><span class="en">Example</span></th><th><span class="en">English</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="en"><strong>Volume</strong></span></td><td><span class="en">"Set volume to 50" / "Volume up"<br>"What's the volume?"</span></td><td><span class="en">"Set volume to ..." / "Volume up/down"</span></td></tr>
-    <tr><td><span class="en"><strong>Mute</strong></span></td><td><span class="en">"Mute" / "Unmute"</span></td><td><span class="en">"Mute" / "Unmute"</span></td></tr>
+    <tr><td><span class="en"><strong>Volume</strong></span></td><td><span class="en">"Set volume to 50"<br>"What's the volume?"</span></td><td><span class="en">"Set volume to ..." / "What's the volume?"</span></td></tr>
+    <tr><td><span class="en"><strong>Mute</strong></span></td><td><span class="en">"Mute"<br>To unmute, say "Set volume to 50"</span></td><td><span class="en">"Mute"</span></td></tr>
     <tr><td><span class="en"><strong>Clipboard<br>(Read)</strong></span></td><td><span class="en">"Read clipboard" / "What's in the clipboard?"</span></td><td><span class="en">"Read clipboard" / "Show clipboard"</span></td></tr>
-    <tr><td><span class="en"><strong>Clipboard<br>(Write)</strong></span></td><td><span class="en">"Copy X to clipboard"</span></td><td><span class="en">"Copy ..."</span></td></tr>
+    <tr><td><span class="en"><strong>Clipboard<br>(Write)</strong></span></td><td><span class="en">"Copy X"</span></td><td><span class="en">"Copy ..."</span></td></tr>
     <tr><td><span class="en"><strong>Time</strong></span></td><td><span class="en">"What time is it?" / "Current time"</span></td><td><span class="en">"What time is it?"</span></td></tr>
     <tr><td><span class="en"><strong>Date</strong></span></td><td><span class="en">"What day is it?" / "What's the date?"<br>"Today's date"</span></td><td><span class="en">"What day is it?" / "What's the date?"</span></td></tr>
   </tbody>
@@ -546,13 +545,12 @@ a:hover{text-decoration:underline}
   <thead><tr><th><span class="en">Category</span></th><th><span class="en">Example</span></th><th><span class="en">English</span></th></tr></thead>
   <tbody>
     <tr><td><span class="en"><strong>Set Timer</strong></span></td><td><span class="en">"Set a 3 minute timer"<br>"Timer for 5 minutes"</span></td><td><span class="en">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span></td></tr>
-    <tr><td><span class="en"><strong>Cancel Timer</strong></span></td><td><span class="en">"Cancel timer" / "Stop timer"</span></td><td><span class="en">"Cancel timer"</span></td></tr>
-    <tr><td><span class="en"><strong>List Timers</strong></span></td><td><span class="en">"Any timers?" / "List timers"</span></td><td><span class="en">"Any timers?"</span></td></tr>
     <tr><td><span class="en"><strong>Set Alarm</strong></span></td><td><span class="en">"Set alarm for 7 AM"<br>"Wake me up at 2:30 PM"</span></td><td><span class="en">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span></td></tr>
     <tr><td><span class="en"><strong>Cancel Alarm</strong></span></td><td><span class="en">"Cancel alarm" / "Stop alarm"<br>"Clear alarms"</span></td><td><span class="en">"Cancel alarm" / "Delete alarm"</span></td></tr>
     <tr><td><span class="en"><strong>List Alarms</strong></span></td><td><span class="en">"Any alarms set?" / "List alarms"<br>"What alarms?"</span></td><td><span class="en">"List alarms" / "Show alarms"</span></td></tr>
   </tbody>
 </table>
+<p><span class="en">In v2.3.1, timers cannot be cancelled or listed by voice in English (only in Japanese).</span></p>
 <p><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span></p>
 
 <!-- --- Memory & Schedule --- -->
@@ -574,7 +572,7 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="en">Screen Vision</span></h2>
 <p><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Haiku 5.5, Gemma 4 E4B-IT / 26B (local, free)</span></p>
+<p><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Haiku 5.5. In v2.3.1, Screen Vision works only with cloud AI (Gemini, Claude, OpenAI).</span></p>
 
 <h2 id="gemini-live"><span class="en">Gemini Live</span></h2>
 <p><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
@@ -616,11 +614,8 @@ a:hover{text-decoration:underline}
 </ol>
 <div class="callout"><span class="en"><strong>💡 Tip:</strong> Specify an <code>.exe</code> or <code>.bat</code> path to launch an app, or a URL starting with <code>https://</code> to open in browser. Executables in PATH (e.g., <code>notepad.exe</code>, <code>calc.exe</code>) need only the filename.</span></div>
 
-<h2 id="theme"><span class="en">Theme</span></h2>
-<p><span class="en">Switch between Dark / Light theme in Settings.</span></p>
-
 <h2 id="startup"><span class="en">Startup Settings</span></h2>
-<p><span class="en">Enable "Start minimized" to launch Mira directly to the system tray without showing a window.</span></p>
+<p><span class="en">Turn on "Start with Windows" on the "Notes" tab in Settings to start Mira automatically when you sign in to Windows (on by default; the Microsoft Store version may not start automatically, which we are checking). When Mira starts, it opens no window and stays in the system tray (the setup wizard appears only the first time).</span></p>
 
 <!-- ===== ライセンス ===== -->
 <h2 id="license"><span class="en">License</span></h2>
@@ -658,21 +653,20 @@ a:hover{text-decoration:underline}
 <h3><span class="en">Q: Voice Launcher doesn't launch apps</span></h3>
 <p><span class="en">Check the following:</span></p>
 <ul>
-  <li><span class="en"><strong>Is the keyword recognized correctly?</strong>: Check the actual recognized text in the log (Settings → "Log" tab)</span></li>
+  <li><span class="en"><strong>Is the keyword recognized correctly?</strong>: Check the actual recognized text in the "STT result" lines of the log file (<code>%LOCALAPPDATA%\Mira\diag.log</code>)</span></li>
   <li><span class="en"><strong>Is the command path correct?</strong>: Use a full path or a command that's in your system PATH</span></li>
   <li><span class="en">Include launch verbs like "open", "launch", "start" along with the keyword</span></li>
 </ul>
 
 <h3><span class="en">Q: Screen Vision doesn't work</span></h3>
-<p><span class="en">You need a Vision-capable AI provider. Set up one of the following:</span></p>
+<p><span class="en">You need a Vision-capable cloud AI (in v2.3.1, Screen Vision does not work with local AI). Set up one of the following:</span></p>
 <ul>
   <li><span class="en"><strong>gemini-flash-latest</strong> (recommended, free tier available)</span></li>
   <li><span class="en"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong> (high accuracy)</span></li>
-  <li><span class="en"><strong>Ollama (or LM Studio) + Gemma 4 E4B-IT / 26B</strong> (local, free)</span></li>
 </ul>
 
 <h3><span class="en">Q: Mira asks me to set my location when I ask about weather</span></h3>
-<p><span class="en">Enter your location in the "Default Weather Location" field in the "AI" tab in Settings (e.g., "Tokyo", "Osaka", "New York"). When you say "What's the weather?", this location's weather will be returned. If empty, Mira will ask you to set it.</span></p>
+<p><span class="en">Enter your location in the "Default Weather Location" field on the "Notes" tab in Settings (e.g., "Tokyo", "Osaka", "New York"). When you say "What's the weather?", this location's weather will be returned. If empty, Mira will ask you to set it.</span></p>
 
 <h3><span class="en">Q: AI responses are slow</span></h3>
 <p><span class="en">Try the following:</span></p>
@@ -683,13 +677,13 @@ a:hover{text-decoration:underline}
 </ul>
 
 <h3><span class="en">Q: Can I use Mira without internet?</span></h3>
-<p><span class="en"><strong>Yes.</strong> Use Ollama (AI) + Whisper (STT) + AivisSpeech/VOICEVOX (TTS) for fully offline operation.</span></p>
+<p><span class="en"><strong>Yes.</strong> With Ollama (AI) + Whisper (STT) + AivisSpeech/VOICEVOX (TTS), conversations stay on your PC. The speech recognition model must be downloaded once. Weather, web search, Screen Vision and Live mode use the internet. If your local AI is not running when Mira starts (or when you save Settings), Mira switches to a cloud AI if a cloud API key is available, including one set in an environment variable.</span></p>
 
 <h3><span class="en">Q: What data does Mira send?</span></h3>
-<p><span class="en">Zero with local providers. With cloud providers, only transcribed text is sent to the API. See our <a href="privacy.html">Privacy Policy</a>.</span></p>
+<p><span class="en">With a cloud AI, Mira sends your transcribed text, the recent conversation and what the AI uses to answer (memory, schedule, search results, etc.) to that AI. With a local AI, your conversations are not sent externally. However, if your local AI is not running when Mira starts (or when you save Settings) and a cloud API key is available (including one set in an environment variable), Mira switches to that cloud AI and sends your conversations there until you restart Mira or save Settings again (the switch is not shown on screen). Web search, weather, Edge TTS, Screen Vision and Live mode also send data to outside services. See <a href="index.html#data-flow">Data Flow</a> on the home page for a summary, and our <a href="privacy.html">Privacy Policy</a> for details.</span></p>
 
 <h3><span class="en">Q: Do I need to install VOICEVOX / AivisSpeech separately?</span></h3>
-<p><span class="en"><strong>Yes.</strong> These are separate software. They must be installed and running. Without them, Mira falls back to System.Speech.</span></p>
+<p><span class="en"><strong>Yes.</strong> These are separate software. They must be installed and running. Without them, Mira speaks with Edge TTS (requires Python edge-tts) or the built-in Windows voice (System.Speech).</span></p>
 
 <h3><span class="en">Q: Are there any free AI providers?</span></h3>
 <p><span class="en"><strong>Yes.</strong> The following are available for free:</span></p>
@@ -724,7 +718,7 @@ a:hover{text-decoration:underline}
 <ul>
   <li><span class="en">Check if speakers are muted</span></li>
   <li><span class="en">Check if AivisSpeech / VOICEVOX is running</span></li>
-  <li><span class="en">Check TTS engine priority in Settings</span></li>
+  <li><span class="en">Check the TTS engine on the "Text-to-Speech" tab in Settings</span></li>
 </ul>
 
 <h3><span class="en">AI not responding</span></h3>

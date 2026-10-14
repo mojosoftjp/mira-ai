@@ -5,10 +5,10 @@
 <link rel="icon" type="image/png" href="../mira_avatar.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mira | AI Voice Assistant for Windows</title>
-<meta name="description" content="Control Windows with your voice. Mira combines wake-word activation, app launching, web search, screen vision and character voices, with local LLM options for offline use.">
+<meta name="description" content="Mira is an AI voice assistant for Windows that lets you launch apps and talk with AI by voice. It supports a wake word, screen vision and character voices, and can also work offline when you choose a local LLM.">
 <meta name="theme-color" content="#060612">
 <meta property="og:title" content="Mira | AI Voice Assistant for Windows">
-<meta property="og:description" content="Control Windows with your voice. Mira combines wake-word activation, app launching, web search, screen vision and character voices, with local LLM options for offline use.">
+<meta property="og:description" content="Mira is an AI voice assistant for Windows that lets you launch apps and talk with AI by voice. It supports a wake word, screen vision and character voices, and can also work offline when you choose a local LLM.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -297,6 +297,22 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   .nav{padding:0 16px}
   .social-proof-items{gap:24px}
 }
+
+/* ===== Data flow / FAQ ===== */
+.flow-table th,.flow-table td{text-align:left;vertical-align:top;line-height:1.6}
+.flow-table td:first-child{color:var(--text-white);font-weight:600;white-space:nowrap}
+.flow-note{max-width:800px;margin:20px auto 0;color:var(--text-dim);font-size:.85rem;line-height:1.7}
+.faq{grid-template-columns:repeat(2,1fr)}
+.faq .feature-card p{font-size:.85rem;line-height:1.7}
+@media(max-width:700px){
+  .faq{grid-template-columns:1fr}
+  .flow-table thead{display:none}
+  .flow-table,.flow-table tbody,.flow-table tr,.flow-table td{display:block;width:100%}
+  .flow-table tr{padding:14px 0;border-bottom:1px solid rgba(0,168,255,.1)}
+  .flow-table td{border:none;padding:3px 0}
+  .flow-table td:first-child{white-space:normal}
+  .flow-table td[data-label]::before{content:attr(data-label);display:block;font-size:.72rem;color:var(--text-dim);margin-top:4px}
+}
 </style>
   <link rel="canonical" href="https://mojosoftjp.github.io/mira-ai/en/">
   <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/" hreflang="ja">
@@ -307,7 +323,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   <meta property="og:site_name" content="Mojosoft">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:title" content="Mira | AI Voice Assistant for Windows">
-  <meta name="twitter:description" content="Control Windows with your voice. Mira combines wake-word activation, app launching, web search, screen vision and character voices, with local LLM options for offline use.">
+  <meta name="twitter:description" content="Mira is an AI voice assistant for Windows that lets you launch apps and talk with AI by voice. It supports a wake word, screen vision and character voices, and can also work offline when you choose a local LLM.">
   <meta property="og:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
   <meta name="twitter:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
   <meta property="og:image:alt" content="Mira | AI Voice Assistant for Windows">
@@ -325,7 +341,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       "name": "Mira",
       "alternateName": "ミラ",
       "url": "https://mojosoftjp.github.io/mira-ai/en/",
-      "description": "Control Windows with your voice. Mira combines wake-word activation, app launching, web search, screen vision and character voices, with local LLM options for offline use.",
+      "description": "Mira is an AI voice assistant for Windows that lets you launch apps and talk with AI by voice. It supports a wake word, screen vision and character voices, and can also work offline when you choose a local LLM.",
       "image": "https://mojosoftjp.github.io/mira-ai/mira1.png",
       "operatingSystem": "Windows",
       "applicationCategory": "UtilitiesApplication",
@@ -406,7 +422,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
   <div class="hero-badge fade-in">
     <span class="dot"></span>
-    <span class="en">The successor to Cortana is here.</span>
+    <span class="en">Looking for a Cortana replacement? Meet Mira.</span>
   </div>
 
   <div class="hero-avatar fade-in fade-in-d1">
@@ -418,13 +434,13 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </h1>
 
   <p class="subtitle fade-in fade-in-d3">
-    <span class="en">7 AI providers. Fully offline capable. AivisSpeech / VOICEVOX for any voice.<br>Gemini Live for real-time dialogue. Screen Vision lets AI understand your screen.<br><strong>100% free software.</strong></span>
+    <span class="en">An AI voice assistant for Windows. AivisSpeech / VOICEVOX for any voice.<br>Gemini Live for real-time dialogue. Screen Vision lets AI understand your screen.<br>7 AI providers, and offline use with local AI. <strong>100% free software.</strong></span>
   </p>
 
   <div class="hero-cta fade-in fade-in-d4">
     <a href="https://apps.microsoft.com/detail/9MSWSR4GRSV6" class="btn btn-msstore" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zM12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zM12.5 12.5H24V24H12.5z"/></svg>
-      <span class="en">Microsoft Store</span>
+      <span class="en">Microsoft Store (Japan only)</span>
     </a>
     <a href="download.html" class="btn btn-primary">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -436,7 +452,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
   <div style="margin-top:18px;display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid rgba(0,188,242,.3);background:rgba(0,120,212,.08);font-size:.78rem;color:#4dc9ff;font-weight:600">
     <span style="width:6px;height:6px;border-radius:50%;background:#00bcf2;box-shadow:0 0 8px #00bcf2"></span>
-    <span class="en">Now on Microsoft Store — Completely Free</span>
+    <span class="en">Completely Free — the Microsoft Store version is available in Japan only</span>
   </div>
 </section>
 
@@ -448,16 +464,16 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <span class="social-proof-label"><span class="en">AI Providers</span></span>
     </div>
     <div class="social-proof-item">
-      <span class="social-proof-num">&lt;500ms</span>
-      <span class="social-proof-label"><span class="en">Response Latency</span></span>
+      <span class="social-proof-num">$0</span>
+      <span class="social-proof-label"><span class="en">Completely Free</span></span>
     </div>
     <div class="social-proof-item">
       <span class="social-proof-num">15+</span>
       <span class="social-proof-label"><span class="en">Voice Commands</span></span>
     </div>
     <div class="social-proof-item">
-      <span class="social-proof-num">100%</span>
-      <span class="social-proof-label"><span class="en">Offline Ready</span></span>
+      <span class="social-proof-num">Local</span>
+      <span class="social-proof-label"><span class="en">On-device Speech Recognition</span></span>
     </div>
   </div>
 </div>
@@ -473,7 +489,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <span class="en">The 4 Powers</span>
     </h2>
     <p class="section-desc">
-      <span class="en">Mira controls your PC with 4 powers: Ears, Brain, Eyes, and Hands.</span>
+      <span class="en">Mira helps with your PC work by voice, with 4 powers: Ears, Brain, Eyes, and Hands.</span>
     </p>
   </div>
 
@@ -485,11 +501,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="en">👂 Voice</span></h3>
       <div class="power-sub"><span class="en">Ears + Mouth</span></div>
-      <p><span class="en">Custom wake word — call Mira any name. High-accuracy Whisper STT. <strong>AivisSpeech / VOICEVOX</strong> for your favorite character voice. Emotion TTS + 4-tier fallback.<br><small>※Speech recognition runs entirely on your PC. With local LLM + local TTS (AivisSpeech), fully offline operation is possible</small></span></p>
+      <p><span class="en">Custom wake word — call Mira any name. High-accuracy Whisper STT. <strong>AivisSpeech / VOICEVOX</strong> for your favorite character voice. Emotion TTS + 4-tier fallback.<br><small>※Speech recognition runs on your PC. With a local LLM + local TTS (AivisSpeech etc.), Mira also works offline (the speech model is downloaded once on first use)</small></span></p>
       <ul>
         <li><span class="en">AivisSpeech / VOICEVOX Support</span></li>
         <li><span class="en">Whisper STT (Local)</span></li>
-        <li><span class="en">Streaming TTS (500ms)</span></li>
+        <li><span class="en">Streaming TTS</span></li>
         <li><span class="en">Emotion TTS (6 Styles, Auto)</span></li>
       </ul>
     </div>
@@ -501,7 +517,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="en">🧠 Brain</span></h3>
       <div class="power-sub"><span class="en">Intelligence</span></div>
-      <p><span class="en">7+ AI providers supported. Use Ollama for local LLMs — zero API cost, fully offline. Remembers conversations and understands context.</span></p>
+      <p><span class="en">7+ AI providers supported. Use Ollama for local LLMs — zero API cost, and conversations work without internet. Remembers conversations and understands context.</span></p>
       <ul>
         <li><span class="en">Ollama / LM Studio / Lemonade</span></li>
         <li><span class="en">Gemini / OpenAI / Claude</span></li>
@@ -517,11 +533,11 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       </div>
       <h3><span class="en">👁 Eyes</span></h3>
       <div class="power-sub"><span class="en">Vision</span></div>
-      <p><span class="en">AI sees and analyzes your screen. Just say "Look at the screen" or "What's this error?" and AI explains what's displayed. Works with all Vision-capable models.</span></p>
+      <p><span class="en">AI sees and analyzes your screen. Just say "Look at the screen" or "What is this error?" and AI explains what's displayed. Works with image-capable models from Gemini, Claude and OpenAI.</span></p>
       <ul>
         <li><span class="en">AI Screen Vision</span></li>
         <li><span class="en">Multi-Provider Support</span></li>
-        <li><span class="en">Gemini / Claude / Ollama</span></li>
+        <li><span class="en">Gemini / Claude / OpenAI</span></li>
       </ul>
     </div>
 
@@ -578,8 +594,8 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <ul>
         <li style="--dot-color:var(--accent-teal)"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>AivisSpeech</strong> — High-quality Japanese speech synthesis with rich expression</span></span></li>
         <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>VOICEVOX</strong> — Popular free character voice engine</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Emotion TTS</strong> — AI auto-selects from 6 styles: happy, sad, angry, etc.</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Streaming</strong> — Speaks as AI generates. 500ms perceived latency</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Emotion TTS</strong> — Auto-switches among 6 styles (sweet, calm, teasing, sad, etc.) based on each sentence</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Streaming</strong> — Speaks as AI generates</span></span></li>
       </ul>
     </div>
     <div class="showcase-visual fade-in fade-in-d2">
@@ -611,8 +627,8 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
           <div class="voice-engine">
             <div class="ve-icon" style="background:rgba(255,140,0,.1)">🌐</div>
             <div>
-              <div class="ve-name"><span class="en">Cloud TTS</span></div>
-              <div class="ve-desc"><span class="en">OpenAI / Google etc.</span></div>
+              <div class="ve-name">Edge TTS</div>
+              <div class="ve-desc"><span class="en">Microsoft online voices (requires Python edge-tts)</span></div>
             </div>
             <span class="ve-tag ve-tag-pro">CLOUD</span>
           </div>
@@ -647,12 +663,12 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <span class="en">Say "Mira Live" to start<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">real-time conversation.</span></span>
       </h2>
       <p>
-        <span class="en"><strong>Gemini Live</strong> mode lets you converse with Mira in real-time, just like talking to a person. Voice streams directly to AI with zero wait — natural, flowing conversation. Activated by the dedicated wake phrase "<strong>Mira Live</strong>", completely separate from normal wake word mode.</span>
+        <span class="en"><strong>Gemini Live</strong> mode lets you converse with Mira in real-time, just like talking to a person. Your voice streams directly to the AI (Google) for natural, flowing conversation. Activated by the dedicated wake phrase "<strong>Mira Live</strong>", completely separate from normal wake word mode. Off by default — turn it on in Settings.</span>
       </p>
       <ul>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>WebSocket</strong> real-time streaming — near-zero latency</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Function Calling</strong> — Weather, search, alarms during conversation</span></span></li>
-        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Screen capture</strong> — Talk about what's on your screen</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-teal);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>WebSocket</strong> — Voice streams both ways as audio</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-cyan);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>PC actions</strong> — Launch apps, press keys, type text, change the volume and use the clipboard during the conversation (search opens Google in your browser)</span></span></li>
+        <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-process);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Screen capture</strong> (off by default) — Talk about what's on your screen</span></span></li>
         <li><span style="width:8px;height:8px;border-radius:50%;background:var(--state-speak);flex-shrink:0;margin-top:7px"></span><span><span class="en"><strong>Stop phrase</strong> — Safely exit anytime</span></span></li>
       </ul>
     </div>
@@ -669,10 +685,10 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
           <span class="en">📊 Let me look at the screen... It's a monthly sales report. March is up 12% month-over-month, with advertising revenue showing strong growth.</span>
         </div>
         <div class="live-bubble live-bubble-user live-bubble-user2">
-          <span class="en">🎤 Create a chart from that data</span>
+          <span class="en">🎤 Copy the key points to the clipboard</span>
         </div>
         <div class="live-bubble live-bubble-mira live-bubble-mira2">
-          <span class="en">📈 Got it. Creating a chart in Excel... Would you prefer a bar chart or a line chart?</span>
+          <span class="en">📋 I've summarized the key points and copied them to the clipboard. You can paste them into Notepad or anywhere else.</span>
         </div>
       </div>
     </div>
@@ -775,7 +791,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
           <span class="en">Speaking...</span>
         </div>
         <div class="overlay-response">
-          <span class="en"><span class="typewriter" id="typewriter-en">Tomorrow's forecast is sunny with a high of 72°F. Perfect for going out!</span></span>
+          <span class="en"><span class="typewriter" id="typewriter-en">Tomorrow's forecast is sunny with a high of 22°C. Perfect for going out!</span></span>
         </div>
       </div>
     </div>
@@ -805,7 +821,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   <div class="section-header fade-in">
     <div class="section-label"><span class="en">How It Works</span></div>
     <h2 class="section-title">
-      <span class="en">From voice to action in 500ms</span>
+      <span class="en">From voice to action</span>
     </h2>
   </div>
 
@@ -814,7 +830,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <div class="step-num">1</div>
       <div class="step-icon">🎤</div>
       <h4><span class="en">Wake Word</span></h4>
-      <p><span class="en">"Hey Mira please" to activate. Fully customizable.</span></p>
+      <p><span class="en">"Hey Mira" to activate. Fully customizable.</span></p>
       <span class="step-connector">→</span>
     </div>
     <div class="step">
@@ -835,14 +851,14 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
       <div class="step-num">4</div>
       <div class="step-icon">🗣️</div>
       <h4><span class="en">Streaming TTS</span></h4>
-      <p><span class="en">Speaks as AI generates. 500ms latency.</span></p>
+      <p><span class="en">Speaks as AI generates.</span></p>
       <span class="step-connector">→</span>
     </div>
     <div class="step">
       <div class="step-num">5</div>
       <div class="step-icon">⚡</div>
       <h4><span class="en">Action</span></h4>
-      <p><span class="en">Auto-execute search, launch, control</span></p>
+      <p><span class="en">Runs searches, launches apps, sets alarms</span></p>
     </div>
   </div>
 </section>
@@ -871,7 +887,7 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <div class="provider"><span class="provider-dot" style="background:#8B5CF6"></span> <span class="en">Custom</span></div>
       </div>
       <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8">
-        <span class="en"><strong>BYOK (Bring Your Own Key)</strong> — Use your own API keys. No monthly fees, pay only for what you use. Ollama / LM Studio / Lemonade run <strong>fully offline, completely free</strong>.</span>
+        <span class="en"><strong>BYOK (Bring Your Own Key)</strong> — Use your own API keys. No monthly fees, pay only for what you use. Ollama / LM Studio / Lemonade let you talk <strong>without internet, for free</strong>.</span>
       </p>
       <p style="color:var(--text-dim);font-size:.88rem;margin-top:12px">
         <span class="en">💡 <strong>One-click switching</strong> via dropdown in settings. Change providers mid-conversation freely.</span>
@@ -888,59 +904,16 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 <!-- ===== Comparison ===== -->
 <section class="section" id="comparison" style="background:var(--bg-deep)">
   <div class="section-header fade-in">
-    <div class="section-label"><span class="en">Comparison</span></div>
+    <div class="section-label"><span class="en">Highlights</span></div>
     <h2 class="section-title">
       <span class="en">Why Mira?</span>
     </h2>
   </div>
 
-  <div class="comparison fade-in">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th style="text-align:left"><span class="en">Feature</span></th>
-          <th>Cortana</th>
-          <th>Braina Pro</th>
-          <th class="mira-col">Mira</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="en">Custom Wake Word</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Offline AI</span></td>
-          <td class="cross">✗</td><td class="partial">△</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">AivisSpeech / VOICEVOX</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Japanese TTS (High Quality)</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Streaming Response</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Screen Vision</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Real-time Voice Dialogue</span></td>
-          <td class="cross">✗</td><td class="cross">✗</td><td class="mira-cell check">✓</td>
-        </tr>
-        <tr>
-          <td><span class="en">Price</span></td>
-          <td style="color:var(--text-dim)"><span class="en">Discontinued</span></td>
-          <td style="color:var(--text-dim)">$79<span class="en">/yr</span></td>
-          <td class="mira-cell" style="font-weight:900"><span class="en">Free</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="features">
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="en">Call it by the phrase you choose</span></h4><p><span class="en">Change the wake phrase to anything you like (by default, "Hey Mira" or "OK Mira").</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎭</span><h4><span class="en">Speaks in character voices</span></h4><p><span class="en">Mira answers in the voice you choose from AivisSpeech or VOICEVOX (free, installed separately).</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="en">Choose your AI</span></h4><p><span class="en">Use Gemini, OpenAI or Claude, or a local LLM (Ollama, LM Studio, Lemonade).</span></p></div>
   </div>
 </section>
 
@@ -954,15 +927,15 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
   </div>
 
   <div class="features">
-    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="en">Custom Wake Word</span></h4><p><span class="en">Change "Hey Mira please" to any name</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🗣️</span><h4><span class="en">Streaming TTS</span></h4><p><span class="en">Speaks as AI generates. 500ms latency</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="en">Custom Wake Word</span></h4><p><span class="en">Change "Hey Mira" to any name</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🗣️</span><h4><span class="en">Streaming TTS</span></h4><p><span class="en">Speaks as AI generates</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🎭</span><h4><span class="en">AivisSpeech / VOICEVOX</span></h4><p><span class="en">100+ character voices. Speak with your favorite</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🔒</span><h4><span class="en">Fully Offline Capable</span></h4><p><span class="en">Local STT + Local LLM + Local TTS — everything stays on your PC</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔒</span><h4><span class="en">Works Offline</span></h4><p><span class="en">Choose local speech recognition, LLM and TTS to keep conversations on your PC</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">👁️</span><h4><span class="en">Screen Vision</span></h4><p><span class="en">AI sees and understands your screen</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="en">Gemini Live</span></h4><p><span class="en">Real-time voice dialogue. Zero wait time</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🎙️</span><h4><span class="en">Gemini Live</span></h4><p><span class="en">Real-time voice dialogue</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🧠</span><h4><span class="en">Conversation Memory</span></h4><p><span class="en">Remember important info with pin system</span></p></div>
     <div class="feature-card fade-in" style="border-color:var(--accent-cyan);box-shadow:0 0 16px var(--glow-cyan)"><span class="f-icon">🌐</span><h4><span class="en">Web Watch <span style="font-size:.7rem;background:var(--gradient-main);color:#fff;padding:2px 8px;border-radius:999px;vertical-align:middle">NEW</span></span></h4><p><span class="en">Fetch & summarize any site by keyword</span></p></div>
-    <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="en">Web Search</span></h4><p><span class="en">Search by voice, results read aloud</span></p></div>
+    <div class="feature-card fade-in"><span class="f-icon">🔍</span><h4><span class="en">Web Search</span></h4><p><span class="en">Say "google …" to open Google results in your browser</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">📱</span><h4><span class="en">Voice Launcher</span></h4><p><span class="en">Launch apps & sites with custom keywords</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">⏰</span><h4><span class="en">Alarms / Schedule</span></h4><p><span class="en">Set alarms and manage schedule by voice</span></p></div>
     <div class="feature-card fade-in"><span class="f-icon">🌙</span><h4><span class="en">Dark / Light Theme</span></h4><p><span class="en">Switch to your preferred theme</span></p></div>
@@ -1003,6 +976,54 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
         <span class="en">Free Download</span>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ===== Data Flow ===== -->
+<section class="section" id="data-flow">
+  <div class="section-header fade-in">
+    <div class="section-label">Data Flow</div>
+    <h2 class="section-title">What stays on your PC, and what is sent</h2>
+    <p class="section-desc">Wake word detection and speech recognition run on your PC. Mira only sends what the AI or service you choose needs.</p>
+  </div>
+
+  <div class="comparison fade-in">
+    <table class="compare-table flow-table">
+      <thead>
+        <tr><th>Feature</th><th>Where it runs</th><th>What is sent</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wake word detection</td><td data-label="Where it runs">On your PC (Windows speech engine)</td><td data-label="What is sent">Nothing</td></tr>
+        <tr><td>Speech recognition</td><td data-label="Where it runs">On your PC (Whisper)</td><td data-label="What is sent">Nothing (audio is discarded after transcription; the speech model is downloaded from Hugging Face on first use)</td></tr>
+        <tr><td>Conversation with AI</td><td data-label="Where it runs">The AI you choose</td><td data-label="What is sent">Cloud AI (Gemini, OpenAI, Claude): your transcribed words, recent conversation, things Mira remembers, your Notes, your schedule and results such as web search results go to that provider.<br>Local LLM (Ollama, LM Studio, Lemonade): nothing</td></tr>
+        <tr><td>Speech output</td><td data-label="Where it runs">AivisSpeech, VOICEVOX and the Windows voice run on your PC. Edge TTS uses Microsoft</td><td data-label="What is sent">Only with Edge TTS: the text being spoken</td></tr>
+        <tr><td>Screen Vision (when you ask)</td><td data-label="Where it runs">The cloud AI you use for conversation (Gemini, Claude, OpenAI). With a local LLM or another provider, Mira uses a saved Claude key, otherwise a saved Gemini key (with neither, Screen Vision is unavailable)</td><td data-label="What is sent">A screenshot of your entire main monitor</td></tr>
+        <tr><td>Live mode (off by default)</td><td data-label="Where it runs">Google (Gemini Live)</td><td data-label="What is sent">Your microphone audio and results of tools the AI uses (such as clipboard text). Each time Live mode starts, what Mira remembers about you, your Notes and your upcoming schedule are also sent as instructions to the AI. With screen capture on, screenshots</td></tr>
+        <tr><td>Weather, web search, Web Watch</td><td data-label="Where it runs">Each service</td><td data-label="What is sent">Place names (OpenStreetMap, Open-Meteo) and search terms (DuckDuckGo). Web Watch reads the sites you register and passes their text to the AI</td></tr>
+        <tr><td>Settings, API keys, memory and logs</td><td data-label="Where it runs">On your PC (%LOCALAPPDATA%\Mira)</td><td data-label="What is sent">Nothing (API keys are encrypted by Windows. For when the conversation log and the diagnostic log (diag.log) are deleted, see the <a href="privacy.html">privacy policy</a>)</td></tr>
+      </tbody>
+    </table>
+    <p class="flow-note">Mira has no telemetry and no automatic update check, and it never sends your conversations or personal information to Mojosoft (opening Settings or About connects to mojosoft.biz to show our other products). See the <a href="privacy.html">privacy policy</a> for details.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq" style="background:var(--bg-deep)">
+  <div class="section-header fade-in">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently asked questions</h2>
+  </div>
+
+  <div class="features faq">
+    <div class="feature-card fade-in"><h4>Is Mira free?</h4><p>Yes. There are no feature limits, trials or subscriptions. If you use a cloud AI, that provider may charge for API usage (Gemini, the default, has a free tier).</p></div>
+    <div class="feature-card fade-in"><h4>Do I need an API key?</h4><p>Cloud AI providers (Gemini, OpenAI, Claude) need your own API key. A Gemini key, the default, is free from Google AI Studio. Local LLMs (Ollama, LM Studio, Lemonade) need no key.</p></div>
+    <div class="feature-card fade-in"><h4>Does Mira work without internet?</h4><p>Yes. Choose a local LLM for AI and AivisSpeech, VOICEVOX or the Windows voice for speech, and everything from the wake word to the spoken reply stays on your PC. The speech recognition model must be downloaded once. Weather, web search, Screen Vision and Live mode use the internet. Note: if you have saved a cloud API key and your local AI is not running when Mira starts or when you save settings, Mira switches to the cloud AI. The same applies if an API key is set as an environment variable. Once switched, Mira stays on the cloud AI until you restart it or save settings.</p></div>
+    <div class="feature-card fade-in"><h4>Is my voice sent anywhere?</h4><p>In normal conversations, your voice is transcribed on your PC and then discarded. With a cloud AI, only the transcribed text is sent. Your microphone audio itself is sent only in Live mode (Google Gemini Live, off by default). Note that after each reply, Mira keeps listening for a while without the wake word so you can continue talking. Anything people nearby say during that time is also transcribed and, if you use a cloud AI, sent to that AI.</p></div>
+    <div class="feature-card fade-in"><h4>Can Mira click or type for me?</h4><p>Mira cannot click or move windows. It can launch apps and websites, change the volume, read and write the clipboard, and handle alarms and schedules. In Live mode, the AI can also press keys and type text (you can turn this off in Settings). For hands-free control of all of Windows, Windows Voice Access is the better fit.</p></div>
+    <div class="feature-card fade-in"><h4>How is Mira different from Copilot or Windows Voice Access?</h4><p>Voice Access is a built-in Windows feature for controlling the PC by voice: clicking, typing and navigating. Copilot is Microsoft's AI assistant. Mira is an app you call by name to talk with AI, check the weather, launch apps and set alarms, and you choose the AI (including local LLMs) and the voice it speaks with.</p></div>
+    <div class="feature-card fade-in"><h4>What voices can Mira use?</h4><p>With AivisSpeech or VOICEVOX installed and running, Mira speaks in the character voice you choose. Otherwise it uses Edge TTS (Microsoft's online voices; requires Python edge-tts) or the built-in Windows voice.</p></div>
+    <div class="feature-card fade-in"><h4>Are my conversations saved?</h4><p>The conversation log, the things Mira remembers and the diagnostic log (diag.log) are saved only on your PC (%LOCALAPPDATA%\Mira). Conversation logs older than 30 days are deleted the next time a conversation is logged. Your transcribed speech is also kept in the diagnostic log. The diagnostic log is not deleted by age: if it is over 1 MB when Mira starts, it is moved to diag.log.old and the one before it is deleted. You can review and delete remembered items in Settings. With the download version, this folder stays on your PC after you uninstall Mira. See the <a href="privacy.html">privacy policy</a> for details.</p></div>
+    <div class="feature-card fade-in"><h4>Which Windows versions are supported?</h4><p>Windows 10 (64-bit, version 2004 or later) and Windows 11. Download the installer from the download page on this site (the Microsoft Store version is available in Japan only).</p></div>
   </div>
 </section>
 
