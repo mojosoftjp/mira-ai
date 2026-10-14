@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../mira_avatar.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Mira AI Voice Assistant</title>
+<meta name="theme-color" content="#060612">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-abyss:#060612;
+  --bg-deep:#0A0A1E;
+  --bg-surface:#0F1529;
+  --bg-card:rgba(0,168,255,.04);
+  --border:rgba(0,168,255,.1);
+  --border-hover:rgba(0,168,255,.2);
+  --text-white:#edf1f7;
+  --text-muted:rgba(232,236,244,.78);
+  --text-dim:rgba(232,236,244,.52);
+  --accent-cyan:#00A8FF;
+  --accent-teal:#00D4AA;
+  --gradient-text:linear-gradient(135deg,#4DC9FF,#00A8FF,#00D4AA);
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:var(--bg-abyss);color:var(--text-muted);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-cyan);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent-teal);text-decoration:underline}
+::selection{background:rgba(0,168,255,.3);color:#fff}
+
+/* Language */
+.lang-toggle{position:fixed;top:16px;right:16px;z-index:10000;background:rgba(0,168,255,.08);border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:.8rem;font-weight:600;color:var(--text-dim);cursor:pointer;backdrop-filter:blur(12px);transition:all .25s}
+.lang-toggle:hover{background:rgba(0,168,255,.15);color:var(--text-white);border-color:var(--border-hover)}
+[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
+
+/* Container */
+.container{max-width:720px;margin:0 auto;padding:80px 24px 60px}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);font-size:.88rem;font-weight:500;margin-bottom:32px;transition:color .2s}
+.back:hover{color:var(--text-white);text-decoration:none}
+.back svg{width:16px;height:16px}
+
+h1{font-family:'Exo 2',sans-serif;font-size:2rem;font-weight:800;color:var(--text-white);letter-spacing:-.03em;margin-bottom:8px}
+.date{color:var(--text-dim);font-size:.85rem;margin-bottom:40px}
+
+h2{font-family:'Exo 2',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text-white);letter-spacing:-.02em;margin-top:40px;margin-bottom:12px;padding-top:20px;border-top:1px solid var(--border)}
+h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+
+p{margin-bottom:16px;font-size:.92rem}
+ul{margin-bottom:16px;padding-left:24px}
+li{margin-bottom:6px;font-size:.92rem}
+strong{color:var(--text-white)}
+code{background:rgba(0,168,255,.08);border:1px solid var(--border);padding:2px 7px;border-radius:4px;font-size:.84rem;font-family:'JetBrains Mono','SF Mono',monospace;color:var(--accent-cyan)}
+
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem;max-width:720px;margin:0 auto}
+footer a{color:var(--text-dim);transition:color .2s}
+footer a:hover{color:var(--text-muted)}
+
+@media(max-width:600px){
+  .container{padding:60px 16px 40px}
+  h1{font-size:1.6rem}
+}
+</style>
+  <link rel="canonical" href="https://mojosoftjp.github.io/mira-ai/en/privacy.html">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/privacy.html" hreflang="ja">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/en/privacy.html" hreflang="en">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/privacy.html" hreflang="x-default">
+  <meta name="description" content="Mira's privacy policy: how personal information and data are handled when you use the app.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:title" content="Privacy Policy — Mira AI Voice Assistant">
+  <meta property="og:description" content="Mira's privacy policy: how personal information and data are handled when you use the app.">
+  <meta property="og:url" content="https://mojosoftjp.github.io/mira-ai/en/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mojosoft">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:title" content="Privacy Policy — Mira AI Voice Assistant">
+  <meta name="twitter:description" content="Mira's privacy policy: how personal information and data are handled when you use the app.">
+  <meta property="og:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
+  <meta name="twitter:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
+  <meta property="og:image:alt" content="Privacy Policy — Mira AI Voice Assistant">
+  <meta name="twitter:image:alt" content="Privacy Policy — Mira AI Voice Assistant">
+  <meta property="og:image:width" content="751">
+  <meta property="og:image:height" content="937">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-lang="en">
+
+<button class="lang-toggle" onclick="location.href='../privacy.html'+location.hash">
+  <span class="en">日本語</span>
+</button>
+
+<div class="container">
+  <a href="index.html" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span class="en">Back to Home</span>
+  </a>
+
+  <h1>
+    <span class="en">Privacy Policy</span>
+  </h1>
+  <p class="date">
+    <span class="en">Last updated: October 13, 2026</span>
+  </p>
+
+  <h2>
+    <span class="en">Introduction</span>
+  </h2>
+  <p>
+    <span class="en">Mira is a Windows desktop AI voice assistant developed by Mojosoft. This policy explains how Mira handles your data.</span>
+  </p>
+
+  <h2>
+    <span class="en">Data Collection</span>
+  </h2>
+  <p>
+    <span class="en"><strong>Mira does not collect or transmit your personal information.</strong> All data is stored locally on your PC. No data is sent to Mojosoft's servers.</span>
+  </p>
+
+  <h2>
+    <span class="en">Locally Stored Data</span>
+  </h2>
+  <p>
+    <span class="en">Mira stores the following data locally on your PC (<code>%LOCALAPPDATA%\Mira\</code>):</span>
+  </p>
+  <ul>
+    <li><span class="en"><strong>settings.json</strong> — App settings (AI provider, TTS, wake word, etc.)</span></li>
+    <li><span class="en"><strong>secrets.dat</strong> — API keys (encrypted with Windows DPAPI)</span></li>
+    <li><span class="en"><strong>memory.json</strong> — Information Mira remembers from conversations</span></li>
+    <li><span class="en"><strong>schedules.json</strong> — Schedules and alarms</span></li>
+    <li><span class="en"><strong>diag.log</strong> — Diagnostic logs (auto-rotated)</span></li>
+  </ul>
+
+  <h2>
+    <span class="en">Data Sent to AI Providers</span>
+  </h2>
+  <p>
+    <span class="en">When using cloud AI providers (Gemini, OpenAI, Anthropic, etc.), <strong>transcribed text</strong> from your voice input, together with what the AI uses to answer (the memory, schedule and notes Mira keeps, and tool results such as web search results or clipboard text read in Live mode), is sent to the selected provider's API. Each provider's privacy policy applies.</span>
+  </p>
+  <p>
+    <span class="en"><strong>Note on the Gemini API free tier:</strong> According to Google's pricing page, on the free tier the content you send (such as conversation text, the memory, schedule and notes given to the AI, tool results such as clipboard text, Screen Vision screenshots, and Gemini Live audio and screen captures) may be used by Google to improve its products. It is not used when your API key belongs to a project with billing enabled (paid tier). See the <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing page</a> for the current terms.</span>
+  </p>
+  <p>
+    <span class="en"><strong>When using local AI (Ollama, LM Studio, Lemonade), no data is sent externally.</strong></span>
+  </p>
+
+  <h2>
+    <span class="en">Screen Vision</span>
+  </h2>
+  <p>
+    <span class="en">When using Screen Vision, <strong>screenshot images</strong> are sent to the selected Vision-capable AI provider. Using a local Vision model (e.g., Ollama + llava) keeps all data on your PC (except for screen captures during Gemini Live mode, which are sent to Google regardless of this setting; see below).</span>
+  </p>
+
+  <h2>
+    <span class="en">Gemini Live Mode</span>
+  </h2>
+  <p>
+    <span class="en">In Gemini Live mode, <strong>audio data is streamed in real-time to Google's servers</strong>. Google's terms of service and privacy policy apply. Live mode is off by default. When enabled in Settings, it starts when the wake phrase is detected ("Mira live" by default) and ends with a stop phrase. Because surrounding sounds can occasionally be mistaken for the wake phrase, from v2.3.1 Live starts only when the phrase is detected with higher confidence than a regular wake word. If you don't use Live, we recommend leaving it disabled.</span>
+  </p>
+  <p>
+    <span class="en">When Live mode's Screen Capture option is on, any time the AI looks at your screen <strong>the screenshot is also sent to Google</strong> (from v2.3.1 it is off by default for new installs; if you installed an earlier version, your previous setting is kept). From v2.3.1 the AI is instructed to look at the screen only when you ask, but as this relies on the AI's judgment, it may still occasionally look without being asked. If you don't want your screen sent, turn off Screen Capture in the Live mode tab of Settings.</span>
+  </p>
+
+  <h2>
+    <span class="en">Microphone Usage</span>
+  </h2>
+  <p>
+    <span class="en">Mira monitors microphone input for wake word detection, but <strong>audio data is neither saved nor transmitted</strong> (except during Gemini Live mode; see above). Speech recognition (STT) is processed by a local Whisper model on your PC, and audio data is discarded after transcription.</span>
+  </p>
+
+  <h2>
+    <span class="en">Contact</span>
+  </h2>
+  <p>
+    <span class="en">For privacy inquiries, please contact <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a>.</span>
+  </p>
+</div>
+
+<footer>
+  <a href="index.html"><span class="en">Home</span></a> &nbsp;·&nbsp;
+  <a href="help.html"><span class="en">Help</span></a> &nbsp;·&nbsp;
+  <a href="download.html"><span class="en">Download</span></a> &nbsp;·&nbsp;
+  <a href="https://mojosoft.biz">Mojosoft</a>
+  <p style="margin-top:12px">© 2026 Mojosoft. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

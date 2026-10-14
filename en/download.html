@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../mira_avatar.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download — Mira AI Voice Assistant</title>
+<meta name="description" content="Download Mira AI Voice Assistant for free. Mira is completely free software.">
+<meta name="theme-color" content="#060612">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Exo+2:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-abyss:#060612;--bg-deep:#0A0A1E;--bg-surface:#0F1529;
+  --bg-card:rgba(0,168,255,.04);--bg-card-hover:rgba(0,168,255,.08);
+  --border:rgba(0,168,255,.1);--border-hover:rgba(0,168,255,.2);
+  --text-white:#edf1f7;--text-muted:rgba(232,236,244,.78);--text-dim:rgba(232,236,244,.52);
+  --accent-cyan:#00A8FF;--accent-teal:#00D4AA;
+  --glow-cyan:rgba(0,168,255,.25);--glow-teal:rgba(0,212,170,.15);
+  --gradient-main:linear-gradient(135deg,#00A8FF,#0066CC,#00D4AA);
+  --gradient-text:linear-gradient(135deg,#4DC9FF,#00A8FF,#00D4AA);
+  --radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg-abyss);color:var(--text-white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-cyan);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent-teal)}
+::selection{background:rgba(0,168,255,.3);color:#fff}
+
+/* Language */
+.lang-btn{background:rgba(0,168,255,.08)!important;border:1px solid var(--border);border-radius:999px!important;padding:4px 14px!important;font-size:.78rem!important;font-weight:600!important;cursor:pointer;transition:all .25s;color:var(--text-dim)}
+.lang-btn:hover{background:rgba(0,168,255,.15)!important;color:var(--text-white)!important}
+[data-lang="ja"] .en,[data-lang="en"] .ja{display:none!important}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9998;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,18,.85);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text-white)}
+.nav-brand img{width:28px;height:28px;border-radius:50%}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text-white)}
+.nav-mojosoft{margin-left:8px;padding-left:16px;border-left:1px solid var(--border);font-size:.75rem;color:var(--text-dim) !important;letter-spacing:.02em;white-space:nowrap}
+.nav-mojosoft:hover{color:var(--accent-teal) !important}
+@media(max-width:700px){.nav-links .desk{display:none}.nav{padding:0 16px}}
+
+/* Hero */
+.dl-hero{padding:120px 24px 60px;text-align:center;position:relative}
+.dl-hero h1{font-family:'Exo 2',sans-serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:800;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.dl-hero p{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin:0 auto}
+
+/* Trial download */
+.trial-section{max-width:600px;margin:0 auto 60px;padding:0 24px;text-align:center}
+.trial-btn{display:inline-flex;align-items:center;gap:12px;padding:18px 48px;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;cursor:pointer;border:none;background:var(--gradient-main);color:#fff;box-shadow:0 0 40px var(--glow-cyan),0 0 80px var(--glow-teal);transition:all .25s;text-decoration:none}
+.trial-btn:hover{transform:translateY(-2px);box-shadow:0 0 60px var(--glow-cyan),0 0 120px var(--glow-teal);color:#fff;text-decoration:none}
+.trial-btn svg{width:22px;height:22px}
+.trial-note{color:var(--text-dim);font-size:.85rem;margin-top:16px;line-height:1.6}
+
+/* Microsoft Store CTA */
+.store-cta-section{max-width:640px;margin:0 auto 50px;padding:0 24px}
+.store-cta-card{position:relative;background:linear-gradient(135deg,rgba(0,120,212,.12),rgba(0,188,242,.06));border:1px solid rgba(0,188,242,.35);border-radius:var(--radius);padding:36px 32px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,120,212,.12)}
+.store-cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0078d4,#00bcf2,#50e6ff);border-radius:var(--radius) var(--radius) 0 0}
+.store-recommended-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;padding:5px 16px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;box-shadow:0 4px 20px rgba(0,120,212,.4);white-space:nowrap}
+.store-cta-title{font-family:'Exo 2',sans-serif;font-size:1.5rem;font-weight:800;margin:12px 0 8px;color:var(--text-white)}
+.store-cta-desc{color:var(--text-muted);font-size:.95rem;margin-bottom:24px;line-height:1.6}
+.btn-store-big{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 40px;border-radius:12px;background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;font-size:1.05rem;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 8px 30px rgba(0,120,212,.35);border:none;cursor:pointer}
+.btn-store-big:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,120,212,.5);color:#fff}
+.btn-store-big svg{width:22px;height:22px;flex-shrink:0}
+.store-features{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(0,188,242,.15)}
+.store-features span{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text-muted)}
+.store-features span::before{content:'✓';color:#00bcf2;font-weight:700}
+.or-divider-big{max-width:500px;margin:0 auto 40px;padding:0 24px;text-align:center;position:relative;color:var(--text-dim);font-size:.82rem;font-weight:600;letter-spacing:.12em}
+.or-divider-big::before,.or-divider-big::after{content:'';position:absolute;top:50%;width:calc(50% - 50px);height:1px;background:var(--border)}
+.or-divider-big::before{left:24px}
+.or-divider-big::after{right:24px}
+.or-divider-big span{background:var(--bg-abyss);padding:0 16px;position:relative;z-index:1}
+
+/* Changelog */
+.changelog{max-width:760px;margin:0 auto 60px;padding:0 24px}
+.changelog h2{font-size:1.3rem;color:var(--text-white);margin-bottom:6px}
+.changelog-date{color:var(--text-dim);font-size:.82rem;margin-bottom:24px}
+.changelog-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px}
+.changelog-item h3{font-size:.98rem;color:var(--text-white);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.changelog-tag{font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px;flex-shrink:0}
+.tag-new{background:rgba(0,188,242,.14);color:#4dc9ff;border:1px solid rgba(0,188,242,.3)}
+.tag-fix{background:rgba(76,175,80,.13);color:#7ed683;border:1px solid rgba(76,175,80,.3)}
+.changelog-item p{color:var(--text-muted);font-size:.88rem;line-height:1.75;margin:0}
+.changelog-older{color:var(--text-dim);font-size:.84rem;margin-top:20px;text-align:center}
+
+/* SmartScreen */
+.smartscreen{max-width:600px;margin:0 auto 60px;padding:0 24px}
+.smartscreen-box{background:rgba(255,140,0,.05);border:1px solid rgba(255,140,0,.15);border-left:3px solid #FF8C00;border-radius:0 8px 8px 0;padding:16px 20px;font-size:.88rem;color:var(--text-muted)}
+.smartscreen-box strong{color:var(--text-white)}
+
+/* Pricing */
+.pricing-section{padding:0 24px 60px;max-width:900px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;position:relative;transition:transform .3s,box-shadow .3s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,168,255,.08)}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-main);border-radius:var(--radius) var(--radius) 0 0}
+.pricing-card h3{font-family:'Exo 2',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.pricing-price{font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
+.pricing-price .currency{font-size:1rem;font-weight:600;vertical-align:super;margin-right:2px}
+.pricing-price .unit{font-size:.85rem;font-weight:400;color:var(--text-muted)}
+.pricing-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+.pricing-features{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:10px}
+.pricing-features li{display:flex;gap:10px;align-items:center;font-size:.88rem;color:var(--text-muted)}
+.pricing-features li::before{content:'✓';color:var(--accent-teal);font-weight:700}
+
+/* Hardware ID */
+.hwid-section{margin-bottom:20px}
+.hwid-section label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-muted)}
+.hwid-section input{width:100%;padding:10px 14px;background:rgba(0,168,255,.04);border:1px solid var(--border);border-radius:8px;color:var(--text-white);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;transition:border-color .2s}
+.hwid-section input:focus{border-color:var(--accent-cyan)}
+.hwid-section input::placeholder{color:var(--text-dim)}
+.hwid-help{font-size:.78rem;color:var(--text-dim);margin-top:6px}
+
+/* Buttons */
+.btn-store{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;background:linear-gradient(135deg,#0078d4,#00bcf2);color:#fff;border-radius:8px;font-size:.95rem;font-weight:600;transition:all .2s;text-decoration:none;margin-bottom:12px}
+.btn-store:hover{background:linear-gradient(135deg,#006cbd,#00a8d8);color:#fff;transform:translateY(-1px)}
+.btn-store svg{width:18px;height:18px;flex-shrink:0}
+.or-divider{text-align:center;color:var(--text-dim);font-size:.8rem;margin:12px 0;position:relative}
+.or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:calc(50% - 24px);height:1px;background:var(--border)}
+.or-divider::before{left:0}
+.or-divider::after{right:0}
+
+/* PayPal */
+.paypal-container{min-height:50px;margin-bottom:16px}
+.payment-note{font-size:.78rem;color:var(--text-dim);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* Info boxes */
+.info-section{max-width:700px;margin:0 auto;padding:0 24px}
+.info-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}
+.info-box h3{font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.info-box p{font-size:.88rem;color:var(--text-muted);margin-bottom:10px}
+.info-box ul{padding-left:20px;margin-bottom:10px}
+.info-box li{font-size:.88rem;color:var(--text-muted);margin-bottom:6px}
+.info-box strong{color:var(--text-white)}
+.info-box code{background:rgba(0,168,255,.08);border:1px solid var(--border);padding:2px 7px;border-radius:4px;font-size:.82rem;font-family:'JetBrains Mono',monospace;color:var(--accent-cyan)}
+
+/* Bank */
+.bank-section{max-width:700px;margin:0 auto;padding:0 24px 60px}
+.bank-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.bank-box h3{font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.bank-row{display:flex;gap:8px;margin-bottom:8px;font-size:.88rem}
+.bank-row .label{color:var(--text-dim);min-width:100px}
+.bank-row .value{color:var(--text-white);font-weight:500}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{color:var(--text-dim);font-size:.85rem;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--text-muted)}
+.footer-copy{color:var(--text-dim);font-size:.8rem}
+
+@media(max-width:700px){
+  .dl-hero{padding:100px 20px 40px}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-card{padding:28px 24px}
+}
+</style>
+  <link rel="canonical" href="https://mojosoftjp.github.io/mira-ai/en/download.html">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/download.html" hreflang="ja">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/en/download.html" hreflang="en">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/download.html" hreflang="x-default">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:title" content="Download — Mira AI Voice Assistant">
+  <meta property="og:description" content="Download Mira AI Voice Assistant for free. Mira is completely free software.">
+  <meta property="og:url" content="https://mojosoftjp.github.io/mira-ai/en/download.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mojosoft">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:title" content="Download — Mira AI Voice Assistant">
+  <meta name="twitter:description" content="Download Mira AI Voice Assistant for free. Mira is completely free software.">
+  <meta property="og:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
+  <meta name="twitter:image" content="https://mojosoftjp.github.io/mira-ai/mira1.png">
+  <meta property="og:image:alt" content="Download — Mira AI Voice Assistant">
+  <meta name="twitter:image:alt" content="Download — Mira AI Voice Assistant">
+  <meta property="og:image:width" content="751">
+  <meta property="og:image:height" content="937">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-lang="en">
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="../mira_avatar.png" alt="Mira">
+    <span>Mira</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#powers" class="desk"><span class="en">Features</span></a>
+    <a href="download.html" class="active"><span class="en">Download</span></a>
+    <a href="help.html"><span class="en">Help</span></a>
+    <a href="../download.html" class="lang-btn"><span class="en">JA</span></a>
+    <a href="https://mojosoft.biz/" target="_blank" class="nav-mojosoft">Built by Mojosoft</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="dl-hero">
+  <h1><span class="en">Download Mira</span></h1>
+  <p><span class="en">Mira is 100% free software. Get it from Microsoft Store or direct download.</span></p>
+</div>
+
+<!-- Microsoft Store CTA (RECOMMENDED) -->
+<div class="store-cta-section">
+  <div class="store-cta-card">
+    <div class="store-recommended-badge">
+      <span class="en">⭐ RECOMMENDED</span>
+    </div>
+    <div class="store-cta-title">
+      <span class="en">Get from Microsoft Store</span>
+    </div>
+    <p class="store-cta-desc">
+      <span class="en">One-click install · Auto-updates.<br>Trusted Microsoft distribution for effortless setup.</span>
+    </p>
+    <a href="https://apps.microsoft.com/detail/9MSWSR4GRSV6" class="btn-store-big" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h11.5v11.5H0zM12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zM12.5 12.5H24V24H12.5z"/>
+      </svg>
+      <span class="en">Get Free from Microsoft Store</span>
+    </a>
+    <div class="store-features">
+      <span><span class="en">No SmartScreen warning</span></span>
+      <span><span class="en">Auto-updates</span></span>
+      <span><span class="en">Completely free</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Direct Download -->
+<div class="trial-section">
+  <a href="https://mojosoft.biz/Mira_Setup_2.3.1.exe" class="trial-btn" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    <span class="en">Free Download</span>
+  </a>
+  <p class="trial-note">
+    Version 2.3.1<br>
+    <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
+  </p>
+</div>
+
+<!-- Changelog -->
+<div class="changelog">
+  <h2><span class="en">What's new in v2.3.1</span></h2>
+  <p class="changelog-date"><span class="en">October 13, 2026</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: the voice turned robotic</span></h3>
+    <p>
+      <span class="en">In October 2026 Microsoft moved its read-aloud service, so Edge TTS (the natural voice) stopped working and Mira fell back to the standard Windows voice. Mira now uses the new endpoint. (Edge TTS is used when Python's edge-tts is installed on your PC.)</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: Live mode running out of control</span></h3>
+    <p>
+      <span class="en">Mira could pick up its own voice from the speakers, take it as you speaking, and keep interrupting and answering itself. The microphone is no longer sent while Mira is speaking or using a tool such as checking the screen (so you can't interrupt Mira by voice mid-sentence; saying the stop phrase still ends Live mode). Mira also used to wait until the whole reply had arrived before speaking, leaving several seconds of silence in which a small noise could cancel the reply. Replies now start playing as soon as they arrive.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: the start of what you say could be lost in Live mode</span></h3>
+    <p>
+      <span class="en">If you started speaking right after Mira finished, the first part was not sent, which caused mishearing. This is now much less likely. Also, if you are still talking when a reply arrives, Mira now waits until you finish.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Live mode no longer reacts to conversations not meant for it</span></h3>
+    <p>
+      <span class="en">Live mode could take a nearby conversation as a request and look at your screen without being asked. Its instructions now tell the AI to respond only when you talk to it and to look at the screen only when asked. (As this relies on the AI's judgment, it may not be prevented completely. If you don't want your screen sent, turn off Screen Capture in the Live mode tab of Settings.) Screen Capture is now also off by default for new installs (existing settings are kept).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">Language setting for Live mode</span></h3>
+    <p>
+      <span class="en">Short phrases could be misheard as another language, showing Spanish and other languages on screen or even getting a reply in them. In the Live mode tab of Settings, Language (listening &amp; replies) lets you choose Japanese, English or auto-detect. The default is Match Windows language (auto-detect when Windows uses a language other than Japanese or English). With a language set, replies are in that language. With Japanese set, transcripts with no Japanese characters are shown as "…"; with English set, some transcripts that look Spanish or Portuguese are.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Live mode starts by itself less often</span></h3>
+    <p>
+      <span class="en">Surrounding sounds could be mistaken for "Mira live" and start Live mode by itself. Live mode now requires a higher-confidence detection than a regular wake word, so this happens less often.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: settings you turned off came back on after a restart</span></h3>
+    <p>
+      <span class="en">Options that were on by default (Start with Windows, emotional expression, avatar, and Live mode PC control and screen capture) were not saved when turned off, and came back on at the next start. They are now saved correctly, and options you had turned off are switched back off when you start the updated version (unless you saved Settings after they came back on, so please check your settings once).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">Gemini model list cleanup</span></h3>
+    <p>
+      <span class="en">Google has replaced gemini-3.7-flash with Gemini 3.8 Flash, so selecting it already used 3.8 Flash. It has been removed from the list, and the setting of anyone who chose it now shows gemini-3.8-flash (the model actually used does not change).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Corrected the Gemini description in first-run setup</span></h3>
+    <p>
+      <span class="en">The setup screen described the Gemini free tier as "up to 1,000 requests/day". Google does not publish a daily limit and the actual value varies by model and account, so this has been corrected. The screen now also mentions that on the free tier, what you send may be used by Google to improve its products.</span>
+    </p>
+  </div>
+
+  <h2 style="margin-top:2.5rem"><span class="en">What's new in v2.3.0</span></h2>
+  <p class="changelog-date"><span class="en">October 10, 2026</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">Support for the latest AI models</span></h3>
+    <p>
+      <span class="en">OpenAI moves to the GPT-6 family (gpt-6.1-sol / gpt-6-luna), Claude to the Claude 5.5 family (Haiku 5.5 / Sonnet 5.5 / Opus 5.5), and Gemini Live to Gemini 3.8 Live. The default Claude model is now Haiku 5.5, at about one tenth of the price of Haiku 4.5.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">Your selected model now moves to its successor</span></h3>
+    <p>
+      <span class="en">The first time you start this version, any previous-generation model left in your settings is switched once to a successor at the same price or lower (for example gpt-5.6-terra → gpt-6.1-sol, Claude Haiku 4.5 → Haiku 5.5, Gemini 2.5 Pro → Gemini 3.8 Flash). v2.2.0 kept such settings unchanged; we changed this so you don't keep paying more or waiting longer on an older model. Names that always point to the newest model, such as gemini-flash-latest, and model names you typed yourself are left unchanged. You can still pick a different model in Settings afterwards.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: Claude screen recognition returned no answer</span></h3>
+    <p>
+      <span class="en">The new Claude models can think before they answer, and when they did, screen recognition returned nothing. Mira now reads the answer correctly. If the screen can't be read, Mira tells you that the analysis failed instead of guessing.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Settings changes now apply to screen recognition right away</span></h3>
+    <p>
+      <span class="en">Changing your API key or model in Settings did not reach screen recognition until you restarted Mira. It now switches as soon as you save.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">Faster first response</span></h3>
+    <p>
+      <span class="en">Mira now asks the new models to keep their thinking short, so replies start sooner.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Other changes</span></h3>
+    <p>
+      <span class="en">Gemini 2.5 Pro has been removed from the list, as it may not work with newly created API keys. When the AI declines to answer for safety reasons, Mira now says so instead of staying silent.</span>
+    </p>
+  </div>
+
+  <p class="changelog-older">
+    <span class="en">v2.2.0 updated the AI models to the GPT-5.6 / Claude 5 families and fixed missing responses with OpenAI. v2.1.x added microphone selection and input boost, and fixed an issue where API keys were not saved. v2.0.0 made Mira completely free.</span>
+  </p>
+</div>
+
+<!-- SmartScreen Warning -->
+<div class="smartscreen">
+  <div class="smartscreen-box">
+    <span class="en"><strong>⚠️ SmartScreen Warning:</strong> The installer is digitally signed by "Mojosoft Co., Ltd." As a recently published app, SmartScreen may still show a warning until reputation builds up. If it appears, click "More info" → "Run anyway" and confirm the publisher is "Mojosoft Co., Ltd."</span>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html"><span class="en">Home</span></a>
+    <a href="index.html#powers"><span class="en">Features</span></a>
+    <a href="help.html"><span class="en">Help</span></a>
+    <a href="privacy.html"><span class="en">Privacy</span></a>
+    <a href="mailto:support@mojosoft.biz"><span class="en">Contact</span></a>
+    <a href="https://mojosoft.biz">Mojosoft</a>
+  </div>
+  <p class="footer-copy">© 2026 Mojosoft. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -96,6 +96,9 @@ a:hover{text-decoration:underline}
 .cmd-table tr:hover td{background:rgba(0,168,255,.03)}
 </style>
   <link rel="canonical" href="https://mojosoftjp.github.io/mira-ai/help.html">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/help.html" hreflang="ja">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/en/help.html" hreflang="en">
+  <link rel="alternate" href="https://mojosoftjp.github.io/mira-ai/help.html" hreflang="x-default">
   <meta name="description" content="Miraの公式ヘルプ。設定方法、各機能の使い方、操作手順をご案内します。">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:title" content="ヘルプ — Mira AI Voice Assistant">
@@ -116,18 +119,17 @@ a:hover{text-decoration:underline}
 </head>
 <body data-lang="ja">
 
-<button class="lang-toggle" onclick="toggleLang()">
+<button class="lang-toggle" onclick="location.href='en/help.html'+location.hash">
   <span class="ja">EN</span>
-  <span class="en">日本語</span>
 </button>
 
 <!-- Top bar -->
 <div class="top-bar">
   <a href="index.html" class="back">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    <span class="ja">トップ</span><span class="en">Home</span>
+    <span class="ja">トップ</span>
   </a>
-  <span class="title"><span class="ja">Mira ヘルプ</span><span class="en">Mira Help</span></span>
+  <span class="title"><span class="ja">Mira ヘルプ</span></span>
   <a href="https://mojosoft.biz/" target="_blank" class="nav-mojosoft">Built by Mojosoft</a>
 </div>
 
@@ -135,622 +137,610 @@ a:hover{text-decoration:underline}
 <!-- Sidebar -->
 <aside class="sidebar">
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">はじめに</span><span class="en">Getting Started</span></div>
-    <a class="nav-item active" href="#what-is-mira"><span class="ja">Miraとは</span><span class="en">What is Mira</span></a>
-    <a class="nav-item" href="#requirements"><span class="ja">動作環境</span><span class="en">Requirements</span></a>
-    <a class="nav-item" href="#quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></a>
-    <a class="nav-item" href="#wakeword"><span class="ja">ウェイクワード</span><span class="en">Wake Word</span></a>
-    <a class="nav-item" href="#microphone"><span class="ja">マイク設定</span><span class="en">Microphone</span></a>
+    <div class="nav-group-label"><span class="ja">はじめに</span></div>
+    <a class="nav-item active" href="#what-is-mira"><span class="ja">Miraとは</span></a>
+    <a class="nav-item" href="#requirements"><span class="ja">動作環境</span></a>
+    <a class="nav-item" href="#quickstart"><span class="ja">クイックスタート</span></a>
+    <a class="nav-item" href="#wakeword"><span class="ja">ウェイクワード</span></a>
+    <a class="nav-item" href="#microphone"><span class="ja">マイク設定</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">AI設定</span><span class="en">AI Setup</span></div>
-    <a class="nav-item" href="#ai-overview"><span class="ja">AI機能の概要</span><span class="en">AI Overview</span></a>
-    <a class="nav-item" href="#vision-models"><span class="ja">Vision対応モデル</span><span class="en">Vision Models</span></a>
-    <a class="nav-item" href="#ollama"><span class="ja">Ollama</span><span class="en">Ollama</span></a>
-    <a class="nav-item" href="#lmstudio"><span class="ja">LM Studio</span><span class="en">LM Studio</span></a>
-    <a class="nav-item" href="#lemonade"><span class="ja">Lemonade</span><span class="en">Lemonade</span></a>
-    <a class="nav-item" href="#gemini"><span class="ja">Gemini</span><span class="en">Gemini</span></a>
-    <a class="nav-item" href="#openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></a>
-    <a class="nav-item" href="#anthropic"><span class="ja">Anthropic</span><span class="en">Anthropic</span></a>
-    <a class="nav-item" href="#custom"><span class="ja">カスタム</span><span class="en">Custom</span></a>
+    <div class="nav-group-label"><span class="ja">AI設定</span></div>
+    <a class="nav-item" href="#ai-overview"><span class="ja">AI機能の概要</span></a>
+    <a class="nav-item" href="#vision-models"><span class="ja">Vision対応モデル</span></a>
+    <a class="nav-item" href="#ollama"><span class="ja">Ollama</span></a>
+    <a class="nav-item" href="#lmstudio"><span class="ja">LM Studio</span></a>
+    <a class="nav-item" href="#lemonade"><span class="ja">Lemonade</span></a>
+    <a class="nav-item" href="#gemini"><span class="ja">Gemini</span></a>
+    <a class="nav-item" href="#openai"><span class="ja">OpenAI</span></a>
+    <a class="nav-item" href="#anthropic"><span class="ja">Anthropic</span></a>
+    <a class="nav-item" href="#custom"><span class="ja">カスタム</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">音声</span><span class="en">Voice</span></div>
-    <a class="nav-item" href="#stt"><span class="ja">音声認識</span><span class="en">Speech Recognition</span></a>
-    <a class="nav-item" href="#tts"><span class="ja">音声合成</span><span class="en">Text-to-Speech</span></a>
-    <a class="nav-item" href="#tts-engines"><span class="ja">TTSエンジン設定</span><span class="en">TTS Engine Setup</span></a>
-    <a class="nav-item" href="#emotion-tts"><span class="ja">感情TTS</span><span class="en">Emotion TTS</span></a>
+    <div class="nav-group-label"><span class="ja">音声</span></div>
+    <a class="nav-item" href="#stt"><span class="ja">音声認識</span></a>
+    <a class="nav-item" href="#tts"><span class="ja">音声合成</span></a>
+    <a class="nav-item" href="#tts-engines"><span class="ja">TTSエンジン設定</span></a>
+    <a class="nav-item" href="#emotion-tts"><span class="ja">感情TTS</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">音声コマンド</span><span class="en">Voice Commands</span></div>
-    <a class="nav-item" href="#commands"><span class="ja">コマンド一覧</span><span class="en">Command List</span></a>
-    <a class="nav-item" href="#cmd-vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
-    <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></a>
-    <a class="nav-item" href="#cmd-webwatch"><span class="ja">Webウォッチ</span><span class="en">Web Watch</span></a>
-    <a class="nav-item" href="#cmd-app"><span class="ja">音声ランチャー</span><span class="en">Voice Launcher</span></a>
-    <a class="nav-item" href="#cmd-system"><span class="ja">システム操作</span><span class="en">System</span></a>
-    <a class="nav-item" href="#cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timer & Alarm</span></a>
-    <a class="nav-item" href="#cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></a>
+    <div class="nav-group-label"><span class="ja">音声コマンド</span></div>
+    <a class="nav-item" href="#commands"><span class="ja">コマンド一覧</span></a>
+    <a class="nav-item" href="#cmd-vision"><span class="ja">画面認識</span></a>
+    <a class="nav-item" href="#cmd-search"><span class="ja">検索・天気</span></a>
+    <a class="nav-item" href="#cmd-webwatch"><span class="ja">Webウォッチ</span></a>
+    <a class="nav-item" href="#cmd-app"><span class="ja">音声ランチャー</span></a>
+    <a class="nav-item" href="#cmd-system"><span class="ja">システム操作</span></a>
+    <a class="nav-item" href="#cmd-timer"><span class="ja">タイマー・アラーム</span></a>
+    <a class="nav-item" href="#cmd-memory"><span class="ja">記憶・スケジュール</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">Vision・Live</span><span class="en">Vision & Live</span></div>
-    <a class="nav-item" href="#vision"><span class="ja">画面認識</span><span class="en">Screen Vision</span></a>
-    <a class="nav-item" href="#gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></a>
+    <div class="nav-group-label"><span class="ja">Vision・Live</span></div>
+    <a class="nav-item" href="#vision"><span class="ja">画面認識</span></a>
+    <a class="nav-item" href="#gemini-live"><span class="ja">Gemini Live</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">設定</span><span class="en">Settings</span></div>
-    <a class="nav-item" href="#custom-notes"><span class="ja">おぼえがき</span><span class="en">Custom Notes</span></a>
-    <a class="nav-item" href="#webwatch-settings"><span class="ja">Webウォッチ設定</span><span class="en">Web Watch Setup</span></a>
-    <a class="nav-item" href="#voicelauncher-settings"><span class="ja">音声ランチャー設定</span><span class="en">Voice Launcher Setup</span></a>
-    <a class="nav-item" href="#theme"><span class="ja">テーマ</span><span class="en">Theme</span></a>
-    <a class="nav-item" href="#startup"><span class="ja">起動設定</span><span class="en">Startup</span></a>
+    <div class="nav-group-label"><span class="ja">設定</span></div>
+    <a class="nav-item" href="#custom-notes"><span class="ja">おぼえがき</span></a>
+    <a class="nav-item" href="#webwatch-settings"><span class="ja">Webウォッチ設定</span></a>
+    <a class="nav-item" href="#voicelauncher-settings"><span class="ja">音声ランチャー設定</span></a>
+    <a class="nav-item" href="#theme"><span class="ja">テーマ</span></a>
+    <a class="nav-item" href="#startup"><span class="ja">起動設定</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">ライセンス</span><span class="en">License</span></div>
-    <a class="nav-item" href="#license"><span class="ja">試用・認証</span><span class="en">Trial & Activation</span></a>
-    <a class="nav-item" href="#hwid"><span class="ja">ハードウェアID</span><span class="en">Hardware ID</span></a>
+    <div class="nav-group-label"><span class="ja">ライセンス</span></div>
+    <a class="nav-item" href="#license"><span class="ja">試用・認証</span></a>
+    <a class="nav-item" href="#hwid"><span class="ja">ハードウェアID</span></a>
   </div>
   <div class="nav-group">
-    <div class="nav-group-label"><span class="ja">その他</span><span class="en">Other</span></div>
+    <div class="nav-group-label"><span class="ja">その他</span></div>
     <a class="nav-item" href="#faq">FAQ</a>
-    <a class="nav-item" href="#troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></a>
-    <a class="nav-item" href="#support"><span class="ja">サポート</span><span class="en">Support</span></a>
+    <a class="nav-item" href="#troubleshooting"><span class="ja">トラブルシューティング</span></a>
+    <a class="nav-item" href="#support"><span class="ja">サポート</span></a>
   </div>
 </aside>
 
 <!-- Content -->
 <main class="content">
-<h1><span class="ja">Mira ヘルプ</span><span class="en">Mira Help</span></h1>
-<p class="subtitle"><span class="ja">Mira の全機能を詳しく解説します</span><span class="en">Comprehensive guide to all Mira features</span></p>
+<h1><span class="ja">Mira ヘルプ</span></h1>
+<p class="subtitle"><span class="ja">Mira の全機能を詳しく解説します</span></p>
 
 <!-- ===== はじめに ===== -->
-<h2 id="what-is-mira"><span class="ja">Mira とは</span><span class="en">What is Mira</span></h2>
-<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ミラお願い」と話しかけるだけで、AI との会話、Web 検索、音声ランチャーでアプリ起動、画面分析など、さまざまなことができます。</span><span class="en"><strong>Mira</strong> is an AI voice assistant for Windows 10/11. Just say "Hey Mira please" to start conversations, search the web, launch apps via Voice Launcher, analyze screens, and much more.</span></p>
-<p><span class="ja">Cortana が廃止された今、Mira は Windows ユーザーのための最先端の音声アシスタントです。完全オフラインでも動作し、プライバシーを守りながら強力な AI 機能を利用できます。</span><span class="en">With Cortana discontinued, Mira is the cutting-edge voice assistant for Windows users. It works fully offline, protecting your privacy while providing powerful AI capabilities.</span></p>
+<h2 id="what-is-mira"><span class="ja">Mira とは</span></h2>
+<p><span class="ja"><strong>Mira（ミラ）</strong>は Windows 10/11 向けの AI 音声アシスタントです。「ミラお願い」と話しかけるだけで、AI との会話、Web 検索、音声ランチャーでアプリ起動、画面分析など、さまざまなことができます。</span></p>
+<p><span class="ja">Cortana が廃止された今、Mira は Windows ユーザーのための最先端の音声アシスタントです。完全オフラインでも動作し、プライバシーを守りながら強力な AI 機能を利用できます。</span></p>
 
-<h2 id="requirements"><span class="ja">動作環境</span><span class="en">System Requirements</span></h2>
+<h2 id="requirements"><span class="ja">動作環境</span></h2>
 <ul>
-  <li><span class="ja"><strong>OS</strong>: Windows 10 (64-bit) 以降 / Windows 11</span><span class="en"><strong>OS</strong>: Windows 10 (64-bit) or later / Windows 11</span></li>
-  <li><span class="ja"><strong>.NET</strong>: .NET 9.0 Desktop Runtime（同梱）</span><span class="en"><strong>.NET</strong>: .NET 9.0 Desktop Runtime (bundled)</span></li>
-  <li><span class="ja"><strong>RAM</strong>: 4GB 以上（ローカル AI 使用時は 8GB 以上推奨）</span><span class="en"><strong>RAM</strong>: 4GB+ (8GB+ recommended for local AI)</span></li>
-  <li><span class="ja"><strong>マイク</strong>: 内蔵または USB マイク</span><span class="en"><strong>Microphone</strong>: Built-in or USB microphone</span></li>
-  <li><span class="ja"><strong>ストレージ</strong>: 約 500MB〜（Whisper モデル含む。推奨モデル large-v3-turbo: 1.6GB）</span><span class="en"><strong>Storage</strong>: ~500MB+ (including Whisper model. Recommended large-v3-turbo: 1.6GB)</span></li>
+  <li><span class="ja"><strong>OS</strong>: Windows 10 (64-bit) 以降 / Windows 11</span></li>
+  <li><span class="ja"><strong>.NET</strong>: .NET 9.0 Desktop Runtime（同梱）</span></li>
+  <li><span class="ja"><strong>RAM</strong>: 4GB 以上（ローカル AI 使用時は 8GB 以上推奨）</span></li>
+  <li><span class="ja"><strong>マイク</strong>: 内蔵または USB マイク</span></li>
+  <li><span class="ja"><strong>ストレージ</strong>: 約 500MB〜（Whisper モデル含む。推奨モデル large-v3-turbo: 1.6GB）</span></li>
 </ul>
 
-<h2 id="quickstart"><span class="ja">クイックスタート</span><span class="en">Quick Start</span></h2>
+<h2 id="quickstart"><span class="ja">クイックスタート</span></h2>
 <ol class="step-list">
-  <li><span class="ja">Mira をインストールし起動します。システムトレイに <strong>「M」アイコン</strong>が表示されます。</span><span class="en">Install and launch Mira. An <strong>"M" icon</strong> appears in the system tray.</span></li>
-  <li><span class="ja">初回起動時、Whisper 音声認識モデル（デフォルト small: 466MB）が自動ダウンロードされます。設定から推奨の <strong>large-v3-turbo</strong>（1.6GB）に変更可能。</span><span class="en">On first launch, the Whisper speech recognition model (default small: 466MB) is automatically downloaded. You can switch to the recommended <strong>large-v3-turbo</strong> (1.6GB) in Settings.</span></li>
-  <li><span class="ja"><strong>「ミラお願い」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span><span class="en">Say <strong>"Hey Mira please"</strong>. A beep sounds and an overlay appears in the bottom-right corner.</span></li>
-  <li><span class="ja">質問や指示を話します。Mira が AI で応答し、音声で読み上げます。</span><span class="en">Speak your question or command. Mira responds with AI and reads it aloud.</span></li>
-  <li><span class="ja">トレイアイコンをダブルクリックで<strong>設定画面</strong>を開けます。</span><span class="en">Double-click the tray icon to open <strong>Settings</strong>.</span></li>
+  <li><span class="ja">Mira をインストールし起動します。システムトレイに <strong>「M」アイコン</strong>が表示されます。</span></li>
+  <li><span class="ja">初回起動時、Whisper 音声認識モデル（デフォルト small: 466MB）が自動ダウンロードされます。設定から推奨の <strong>large-v3-turbo</strong>（1.6GB）に変更可能。</span></li>
+  <li><span class="ja"><strong>「ミラお願い」</strong>と話しかけます。ビープ音が鳴り、画面右下にオーバーレイが表示されます。</span></li>
+  <li><span class="ja">質問や指示を話します。Mira が AI で応答し、音声で読み上げます。</span></li>
+  <li><span class="ja">トレイアイコンをダブルクリックで<strong>設定画面</strong>を開けます。</span></li>
 </ol>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> AI プロバイダの設定がまだの場合、Mira はフォールバック応答（定型文）を返します。AI と会話するには、下記の「AI設定」でプロバイダを設定してください。</span><span class="en"><strong>💡 Tip:</strong> Without an AI provider configured, Mira returns fallback responses. Set up a provider in "AI Setup" below to enable AI conversations.</span></div>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> AI プロバイダの設定がまだの場合、Mira はフォールバック応答（定型文）を返します。AI と会話するには、下記の「AI設定」でプロバイダを設定してください。</span></div>
 
-<h2 id="wakeword"><span class="ja">ウェイクワード設定</span><span class="en">Wake Word Setup</span></h2>
-<p><span class="ja">Mira は好きな言葉で起動できます。設定画面の「ウェイクワード」タブで変更します。</span><span class="en">Mira can be activated with any word you choose. Change it in the "Wake Word" tab in Settings.</span></p>
+<h2 id="wakeword"><span class="ja">ウェイクワード設定</span></h2>
+<p><span class="ja">Mira は好きな言葉で起動できます。設定画面の「ウェイクワード」タブで変更します。</span></p>
 <div style="margin:20px 0;text-align:center">
   <img src="mira2.png" alt="Mira wake word and memory settings screen" onclick="window.open(this.src,'_blank')" style="max-width:100%;width:480px;border-radius:12px;border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 40px rgba(0,0,0,.4);cursor:zoom-in;display:inline-block">
-  <div style="font-size:.78rem;color:#8a9bb4;margin-top:8px"><span class="ja">設定画面 — ウェイクワードとおぼえがき</span><span class="en">Settings — Wake word and Memory</span></div>
+  <div style="font-size:.78rem;color:#8a9bb4;margin-top:8px"><span class="ja">設定画面 — ウェイクワードとおぼえがき</span></div>
 </div>
 <ul>
-  <li><span class="ja"><strong>デフォルト</strong>: 「ミラお願い」「ミラ質問です」「Hey Mira please」</span><span class="en"><strong>Default</strong>: "Hey Mira please", "Mira onegai", "Mira shitsumon desu"</span></li>
-  <li><span class="ja"><strong>中断フレーズ</strong>: 「ミラストップして」「ミラ止めてください」「Mira stop please」で読み上げを中断（誤検出防止のため長めの語を推奨）</span><span class="en"><strong>Interrupt phrases</strong>: "Mira stop please", "Mira cancel please" to interrupt speech (longer phrases recommended to avoid false triggers)</span></li>
-  <li><span class="ja">カンマ区切りで複数のフレーズを登録可能</span><span class="en">Register multiple phrases separated by commas</span></li>
+  <li><span class="ja"><strong>デフォルト</strong>: 「ミラお願い」「ミラ質問です」「Hey Mira please」</span></li>
+  <li><span class="ja"><strong>中断フレーズ</strong>: 「ミラストップして」「ミラ止めてください」「Mira stop please」で読み上げを中断（誤検出防止のため長めの語を推奨）</span></li>
+  <li><span class="ja">カンマ区切りで複数のフレーズを登録可能</span></li>
 </ul>
-<div class="callout warn"><span class="ja"><strong>⚠️ 注意:</strong> ウェイクワードを変更した場合、Mira の再起動が必要です。</span><span class="en"><strong>⚠️ Note:</strong> Restart Mira after changing the wake word.</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ 注意:</strong> ウェイクワードを変更した場合、Mira の再起動が必要です。</span></div>
 
-<h3><span class="ja">誤認識を減らすコツ</span><span class="en">Tips to Reduce False Recognition</span></h3>
-<p><span class="ja">環境音やスピーカーからの音声回り込みで、意図しないウェイクや停止が起こる場合があります。<strong>フレーズを長めに設定する</strong>と誤認識が大幅に減ります。</span><span class="en">Background noise or speaker audio feeding back into the microphone can cause unintended wake or stop triggers. <strong>Setting longer phrases</strong> significantly reduces false recognition.</span></p>
+<h3><span class="ja">誤認識を減らすコツ</span></h3>
+<p><span class="ja">環境音やスピーカーからの音声回り込みで、意図しないウェイクや停止が起こる場合があります。<strong>フレーズを長めに設定する</strong>と誤認識が大幅に減ります。</span></p>
 <table class="cmd-table">
   <thead>
-    <tr><th><span class="ja">モーラ数</span><span class="en">Morae</span></th><th><span class="ja">例</span><span class="en">Example</span></th><th><span class="ja">誤認識リスク</span><span class="en">False Trigger Risk</span></th></tr>
+    <tr><th><span class="ja">モーラ数</span></th><th><span class="ja">例</span></th><th><span class="ja">誤認識リスク</span></th></tr>
   </thead>
   <tbody>
-    <tr><td>3〜4</td><td><span class="ja">ストップ、止めて</span><span class="en">Stop, Cancel</span></td><td><span class="ja">⚠️ 高い（環境音やTTS回り込みで頻発しやすい）</span><span class="en">⚠️ High (frequent with ambient noise or TTS feedback)</span></td></tr>
-    <tr><td>5〜6</td><td><span class="ja">ミラお願い、ミラ止めて</span><span class="en">Mira please, Mira Cancel</span></td><td><span class="ja">✅ 低い（実用レベル）</span><span class="en">✅ Low (practical level)</span></td></tr>
-    <tr><td>7+</td><td><span class="ja">ミラストップして、ミラ質問です</span><span class="en">Mira stop please, Mira question</span></td><td><span class="ja">✅ 極めて低い（推奨）</span><span class="en">✅ Very low (recommended)</span></td></tr>
+    <tr><td>3〜4</td><td><span class="ja">ストップ、止めて</span></td><td><span class="ja">⚠️ 高い（環境音やTTS回り込みで頻発しやすい）</span></td></tr>
+    <tr><td>5〜6</td><td><span class="ja">ミラお願い、ミラ止めて</span></td><td><span class="ja">✅ 低い（実用レベル）</span></td></tr>
+    <tr><td>7+</td><td><span class="ja">ミラストップして、ミラ質問です</span></td><td><span class="ja">✅ 極めて低い（推奨）</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップして）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ミラお願い」（6モーラ）や「ミラ質問です」（7モーラ）のほうが誤検出が起きにくくなります。</span><span class="en"><strong>💡 Tip:</strong> Combining a proper noun with an action word (e.g., "Mira" + "stop please") is most effective. The same applies to wake words — longer phrases like "Hey Mira please" (5 syllables) are more reliable than short words like "Mira" alone (2 syllables).</span></div>
+<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> 「固有名詞 ＋ 動作語」の組み合わせ（例: ミラ＋ストップして）が最も効果的です。ウェイクワードも同様に、短い単語（例: 「ミラ」2モーラ）より「ミラお願い」（6モーラ）や「ミラ質問です」（7モーラ）のほうが誤検出が起きにくくなります。</span></div>
 
-<h2 id="microphone"><span class="ja">マイク設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Microphone Setup <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
-<p><span class="ja">設定画面の「ウェイクワード」タブで、Mira が使うマイクを選べます。ここで選んだマイクは<strong>ウェイクワードの認識と音声入力の両方</strong>に使われます。</span><span class="en">Choose the microphone Mira uses on the "Wake Word" tab in Settings. The microphone you select is used for <strong>both wake word detection and voice input</strong>.</span></p>
+<h2 id="microphone"><span class="ja">マイク設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
+<p><span class="ja">設定画面の「ウェイクワード」タブで、Mira が使うマイクを選べます。ここで選んだマイクは<strong>ウェイクワードの認識と音声入力の両方</strong>に使われます。</span></p>
 <ul>
-  <li><span class="ja"><strong>初期設定</strong>: 「Windows の既定のマイク」</span><span class="en"><strong>Default</strong>: "Windows default microphone"</span></li>
-  <li><span class="ja">選択したマイクは名前で記録されるため、USB 機器を抜き差ししても別のマイクに切り替わりません</span><span class="en">The selected microphone is stored by name, so unplugging and reconnecting USB devices will not silently switch Mira to a different one</span></li>
-  <li><span class="ja">変更は保存するとすぐ反映されます（再起動不要）</span><span class="en">Changes take effect as soon as you save (no restart needed)</span></li>
+  <li><span class="ja"><strong>初期設定</strong>: 「Windows の既定のマイク」</span></li>
+  <li><span class="ja">選択したマイクは名前で記録されるため、USB 機器を抜き差ししても別のマイクに切り替わりません</span></li>
+  <li><span class="ja">変更は保存するとすぐ反映されます（再起動不要）</span></li>
 </ul>
-<div class="callout warn"><span class="ja"><strong>⚠️ 声にまったく反応しない場合:</strong> Windows の既定の録音デバイスが、音声を返さない機器になっている可能性があります。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識される機器があります。この場合はここで実際に使っているマイクを明示的に選んでください。</span><span class="en"><strong>⚠️ If Mira never responds to your voice:</strong> your Windows default recording device may be one that returns no audio at all. Some USB speakers and monitors expose a "microphone" endpoint to Windows without actually having a microphone. Select the microphone you really use here.</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ 声にまったく反応しない場合:</strong> Windows の既定の録音デバイスが、音声を返さない機器になっている可能性があります。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識される機器があります。この場合はここで実際に使っているマイクを明示的に選んでください。</span></div>
 
-<h3><span class="ja">マイクをテスト</span><span class="en">Test Microphone</span></h3>
-<p><span class="ja">「マイクをテスト」ボタンを押すと 3 秒間録音し、実際の入力レベルを表示します。</span><span class="en">The "Test microphone" button records for 3 seconds and shows the actual input level.</span></p>
+<h3><span class="ja">マイクをテスト</span></h3>
+<p><span class="ja">「マイクをテスト」ボタンを押すと 3 秒間録音し、実際の入力レベルを表示します。</span></p>
 <table class="cmd-table">
   <thead>
-    <tr><th><span class="ja">表示</span><span class="en">Reading</span></th><th><span class="ja">意味</span><span class="en">Meaning</span></th></tr>
+    <tr><th><span class="ja">表示</span></th><th><span class="ja">意味</span></th></tr>
   </thead>
   <tbody>
-    <tr><td><span class="ja">平均</span><span class="en">Average</span></td><td><span class="ja">音声認識に通るかを決める値。必要値（0.0080）を下回ると、聞き取れても認識処理に進みません</span><span class="en">Decides whether speech recognition runs. Below the required value (0.0080), audio is discarded even if you can hear it</span></td></tr>
-    <tr><td><span class="ja">ピーク</span><span class="en">Peak</span></td><td><span class="ja">瞬間的な最大音量。0.5 を超えると音が割れている可能性があり、かえって認識精度が落ちます</span><span class="en">The loudest moment. Above 0.5 the audio may be clipping, which reduces recognition accuracy</span></td></tr>
+    <tr><td><span class="ja">平均</span></td><td><span class="ja">音声認識に通るかを決める値。必要値（0.0080）を下回ると、聞き取れても認識処理に進みません</span></td></tr>
+    <tr><td><span class="ja">ピーク</span></td><td><span class="ja">瞬間的な最大音量。0.5 を超えると音が割れている可能性があり、かえって認識精度が落ちます</span></td></tr>
   </tbody>
 </table>
 
-<h3><span class="ja">マイク音量ブースト</span><span class="en">Microphone Boost</span></h3>
-<p><span class="ja">Windows のマイク音量を最大にしても声が小さすぎる場合に、Mira 側で最大 10 倍まで増幅できます。</span><span class="en">If your voice is still too quiet with the Windows microphone level at maximum, Mira can amplify the input up to 10x.</span></p>
+<h3><span class="ja">マイク音量ブースト</span></h3>
+<p><span class="ja">Windows のマイク音量を最大にしても声が小さすぎる場合に、Mira 側で最大 10 倍まで増幅できます。</span></p>
 <ol>
-  <li><span class="ja">まず等倍（x1.0）のまま「マイクをテスト」を押し、普段の距離・普段の声で話す</span><span class="en">First press "Test microphone" at x1.0 and speak at your normal distance and volume</span></li>
-  <li><span class="ja">平均が必要値を超えていればブーストは不要です</span><span class="en">If the average exceeds the required value, no boost is needed</span></li>
-  <li><span class="ja">下回る場合はスライダーを少しずつ上げ、平均が必要値を超え、かつピークが 0.5 を超えない値を探す</span><span class="en">If it falls short, raise the slider gradually until the average clears the required value while the peak stays under 0.5</span></li>
+  <li><span class="ja">まず等倍（x1.0）のまま「マイクをテスト」を押し、普段の距離・普段の声で話す</span></li>
+  <li><span class="ja">平均が必要値を超えていればブーストは不要です</span></li>
+  <li><span class="ja">下回る場合はスライダーを少しずつ上げ、平均が必要値を超え、かつピークが 0.5 を超えない値を探す</span></li>
 </ol>
-<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> ブーストは声と雑音を同じだけ大きくするため、音質そのものは良くなりません。マイクに近づけるならそちらのほうが確実です。ブーストは「マイクから離れて使いたい」「感度の低いマイクしかない」場合の補正としてお使いください。</span><span class="en"><strong>💡 Tip:</strong> Boost amplifies your voice and background noise equally, so it does not improve audio quality. Moving closer to the microphone is always more effective. Use boost when you need to work at a distance or only have a low-sensitivity microphone.</span></div>
+<div class="callout"><span class="ja"><strong>💡 ポイント:</strong> ブーストは声と雑音を同じだけ大きくするため、音質そのものは良くなりません。マイクに近づけるならそちらのほうが確実です。ブーストは「マイクから離れて使いたい」「感度の低いマイクしかない」場合の補正としてお使いください。</span></div>
 
 <!-- ===== AI設定 ===== -->
-<h2 id="ai-overview"><span class="ja">AI 機能の概要</span><span class="en">AI Overview</span></h2>
-<p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
+<h2 id="ai-overview"><span class="ja">AI 機能の概要</span></h2>
+<p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span></p>
 
-<h2 id="vision-models"><span class="ja">Vision 推奨モデル（実機テスト済み）</span><span class="en">Recommended Vision Models (Tested)</span></h2>
-<p><span class="ja">以下のモデルは実機テストで<strong>画面認識（Screen Vision）の動作</strong>を確認済みです。</span><span class="en">The following models have been <strong>tested for Screen Vision</strong>.</span></p>
+<h2 id="vision-models"><span class="ja">Vision 推奨モデル（実機テスト済み）</span></h2>
+<p><span class="ja">以下のモデルは実機テストで<strong>画面認識（Screen Vision）の動作</strong>を確認済みです。</span></p>
 
 <table class="cmd-table">
   <thead>
     <tr>
-      <th><span class="ja">モデル</span><span class="en">Model</span></th>
-      <th><span class="ja">種別</span><span class="en">Type</span></th>
-      <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
-      <th><span class="ja">会話</span><span class="en">Chat</span></th>
-      <th><span class="ja">特徴</span><span class="en">Features</span></th>
+      <th><span class="ja">モデル</span></th>
+      <th><span class="ja">種別</span></th>
+      <th><span class="ja">画面認識</span></th>
+      <th><span class="ja">会話</span></th>
+      <th><span class="ja">特徴</span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Claude Haiku 5.5</strong></td>
-      <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
+      <td><span class="ja">クラウド</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja">Claude の初期設定モデル。高速（画面の説明まで約2秒）・低コストで、説明も具体的</span><span class="en">Claude's default model. Fast (about 2 seconds to describe the screen), low cost, and detailed</span></td>
+      <td><span class="ja">Claude の初期設定モデル。高速（画面の説明まで約2秒）・低コストで、説明も具体的</span></td>
     </tr>
     <tr>
       <td><strong>Claude Opus 5.5</strong></td>
-      <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
+      <td><span class="ja">クラウド</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja">最上位モデル。高精度だが応答はやや遅め（約5秒）で料金も高め</span><span class="en">Top-tier model. Highly accurate, but slower (about 5 seconds) and more expensive</span></td>
+      <td><span class="ja">最上位モデル。高精度だが応答はやや遅め（約5秒）で料金も高め</span></td>
     </tr>
     <tr>
       <td><strong>gemini-flash-latest</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
-      <td><span class="ja">クラウド</span><span class="en">Cloud</span></td>
+      <td><span class="ja">クラウド</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja"><strong>初期設定モデル</strong>。コスパ最強・高速。会話・Vision 両方優秀。無料枠あり</span><span class="en"><strong>Default model</strong>. Best cost-performance, fast. Strong at both chat and vision. Free tier available</span></td>
+      <td><span class="ja"><strong>初期設定モデル</strong>。コスパ最強・高速。会話・Vision 両方優秀。無料枠あり</span></td>
     </tr>
     <tr>
       <td><strong>Gemma 4 E4B-IT</strong> <span style="color:#4CAF50;font-weight:bold">★</span></td>
-      <td><span class="ja">ローカル</span><span class="en">Local</span></td>
+      <td><span class="ja">ローカル</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja"><strong>ローカル最推奨</strong>。高速・高精度。ツールマーカー完全対応。API キー不要・完全無料。VRAM 6GB〜</span><span class="en"><strong>Top local pick</strong>. Fast & accurate. Full tool marker support. No API key, completely free. VRAM 6GB+</span></td>
+      <td><span class="ja"><strong>ローカル最推奨</strong>。高速・高精度。ツールマーカー完全対応。API キー不要・完全無料。VRAM 6GB〜</span></td>
     </tr>
     <tr>
       <td><strong>Gemma 4 26B</strong></td>
-      <td><span class="ja">ローカル</span><span class="en">Local</span></td>
+      <td><span class="ja">ローカル</span></td>
       <td>✅</td>
       <td>◎</td>
-      <td><span class="ja">より高精度なローカルモデル。ツールマーカー完全対応。VRAM 16GB〜</span><span class="en">Higher accuracy local model. Full tool marker support. VRAM 16GB+</span></td>
+      <td><span class="ja">より高精度なローカルモデル。ツールマーカー完全対応。VRAM 16GB〜</span></td>
     </tr>
   </tbody>
 </table>
 
-<div class="callout warn"><span class="ja"><strong>⚠️ 小型モデルについて:</strong> 4B 以下の小型モデルでは画面読み取り（Screen Vision）は動作しますが、認識精度が低いため実用的ではありません。Gemma 4 E4B-IT 以上のモデルを推奨します。</span><span class="en"><strong>⚠️ About small models:</strong> Models with 4B or fewer parameters can handle Screen Vision but lack sufficient accuracy for practical use. Gemma 4 E4B-IT or larger is recommended.</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ 小型モデルについて:</strong> 4B 以下の小型モデルでは画面読み取り（Screen Vision）は動作しますが、認識精度が低いため実用的ではありません。Gemma 4 E4B-IT 以上のモデルを推奨します。</span></div>
 
-<div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Gemma 4）は <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> または <strong>LM Studio</strong>: 「<code>gemma-4-e4b-it</code>」で検索してダウンロード。</span><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local (Gemma 4), use <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> or <strong>LM Studio</strong>: search "<code>gemma-4-e4b-it</code>".</span></div>
+<div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Gemma 4）は <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> または <strong>LM Studio</strong>: 「<code>gemma-4-e4b-it</code>」で検索してダウンロード。</span></div>
 
-<h2 id="ollama"><span class="ja">Ollama（ローカル AI）</span><span class="en">Ollama (Local AI)</span></h2>
+<h2 id="ollama"><span class="ja">Ollama（ローカル AI）</span></h2>
 <div class="card">
-  <h4>🦙 Ollama <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
-  <p><span class="ja">PC 上でローカルに LLM を実行。API キー不要、完全オフライン、料金ゼロ。</span><span class="en">Run LLMs locally on your PC. No API key, fully offline, zero cost.</span></p>
+  <h4>🦙 Ollama <span class="tag tag-local"><span class="ja">ローカル</span></span> <span class="tag tag-free"><span class="ja">無料</span></span></h4>
+  <p><span class="ja">PC 上でローカルに LLM を実行。API キー不要、完全オフライン、料金ゼロ。</span></p>
 </div>
 <ol class="step-list">
-  <li><span class="ja"><a href="https://ollama.com">ollama.com</a> から Ollama をインストール</span><span class="en">Install Ollama from <a href="https://ollama.com">ollama.com</a></span></li>
-  <li><span class="ja">コマンドプロンプトで <code>ollama pull llama3.1:8b</code> を実行してモデルをダウンロード</span><span class="en">Run <code>ollama pull llama3.1:8b</code> in Command Prompt to download a model</span></li>
-  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Ollama</strong>、モデル: <strong>llama3.1:8b</strong></span><span class="en">Mira Settings → AI → Provider: <strong>Ollama</strong>, Model: <strong>llama3.1:8b</strong></span></li>
+  <li><span class="ja"><a href="https://ollama.com">ollama.com</a> から Ollama をインストール</span></li>
+  <li><span class="ja">コマンドプロンプトで <code>ollama pull llama3.1:8b</code> を実行してモデルをダウンロード</span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Ollama</strong>、モデル: <strong>llama3.1:8b</strong></span></li>
 </ol>
 
-<h2 id="lmstudio"><span class="ja">LM Studio（ローカル AI）</span><span class="en">LM Studio (Local AI)</span></h2>
+<h2 id="lmstudio"><span class="ja">LM Studio（ローカル AI）</span></h2>
 <div class="card">
-  <h4>🔬 LM Studio <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
-  <p><span class="ja">GUI でモデルを管理。OpenAI 互換 API を提供。</span><span class="en">Manage models with a GUI. Provides OpenAI-compatible API.</span></p>
+  <h4>🔬 LM Studio <span class="tag tag-local"><span class="ja">ローカル</span></span> <span class="tag tag-free"><span class="ja">無料</span></span></h4>
+  <p><span class="ja">GUI でモデルを管理。OpenAI 互換 API を提供。</span></p>
 </div>
 <ol class="step-list">
-  <li><span class="ja"><a href="https://lmstudio.ai">lmstudio.ai</a> から LM Studio をインストール</span><span class="en">Install LM Studio from <a href="https://lmstudio.ai">lmstudio.ai</a></span></li>
-  <li><span class="ja">モデルをダウンロードし、ローカルサーバーを起動（デフォルト: <code>http://localhost:1234/v1</code>）</span><span class="en">Download a model and start the local server (default: <code>http://localhost:1234/v1</code>)</span></li>
-  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>LM Studio</strong></span><span class="en">Mira Settings → AI → Provider: <strong>LM Studio</strong></span></li>
+  <li><span class="ja"><a href="https://lmstudio.ai">lmstudio.ai</a> から LM Studio をインストール</span></li>
+  <li><span class="ja">モデルをダウンロードし、ローカルサーバーを起動（デフォルト: <code>http://localhost:1234/v1</code>）</span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>LM Studio</strong></span></li>
 </ol>
 
-<h2 id="lemonade"><span class="ja">Lemonade（AMD GPU）</span><span class="en">Lemonade (AMD GPU)</span></h2>
+<h2 id="lemonade"><span class="ja">Lemonade（AMD GPU）</span></h2>
 <div class="card">
-  <h4>🍋 Lemonade <span class="tag tag-local"><span class="ja">ローカル</span><span class="en">Local</span></span> <span class="tag tag-free"><span class="ja">無料</span><span class="en">Free</span></span></h4>
-  <p><span class="ja">AMD GPU 用に最適化されたローカル AI。</span><span class="en">Local AI optimized for AMD GPUs.</span></p>
+  <h4>🍋 Lemonade <span class="tag tag-local"><span class="ja">ローカル</span></span> <span class="tag tag-free"><span class="ja">無料</span></span></h4>
+  <p><span class="ja">AMD GPU 用に最適化されたローカル AI。</span></p>
 </div>
 
-<h2 id="gemini"><span class="ja">Google Gemini</span><span class="en">Google Gemini</span></h2>
+<h2 id="gemini"><span class="ja">Google Gemini</span></h2>
 <div class="card">
-  <h4>✨ Gemini <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-free"><span class="ja">無料枠あり</span><span class="en">Free Tier</span></span></h4>
-  <p><span class="ja">Google の最新 AI。<strong>Google アカウントがあれば無料枠が利用可能</strong>。Mira の初期設定プロバイダ。</span><span class="en">Google's latest AI. <strong>Free tier available with a Google account</strong>. Mira's default provider.</span></p>
+  <h4>✨ Gemini <span class="tag tag-cloud"><span class="ja">クラウド</span></span> <span class="tag tag-free"><span class="ja">無料枠あり</span></span></h4>
+  <p><span class="ja">Google の最新 AI。<strong>Google アカウントがあれば無料枠が利用可能</strong>。Mira の初期設定プロバイダ。</span></p>
 </div>
 <ol class="step-list">
-  <li><span class="ja"><a href="https://aistudio.google.com/apikey">Google AI Studio</a> で API キーを取得（Google アカウントがあれば無料）</span><span class="en">Get an API key from <a href="https://aistudio.google.com/apikey">Google AI Studio</a> (free with a Google account)</span></li>
-  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Gemini</strong>、API キーを入力</span><span class="en">Mira Settings → AI → Provider: <strong>Gemini</strong>, enter API key</span></li>
+  <li><span class="ja"><a href="https://aistudio.google.com/apikey">Google AI Studio</a> で API キーを取得（Google アカウントがあれば無料）</span></li>
+  <li><span class="ja">Mira の設定 → AI → プロバイダ: <strong>Gemini</strong>、API キーを入力</span></li>
 </ol>
 
 <table class="cmd-table">
   <thead>
     <tr>
-      <th><span class="ja">モデル</span><span class="en">Model</span></th>
-      <th><span class="ja">無料枠</span><span class="en">Free Tier</span></th>
-      <th><span class="ja">画面認識</span><span class="en">Vision</span></th>
-      <th><span class="ja">おすすめ用途</span><span class="en">Best For</span></th>
+      <th><span class="ja">モデル</span></th>
+      <th><span class="ja">無料枠</span></th>
+      <th><span class="ja">画面認識</span></th>
+      <th><span class="ja">おすすめ用途</span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>gemini-3.8-flash</strong></td>
-      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td><span class="ja">あり</span></td>
       <td>✅</td>
-      <td><span class="ja">最新世代の Flash。高速・高精度</span><span class="en">Newest Flash generation. Fast and accurate</span></td>
+      <td><span class="ja">最新世代の Flash。高速・高精度</span></td>
     </tr>
     <tr>
       <td><strong>gemini-3.5-flash-lite</strong></td>
-      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td><span class="ja">あり</span></td>
       <td>✅</td>
-      <td><span class="ja">最も安価・軽量。シンプルな会話向け</span><span class="en">Cheapest and lightest. Good for simple conversations</span></td>
+      <td><span class="ja">最も安価・軽量。シンプルな会話向け</span></td>
     </tr>
     <tr>
       <td><strong>gemini-flash-latest</strong> <span style="color:#4CAF50">★</span></td>
-      <td><span class="ja">あり</span><span class="en">Yes</span></td>
+      <td><span class="ja">あり</span></td>
       <td>✅</td>
-      <td><span class="ja">初期設定モデル。常に最新の Flash 世代を指すため、モデル名を変えずに新世代へ追従します</span><span class="en">Default model. Always points to the newest Flash generation, so it follows new releases without changing the model name</span></td>
+      <td><span class="ja">初期設定モデル。常に最新の Flash 世代を指すため、モデル名を変えずに新世代へ追従します</span></td>
     </tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 Gemini 2.5 系について:</strong> 2026年9月18日から、Gemini 2.5 系のモデルは過去に使ったことのある利用者に限られ、新しい API キーでは使えないことがあります。そのため一覧から外しました（Mira v2.3.0 で、選んでいた方は gemini-3.8-flash などの後継へ自動で切り替わります）。</span><span class="en"><strong>💡 About Gemini 2.5 models:</strong> Since September 18, 2026, Gemini 2.5 models are limited to users who have used them before and may not work with new API keys, so they were removed from the list (Mira v2.3.0 switches anyone who had selected one to a successor such as gemini-3.8-flash).</span></div>
-<div class="callout warn"><span class="ja"><strong>⚠️ <code>-latest</code> の付くモデルについて:</strong> 指す先は Google 側の判断で変わります。応答の品質や傾向が急に変わったと感じた場合は、<code>gemini-3.8-flash</code> のように世代を固定したモデルを選ぶと挙動が安定します。</span><span class="en"><strong>⚠️ About models ending in <code>-latest</code>:</strong> what they point to changes at Google's discretion. If response quality or behaviour suddenly shifts, pin a specific generation such as <code>gemini-3.8-flash</code> for stable behaviour.</span></div>
-<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。なお、無料枠では送信した内容が Google の製品改善に使われることがあります（課金を有効にしたプロジェクトでは使われません。詳しくは<a href="privacy.html">プライバシーポリシー</a>）。</span><span class="en"><strong>💡</strong> Exceeding the free tier will NOT result in charges (returns a 429 error, resets the next day). For typical daily use (~tens of requests), the free tier is more than enough. Daily limits vary by model and generation and are subject to change by Google — see the <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API rate limits page</a> for current values. Note that on the free tier, what you send may be used by Google to improve its products (not on projects with billing enabled; see the <a href="privacy.html">Privacy Policy</a>).</span></div>
+<div class="callout"><span class="ja"><strong>💡 Gemini 2.5 系について:</strong> 2026年9月18日から、Gemini 2.5 系のモデルは過去に使ったことのある利用者に限られ、新しい API キーでは使えないことがあります。そのため一覧から外しました（Mira v2.3.0 で、選んでいた方は gemini-3.8-flash などの後継へ自動で切り替わります）。</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ <code>-latest</code> の付くモデルについて:</strong> 指す先は Google 側の判断で変わります。応答の品質や傾向が急に変わったと感じた場合は、<code>gemini-3.8-flash</code> のように世代を固定したモデルを選ぶと挙動が安定します。</span></div>
+<div class="callout"><span class="ja"><strong>💡</strong> 無料枠を超過しても課金されることはありません（429 エラーが返り、翌日リセット）。日常的な使用（1日数十回程度）なら無料枠で十分です。1日あたりの上限はモデルと世代によって異なり、Google の方針で変更されることがあるため、最新の値は <a href="https://ai.google.dev/gemini-api/docs/rate-limits">Gemini API のレート制限ページ</a>をご確認ください。なお、無料枠では送信した内容が Google の製品改善に使われることがあります（課金を有効にしたプロジェクトでは使われません。詳しくは<a href="privacy.html">プライバシーポリシー</a>）。</span></div>
 
-<h2 id="openai"><span class="ja">OpenAI</span><span class="en">OpenAI</span></h2>
+<h2 id="openai"><span class="ja">OpenAI</span></h2>
 <div class="card">
-  <h4>🤖 OpenAI <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-paid"><span class="ja">有料</span><span class="en">Paid</span></span></h4>
-  <p><span class="ja">GPT-6 世代（gpt-6.1-sol / gpt-6-luna）。Vision 対応。初期設定は gpt-6.1-sol。</span><span class="en">GPT-6 family (gpt-6.1-sol / gpt-6-luna). Vision-capable. Default: gpt-6.1-sol.</span></p>
+  <h4>🤖 OpenAI <span class="tag tag-cloud"><span class="ja">クラウド</span></span> <span class="tag tag-paid"><span class="ja">有料</span></span></h4>
+  <p><span class="ja">GPT-6 世代（gpt-6.1-sol / gpt-6-luna）。Vision 対応。初期設定は gpt-6.1-sol。</span></p>
 </div>
 
-<h2 id="anthropic"><span class="ja">Anthropic (Claude)</span><span class="en">Anthropic (Claude)</span></h2>
+<h2 id="anthropic"><span class="ja">Anthropic (Claude)</span></h2>
 <div class="card">
-  <h4>🎭 Anthropic <span class="tag tag-cloud"><span class="ja">クラウド</span><span class="en">Cloud</span></span> <span class="tag tag-paid"><span class="ja">有料</span><span class="en">Paid</span></span></h4>
-  <p><span class="ja">Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5。高精度な画面認識対応。初期設定は高速・低コストの Haiku 5.5。</span><span class="en">Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5. High-accuracy screen vision. Default: the fast, low-cost Haiku 5.5.</span></p>
+  <h4>🎭 Anthropic <span class="tag tag-cloud"><span class="ja">クラウド</span></span> <span class="tag tag-paid"><span class="ja">有料</span></span></h4>
+  <p><span class="ja">Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5。高精度な画面認識対応。初期設定は高速・低コストの Haiku 5.5。</span></p>
 </div>
 
-<h2 id="custom"><span class="ja">カスタムエンドポイント</span><span class="en">Custom Endpoint</span></h2>
-<p><span class="ja">OpenAI 互換 API を提供するサービスなら何でも接続可能です。Base URL とモデル名を指定してください。</span><span class="en">Connect to any service that provides an OpenAI-compatible API. Specify the Base URL and model name.</span></p>
+<h2 id="custom"><span class="ja">カスタムエンドポイント</span></h2>
+<p><span class="ja">OpenAI 互換 API を提供するサービスなら何でも接続可能です。Base URL とモデル名を指定してください。</span></p>
 
 <!-- ===== 音声 ===== -->
-<h2 id="stt"><span class="ja">音声認識（Whisper STT）</span><span class="en">Speech Recognition (Whisper STT)</span></h2>
-<p><span class="ja">Mira は <strong>Whisper.NET</strong> を使用してローカルで音声認識を行います。音声データは外部に送信されません。</span><span class="en">Mira uses <strong>Whisper.NET</strong> for local speech recognition. Audio data is never sent externally.</span></p>
-<p><span class="ja">設定画面の「音声認識」タブでモデルサイズを選択できます:</span><span class="en">Choose model size in the "Speech Recognition" tab:</span></p>
+<h2 id="stt"><span class="ja">音声認識（Whisper STT）</span></h2>
+<p><span class="ja">Mira は <strong>Whisper.NET</strong> を使用してローカルで音声認識を行います。音声データは外部に送信されません。</span></p>
+<p><span class="ja">設定画面の「音声認識」タブでモデルサイズを選択できます:</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">モデル</span><span class="en">Model</span></th><th><span class="ja">サイズ</span><span class="en">Size</span></th><th><span class="ja">精度</span><span class="en">Accuracy</span></th><th><span class="ja">速度</span><span class="en">Speed</span></th></tr></thead>
+  <thead><tr><th><span class="ja">モデル</span></th><th><span class="ja">サイズ</span></th><th><span class="ja">精度</span></th><th><span class="ja">速度</span></th></tr></thead>
   <tbody>
-    <tr><td>small</td><td>466MB</td><td><span class="ja">低</span><span class="en">Low</span></td><td><span class="ja">高速</span><span class="en">Fast</span></td></tr>
-    <tr><td>medium</td><td>1.5GB</td><td><span class="ja">中（バランス型）</span><span class="en">Medium (Balanced)</span></td><td><span class="ja">普通</span><span class="en">Normal</span></td></tr>
-    <tr><td><strong>large-v3-turbo</strong></td><td>1.6GB</td><td><span class="ja"><strong>高（推奨）</strong>。高速＋高精度</span><span class="en"><strong>High (Recommended)</strong>. Fast + accurate</span></td><td><span class="ja">高速</span><span class="en">Fast</span></td></tr>
-    <tr><td>large-v3</td><td>2.9GB</td><td><span class="ja">最高精度</span><span class="en">Highest</span></td><td><span class="ja">低速</span><span class="en">Slow</span></td></tr>
+    <tr><td>small</td><td>466MB</td><td><span class="ja">低</span></td><td><span class="ja">高速</span></td></tr>
+    <tr><td>medium</td><td>1.5GB</td><td><span class="ja">中（バランス型）</span></td><td><span class="ja">普通</span></td></tr>
+    <tr><td><strong>large-v3-turbo</strong></td><td>1.6GB</td><td><span class="ja"><strong>高（推奨）</strong>。高速＋高精度</span></td><td><span class="ja">高速</span></td></tr>
+    <tr><td>large-v3</td><td>2.9GB</td><td><span class="ja">最高精度</span></td><td><span class="ja">低速</span></td></tr>
   </tbody>
 </table>
 
-<h2 id="tts"><span class="ja">音声合成（TTS）</span><span class="en">Text-to-Speech (TTS)</span></h2>
-<p><span class="ja">Mira は 4 段階のフォールバックチェーンで音声合成を行います。上位エンジンが利用できない場合、自動的に次のエンジンに切り替わります。</span><span class="en">Mira uses a 4-tier fallback chain for TTS. If the top engine is unavailable, it automatically switches to the next.</span></p>
-<pre>1. AivisSpeech (localhost:10101) — <span class="ja">最高品質日本語</span><span class="en">Best quality Japanese</span>
-2. VOICEVOX    (localhost:50021) — <span class="ja">高品質日本語</span><span class="en">High quality Japanese</span>
-3. Edge TTS    (Python edge-tts) — <span class="ja">多言語ニューラル音声</span><span class="en">Multilingual neural voice</span>
-4. System.Speech               — <span class="ja">常に利用可能</span><span class="en">Always available</span></pre>
+<h2 id="tts"><span class="ja">音声合成（TTS）</span></h2>
+<p><span class="ja">Mira は 4 段階のフォールバックチェーンで音声合成を行います。上位エンジンが利用できない場合、自動的に次のエンジンに切り替わります。</span></p>
+<pre>1. AivisSpeech (localhost:10101) — <span class="ja">最高品質日本語</span>
+2. VOICEVOX    (localhost:50021) — <span class="ja">高品質日本語</span>
+3. Edge TTS    (Python edge-tts) — <span class="ja">多言語ニューラル音声</span>
+4. System.Speech               — <span class="ja">常に利用可能</span></pre>
 
-<h2 id="tts-engines"><span class="ja">TTS エンジン設定</span><span class="en">TTS Engine Setup</span></h2>
+<h2 id="tts-engines"><span class="ja">TTS エンジン設定</span></h2>
 <h3>AivisSpeech</h3>
-<p><span class="ja">最高品質の日本語音声合成エンジンです。<a href="https://aivis-project.com">aivis-project.com</a> からダウンロードし、ポート 10101 で起動してください。</span><span class="en">The highest quality Japanese TTS engine. Download from <a href="https://aivis-project.com">aivis-project.com</a> and run on port 10101.</span></p>
+<p><span class="ja">最高品質の日本語音声合成エンジンです。<a href="https://aivis-project.com">aivis-project.com</a> からダウンロードし、ポート 10101 で起動してください。</span></p>
 <h3>VOICEVOX</h3>
-<p><span class="ja">AivisSpeech が利用できない場合の代替です。<a href="https://voicevox.hiroshiba.jp">voicevox.hiroshiba.jp</a> からダウンロード。デフォルトポート 50021。</span><span class="en">Alternative to AivisSpeech. Download from <a href="https://voicevox.hiroshiba.jp">voicevox.hiroshiba.jp</a>. Default port 50021.</span></p>
+<p><span class="ja">AivisSpeech が利用できない場合の代替です。<a href="https://voicevox.hiroshiba.jp">voicevox.hiroshiba.jp</a> からダウンロード。デフォルトポート 50021。</span></p>
 <h3>Edge TTS</h3>
-<p><span class="ja">Microsoft Edge のニューラル音声を使用。インターネット接続が必要です。Python <code>edge-tts</code> パッケージを使用: <code>pip install edge-tts</code></span><span class="en">Uses Microsoft Edge neural voices. Requires internet. Uses Python <code>edge-tts</code>: <code>pip install edge-tts</code></span></p>
+<p><span class="ja">Microsoft Edge のニューラル音声を使用。インターネット接続が必要です。Python <code>edge-tts</code> パッケージを使用: <code>pip install edge-tts</code></span></p>
 
-<h2 id="emotion-tts"><span class="ja">感情 TTS</span><span class="en">Emotion TTS</span></h2>
-<p><span class="ja">AivisSpeech 使用時、AI の応答内容に応じて 6 つの感情スタイルを自動で切り替えます:</span><span class="en">When using AivisSpeech, Mira automatically switches between 6 emotion styles based on the AI response:</span></p>
+<h2 id="emotion-tts"><span class="ja">感情 TTS</span></h2>
+<p><span class="ja">AivisSpeech 使用時、AI の応答内容に応じて 6 つの感情スタイルを自動で切り替えます:</span></p>
 <ul>
-  <li><span class="ja">😊 通常 / 😄 嬉しい / 😢 悲しい / 😠 怒り / 😨 恐怖 / 😲 驚き</span><span class="en">😊 Normal / 😄 Happy / 😢 Sad / 😠 Angry / 😨 Fear / 😲 Surprise</span></li>
+  <li><span class="ja">😊 通常 / 😄 嬉しい / 😢 悲しい / 😠 怒り / 😨 恐怖 / 😲 驚き</span></li>
 </ul>
 
 <!-- ===== 音声コマンド ===== -->
-<h2 id="commands"><span class="ja">音声コマンド一覧</span><span class="en">Voice Command List</span></h2>
-<p><span class="ja">Mira は音声を認識し、以下のコマンドを即座に実行します。AI に送信せずローカルで 0ms 判定するため、高速に動作します。どのコマンドにも当てはまらない発話は通常の AI 会話として処理されます。</span><span class="en">Mira recognizes your voice and instantly executes the commands below. Intent detection runs locally in 0ms without calling any AI, so it's extremely fast. Any utterance that doesn't match a command is processed as a normal AI conversation.</span></p>
+<h2 id="commands"><span class="ja">音声コマンド一覧</span></h2>
+<p><span class="ja">Mira は音声を認識し、以下のコマンドを即座に実行します。AI に送信せずローカルで 0ms 判定するため、高速に動作します。どのコマンドにも当てはまらない発話は通常の AI 会話として処理されます。</span></p>
 
 <!-- --- Screen Vision --- -->
-<h3 id="cmd-vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h3>
-<p><span class="ja">AI が画面をキャプチャして内容を分析・説明します。Vision 対応の AI プロバイダが必要です。</span><span class="en">AI captures and analyzes your screen. Requires a Vision-capable AI provider.</span></p>
+<h3 id="cmd-vision"><span class="ja">画面認識（Screen Vision）</span></h3>
+<p><span class="ja">AI が画面をキャプチャして内容を分析・説明します。Vision 対応の AI プロバイダが必要です。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <thead><tr><th><span class="ja">発話例</span></th><th><span class="ja">英語</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja">「画面を見て」「画面に何が映ってる？」</span><span class="en">"Look at the screen" / "What's on my screen?"</span></td><td><span class="ja">"What's on screen?" / "Look at the screen"</span><span class="en">"What's on screen?" / "Look at the screen"</span></td></tr>
-    <tr><td><span class="ja">「画面を説明して」「スクリーンの内容教えて」</span><span class="en">"Describe the screen" / "Tell me what's on screen"</span></td><td><span class="ja">"Describe the screen"</span><span class="en">"Describe the screen"</span></td></tr>
-    <tr><td><span class="ja">「スクリーンショットを撮って」「スクショ」</span><span class="en">"Take a screenshot" / "Screenshot"</span></td><td><span class="ja">"Screenshot" / "Capture screen"</span><span class="en">"Screenshot" / "Capture screen"</span></td></tr>
-    <tr><td><span class="ja">「このエラー何？」「このダイアログの意味教えて」</span><span class="en">"What is this error?" / "Explain this dialog"</span></td><td><span class="ja">"What is this error?"</span><span class="en">"What is this error?"</span></td></tr>
-    <tr><td><span class="ja">「画面に表示されている内容を読んで」</span><span class="en">"Read what's displayed on screen"</span></td><td><span class="ja">"Read the screen"</span><span class="en">"Read the screen"</span></td></tr>
+    <tr><td><span class="ja">「画面を見て」「画面に何が映ってる？」</span></td><td><span class="ja">"What's on screen?" / "Look at the screen"</span></td></tr>
+    <tr><td><span class="ja">「画面を説明して」「スクリーンの内容教えて」</span></td><td><span class="ja">"Describe the screen"</span></td></tr>
+    <tr><td><span class="ja">「スクリーンショットを撮って」「スクショ」</span></td><td><span class="ja">"Screenshot" / "Capture screen"</span></td></tr>
+    <tr><td><span class="ja">「このエラー何？」「このダイアログの意味教えて」</span></td><td><span class="ja">"What is this error?"</span></td></tr>
+    <tr><td><span class="ja">「画面に表示されている内容を読んで」</span></td><td><span class="ja">"Read the screen"</span></td></tr>
   </tbody>
 </table>
 <!-- --- Search & Weather --- -->
-<h3 id="cmd-search"><span class="ja">検索・天気</span><span class="en">Search & Weather</span></h3>
-<p><span class="ja">Web 検索や天気情報を音声で取得できます。検索結果は AI が読み上げます。</span><span class="en">Get web search results and weather information by voice. Results are read aloud by AI.</span></p>
+<h3 id="cmd-search"><span class="ja">検索・天気</span></h3>
+<p><span class="ja">Web 検索や天気情報を音声で取得できます。検索結果は AI が読み上げます。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <thead><tr><th><span class="ja">カテゴリ</span></th><th><span class="ja">発話例</span></th><th><span class="ja">英語</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja"><strong>Web検索</strong><br>(DuckDuckGo)</span><span class="en"><strong>Web Search</strong><br>(DuckDuckGo)</span></td><td><span class="ja">「〇〇を調べて」「〇〇を検索して」<br>「〇〇について教えて」</span><span class="en">"Search for X" / "Look up X"<br>"What is X?"</span></td><td><span class="ja">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span><span class="en">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span></td></tr>
-    <tr><td><span class="ja"><strong>Web検索</strong><br>(用語)</span><span class="en"><strong>Web Search</strong><br>(What is)</span></td><td><span class="ja">「〇〇って何？」「〇〇とは？」</span><span class="en">"What is X?" / "What are X?"</span></td><td><span class="ja">"What is ...?" / "Find ..."</span><span class="en">"What is ...?" / "Find ..."</span></td></tr>
-    <tr><td><span class="ja"><strong>ブラウザ検索</strong><br>(Google)</span><span class="en"><strong>Browser Search</strong><br>(Google)</span></td><td><span class="ja">「〇〇をググって」「〇〇をグーグルで」</span><span class="en">"Google X"</span></td><td><span class="ja">"Google ..."</span><span class="en">"Google ..."</span></td></tr>
-    <tr><td><span class="ja"><strong>天気</strong></span><span class="en"><strong>Weather</strong></span></td><td><span class="ja">「今日の天気は？」「東京の天気教えて」<br>「明日の気温」「降水確率は？」</span><span class="en">"What's the weather?" / "Weather in Tokyo"<br>"Tomorrow's temperature"</span></td><td><span class="ja">"Weather" / "Forecast"<br>"Temperature in ..."</span><span class="en">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>Web検索</strong><br>(DuckDuckGo)</span></td><td><span class="ja">「〇〇を調べて」「〇〇を検索して」<br>「〇〇について教えて」</span></td><td><span class="ja">"Search for ..." / "Look up ..."<br>"What is ...?" / "Who is ...?"</span></td></tr>
+    <tr><td><span class="ja"><strong>Web検索</strong><br>(用語)</span></td><td><span class="ja">「〇〇って何？」「〇〇とは？」</span></td><td><span class="ja">"What is ...?" / "Find ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>ブラウザ検索</strong><br>(Google)</span></td><td><span class="ja">「〇〇をググって」「〇〇をグーグルで」</span></td><td><span class="ja">"Google ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>天気</strong></span></td><td><span class="ja">「今日の天気は？」「東京の天気教えて」<br>「明日の気温」「降水確率は？」</span></td><td><span class="ja">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 「調べて」vs「ググって」の違い:</strong>「調べて」は DuckDuckGo で検索して結果を AI が読み上げます。「ググって」はブラウザで Google 検索ページを直接開きます。</span><span class="en"><strong>💡 "Search" vs "Google":</strong> "Search" uses DuckDuckGo and AI reads the results aloud. "Google" opens the Google search page directly in your browser.</span></div>
+<div class="callout"><span class="ja"><strong>💡 「調べて」vs「ググって」の違い:</strong>「調べて」は DuckDuckGo で検索して結果を AI が読み上げます。「ググって」はブラウザで Google 検索ページを直接開きます。</span></div>
 
 <!-- --- Web Watch --- -->
-<h3 id="cmd-webwatch"><span class="ja">Webウォッチ <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Web Watch <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
-<p><span class="ja">よくチェックするWebページをキーワードで登録し、音声でその内容を取得・要約してもらえる機能です。設定画面の「Webウォッチ」タブでキーワードとURLのペアを登録してください。</span><span class="en">Register frequently-checked web pages with keywords and get their content fetched and summarized by voice. Set up keyword-URL pairs in the "Web Watch" tab in Settings.</span></p>
+<h3 id="cmd-webwatch"><span class="ja">Webウォッチ <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
+<p><span class="ja">よくチェックするWebページをキーワードで登録し、音声でその内容を取得・要約してもらえる機能です。設定画面の「Webウォッチ」タブでキーワードとURLのペアを登録してください。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">動作</span><span class="en">Action</span></th></tr></thead>
+  <thead><tr><th><span class="ja">カテゴリ</span></th><th><span class="ja">発話例</span></th><th><span class="ja">動作</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja"><strong>内容取得<br>（AI要約）</strong></span><span class="en"><strong>Fetch Content<br>(AI Summary)</strong></span></td><td><span class="ja">「最新ニュース教えて」<br>「天気予報を教えて」<br>「株価どう？」</span><span class="en">"Tell me the latest news"<br>"What's the weather forecast?"<br>"How are the stocks?"</span></td><td><span class="ja">登録URLのページ内容を取得し、AIが要約して読み上げ</span><span class="en">Fetches page content from registered URL, AI summarizes and reads aloud</span></td></tr>
-    <tr><td><span class="ja"><strong>ブラウザで表示</strong></span><span class="en"><strong>Open in Browser</strong></span></td><td><span class="ja">「最新ニュース<strong>表示して</strong>」<br>「天気予報<strong>開いて</strong>」<br>「株価<strong>見せて</strong>」</span><span class="en">"<strong>Show</strong> me the latest news"<br>"<strong>Open</strong> the weather forecast"</span></td><td><span class="ja">登録URLをブラウザで直接オープン</span><span class="en">Opens registered URL directly in browser</span></td></tr>
+    <tr><td><span class="ja"><strong>内容取得<br>（AI要約）</strong></span></td><td><span class="ja">「最新ニュース教えて」<br>「天気予報を教えて」<br>「株価どう？」</span></td><td><span class="ja">登録URLのページ内容を取得し、AIが要約して読み上げ</span></td></tr>
+    <tr><td><span class="ja"><strong>ブラウザで表示</strong></span></td><td><span class="ja">「最新ニュース<strong>表示して</strong>」<br>「天気予報<strong>開いて</strong>」<br>「株価<strong>見せて</strong>」</span></td><td><span class="ja">登録URLをブラウザで直接オープン</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 設定例:</strong> キーワード「最新ニュース」に <code>https://news.yahoo.co.jp/</code> を登録すると、「最新ニュース教えて」でYahooニュースの主要記事をAIが要約して読み上げます。「最新ニュース表示して」ならブラウザで直接ページを開きます。キーワードは<strong>部分一致</strong>で発火するため、厳密に一致させる必要はありません。</span><span class="en"><strong>💡 Example:</strong> Register keyword "latest news" with <code>https://news.yahoo.co.jp/</code>. Say "Tell me the latest news" and AI will summarize Yahoo News articles. Say "Show me the latest news" to open the page in your browser. Keywords use <strong>partial matching</strong>, so they don't need to match exactly.</span></div>
+<div class="callout"><span class="ja"><strong>💡 設定例:</strong> キーワード「最新ニュース」に <code>https://news.yahoo.co.jp/</code> を登録すると、「最新ニュース教えて」でYahooニュースの主要記事をAIが要約して読み上げます。「最新ニュース表示して」ならブラウザで直接ページを開きます。キーワードは<strong>部分一致</strong>で発火するため、厳密に一致させる必要はありません。</span></div>
 
 <!-- --- Voice Launcher --- -->
-<h3 id="cmd-app"><span class="ja">音声ランチャー（Voice Launcher）</span><span class="en">Voice Launcher</span></h3>
-<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを自由に登録できます。登録したキーワードを含む発話をすると、対応するアプリやURLが起動します。</span><span class="en">Register keyword-command pairs in the "Voice Launcher" tab in Settings. When your speech contains a registered keyword, the corresponding app or URL is launched.</span></p>
+<h3 id="cmd-app"><span class="ja">音声ランチャー（Voice Launcher）</span></h3>
+<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを自由に登録できます。登録したキーワードを含む発話をすると、対応するアプリやURLが起動します。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">登録キーワード</span><span class="en">Registered Keyword</span></th><th><span class="ja">動作</span><span class="en">Action</span></th></tr></thead>
+  <thead><tr><th><span class="ja">発話例</span></th><th><span class="ja">登録キーワード</span></th><th><span class="ja">動作</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja">「Chrome を開いて」</span><span class="en">"Open Chrome"</span></td><td><span class="ja">Chrome</span><span class="en">Chrome</span></td><td><span class="ja">登録されたコマンド（例: chrome.exe）を実行</span><span class="en">Executes registered command (e.g., chrome.exe)</span></td></tr>
-    <tr><td><span class="ja">「メモ帳を起動して」</span><span class="en">"Launch Notepad"</span></td><td><span class="ja">メモ帳, Notepad</span><span class="en">Notepad</span></td><td><span class="ja">キーワードはカンマ区切りで複数登録可能</span><span class="en">Multiple keywords per command (comma-separated)</span></td></tr>
-    <tr><td><span class="ja">「Gmail を開いて」</span><span class="en">"Open Gmail"</span></td><td><span class="ja">Gmail</span><span class="en">Gmail</span></td><td><span class="ja">URLを登録すればブラウザで開く</span><span class="en">Register a URL to open in browser</span></td></tr>
+    <tr><td><span class="ja">「Chrome を開いて」</span></td><td><span class="ja">Chrome</span></td><td><span class="ja">登録されたコマンド（例: chrome.exe）を実行</span></td></tr>
+    <tr><td><span class="ja">「メモ帳を起動して」</span></td><td><span class="ja">メモ帳, Notepad</span></td><td><span class="ja">キーワードはカンマ区切りで複数登録可能</span></td></tr>
+    <tr><td><span class="ja">「Gmail を開いて」</span></td><td><span class="ja">Gmail</span></td><td><span class="ja">URLを登録すればブラウザで開く</span></td></tr>
   </tbody>
 </table>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは<strong>部分一致</strong>で発火します。「開いて」「起動して」「立ち上げて」などの動詞と組み合わせて使えます。コマンドには実行ファイルのパス（例: <code>C:\Program Files\...\app.exe</code>）やURL（例: <code>https://mail.google.com</code>）を指定できます。</span><span class="en"><strong>💡 Tip:</strong> Keywords use <strong>partial matching</strong>. Combine with verbs like "open", "launch", "start". Commands can be executable paths (e.g., <code>C:\Program Files\...\app.exe</code>) or URLs (e.g., <code>https://mail.google.com</code>).</span></div>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは<strong>部分一致</strong>で発火します。「開いて」「起動して」「立ち上げて」などの動詞と組み合わせて使えます。コマンドには実行ファイルのパス（例: <code>C:\Program Files\...\app.exe</code>）やURL（例: <code>https://mail.google.com</code>）を指定できます。</span></div>
 
 <!-- --- System Operations --- -->
-<h3 id="cmd-system"><span class="ja">システム操作</span><span class="en">System Operations</span></h3>
-<p><span class="ja">音量・クリップボード・日時など、システム情報の取得や操作ができます。</span><span class="en">Control volume, clipboard, date/time, and other system functions.</span></p>
+<h3 id="cmd-system"><span class="ja">システム操作</span></h3>
+<p><span class="ja">音量・クリップボード・日時など、システム情報の取得や操作ができます。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <thead><tr><th><span class="ja">カテゴリ</span></th><th><span class="ja">発話例</span></th><th><span class="ja">英語</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja"><strong>音量</strong></span><span class="en"><strong>Volume</strong></span></td><td><span class="ja">「音量を50にして」「ボリューム上げて」<br>「音量いくつ？」</span><span class="en">"Set volume to 50" / "Volume up"<br>"What's the volume?"</span></td><td><span class="ja">"Set volume to ..." / "Volume up/down"</span><span class="en">"Set volume to ..." / "Volume up/down"</span></td></tr>
-    <tr><td><span class="ja"><strong>ミュート</strong></span><span class="en"><strong>Mute</strong></span></td><td><span class="ja">「ミュートして」「消音して」<br>「ミュート解除」</span><span class="en">"Mute" / "Unmute"</span></td><td><span class="ja">"Mute" / "Unmute"</span><span class="en">"Mute" / "Unmute"</span></td></tr>
-    <tr><td><span class="ja"><strong>クリップボード<br>（読み取り）</strong></span><span class="en"><strong>Clipboard<br>(Read)</strong></span></td><td><span class="ja">「クリップボードを読んで」<br>「クリップボードの内容教えて」</span><span class="en">"Read clipboard" / "What's in the clipboard?"</span></td><td><span class="ja">"Read clipboard" / "Show clipboard"</span><span class="en">"Read clipboard" / "Show clipboard"</span></td></tr>
-    <tr><td><span class="ja"><strong>クリップボード<br>（書き込み）</strong></span><span class="en"><strong>Clipboard<br>(Write)</strong></span></td><td><span class="ja">「〇〇をコピーして」<br>「クリップボードにコピーして」</span><span class="en">"Copy X to clipboard"</span></td><td><span class="ja">"Copy ..."</span><span class="en">"Copy ..."</span></td></tr>
-    <tr><td><span class="ja"><strong>時刻</strong></span><span class="en"><strong>Time</strong></span></td><td><span class="ja">「今何時？」「時刻教えて」</span><span class="en">"What time is it?" / "Current time"</span></td><td><span class="ja">"What time is it?"</span><span class="en">"What time is it?"</span></td></tr>
-    <tr><td><span class="ja"><strong>日付</strong></span><span class="en"><strong>Date</strong></span></td><td><span class="ja">「今日何曜日？」「今日の日付」<br>「今日は何日？」</span><span class="en">"What day is it?" / "What's the date?"<br>"Today's date"</span></td><td><span class="ja">"What day is it?" / "What's the date?"</span><span class="en">"What day is it?" / "What's the date?"</span></td></tr>
+    <tr><td><span class="ja"><strong>音量</strong></span></td><td><span class="ja">「音量を50にして」「ボリューム上げて」<br>「音量いくつ？」</span></td><td><span class="ja">"Set volume to ..." / "Volume up/down"</span></td></tr>
+    <tr><td><span class="ja"><strong>ミュート</strong></span></td><td><span class="ja">「ミュートして」「消音して」<br>「ミュート解除」</span></td><td><span class="ja">"Mute" / "Unmute"</span></td></tr>
+    <tr><td><span class="ja"><strong>クリップボード<br>（読み取り）</strong></span></td><td><span class="ja">「クリップボードを読んで」<br>「クリップボードの内容教えて」</span></td><td><span class="ja">"Read clipboard" / "Show clipboard"</span></td></tr>
+    <tr><td><span class="ja"><strong>クリップボード<br>（書き込み）</strong></span></td><td><span class="ja">「〇〇をコピーして」<br>「クリップボードにコピーして」</span></td><td><span class="ja">"Copy ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>時刻</strong></span></td><td><span class="ja">「今何時？」「時刻教えて」</span></td><td><span class="ja">"What time is it?"</span></td></tr>
+    <tr><td><span class="ja"><strong>日付</strong></span></td><td><span class="ja">「今日何曜日？」「今日の日付」<br>「今日は何日？」</span></td><td><span class="ja">"What day is it?" / "What's the date?"</span></td></tr>
   </tbody>
 </table>
 
 <!-- --- Timer & Alarm --- -->
-<h3 id="cmd-timer"><span class="ja">タイマー・アラーム</span><span class="en">Timers & Alarms</span></h3>
-<p><span class="ja">カウントダウンタイマーやアラームを音声で設定・管理できます。</span><span class="en">Set and manage countdown timers and alarms by voice.</span></p>
+<h3 id="cmd-timer"><span class="ja">タイマー・アラーム</span></h3>
+<p><span class="ja">カウントダウンタイマーやアラームを音声で設定・管理できます。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <thead><tr><th><span class="ja">カテゴリ</span></th><th><span class="ja">発話例</span></th><th><span class="ja">英語</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja"><strong>タイマー設定</strong></span><span class="en"><strong>Set Timer</strong></span></td><td><span class="ja">「3分タイマー」「タイマー5分」<br>「10秒計って」</span><span class="en">"Set a 3 minute timer"<br>"Timer for 5 minutes"</span></td><td><span class="ja">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span><span class="en">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span></td></tr>
-    <tr><td><span class="ja"><strong>タイマー停止</strong></span><span class="en"><strong>Cancel Timer</strong></span></td><td><span class="ja">「タイマー止めて」「タイマーキャンセル」</span><span class="en">"Cancel timer" / "Stop timer"</span></td><td><span class="ja">"Cancel timer"</span><span class="en">"Cancel timer"</span></td></tr>
-    <tr><td><span class="ja"><strong>タイマー確認</strong></span><span class="en"><strong>List Timers</strong></span></td><td><span class="ja">「タイマーある？」「タイマー確認」<br>「タイマーの残り時間」</span><span class="en">"Any timers?" / "List timers"</span></td><td><span class="ja">"Any timers?"</span><span class="en">"Any timers?"</span></td></tr>
-    <tr><td><span class="ja"><strong>アラーム設定</strong></span><span class="en"><strong>Set Alarm</strong></span></td><td><span class="ja">「7時にアラーム」「14時30分に起こして」<br>「明日6時に目覚まし」</span><span class="en">"Set alarm for 7 AM"<br>"Wake me up at 2:30 PM"</span></td><td><span class="ja">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span><span class="en">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span></td></tr>
-    <tr><td><span class="ja"><strong>アラーム停止</strong></span><span class="en"><strong>Cancel Alarm</strong></span></td><td><span class="ja">「アラーム消して」「目覚まし止めて」<br>「アラーム解除」</span><span class="en">"Cancel alarm" / "Stop alarm"<br>"Clear alarms"</span></td><td><span class="ja">"Cancel alarm" / "Delete alarm"</span><span class="en">"Cancel alarm" / "Delete alarm"</span></td></tr>
-    <tr><td><span class="ja"><strong>アラーム確認</strong></span><span class="en"><strong>List Alarms</strong></span></td><td><span class="ja">「アラームある？」「セットされてるアラームは？」</span><span class="en">"Any alarms set?" / "List alarms"<br>"What alarms?"</span></td><td><span class="ja">"List alarms" / "Show alarms"</span><span class="en">"List alarms" / "Show alarms"</span></td></tr>
+    <tr><td><span class="ja"><strong>タイマー設定</strong></span></td><td><span class="ja">「3分タイマー」「タイマー5分」<br>「10秒計って」</span></td><td><span class="ja">"Set a ... timer" / "Timer for ..."<br>"Start a 30 second timer"</span></td></tr>
+    <tr><td><span class="ja"><strong>タイマー停止</strong></span></td><td><span class="ja">「タイマー止めて」「タイマーキャンセル」</span></td><td><span class="ja">"Cancel timer"</span></td></tr>
+    <tr><td><span class="ja"><strong>タイマー確認</strong></span></td><td><span class="ja">「タイマーある？」「タイマー確認」<br>「タイマーの残り時間」</span></td><td><span class="ja">"Any timers?"</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム設定</strong></span></td><td><span class="ja">「7時にアラーム」「14時30分に起こして」<br>「明日6時に目覚まし」</span></td><td><span class="ja">"Set alarm for ..." / "Wake me up at ..."<br>"Remind me at ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム停止</strong></span></td><td><span class="ja">「アラーム消して」「目覚まし止めて」<br>「アラーム解除」</span></td><td><span class="ja">"Cancel alarm" / "Delete alarm"</span></td></tr>
+    <tr><td><span class="ja"><strong>アラーム確認</strong></span></td><td><span class="ja">「アラームある？」「セットされてるアラームは？」</span></td><td><span class="ja">"List alarms" / "Show alarms"</span></td></tr>
   </tbody>
 </table>
-<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span></p>
+<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span></p>
 
 <!-- --- Memory & Schedule --- -->
-<h3 id="cmd-memory"><span class="ja">記憶・スケジュール</span><span class="en">Memory & Schedule</span></h3>
-<p><span class="ja">Mira は会話の中から重要な情報を自動で記憶します。「覚えて」と言えば明示的に記憶させることもできます。</span><span class="en">Mira automatically remembers important information from conversations. Say "Remember this" to explicitly save memories.</span></p>
+<h3 id="cmd-memory"><span class="ja">記憶・スケジュール</span></h3>
+<p><span class="ja">Mira は会話の中から重要な情報を自動で記憶します。「覚えて」と言えば明示的に記憶させることもできます。</span></p>
 <table class="cmd-table">
-  <thead><tr><th><span class="ja">カテゴリ</span><span class="en">Category</span></th><th><span class="ja">発話例</span><span class="en">Example</span></th><th><span class="ja">英語</span><span class="en">English</span></th></tr></thead>
+  <thead><tr><th><span class="ja">カテゴリ</span></th><th><span class="ja">発話例</span></th><th><span class="ja">英語</span></th></tr></thead>
   <tbody>
-    <tr><td><span class="ja"><strong>記憶（自動）</strong></span><span class="en"><strong>Memory (Auto)</strong></span></td><td colspan="2"><span class="ja">AI が重要な事実を自動的に抽出・保存します。ピン留め📌で永続保存も可能。</span><span class="en">AI automatically extracts and saves important facts. Pin 📌 for permanent storage.</span></td></tr>
-    <tr><td><span class="ja"><strong>個別削除</strong></span><span class="en"><strong>Forget One</strong></span></td><td><span class="ja">「〇〇を忘れて」「〇〇の記憶を消して」</span><span class="en">"Forget X" / "Forget about X"</span></td><td><span class="ja">"Forget ..." / "Forget about ..."</span><span class="en">"Forget ..." / "Forget about ..."</span></td></tr>
-    <tr><td><span class="ja"><strong>全削除</strong></span><span class="en"><strong>Forget All</strong></span></td><td><span class="ja">「全部忘れて」「記憶をクリアして」<br>「記憶をリセット」</span><span class="en">"Forget everything" / "Clear memory"<br>"Reset memory"</span></td><td><span class="ja">"Forget everything" / "Clear all memories"</span><span class="en">"Forget everything" / "Clear all memories"</span></td></tr>
-    <tr><td><span class="ja"><strong>スケジュール確認</strong></span><span class="en"><strong>List Schedule</strong></span></td><td><span class="ja">「予定を教えて」「スケジュール確認」<br>「今後の予定は？」</span><span class="en">"What's my schedule?" / "List schedule"<br>"Any appointments?"</span></td><td><span class="ja">"What's my schedule?" / "Show schedule"</span><span class="en">"What's my schedule?" / "Show schedule"</span></td></tr>
-    <tr><td><span class="ja"><strong>スケジュール追加</strong></span><span class="en"><strong>Add Schedule</strong></span></td><td><span class="ja">「4月10日に歯医者の予約を入れて」<br>「明日の15時に会議」</span><span class="en">"Schedule a dentist appointment on April 10th"<br>"Meeting tomorrow at 3pm"</span></td><td><span class="ja">"Add schedule..." / "Schedule..."</span><span class="en">"Add schedule..." / "Schedule..."</span></td></tr>
-    <tr><td><span class="ja"><strong>スケジュール削除</strong></span><span class="en"><strong>Delete Schedule</strong></span></td><td><span class="ja">「歯医者の予約を削除して」<br>「4月10日のスケジュールを消して」</span><span class="en">"Delete the dentist appointment"<br>"Remove the April 10th schedule"</span></td><td><span class="ja">"Delete schedule..." / "Remove schedule..."</span><span class="en">"Delete schedule..." / "Remove schedule..."</span></td></tr>
+    <tr><td><span class="ja"><strong>記憶（自動）</strong></span></td><td colspan="2"><span class="ja">AI が重要な事実を自動的に抽出・保存します。ピン留め📌で永続保存も可能。</span></td></tr>
+    <tr><td><span class="ja"><strong>個別削除</strong></span></td><td><span class="ja">「〇〇を忘れて」「〇〇の記憶を消して」</span></td><td><span class="ja">"Forget ..." / "Forget about ..."</span></td></tr>
+    <tr><td><span class="ja"><strong>全削除</strong></span></td><td><span class="ja">「全部忘れて」「記憶をクリアして」<br>「記憶をリセット」</span></td><td><span class="ja">"Forget everything" / "Clear all memories"</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール確認</strong></span></td><td><span class="ja">「予定を教えて」「スケジュール確認」<br>「今後の予定は？」</span></td><td><span class="ja">"What's my schedule?" / "Show schedule"</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール追加</strong></span></td><td><span class="ja">「4月10日に歯医者の予約を入れて」<br>「明日の15時に会議」</span></td><td><span class="ja">"Add schedule..." / "Schedule..."</span></td></tr>
+    <tr><td><span class="ja"><strong>スケジュール削除</strong></span></td><td><span class="ja">「歯医者の予約を削除して」<br>「4月10日のスケジュールを消して」</span></td><td><span class="ja">"Delete schedule..." / "Remove schedule..."</span></td></tr>
   </tbody>
 </table>
-<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span></p>
+<p><span class="ja">保存先: <code>%LOCALAPPDATA%\Mira\memory.json</code>, <code>schedules.json</code></span></p>
 
 <!-- ===== Vision ===== -->
-<h2 id="vision"><span class="ja">画面認識（Screen Vision）</span><span class="en">Screen Vision</span></h2>
-<p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="ja">推奨プロバイダ: gemini-flash-latest（無料枠あり）、Claude Haiku 5.5、Gemma 4 E4B-IT / 26B（ローカル・無料）</span><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Haiku 5.5, Gemma 4 E4B-IT / 26B (local, free)</span></p>
+<h2 id="vision"><span class="ja">画面認識（Screen Vision）</span></h2>
+<p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span></p>
+<p><span class="ja">推奨プロバイダ: gemini-flash-latest（無料枠あり）、Claude Haiku 5.5、Gemma 4 E4B-IT / 26B（ローカル・無料）</span></p>
 
-<h2 id="gemini-live"><span class="ja">Gemini Live</span><span class="en">Gemini Live</span></h2>
-<p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
+<h2 id="gemini-live"><span class="ja">Gemini Live</span></h2>
+<p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span></p>
 <ul>
-  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span><span class="en"><strong>Dedicated wake phrase</strong>: "Mira Live" to activate (separate from regular wake words)</span></li>
-  <li><span class="ja"><strong>停止フレーズ</strong>で即終了（トレイの「一時停止」でも終了します）</span><span class="en"><strong>Stop phrase</strong> for instant termination (pausing from the tray also ends it)</span></li>
-  <li><span class="ja">設定画面の「Live」タブで有効化</span><span class="en">Enable in the "Live" tab in Settings</span></li>
-  <li><span class="ja">使用モデル: <strong>gemini-3.8-live</strong>（設定の「Live」タブで変更可）</span><span class="en">Model: <strong>gemini-3.8-live</strong> (changeable in the "Live" tab in Settings)</span></li>
-  <li><span class="ja"><strong>言語（聞き取り・返事）</strong>: 日本語・英語・自動判定から選べます。初期設定は「Windows の言語に合わせる」（日本語・英語以外の Windows では自動判定）。言語を決めると返事はその言語になり、短い発話を外国語と取り違えることが減ります</span><span class="en"><strong>Language (listening &amp; replies)</strong>: choose Japanese, English or auto-detect. The default is Match Windows language (auto-detect when Windows uses a language other than Japanese or English). With a language set, replies are in that language and short phrases are less often mistaken for another language</span></li>
-  <li><span class="ja">Mira が話している間とツールを使っている間は、マイクの音を送りません（スピーカーの声を拾って暴走しないため）。話の途中で声で割り込むことはできませんが、停止フレーズで終了できます</span><span class="en">The microphone is not sent while Mira is speaking or using a tool (so it doesn't pick up its own voice from the speakers). You can't interrupt by voice mid-sentence, but the stop phrase still ends Live mode</span></li>
-  <li><span class="ja"><strong>画面キャプチャ</strong>（v2.3.1 から、新しくインストールした場合は初期設定で無効）: 「Live」タブで有効にすると、頼まれたときに AI が画面を確認します。スクリーンショットは Google に送信されます。AI の判断によるため、頼んでいないのに確認することもあります</span><span class="en"><strong>Screen Capture</strong> (off by default for new installs from v2.3.1): when turned on in the "Live" tab, the AI looks at your screen when you ask. Screenshots are sent to Google. As this relies on the AI's judgment, it may occasionally look without being asked</span></li>
+  <li><span class="ja"><strong>専用ウェイクフレーズ</strong>: 「ミラライブ」で起動（通常の「ミラお願い」とは分離）</span></li>
+  <li><span class="ja"><strong>停止フレーズ</strong>で即終了（トレイの「一時停止」でも終了します）</span></li>
+  <li><span class="ja">設定画面の「Live」タブで有効化</span></li>
+  <li><span class="ja">使用モデル: <strong>gemini-3.8-live</strong>（設定の「Live」タブで変更可）</span></li>
+  <li><span class="ja"><strong>言語（聞き取り・返事）</strong>: 日本語・英語・自動判定から選べます。初期設定は「Windows の言語に合わせる」（日本語・英語以外の Windows では自動判定）。言語を決めると返事はその言語になり、短い発話を外国語と取り違えることが減ります</span></li>
+  <li><span class="ja">Mira が話している間とツールを使っている間は、マイクの音を送りません（スピーカーの声を拾って暴走しないため）。話の途中で声で割り込むことはできませんが、停止フレーズで終了できます</span></li>
+  <li><span class="ja"><strong>画面キャプチャ</strong>（v2.3.1 から、新しくインストールした場合は初期設定で無効）: 「Live」タブで有効にすると、頼まれたときに AI が画面を確認します。スクリーンショットは Google に送信されます。AI の判断によるため、頼んでいないのに確認することもあります</span></li>
 </ul>
 
 <!-- ===== 設定 ===== -->
-<h2 id="custom-notes"><span class="ja">おぼえがき（Custom Notes）</span><span class="en">Custom Notes</span></h2>
-<p><span class="ja">設定画面で Mira に追加の指示を書けます。例: 「天気を聞かれたら Yahoo 天気で検索して」「タメ口はだめ」</span><span class="en">Write additional instructions for Mira in Settings. Example: "Search Yahoo Weather when asked about weather" / "Use polite language"</span></p>
+<h2 id="custom-notes"><span class="ja">おぼえがき（Custom Notes）</span></h2>
+<p><span class="ja">設定画面で Mira に追加の指示を書けます。例: 「天気を聞かれたら Yahoo 天気で検索して」「タメ口はだめ」</span></p>
 
-<h2 id="webwatch-settings"><span class="ja">Webウォッチ設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span><span class="en">Web Watch Setup <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
-<p><span class="ja">設定画面の「Webウォッチ」タブで、キーワードとURLのペアを登録します。</span><span class="en">Register keyword-URL pairs in the "Web Watch" tab in Settings.</span></p>
+<h2 id="webwatch-settings"><span class="ja">Webウォッチ設定 <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h2>
+<p><span class="ja">設定画面の「Webウォッチ」タブで、キーワードとURLのペアを登録します。</span></p>
 <ol class="step-list">
-  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span><span class="en">Open Settings (double-click Mira tray icon → "Settings" button)</span></li>
-  <li><span class="ja">「Webウォッチ」タブを選択</span><span class="en">Select the "Web Watch" tab</span></li>
-  <li><span class="ja">キーワード欄に発話で使う単語（例: 「最新ニュース」）を入力</span><span class="en">Enter a keyword you'll use in voice commands (e.g., "latest news")</span></li>
-  <li><span class="ja">URL欄に取得したいページのURLを入力（例: <code>https://news.yahoo.co.jp/</code>）</span><span class="en">Enter the URL of the page to fetch (e.g., <code>https://news.yahoo.co.jp/</code>)</span></li>
-  <li><span class="ja">「追加」ボタンをクリック</span><span class="en">Click "Add"</span></li>
-  <li><span class="ja">「保存」ボタンで設定を保存（キャンセルで破棄）</span><span class="en">Click "Save" to save settings (Cancel to discard)</span></li>
+  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span></li>
+  <li><span class="ja">「Webウォッチ」タブを選択</span></li>
+  <li><span class="ja">キーワード欄に発話で使う単語（例: 「最新ニュース」）を入力</span></li>
+  <li><span class="ja">URL欄に取得したいページのURLを入力（例: <code>https://news.yahoo.co.jp/</code>）</span></li>
+  <li><span class="ja">「追加」ボタンをクリック</span></li>
+  <li><span class="ja">「保存」ボタンで設定を保存（キャンセルで破棄）</span></li>
 </ol>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは部分一致で発火します。「ニュース」と登録すれば「今日のニュース教えて」「ニュースの概要を教えて」など、「ニュース」を含む発話すべてにマッチします。複数のキーワード-URLペアを登録でき、長いキーワードが優先的にマッチします。</span><span class="en"><strong>💡 Tip:</strong> Keywords use partial matching. Register "news" and it matches any utterance containing "news" like "What's the news today?" or "Give me a news summary." You can register multiple keyword-URL pairs; longer keywords take priority.</span></div>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> キーワードは部分一致で発火します。「ニュース」と登録すれば「今日のニュース教えて」「ニュースの概要を教えて」など、「ニュース」を含む発話すべてにマッチします。複数のキーワード-URLペアを登録でき、長いキーワードが優先的にマッチします。</span></div>
 
-<h2 id="voicelauncher-settings"><span class="ja">音声ランチャー設定</span><span class="en">Voice Launcher Setup</span></h2>
-<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを登録します。登録したキーワードを含む音声コマンドで、アプリやWebサイトを起動できます。</span><span class="en">Register keyword-command pairs in the "Voice Launcher" tab in Settings. Launch apps and websites using voice commands that contain registered keywords.</span></p>
+<h2 id="voicelauncher-settings"><span class="ja">音声ランチャー設定</span></h2>
+<p><span class="ja">設定画面の「音声ランチャー」タブで、キーワードと実行コマンドのペアを登録します。登録したキーワードを含む音声コマンドで、アプリやWebサイトを起動できます。</span></p>
 <ol class="step-list">
-  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span><span class="en">Open Settings (double-click Mira tray icon → "Settings" button)</span></li>
-  <li><span class="ja">「音声ランチャー」タブを選択</span><span class="en">Select the "Voice Launcher" tab</span></li>
-  <li><span class="ja">キーワード欄に発話で使う単語を入力（例: 「Chrome, クローム」）。カンマ区切りで複数登録可能</span><span class="en">Enter keywords you'll use in voice commands (e.g., "Chrome"). Comma-separated for multiple keywords</span></li>
-  <li><span class="ja">コマンド欄に実行ファイルのパスまたはURLを入力（例: <code>chrome.exe</code> または <code>https://mail.google.com</code>）</span><span class="en">Enter the executable path or URL (e.g., <code>chrome.exe</code> or <code>https://mail.google.com</code>)</span></li>
-  <li><span class="ja">「追加」ボタンをクリック</span><span class="en">Click "Add"</span></li>
-  <li><span class="ja">「保存」ボタンで設定を保存</span><span class="en">Click "Save" to save settings</span></li>
+  <li><span class="ja">設定画面を開く（タスクトレイのミラアイコンをダブルクリック → 「設定」ボタン）</span></li>
+  <li><span class="ja">「音声ランチャー」タブを選択</span></li>
+  <li><span class="ja">キーワード欄に発話で使う単語を入力（例: 「Chrome, クローム」）。カンマ区切りで複数登録可能</span></li>
+  <li><span class="ja">コマンド欄に実行ファイルのパスまたはURLを入力（例: <code>chrome.exe</code> または <code>https://mail.google.com</code>）</span></li>
+  <li><span class="ja">「追加」ボタンをクリック</span></li>
+  <li><span class="ja">「保存」ボタンで設定を保存</span></li>
 </ol>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> コマンドに <code>.exe</code> や <code>.bat</code> のパスを指定するとアプリが起動し、<code>https://</code> で始まるURLを指定するとブラウザで開きます。PATHが通っている実行ファイル（例: <code>notepad.exe</code>、<code>calc.exe</code>）はファイル名だけでOKです。</span><span class="en"><strong>💡 Tip:</strong> Specify an <code>.exe</code> or <code>.bat</code> path to launch an app, or a URL starting with <code>https://</code> to open in browser. Executables in PATH (e.g., <code>notepad.exe</code>, <code>calc.exe</code>) need only the filename.</span></div>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> コマンドに <code>.exe</code> や <code>.bat</code> のパスを指定するとアプリが起動し、<code>https://</code> で始まるURLを指定するとブラウザで開きます。PATHが通っている実行ファイル（例: <code>notepad.exe</code>、<code>calc.exe</code>）はファイル名だけでOKです。</span></div>
 
-<h2 id="theme"><span class="ja">テーマ</span><span class="en">Theme</span></h2>
-<p><span class="ja">ダーク / ライトテーマを設定画面から切り替えられます。</span><span class="en">Switch between Dark / Light theme in Settings.</span></p>
+<h2 id="theme"><span class="ja">テーマ</span></h2>
+<p><span class="ja">ダーク / ライトテーマを設定画面から切り替えられます。</span></p>
 
-<h2 id="startup"><span class="ja">起動設定</span><span class="en">Startup Settings</span></h2>
-<p><span class="ja">「最小化起動」をオンにすると、Mira は起動時にウィンドウを表示せず、システムトレイに格納されます。</span><span class="en">Enable "Start minimized" to launch Mira directly to the system tray without showing a window.</span></p>
+<h2 id="startup"><span class="ja">起動設定</span></h2>
+<p><span class="ja">「最小化起動」をオンにすると、Mira は起動時にウィンドウを表示せず、システムトレイに格納されます。</span></p>
 
 <!-- ===== ライセンス ===== -->
-<h2 id="license"><span class="ja">ライセンスについて</span><span class="en">License</span></h2>
-<p><span class="ja">Mira は<strong>完全無料のフリーソフト</strong>です。ライセンスキーや試用期間はありません。すべての機能を制限なくご利用いただけます。</span><span class="en">Mira is <strong>100% free software</strong>. No license key or trial period required. All features are available without any restrictions.</span></p>
+<h2 id="license"><span class="ja">ライセンスについて</span></h2>
+<p><span class="ja">Mira は<strong>完全無料のフリーソフト</strong>です。ライセンスキーや試用期間はありません。すべての機能を制限なくご利用いただけます。</span></p>
 
 <!-- ===== その他 ===== -->
 <h2 id="faq">FAQ</h2>
 
-<h3><span class="ja">Q: 音声認識の精度が低い・誤認識が多い</span><span class="en">Q: Speech recognition accuracy is low / too many misrecognitions</span></h3>
-<p><span class="ja">設定の「音声認識」タブで、より高精度なモデルに変更してみてください。</span><span class="en">Try switching to a more accurate model in the "Speech Recognition" tab in Settings.</span></p>
+<h3><span class="ja">Q: 音声認識の精度が低い・誤認識が多い</span></h3>
+<p><span class="ja">設定の「音声認識」タブで、より高精度なモデルに変更してみてください。</span></p>
 <ul>
-  <li><span class="ja"><strong>small</strong>（デフォルト・466MB）: 高速だが低精度</span><span class="en"><strong>small</strong> (default, 466MB): Fast but lower accuracy</span></li>
-  <li><span class="ja"><strong>large-v3-turbo</strong>（1.6GB・推奨）: 高速＋高精度。最もバランスが良い</span><span class="en"><strong>large-v3-turbo</strong> (1.6GB, recommended): Fast + accurate. Best balance</span></li>
-  <li><span class="ja"><strong>large-v3</strong>（2.9GB）: 最高精度だが低速。PCスペックに余裕がある場合に</span><span class="en"><strong>large-v3</strong> (2.9GB): Highest accuracy but slow. For high-spec PCs</span></li>
+  <li><span class="ja"><strong>small</strong>（デフォルト・466MB）: 高速だが低精度</span></li>
+  <li><span class="ja"><strong>large-v3-turbo</strong>（1.6GB・推奨）: 高速＋高精度。最もバランスが良い</span></li>
+  <li><span class="ja"><strong>large-v3</strong>（2.9GB）: 最高精度だが低速。PCスペックに余裕がある場合に</span></li>
 </ul>
-<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> モデルを変更すると初回のみダウンロードが必要です。また、マイクの入力レベルが低すぎないか、Windows のサウンド設定も確認してください。</span><span class="en"><strong>💡 Tip:</strong> Changing models requires a one-time download. Also check that your microphone input level isn't too low in Windows Sound settings.</span></div>
+<div class="callout"><span class="ja"><strong>💡 ヒント:</strong> モデルを変更すると初回のみダウンロードが必要です。また、マイクの入力レベルが低すぎないか、Windows のサウンド設定も確認してください。</span></div>
 
-<h3><span class="ja">Q: 呼んでいないのにMiraが反応する</span><span class="en">Q: Mira responds even when I didn't call it</span></h3>
-<p><span class="ja">ウェイクワードが短いと、環境音やテレビの音声で誤って起動することがあります。以下の対策を試してください:</span><span class="en">Short wake words can be accidentally triggered by ambient noise or TV audio. Try these solutions:</span></p>
+<h3><span class="ja">Q: 呼んでいないのにMiraが反応する</span></h3>
+<p><span class="ja">ウェイクワードが短いと、環境音やテレビの音声で誤って起動することがあります。以下の対策を試してください:</span></p>
 <ul>
-  <li><span class="ja"><strong>ウェイクワードを長めにする</strong>: 「ミラ」→「ミラお願い」「ミラ質問です」など、6モーラ以上推奨</span><span class="en"><strong>Use a longer wake word</strong>: "Mira" → "Hey Mira please", "Mira question" — 5+ syllables recommended</span></li>
-  <li><span class="ja"><strong>中断フレーズも長めに</strong>: 「ストップ」→「ミラストップして」にすると誤停止も防げます</span><span class="en"><strong>Longer stop phrase too</strong>: "Stop" → "Mira stop please" to prevent false stops</span></li>
-  <li><span class="ja">マイクとスピーカーが近い場合、Mira 自身の音声が回り込む可能性があります。ヘッドセットの使用も効果的です</span><span class="en">If your mic and speakers are close, Mira's own voice may feed back. Using a headset can help</span></li>
-</ul>
-
-<h3><span class="ja">Q: Webウォッチがうまく動かない</span><span class="en">Q: Web Watch isn't working properly</span></h3>
-<p><span class="ja">以下を確認してください:</span><span class="en">Check the following:</span></p>
-<ul>
-  <li><span class="ja"><strong>キーワードを変えてみる</strong>: 音声認識で正しく認識される単語に変更。例:「ニュース」が「入っす」と認識される場合、「最新ニュース」に変更</span><span class="en"><strong>Try different keywords</strong>: Change to words that are reliably recognized. E.g., if "news" is misrecognized, try "latest news"</span></li>
-  <li><span class="ja"><strong>複数キーワードを登録</strong>: カンマ区切りで「ニュース, 最新ニュース, にゅーす」のように複数登録するとマッチ率が上がります</span><span class="en"><strong>Register multiple keywords</strong>: Use comma-separated keywords like "news, latest news" to increase match rate</span></li>
-  <li><span class="ja"><strong>URLが正しいか確認</strong>: ブラウザで直接URLを開いて、内容が表示されるか確認してください</span><span class="en"><strong>Verify the URL</strong>: Open the URL directly in a browser to make sure it loads content</span></li>
-  <li><span class="ja"><strong>AIプロバイダが設定されているか確認</strong>: Webウォッチの要約機能にはAIプロバイダが必要です</span><span class="en"><strong>Check AI provider is configured</strong>: The summary feature requires an AI provider</span></li>
+  <li><span class="ja"><strong>ウェイクワードを長めにする</strong>: 「ミラ」→「ミラお願い」「ミラ質問です」など、6モーラ以上推奨</span></li>
+  <li><span class="ja"><strong>中断フレーズも長めに</strong>: 「ストップ」→「ミラストップして」にすると誤停止も防げます</span></li>
+  <li><span class="ja">マイクとスピーカーが近い場合、Mira 自身の音声が回り込む可能性があります。ヘッドセットの使用も効果的です</span></li>
 </ul>
 
-<h3><span class="ja">Q: 音声ランチャーでアプリが起動しない</span><span class="en">Q: Voice Launcher doesn't launch apps</span></h3>
-<p><span class="ja">以下を確認してください:</span><span class="en">Check the following:</span></p>
+<h3><span class="ja">Q: Webウォッチがうまく動かない</span></h3>
+<p><span class="ja">以下を確認してください:</span></p>
 <ul>
-  <li><span class="ja"><strong>キーワードが正しく認識されているか</strong>: ログ（設定 → 「ログ」タブ）で実際に認識されたテキストを確認</span><span class="en"><strong>Is the keyword recognized correctly?</strong>: Check the actual recognized text in the log (Settings → "Log" tab)</span></li>
-  <li><span class="ja"><strong>コマンドのパスが正しいか</strong>: フルパスで指定するか、PATHが通っているコマンドを使用</span><span class="en"><strong>Is the command path correct?</strong>: Use a full path or a command that's in your system PATH</span></li>
-  <li><span class="ja">「開いて」「起動して」「立ち上げて」などの起動系の動詞と一緒にキーワードを発話してください</span><span class="en">Include launch verbs like "open", "launch", "start" along with the keyword</span></li>
+  <li><span class="ja"><strong>キーワードを変えてみる</strong>: 音声認識で正しく認識される単語に変更。例:「ニュース」が「入っす」と認識される場合、「最新ニュース」に変更</span></li>
+  <li><span class="ja"><strong>複数キーワードを登録</strong>: カンマ区切りで「ニュース, 最新ニュース, にゅーす」のように複数登録するとマッチ率が上がります</span></li>
+  <li><span class="ja"><strong>URLが正しいか確認</strong>: ブラウザで直接URLを開いて、内容が表示されるか確認してください</span></li>
+  <li><span class="ja"><strong>AIプロバイダが設定されているか確認</strong>: Webウォッチの要約機能にはAIプロバイダが必要です</span></li>
 </ul>
 
-<h3><span class="ja">Q: 画面認識（Vision）が使えない</span><span class="en">Q: Screen Vision doesn't work</span></h3>
-<p><span class="ja">Vision対応のAIプロバイダが必要です。以下のいずれかを設定してください:</span><span class="en">You need a Vision-capable AI provider. Set up one of the following:</span></p>
+<h3><span class="ja">Q: 音声ランチャーでアプリが起動しない</span></h3>
+<p><span class="ja">以下を確認してください:</span></p>
 <ul>
-  <li><span class="ja"><strong>gemini-flash-latest</strong>（推奨・無料枠あり）</span><span class="en"><strong>gemini-flash-latest</strong> (recommended, free tier available)</span></li>
-  <li><span class="ja"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong>（高精度）</span><span class="en"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong> (high accuracy)</span></li>
-  <li><span class="ja"><strong>Ollama（またはLM Studio）+ Gemma 4 E4B-IT / 26B</strong>（ローカル・無料）</span><span class="en"><strong>Ollama (or LM Studio) + Gemma 4 E4B-IT / 26B</strong> (local, free)</span></li>
+  <li><span class="ja"><strong>キーワードが正しく認識されているか</strong>: ログ（設定 → 「ログ」タブ）で実際に認識されたテキストを確認</span></li>
+  <li><span class="ja"><strong>コマンドのパスが正しいか</strong>: フルパスで指定するか、PATHが通っているコマンドを使用</span></li>
+  <li><span class="ja">「開いて」「起動して」「立ち上げて」などの起動系の動詞と一緒にキーワードを発話してください</span></li>
 </ul>
 
-<h3><span class="ja">Q: 天気情報を聞くと地域の設定を促される</span><span class="en">Q: Mira asks me to set my location when I ask about weather</span></h3>
-<p><span class="ja">設定画面の「AI」タブにある「デフォルト天気地域」欄にお住まいの地域名を入力してください（例: 「東京」「大阪」「横浜」）。「今日の天気教えて」と言ったとき、この地域の天気が返ります。空欄の場合、地域の設定を促します。</span><span class="en">Enter your location in the "Default Weather Location" field in the "AI" tab in Settings (e.g., "Tokyo", "Osaka", "New York"). When you say "What's the weather?", this location's weather will be returned. If empty, Mira will ask you to set it.</span></p>
-
-<h3><span class="ja">Q: AIの応答が遅い</span><span class="en">Q: AI responses are slow</span></h3>
-<p><span class="ja">以下を試してみてください:</span><span class="en">Try the following:</span></p>
+<h3><span class="ja">Q: 画面認識（Vision）が使えない</span></h3>
+<p><span class="ja">Vision対応のAIプロバイダが必要です。以下のいずれかを設定してください:</span></p>
 <ul>
-  <li><span class="ja"><strong>クラウドAPIを使う</strong>: Gemini Flash は無料枠があり高速（1日あたりの上限はモデルにより異なります）</span><span class="en"><strong>Use a cloud API</strong>: Gemini Flash has a free tier and is fast (daily limits vary by model)</span></li>
-  <li><span class="ja"><strong>ローカルの場合</strong>: より小さいモデルに変更（例: gemma3:4b）、またはGPUアクセラレーションを有効に</span><span class="en"><strong>For local</strong>: Switch to a smaller model (e.g., gemma3:4b) or enable GPU acceleration</span></li>
-  <li><span class="ja"><strong>Lemonade</strong>（AMD NPU）: AMD Ryzen AI搭載PCならLemonade経由で高速推論が可能</span><span class="en"><strong>Lemonade</strong> (AMD NPU): Fast inference via Lemonade on AMD Ryzen AI PCs</span></li>
+  <li><span class="ja"><strong>gemini-flash-latest</strong>（推奨・無料枠あり）</span></li>
+  <li><span class="ja"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong>（高精度）</span></li>
+  <li><span class="ja"><strong>Ollama（またはLM Studio）+ Gemma 4 E4B-IT / 26B</strong>（ローカル・無料）</span></li>
 </ul>
 
-<h3><span class="ja">Q: インターネットなしで使えますか？</span><span class="en">Q: Can I use Mira without internet?</span></h3>
-<p><span class="ja"><strong>はい。</strong>Ollama（AI）+ Whisper（STT）+ AivisSpeech/VOICEVOX（TTS）の組み合わせで完全オフライン動作します。</span><span class="en"><strong>Yes.</strong> Use Ollama (AI) + Whisper (STT) + AivisSpeech/VOICEVOX (TTS) for fully offline operation.</span></p>
+<h3><span class="ja">Q: 天気情報を聞くと地域の設定を促される</span></h3>
+<p><span class="ja">設定画面の「AI」タブにある「デフォルト天気地域」欄にお住まいの地域名を入力してください（例: 「東京」「大阪」「横浜」）。「今日の天気教えて」と言ったとき、この地域の天気が返ります。空欄の場合、地域の設定を促します。</span></p>
 
-<h3><span class="ja">Q: Mira はどんなデータを送信しますか？</span><span class="en">Q: What data does Mira send?</span></h3>
-<p><span class="ja">ローカルプロバイダ使用時はゼロ。クラウドプロバイダ使用時は音声認識後のテキストのみが API に送信されます。詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</span><span class="en">Zero with local providers. With cloud providers, only transcribed text is sent to the API. See our <a href="privacy.html">Privacy Policy</a>.</span></p>
-
-<h3><span class="ja">Q: VOICEVOX / AivisSpeech は別途インストールが必要ですか？</span><span class="en">Q: Do I need to install VOICEVOX / AivisSpeech separately?</span></h3>
-<p><span class="ja"><strong>はい。</strong>これらは外部ソフトウェアです。インストールして起動しておく必要があります。インストールしない場合、System.Speech にフォールバックします。</span><span class="en"><strong>Yes.</strong> These are separate software. They must be installed and running. Without them, Mira falls back to System.Speech.</span></p>
-
-<h3><span class="ja">Q: 無料で使えるAIプロバイダはありますか？</span><span class="en">Q: Are there any free AI providers?</span></h3>
-<p><span class="ja"><strong>はい。</strong>以下が無料で利用可能です:</span><span class="en"><strong>Yes.</strong> The following are available for free:</span></p>
+<h3><span class="ja">Q: AIの応答が遅い</span></h3>
+<p><span class="ja">以下を試してみてください:</span></p>
 <ul>
-  <li><span class="ja"><strong>Gemini Flash</strong>: 無料枠あり。1日あたりの上限はモデルにより異なり、変わることがあります（APIキー取得は初回セットアップウィザードで案内）</span><span class="en"><strong>Gemini Flash</strong>: Free tier available; daily limits vary by model and may change (API key setup guided in first-run wizard)</span></li>
-  <li><span class="ja"><strong>Ollama</strong>: 完全無料のローカルAI。PCにインストールするだけ</span><span class="en"><strong>Ollama</strong>: Completely free local AI. Just install on your PC</span></li>
-  <li><span class="ja"><strong>LM Studio</strong>: Ollamaと同様のローカルAI。GUIで操作しやすい</span><span class="en"><strong>LM Studio</strong>: Local AI similar to Ollama. Easy GUI interface</span></li>
+  <li><span class="ja"><strong>クラウドAPIを使う</strong>: Gemini Flash は無料枠があり高速（1日あたりの上限はモデルにより異なります）</span></li>
+  <li><span class="ja"><strong>ローカルの場合</strong>: より小さいモデルに変更（例: gemma3:4b）、またはGPUアクセラレーションを有効に</span></li>
+  <li><span class="ja"><strong>Lemonade</strong>（AMD NPU）: AMD Ryzen AI搭載PCならLemonade経由で高速推論が可能</span></li>
 </ul>
 
-<h3><span class="ja">Q: 記憶機能をオフにしたい</span><span class="en">Q: How to disable the memory feature</span></h3>
-<p><span class="ja">「全部忘れて」「記憶をクリアして」と言うと、保存された記憶をすべて削除できます。現時点では記憶機能自体をオフにする設定はありませんが、不要な記憶は個別に「〇〇を忘れて」で削除できます。</span><span class="en">Say "Forget everything" or "Clear memory" to delete all saved memories. There's no setting to disable the memory feature entirely, but you can delete individual memories by saying "Forget [topic]".</span></p>
+<h3><span class="ja">Q: インターネットなしで使えますか？</span></h3>
+<p><span class="ja"><strong>はい。</strong>Ollama（AI）+ Whisper（STT）+ AivisSpeech/VOICEVOX（TTS）の組み合わせで完全オフライン動作します。</span></p>
 
-<h2 id="troubleshooting"><span class="ja">トラブルシューティング</span><span class="en">Troubleshooting</span></h2>
+<h3><span class="ja">Q: Mira はどんなデータを送信しますか？</span></h3>
+<p><span class="ja">ローカルプロバイダ使用時はゼロ。クラウドプロバイダ使用時は音声認識後のテキストのみが API に送信されます。詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</span></p>
 
-<h3><span class="ja">ウェイクワードが反応しない</span><span class="en">Wake word not responding</span></h3>
-<p><span class="ja">まず<strong>正しいマイクが選ばれているか</strong>を確認してください。声にまったく反応しない場合、最も多い原因はこれです。</span><span class="en">First, check that <strong>the right microphone is selected</strong>. This is by far the most common cause when Mira does not respond at all.</span></p>
+<h3><span class="ja">Q: VOICEVOX / AivisSpeech は別途インストールが必要ですか？</span></h3>
+<p><span class="ja"><strong>はい。</strong>これらは外部ソフトウェアです。インストールして起動しておく必要があります。インストールしない場合、System.Speech にフォールバックします。</span></p>
+
+<h3><span class="ja">Q: 無料で使えるAIプロバイダはありますか？</span></h3>
+<p><span class="ja"><strong>はい。</strong>以下が無料で利用可能です:</span></p>
+<ul>
+  <li><span class="ja"><strong>Gemini Flash</strong>: 無料枠あり。1日あたりの上限はモデルにより異なり、変わることがあります（APIキー取得は初回セットアップウィザードで案内）</span></li>
+  <li><span class="ja"><strong>Ollama</strong>: 完全無料のローカルAI。PCにインストールするだけ</span></li>
+  <li><span class="ja"><strong>LM Studio</strong>: Ollamaと同様のローカルAI。GUIで操作しやすい</span></li>
+</ul>
+
+<h3><span class="ja">Q: 記憶機能をオフにしたい</span></h3>
+<p><span class="ja">「全部忘れて」「記憶をクリアして」と言うと、保存された記憶をすべて削除できます。現時点では記憶機能自体をオフにする設定はありませんが、不要な記憶は個別に「〇〇を忘れて」で削除できます。</span></p>
+
+<h2 id="troubleshooting"><span class="ja">トラブルシューティング</span></h2>
+
+<h3><span class="ja">ウェイクワードが反応しない</span></h3>
+<p><span class="ja">まず<strong>正しいマイクが選ばれているか</strong>を確認してください。声にまったく反応しない場合、最も多い原因はこれです。</span></p>
 <ol>
-  <li><span class="ja">設定 → 「ウェイクワード」タブを開く</span><span class="en">Open Settings → "Wake Word" tab</span></li>
-  <li><span class="ja">「マイク」で実際に使っているマイクを選ぶ</span><span class="en">Select the microphone you actually use under "Microphone"</span></li>
-  <li><span class="ja">「マイクをテスト」を押し、普段の距離で話して平均が必要値を超えるか確認する</span><span class="en">Press "Test microphone", speak at your normal distance, and check that the average clears the required value</span></li>
-  <li><span class="ja">超えない場合は「マイク音量ブースト」を上げるか、マイクに近づく（詳しくは<a href="#microphone">マイク設定</a>）</span><span class="en">If it falls short, raise "Microphone boost" or move closer (see <a href="#microphone">Microphone Setup</a>)</span></li>
+  <li><span class="ja">設定 → 「ウェイクワード」タブを開く</span></li>
+  <li><span class="ja">「マイク」で実際に使っているマイクを選ぶ</span></li>
+  <li><span class="ja">「マイクをテスト」を押し、普段の距離で話して平均が必要値を超えるか確認する</span></li>
+  <li><span class="ja">超えない場合は「マイク音量ブースト」を上げるか、マイクに近づく（詳しくは<a href="#microphone">マイク設定</a>）</span></li>
 </ol>
-<p><span class="ja">それでも解決しない場合:</span><span class="en">If that does not help:</span></p>
+<p><span class="ja">それでも解決しない場合:</span></p>
 <ul>
-  <li><span class="ja">マイクがミュートになっていないか確認</span><span class="en">Check if microphone is muted</span></li>
-  <li><span class="ja">Windows のマイクアクセス許可を確認（設定 → プライバシー → マイク）</span><span class="en">Check Windows microphone permission (Settings → Privacy → Microphone)</span></li>
-  <li><span class="ja">Mira が一時停止中（<strong>グレー</strong>のトレイアイコン）でないか確認。動作中はオレンジ、聞き取り中は青になります</span><span class="en">Check whether Mira is paused (<strong>grey</strong> tray icon). It is orange when running and blue while listening</span></li>
+  <li><span class="ja">マイクがミュートになっていないか確認</span></li>
+  <li><span class="ja">Windows のマイクアクセス許可を確認（設定 → プライバシー → マイク）</span></li>
+  <li><span class="ja">Mira が一時停止中（<strong>グレー</strong>のトレイアイコン）でないか確認。動作中はオレンジ、聞き取り中は青になります</span></li>
 </ul>
-<div class="callout"><span class="ja"><strong>💡 補足:</strong> マイクから音声がまったく届いていない場合、Mira がタスクトレイの通知でお知らせします。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識され、既定のデバイスになってしまう機器があります。</span><span class="en"><strong>💡 Note:</strong> Mira shows a tray notification when no audio at all is reaching it from the microphone. Some USB speakers and monitors expose a "microphone" endpoint to Windows without having one, and can end up as your default recording device.</span></div>
+<div class="callout"><span class="ja"><strong>💡 補足:</strong> マイクから音声がまったく届いていない場合、Mira がタスクトレイの通知でお知らせします。USB スピーカーやモニターの中には、マイクを搭載していないのに「マイク」として Windows に認識され、既定のデバイスになってしまう機器があります。</span></div>
 
-<h3><span class="ja">TTS の音声が出ない</span><span class="en">No TTS audio output</span></h3>
+<h3><span class="ja">TTS の音声が出ない</span></h3>
 <ul>
-  <li><span class="ja">スピーカーがミュートになっていないか確認</span><span class="en">Check if speakers are muted</span></li>
-  <li><span class="ja">AivisSpeech / VOICEVOX が起動しているか確認</span><span class="en">Check if AivisSpeech / VOICEVOX is running</span></li>
-  <li><span class="ja">設定の TTS エンジン優先順位を確認</span><span class="en">Check TTS engine priority in Settings</span></li>
-</ul>
-
-<h3><span class="ja">AI が応答しない</span><span class="en">AI not responding</span></h3>
-<ul>
-  <li><span class="ja">設定で AI プロバイダが正しく設定されているか確認</span><span class="en">Check if AI provider is correctly configured in Settings</span></li>
-  <li><span class="ja">Ollama の場合: <code>ollama list</code> でモデルがインストールされているか確認</span><span class="en">For Ollama: run <code>ollama list</code> to verify model is installed</span></li>
-  <li><span class="ja">クラウドプロバイダの場合: API キーが正しいか確認</span><span class="en">For cloud providers: verify API key is correct</span></li>
+  <li><span class="ja">スピーカーがミュートになっていないか確認</span></li>
+  <li><span class="ja">AivisSpeech / VOICEVOX が起動しているか確認</span></li>
+  <li><span class="ja">設定の TTS エンジン優先順位を確認</span></li>
 </ul>
 
-<h2 id="support"><span class="ja">サポート</span><span class="en">Support</span></h2>
-<p><span class="ja">ご質問やバグ報告は <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a> までお気軽にお問い合わせください。</span><span class="en">For questions or bug reports, please contact <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a>.</span></p>
+<h3><span class="ja">AI が応答しない</span></h3>
+<ul>
+  <li><span class="ja">設定で AI プロバイダが正しく設定されているか確認</span></li>
+  <li><span class="ja">Ollama の場合: <code>ollama list</code> でモデルがインストールされているか確認</span></li>
+  <li><span class="ja">クラウドプロバイダの場合: API キーが正しいか確認</span></li>
+</ul>
+
+<h2 id="support"><span class="ja">サポート</span></h2>
+<p><span class="ja">ご質問やバグ報告は <a href="mailto:support@mojosoft.biz">support@mojosoft.biz</a> までお気軽にお問い合わせください。</span></p>
 
 </main>
 </div>
 
 <script>
-function setLang(l){
-  document.body.setAttribute('data-lang',l);
-  document.documentElement.lang=l;
-  document.title=l==='ja'?'ヘルプ — Mira AI Voice Assistant':'Help — Mira AI Voice Assistant';
-  localStorage.setItem('mira-lang',l);
-}
-function toggleLang(){setLang(document.body.getAttribute('data-lang')==='ja'?'en':'ja')}
-(function(){
-  var s=localStorage.getItem('mira-lang');
-  if(s){setLang(s)}
-  else if(navigator.language&&!navigator.language.startsWith('ja')){setLang('en')}
-})();
 
 /* Sidebar active tracking */
 (function(){
