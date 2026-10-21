@@ -232,19 +232,43 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Direct Download -->
 <div class="trial-section">
-  <a href="https://mojosoft.biz/Mira_Setup_2.3.1.exe" class="trial-btn" download>
+  <a href="https://mojosoft.biz/Mira_Setup_2.3.2.exe" class="trial-btn" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     <span class="ja">無料ダウンロード</span>
   </a>
   <p class="trial-note">
-    Version 2.3.1<br>
-    <span class="ja">Windows 10/11 (64-bit) · 約 54MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
+    Version 2.3.2<br>
+    <span class="ja">Windows 10/11 (64-bit) · 約 55MB · .NETランタイム不要<br>完全無料 · 全機能利用可能</span>
   </p>
 </div>
 
 <!-- Changelog -->
 <div class="changelog">
-  <h2><span class="ja">v2.3.1 の更新内容</span></h2>
+  <h2><span class="ja">v2.3.2 の更新内容</span></h2>
+  <p class="changelog-date"><span class="ja">2026年10月21日</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">音声認識が止まり、話しかけても反応しなくなる不具合を修正</span></h3>
+    <p>
+      <span class="ja">長い時間起動したままにしていると、話しかけても音声認識が終わらず、それ以降まったく反応しなくなることがありました（Mira を再起動すると直っていました）。原因は音声認識の部品（Whisper.net）の不具合で、直った版に更新しました。また、万一音声認識が止まっても Mira が自動で作り直し、次に話しかけたときから使えるようにしました。</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="ja">「〇〇の記憶を消して」で記憶が全部消える不具合を修正</span></h3>
+    <p>
+      <span class="ja">「田中さんの記憶を消して」のように対象を言っても、Mira が覚えた情報が（ピン留めしたものを除いて）すべて消えていました。今後は、言った言葉を含む記憶だけを消します。「この記憶を消して」のようにどの記憶か分からないときは、消さずに聞き返します。「記憶を全部消して」「全部忘れて」は、これまでどおりすべて消します（ピン留めした記憶は残ります）。</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="ja">英語表示のとき「Mira について」から英語のサイトを開くように</span></h3>
+    <p>
+      <span class="ja">Windows の表示言語が日本語以外のとき、「Mira について」の画面から開く Web サイトとヘルプを英語版にしました。</span>
+    </p>
+  </div>
+
+  <h2 style="margin-top:2.5rem"><span class="ja">v2.3.1 の更新内容</span></h2>
   <p class="changelog-date"><span class="ja">2026年10月13日</span></p>
 
   <div class="changelog-item">

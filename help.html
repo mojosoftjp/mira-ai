@@ -290,7 +290,7 @@ a:hover{text-decoration:underline}
 <p><span class="ja">Mira は 7 つ以上の AI プロバイダに対応しています。設定画面の「AI」タブでプロバイダとモデルを選択します。</span></p>
 
 <h2 id="vision-models"><span class="ja">推奨モデル（実機テスト済み）</span></h2>
-<p><span class="ja">以下のモデルは実機テストで動作を確認済みです。<strong>画面認識（Screen Vision）</strong>はクラウドのモデルで確認しました。Gemma 4 は会話用で、v2.3.1 では画面認識に使えません。</span></p>
+<p><span class="ja">以下のモデルは実機テストで動作を確認済みです。<strong>画面認識（Screen Vision）</strong>はクラウドのモデルで確認しました。Gemma 4 は会話用で、v2.3.2 では画面認識に使えません。</span></p>
 
 <table class="cmd-table">
   <thead>
@@ -341,7 +341,7 @@ a:hover{text-decoration:underline}
   </tbody>
 </table>
 
-<div class="callout warn"><span class="ja"><strong>⚠️ v2.3.1 の画面認識について:</strong> 画面認識はクラウドの AI（Gemini・Claude・OpenAI）でのみ使えます。ローカルの AI（Ollama・LM Studio・Lemonade）で会話している場合も、画面認識には Gemini か Claude の API キーが必要です（キーが無いと、Gemini か Anthropic の API キーを設定するよう案内します）。</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ v2.3.2 の画面認識について:</strong> 画面認識はクラウドの AI（Gemini・Claude・OpenAI）でのみ使えます。ローカルの AI（Ollama・LM Studio・Lemonade）で会話している場合も、画面認識には Gemini か Claude の API キーが必要です（キーが無いと、Gemini か Anthropic の API キーを設定するよう案内します）。</span></div>
 
 <div class="callout"><span class="ja"><strong>💡 セットアップ:</strong> クラウドモデルは設定画面で API キーとモデル名を入力するだけ。ローカル（Gemma 4・会話用）は <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> または <strong>LM Studio</strong>: 「<code>gemma-4-e4b-it</code>」で検索してダウンロード。</span></div>
 
@@ -497,7 +497,7 @@ a:hover{text-decoration:underline}
     <tr><td><span class="ja"><strong>天気</strong></span></td><td><span class="ja">「今日の天気は？」「東京の天気教えて」<br>「明日の気温」「降水確率は？」</span></td><td><span class="ja">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
   </tbody>
 </table>
-<div class="callout warn"><span class="ja"><strong>⚠️ ※ v2.3.1 の Web 検索について:</strong> 「〇〇を調べて」などの音声検索は、v2.3.1 では結果が返らないことがあります（次の版で対応予定）。「〇〇をググって」と言うと、Google の検索結果を既定のブラウザで開きます。</span></div>
+<div class="callout warn"><span class="ja"><strong>⚠️ ※ v2.3.2 の Web 検索について:</strong> 「〇〇を調べて」などの音声検索は、v2.3.2 では結果が返らないことがあります（次の版で対応予定）。「〇〇をググって」と言うと、Google の検索結果を既定のブラウザで開きます。</span></div>
 
 <!-- --- Web Watch --- -->
 <h3 id="cmd-webwatch"><span class="ja">Webウォッチ <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
@@ -574,7 +574,7 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="ja">画面認識（Screen Vision）</span></h2>
 <p><span class="ja">AI が画面をキャプチャし、内容を分析・説明します。音声コマンドの詳細は <a href="#cmd-vision">画面認識コマンド</a> を参照。</span></p>
-<p><span class="ja">推奨プロバイダ: gemini-flash-latest（無料枠あり）、Claude Haiku 5.5。v2.3.1 では、画面認識はクラウドの AI（Gemini・Claude・OpenAI）でのみ使えます。</span></p>
+<p><span class="ja">推奨プロバイダ: gemini-flash-latest（無料枠あり）、Claude Haiku 5.5。v2.3.2 では、画面認識はクラウドの AI（Gemini・Claude・OpenAI）でのみ使えます。</span></p>
 
 <h2 id="gemini-live"><span class="ja">Gemini Live</span></h2>
 <p><span class="ja">Google の Gemini Live API を使用したリアルタイム音声対話モードです。STT + LLM + TTS が 1 つの WebSocket に統合され、自然な会話が可能です。</span></p>
@@ -661,7 +661,7 @@ a:hover{text-decoration:underline}
 </ul>
 
 <h3><span class="ja">Q: 画面認識（Vision）が使えない</span></h3>
-<p><span class="ja">Vision対応のクラウドの AI が必要です（v2.3.1 では、ローカルの AI では画面認識を使えません）。以下のいずれかを設定してください:</span></p>
+<p><span class="ja">Vision対応のクラウドの AI が必要です（v2.3.2 では、ローカルの AI では画面認識を使えません）。以下のいずれかを設定してください:</span></p>
 <ul>
   <li><span class="ja"><strong>gemini-flash-latest</strong>（推奨・無料枠あり）</span></li>
   <li><span class="ja"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong>（高精度）</span></li>

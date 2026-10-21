@@ -232,19 +232,43 @@ footer{border-top:1px solid var(--border);padding:48px 24px;text-align:center}
 
 <!-- Direct Download -->
 <div class="trial-section">
-  <a href="https://mojosoft.biz/Mira_Setup_2.3.1.exe" class="trial-btn" download>
+  <a href="https://mojosoft.biz/Mira_Setup_2.3.2.exe" class="trial-btn" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     <span class="en">Free Download</span>
   </a>
   <p class="trial-note">
-    Version 2.3.1<br>
-    <span class="en">Windows 10/11 (64-bit) · ~54MB · No .NET runtime required<br>Completely free · All features included</span>
+    Version 2.3.2<br>
+    <span class="en">Windows 10/11 (64-bit) · ~55MB · No .NET runtime required<br>Completely free · All features included</span>
   </p>
 </div>
 
 <!-- Changelog -->
 <div class="changelog">
-  <h2><span class="en">What's new in v2.3.1</span></h2>
+  <h2><span class="en">What's new in v2.3.2</span></h2>
+  <p class="changelog-date"><span class="en">October 21, 2026</span></p>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: speech recognition could stop working</span></h3>
+    <p>
+      <span class="en">After Mira had been running for a long time, speech recognition could stop finishing, and Mira no longer responded until it was restarted. The cause was a bug in the speech engine (Whisper.net), which is now updated to a fixed version. If recognition ever gets stuck, Mira now rebuilds it so the next request works.</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-fix">FIX</span><span class="en">Fixed: the Japanese command “〇〇の記憶を消して” deleted all memories</span></h3>
+    <p>
+      <span class="en">Asking Mira to forget something specific in Japanese deleted everything it remembered except pinned items. It now deletes only memories that contain the words you said, and asks which one when it is unclear (for example “forget it”). “Forget everything” still deletes all (pinned items are kept).</span>
+    </p>
+  </div>
+
+  <div class="changelog-item">
+    <h3><span class="changelog-tag tag-new">NEW</span><span class="en">About window opens the English website</span></h3>
+    <p>
+      <span class="en">When Windows is not set to Japanese, the About window now opens the English website and help.</span>
+    </p>
+  </div>
+
+  <h2 style="margin-top:2.5rem"><span class="en">What's new in v2.3.1</span></h2>
   <p class="changelog-date"><span class="en">October 13, 2026</span></p>
 
   <div class="changelog-item">

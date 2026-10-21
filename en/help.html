@@ -290,7 +290,7 @@ a:hover{text-decoration:underline}
 <p><span class="en">Mira supports 7+ AI providers. Select your provider and model in the "AI" tab in Settings.</span></p>
 
 <h2 id="vision-models"><span class="en">Recommended Models (Tested)</span></h2>
-<p><span class="en">The following models have been tested on real hardware. <strong>Screen Vision</strong> was tested with the cloud models. Gemma 4 is for conversation and cannot be used for Screen Vision in v2.3.1.</span></p>
+<p><span class="en">The following models have been tested on real hardware. <strong>Screen Vision</strong> was tested with the cloud models. Gemma 4 is for conversation and cannot be used for Screen Vision in v2.3.2.</span></p>
 
 <table class="cmd-table">
   <thead>
@@ -341,7 +341,7 @@ a:hover{text-decoration:underline}
   </tbody>
 </table>
 
-<div class="callout warn"><span class="en"><strong>⚠️ Screen Vision in v2.3.1:</strong> Screen Vision works only with cloud AI (Gemini, Claude, OpenAI). Even when you talk to a local AI (Ollama, LM Studio, Lemonade), Screen Vision needs a Gemini or Claude API key (without one, Mira asks you to set a Gemini or Anthropic API key in Settings).</span></div>
+<div class="callout warn"><span class="en"><strong>⚠️ Screen Vision in v2.3.2:</strong> Screen Vision works only with cloud AI (Gemini, Claude, OpenAI). Even when you talk to a local AI (Ollama, LM Studio, Lemonade), Screen Vision needs a Gemini or Claude API key (without one, Mira asks you to set a Gemini or Anthropic API key in Settings).</span></div>
 
 <div class="callout"><span class="en"><strong>💡 Setup:</strong> For cloud models, just enter the API key and model name in Settings. For local conversation (Gemma 4), use <strong>Ollama</strong>: <code>ollama pull gemma4:e4b</code> or <strong>LM Studio</strong>: search "<code>gemma-4-e4b-it</code>".</span></div>
 
@@ -496,7 +496,7 @@ a:hover{text-decoration:underline}
     <tr><td><span class="en"><strong>Weather</strong></span></td><td><span class="en">"What's the weather?" / "Weather in Tokyo"<br>"Tomorrow's temperature"</span></td><td><span class="en">"Weather" / "Forecast"<br>"Temperature in ..."</span></td></tr>
   </tbody>
 </table>
-<div class="callout warn"><span class="en"><strong>⚠️ * Web search in v2.3.1:</strong> Voice search such as "Search for X" may return no results in v2.3.1 (a fix is planned for the next version). Saying "Google X" opens the Google search results in your default browser.</span></div>
+<div class="callout warn"><span class="en"><strong>⚠️ * Web search in v2.3.2:</strong> Voice search such as "Search for X" may return no results in v2.3.2 (a fix is planned for the next version). Saying "Google X" opens the Google search results in your default browser.</span></div>
 
 <!-- --- Web Watch --- -->
 <h3 id="cmd-webwatch"><span class="en">Web Watch <span class="tag tag-free" style="font-size:.6rem;vertical-align:middle">NEW</span></span></h3>
@@ -550,7 +550,7 @@ a:hover{text-decoration:underline}
     <tr><td><span class="en"><strong>List Alarms</strong></span></td><td><span class="en">"Any alarms set?" / "List alarms"<br>"What alarms?"</span></td><td><span class="en">"List alarms" / "Show alarms"</span></td></tr>
   </tbody>
 </table>
-<p><span class="en">In v2.3.1, timers cannot be cancelled or listed by voice in English (only in Japanese).</span></p>
+<p><span class="en">In v2.3.2, timers cannot be cancelled or listed by voice in English (only in Japanese).</span></p>
 <p><span class="en">Stored at: <code>%LOCALAPPDATA%\Mira\alarms.json</code></span></p>
 
 <!-- --- Memory & Schedule --- -->
@@ -572,7 +572,7 @@ a:hover{text-decoration:underline}
 <!-- ===== Vision ===== -->
 <h2 id="vision"><span class="en">Screen Vision</span></h2>
 <p><span class="en">AI captures and analyzes your screen. See <a href="#cmd-vision">Screen Vision commands</a> for voice command details.</span></p>
-<p><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Haiku 5.5. In v2.3.1, Screen Vision works only with cloud AI (Gemini, Claude, OpenAI).</span></p>
+<p><span class="en">Recommended providers: gemini-flash-latest (free tier available), Claude Haiku 5.5. In v2.3.2, Screen Vision works only with cloud AI (Gemini, Claude, OpenAI).</span></p>
 
 <h2 id="gemini-live"><span class="en">Gemini Live</span></h2>
 <p><span class="en">Real-time voice dialogue mode using Google's Gemini Live API. STT + LLM + TTS integrated into a single WebSocket for natural conversation.</span></p>
@@ -659,7 +659,7 @@ a:hover{text-decoration:underline}
 </ul>
 
 <h3><span class="en">Q: Screen Vision doesn't work</span></h3>
-<p><span class="en">You need a Vision-capable cloud AI (in v2.3.1, Screen Vision does not work with local AI). Set up one of the following:</span></p>
+<p><span class="en">You need a Vision-capable cloud AI (in v2.3.2, Screen Vision does not work with local AI). Set up one of the following:</span></p>
 <ul>
   <li><span class="en"><strong>gemini-flash-latest</strong> (recommended, free tier available)</span></li>
   <li><span class="en"><strong>Claude Haiku 5.5 / Sonnet 5.5 / Opus 5.5</strong> (high accuracy)</span></li>

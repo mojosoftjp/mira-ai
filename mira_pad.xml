@@ -24,9 +24,9 @@
 
   <Program_Info>
     <Program_Name>Mira - AI Voice Assistant</Program_Name>
-    <Program_Version>2.3.1</Program_Version>
+    <Program_Version>2.3.2</Program_Version>
     <Program_Release_Month>10</Program_Release_Month>
-    <Program_Release_Day>13</Program_Release_Day>
+    <Program_Release_Day>21</Program_Release_Day>
     <Program_Release_Year>2026</Program_Release_Year>
     <Program_Cost_Dollars>0</Program_Cost_Dollars>
     <Program_Cost_Other_Code>JPY</Program_Cost_Other_Code>
@@ -36,14 +36,14 @@
     <Program_Install_Support>Install and Uninstall</Program_Install_Support>
     <Program_OS_Support>Win10,Win11</Program_OS_Support>
     <Program_Language>English,Japanese</Program_Language>
-    <Program_Change_Info>v2.3.1: Live mode now plays replies as they stream in and no longer reacts to its own voice; Live mode language setting; Edge TTS works again after Microsoft's service change (fewer fallbacks to the robotic voice); settings that were turned off now stay off after restart</Program_Change_Info>
+    <Program_Change_Info>v2.3.2: Fixed speech recognition that could stop working after Mira ran for a long time (updated Whisper.net; Mira now rebuilds a stuck recognizer); fixed a Japanese memory command that deleted all memories instead of one topic</Program_Change_Info>
     <Program_Specific_Category>Voice Assistant</Program_Specific_Category>
     <Program_Category_Class>Desktop Enhancements::Other</Program_Category_Class>
     <Program_System_Requirements>Windows 10 64-bit (version 2004 or later) or Windows 11, 4GB RAM (8GB+ recommended for local AI), about 700MB disk including the default speech recognition model (larger models need up to about 3GB more), microphone</Program_System_Requirements>
     <File_Info>
-      <File_Size_Bytes>56556352</File_Size_Bytes>
-      <File_Size_K>55231</File_Size_K>
-      <File_Size_MB>53.94</File_Size_MB>
+      <File_Size_Bytes>57806544</File_Size_Bytes>
+      <File_Size_K>56451</File_Size_K>
+      <File_Size_MB>55.13</File_Size_MB>
     </File_Info>
     <Expire_Info>
       <Has_Expire_Info>N</Has_Expire_Info>
@@ -96,7 +96,7 @@ Mira is completely free: no subscription, no trial, no license key.</Char_Desc_2
       <Application_XML_File_URL>https://mojosoftjp.github.io/mira-ai/mira_pad.xml</Application_XML_File_URL>
     </Application_URLs>
     <Download_URLs>
-      <Primary_Download_URL>https://mojosoft.biz/Mira_Setup_2.3.1.exe</Primary_Download_URL>
+      <Primary_Download_URL>https://mojosoft.biz/Mira_Setup_2.3.2.exe</Primary_Download_URL>
       <Secondary_Download_URL></Secondary_Download_URL>
     </Download_URLs>
   </Web_Info>
